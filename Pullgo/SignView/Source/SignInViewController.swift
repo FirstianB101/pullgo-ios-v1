@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Alamofire
 
 class SignInViewController: UIViewController {
     
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var userTypeSegment: UISegmentedControl!
     
     let viewModel: SignInViewModel = SignInViewModel()
 
@@ -76,7 +78,17 @@ class SignInViewController: UIViewController {
     @IBAction func signInClicked(sender: UIButton) {
         let username: String = usernameField.text!
         let password: String = passwordField.text!
+        let userType: UserType = .ToUserType(index: userTypeSegment.selectedSegmentIndex)!
+        let animator: AnimationPresentor = AnimationPresentor(view: self)
         
+        if username.isEmpty {
+            animator.vibrate(view: usernameField)
+        } else if password.isEmpty {
+            animator.vibrate(view: passwordField)
+        } else {
+            viewModel.setInputs(username: username, password: password, userType: userType)
+            viewModel.requestSignIn()
+        }
     }
 }
 
@@ -84,6 +96,7 @@ class SignInViewModel {
     private var autoLoginChecked: Bool = false
     private var usernameInput: String = ""
     private var passwordInput: String = ""
+    private var userType: UserType = .Student
     
     func isAutoLoginChecked() -> Bool {
         return autoLoginChecked
@@ -93,8 +106,19 @@ class SignInViewModel {
         autoLoginChecked = !autoLoginChecked
     }
     
-    func setUsernameAndPassword(username: String, password: String) {
-        usernameInput = username
-        passwordInput = password
+    func setInputs(username: String, password: String, userType: UserType) {
+        self.usernameInput = username
+        self.passwordInput = password
+        self.userType = userType
+    }
+    
+    func requestSignIn() {
+        // Login API Not Supported
+        // call ID for test
+        if userType == .Student {
+            
+        } else if userType == .Teacher {
+            
+        }
     }
 }

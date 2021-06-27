@@ -128,6 +128,7 @@
                     <connections>
                         <outlet property="passwordField" destination="NeA-RT-c4z" id="uBH-k2-GpW"/>
                         <outlet property="signInButton" destination="qeY-aB-eUW" id="kgv-gk-nh1"/>
+                        <outlet property="userTypeSegment" destination="8OQ-B4-QaR" id="CPw-ZM-6Pn"/>
                         <outlet property="usernameField" destination="zN7-ru-N7r" id="QyV-tl-oFu"/>
                     </connections>
                 </viewController>
@@ -140,10 +141,10 @@
         <image name="MainViewLogo" width="512" height="512"/>
         <image name="square" catalog="system" width="128" height="114"/>
         <namedColor name="AccentColor">
-            <color red="0.55686274509803924" green="0.62352941176470589" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.55699998140335083" green="0.62400001287460327" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="LightAccent">
-            <color red="0.87" green="0.88955752212389383" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.87000000476837158" green="0.88999998569488525" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

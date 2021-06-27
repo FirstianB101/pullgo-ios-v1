@@ -16,6 +16,11 @@
 		A532DB3A26889ACC00076260 /* PullgoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DB3926889ACC00076260 /* PullgoTests.swift */; };
 		A532DB4526889ACC00076260 /* PullgoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DB4426889ACC00076260 /* PullgoUITests.swift */; };
 		A532DB5526889BD700076260 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A532DB5426889BD700076260 /* Alamofire */; };
+		A5B469AC2688DA8A00C62F9C /* AnimationPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469AB2688DA8A00C62F9C /* AnimationPresentor.swift */; };
+		A5B469AF2688DF7200C62F9C /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469AE2688DF7200C62F9C /* UserType.swift */; };
+		A5B469B12688E84E00C62F9C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469B02688E84E00C62F9C /* Account.swift */; };
+		A5B469B32688E9F600C62F9C /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469B22688E9F600C62F9C /* Student.swift */; };
+		A5B469B52688EA7000C62F9C /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469B42688EA7000C62F9C /* Teacher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +55,11 @@
 		A532DB4026889ACC00076260 /* PullgoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PullgoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A532DB4426889ACC00076260 /* PullgoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullgoUITests.swift; sourceTree = "<group>"; };
 		A532DB4626889ACC00076260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5B469AB2688DA8A00C62F9C /* AnimationPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationPresentor.swift; sourceTree = "<group>"; };
+		A5B469AE2688DF7200C62F9C /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
+		A5B469B02688E84E00C62F9C /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		A5B469B22688E9F600C62F9C /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		A5B469B42688EA7000C62F9C /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +111,8 @@
 		A532DB2126889ACB00076260 /* Pullgo */ = {
 			isa = PBXGroup;
 			children = (
+				A5B469AD2688DF4900C62F9C /* Model */,
+				A5B469AA2688DA6700C62F9C /* Utility */,
 				A532DB2D26889ACC00076260 /* LaunchScreen.storyboard */,
 				A532DB5226889B1E00076260 /* SignView */,
 				A532DB2226889ACB00076260 /* AppDelegate.swift */,
@@ -152,6 +164,25 @@
 				A532DB2826889ACB00076260 /* Main.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		A5B469AA2688DA6700C62F9C /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				A5B469AB2688DA8A00C62F9C /* AnimationPresentor.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		A5B469AD2688DF4900C62F9C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A5B469AE2688DF7200C62F9C /* UserType.swift */,
+				A5B469B02688E84E00C62F9C /* Account.swift */,
+				A5B469B22688E9F600C62F9C /* Student.swift */,
+				A5B469B42688EA7000C62F9C /* Teacher.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,8 +322,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A532DB2726889ACB00076260 /* SignInViewController.swift in Sources */,
+				A5B469AF2688DF7200C62F9C /* UserType.swift in Sources */,
+				A5B469AC2688DA8A00C62F9C /* AnimationPresentor.swift in Sources */,
 				A532DB2326889ACB00076260 /* AppDelegate.swift in Sources */,
+				A5B469B52688EA7000C62F9C /* Teacher.swift in Sources */,
 				A532DB2526889ACB00076260 /* SceneDelegate.swift in Sources */,
+				A5B469B32688E9F600C62F9C /* Student.swift in Sources */,
+				A5B469B12688E84E00C62F9C /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
