@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 
 class SignInViewController: UIViewController {
     
@@ -83,11 +82,21 @@ class SignInViewController: UIViewController {
         
         if username.isEmpty {
             animator.vibrate(view: usernameField)
-        } else if password.isEmpty {
-            animator.vibrate(view: passwordField)
+//        } else if password.isEmpty {
+//            animator.vibrate(view: passwordField)
         } else {
             viewModel.setInputs(username: username, password: password, userType: userType)
-            viewModel.requestSignIn()
+            requestSignIn()
+        }
+    }
+    
+    func requestSignIn() {
+        do {
+            try viewModel.requestSignIn()
+        } catch SignInError.InvalidIdForTest {
+            return
+        } catch {
+            return
         }
     }
 }
@@ -112,13 +121,13 @@ class SignInViewModel {
         self.userType = userType
     }
     
-    func requestSignIn() {
+    func requestSignIn() throws {
         // Login API Not Supported
         // call ID for test
-        if userType == .Student {
-            
-        } else if userType == .Teacher {
-            
+        guard let id = Int(usernameInput) else {
+            throw SignInError.InvalidIdForTest
         }
+        SignedUserInfo.shared.setUserInfo(id: id, type: userType)
+        SignedUserInfo.shared.requestSignIn()
     }
 }

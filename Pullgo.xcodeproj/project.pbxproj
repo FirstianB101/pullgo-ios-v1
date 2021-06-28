@@ -21,6 +21,9 @@
 		A5B469B12688E84E00C62F9C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469B02688E84E00C62F9C /* Account.swift */; };
 		A5B469B32688E9F600C62F9C /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469B22688E9F600C62F9C /* Student.swift */; };
 		A5B469B52688EA7000C62F9C /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469B42688EA7000C62F9C /* Teacher.swift */; };
+		A5B4CD5C26898E9800FA2967 /* thumbs-up.png in Resources */ = {isa = PBXBuildFile; fileRef = A5B4CD5B26898E9800FA2967 /* thumbs-up.png */; };
+		A5B4CD5E2689934B00FA2967 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4CD5D2689934B00FA2967 /* Error.swift */; };
+		A5B4CD602689942200FA2967 /* ServerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4CD5F2689942200FA2967 /* ServerInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,9 @@
 		A5B469B02688E84E00C62F9C /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A5B469B22688E9F600C62F9C /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		A5B469B42688EA7000C62F9C /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
+		A5B4CD5B26898E9800FA2967 /* thumbs-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbs-up.png"; sourceTree = "<group>"; };
+		A5B4CD5D2689934B00FA2967 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		A5B4CD5F2689942200FA2967 /* ServerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,9 +117,9 @@
 		A532DB2126889ACB00076260 /* Pullgo */ = {
 			isa = PBXGroup;
 			children = (
+				A5B4CD5626898C5200FA2967 /* LaunchScreen */,
 				A5B469AD2688DF4900C62F9C /* Model */,
 				A5B469AA2688DA6700C62F9C /* Utility */,
-				A532DB2D26889ACC00076260 /* LaunchScreen.storyboard */,
 				A532DB5226889B1E00076260 /* SignView */,
 				A532DB2226889ACB00076260 /* AppDelegate.swift */,
 				A532DB2426889ACB00076260 /* SceneDelegate.swift */,
@@ -170,6 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				A5B469AB2688DA8A00C62F9C /* AnimationPresentor.swift */,
+				A5B4CD5D2689934B00FA2967 /* Error.swift */,
+				A5B4CD5F2689942200FA2967 /* ServerInfo.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -183,6 +191,15 @@
 				A5B469B42688EA7000C62F9C /* Teacher.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A5B4CD5626898C5200FA2967 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A5B4CD5B26898E9800FA2967 /* thumbs-up.png */,
+				A532DB2D26889ACC00076260 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A532DB2F26889ACC00076260 /* LaunchScreen.storyboard in Resources */,
+				A5B4CD5C26898E9800FA2967 /* thumbs-up.png in Resources */,
 				A532DB2C26889ACC00076260 /* Assets.xcassets in Resources */,
 				A532DB2A26889ACB00076260 /* Main.storyboard in Resources */,
 			);
@@ -325,9 +343,11 @@
 				A5B469AF2688DF7200C62F9C /* UserType.swift in Sources */,
 				A5B469AC2688DA8A00C62F9C /* AnimationPresentor.swift in Sources */,
 				A532DB2326889ACB00076260 /* AppDelegate.swift in Sources */,
+				A5B4CD602689942200FA2967 /* ServerInfo.swift in Sources */,
 				A5B469B52688EA7000C62F9C /* Teacher.swift in Sources */,
 				A532DB2526889ACB00076260 /* SceneDelegate.swift in Sources */,
 				A5B469B32688E9F600C62F9C /* Student.swift in Sources */,
+				A5B4CD5E2689934B00FA2967 /* Error.swift in Sources */,
 				A5B469B12688E84E00C62F9C /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

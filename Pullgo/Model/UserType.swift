@@ -20,4 +20,12 @@ enum UserType: Int {
         
         return nil
     }
+    
+    func ToURLComponent() -> String {
+        if self == .Student {
+            return "students"
+        } else {
+            return "teachers"
+        }
+    }
 }
