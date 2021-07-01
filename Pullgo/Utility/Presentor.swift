@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AnimationPresentor {
+class AnimationPresentor: Styler {
     func vibrate(view: UIView) {
         let animator = UIViewPropertyAnimator(duration: 1, dampingRatio: 0.1, animations: {
             view.transform = CGAffineTransform(translationX: 3, y: 0)
@@ -22,7 +22,7 @@ class AnimationPresentor {
         if view.alpha == 1 { return }
         
         UIView.animate(withDuration: 0.5, animations: {
-            view.alpha = 1
+            self.show(view: view)
         })
     }
     
@@ -30,7 +30,7 @@ class AnimationPresentor {
         if view.alpha == 0 { return }
         
         UIView.animate(withDuration: 0.5, animations: {
-            view.alpha = 0
+            self.hide(view: view)
         })
     }
 }

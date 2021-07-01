@@ -239,7 +239,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" textContentType="username"/>
                                 <connections>
-                                    <action selector="usernameInputListenerWithSender:" destination="inl-Nt-EVD" eventType="editingChanged" id="Fhb-JC-04g"/>
+                                    <action selector="bindingUsernameWithSender:" destination="inl-Nt-EVD" eventType="editingChanged" id="Zll-eb-vkU"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TV-kC-X3z">
@@ -257,7 +257,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="중복 확인"/>
                                 <connections>
-                                    <action selector="duplicateCheckButtonPressedWithSender:" destination="inl-Nt-EVD" eventType="touchUpInside" id="iOq-0x-Ora"/>
+                                    <action selector="duplicateCheckButtonClickedWithSender:" destination="inl-Nt-EVD" eventType="touchUpInside" id="8kW-zc-Cf0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgb-Eg-4HB">
@@ -291,9 +291,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="nb9-Vw-9ES"/>
                     <connections>
-                        <outlet property="duplicateCheckButton" destination="RMq-2D-qpv" id="wHe-zM-SV9"/>
-                        <outlet property="idStatusLabel" destination="3TV-kC-X3z" id="2qa-U2-f3v"/>
+                        <outlet property="duplicateCheckButton" destination="RMq-2D-qpv" id="B6J-5c-HUD"/>
                         <outlet property="nextButton" destination="cgb-Eg-4HB" id="bkT-PO-irg"/>
+                        <outlet property="statusLabel" destination="3TV-kC-X3z" id="g2s-Wb-cHq"/>
                         <outlet property="usernameTextField" destination="b6R-fj-bXN" id="ROF-l7-Sxa"/>
                     </connections>
                 </viewController>

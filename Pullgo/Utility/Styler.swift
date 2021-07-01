@@ -41,4 +41,12 @@ extension Styler {
         field.leftView = paddingView
         field.leftViewMode = .always
     }
+    
+    func hide(view: UIView) {
+        view.alpha = 0
+    }
+    
+    func show(view: UIView) {
+        view.alpha = 1
+    }
 }

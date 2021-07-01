@@ -10,81 +10,81 @@ import UIKit
 class InputUsernameViewController: UIViewController, Styler {
     
     @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var idStatusLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var duplicateCheckButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
+    let viewModel = InputUsernameViewModel()
     let animator = AnimationPresentor()
-    var status: SignUpUsernameStatus = .invalidChar
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setButtonUI()
-        hide(view: idStatusLabel)
+        setStatusLabel()
+        hideUINeeded()
+        setKeyboardWatcher()
     }
     
     func setButtonUI() {
-        setDefaultButtonStyle(button: duplicateCheckButton)
-        setDefaultButtonStyle(button: nextButton)
+        setViewCornerRadius(view: duplicateCheckButton)
+        setViewCornerRadius(view: nextButton)
+        setViewShadow(view: duplicateCheckButton)
+        setViewShadow(view: nextButton)
+    }
+    
+    func hideUINeeded() {
         hide(view: nextButton)
     }
     
-    func hide(view: UIView) {
-        view.alpha = 0
+    @IBAction func bindingUsername(sender: UITextField) {
+        guard let username = sender.text else { return }
+        viewModel.username = username
+        setStatusLabel()
+        animator.slowDisappear(view: nextButton)
     }
     
-    func show(view: UIView) {
-        view.alpha = 1
+    func setStatusLabel() {
+        statusLabel.text = viewModel.statusLabel
+        statusLabel.textColor = viewModel.statusColor
     }
     
-    @IBAction func usernameInputListener(sender: UITextField) {
-        guard let usernameInput = sender.text else { return }
-        
-        show(view: idStatusLabel)
-        status = .getStatus(username: usernameInput)
-        setStatusLabel(username: usernameInput)
-    }
-    
-    func setStatusLabel(username: String) {
-        idStatusLabel.text = status.getMessage()
-        idStatusLabel.textColor = status.getColor()
-    }
-    
-    @IBAction func duplicateCheckButtonPressed(sender: UIButton) {
-        if !isValidUsername() {
-            vibrateStatusLabel()
-        } else if !isUniqueUsername() {
-            showAlert()
+    @IBAction func duplicateCheckButtonClicked(sender: UIButton) {
+        if viewModel.status != .valid {
+            animator.vibrate(view: statusLabel)
+            return
+        } else if !viewModel.isUnique() {
+            let alert = AlertPresentor(view: self)
+            alert.present(title: "경고", context: "이미 존재하는 아이디입니다.")
+            return
         }
         
         animator.slowAppear(view: nextButton)
-        print("asd")
+    }
+}
+
+class InputUsernameViewModel {
+    var status: SignUpUsernameStatus = .invalidChar
+    
+    var statusLabel: String {
+        status.getMessage()
     }
     
-    func isValidUsername() -> Bool {
-        if status == .valid { return true }
-        else { return false }
+    var statusColor: UIColor {
+        status.getColor()
     }
     
-    func vibrateStatusLabel() {
-        animator.vibrate(view: idStatusLabel)
+    var username: String {
+        get { self.username }
+        set {
+            print(newValue)
+            status = .getStatus(username: newValue)
+        }
     }
     
-    func isUniqueUsername() -> Bool {
-        // guard let usernameInput = usernameTextField.text else { return }
-        // check duplicate
-        // API not exist
+    func isUnique() -> Bool {
+        // Server API not Exist
         return true
-    }
-    
-    func showAlert() {
-        let alert = AlertPresentor(view: self)
-        alert.present(title: "경고", context: "이미 존재하는 아이디입니다.")
-    }
-    
-    @IBAction func nextButtonPressed(sender: UIButton) {
-        print("next")
     }
 }
 
@@ -93,6 +93,7 @@ enum SignUpUsernameStatus: String {
     case valid = "적절한 아이디입니다!"
     case tooLong = "너무 길어요."
     case invalidChar = "영어(필수), 숫자, -, _로만 만들어주세요."
+    case noInput = ""
     
     func getColor() -> UIColor {
         if self == .valid { return .systemGreen }
@@ -104,17 +105,17 @@ enum SignUpUsernameStatus: String {
     }
     
     static func getStatus(username: String) -> SignUpUsernameStatus {
-        let length = username.count
-        
-        if isUsernameValid(username: username) { return .valid }
-        else if length < 5 { return .tooShort }
-        else if length > 16 { return .tooLong }
+        if username.isUsernameValid { return .valid }
+        else if username.isEmpty { return .noInput }
+        else if username.count < 5 { return .tooShort }
+        else if username.count > 16 { return .tooLong }
         else { return .invalidChar }
-    }
-    
-    static func isUsernameValid(username: String) -> Bool {
-        let usernameRegEx = "^[a-z0-9]{1}[a-z0-9-_]{4,16}$"
-        return username.predicate(regex: usernameRegEx)
     }
 }
 
+extension String {
+    var isUsernameValid: Bool {
+        let usernameRegEx = "^[a-z0-9]{1}[a-z0-9-_]{4,16}$"
+        return self.predicate(regex: usernameRegEx)
+    }
+}
