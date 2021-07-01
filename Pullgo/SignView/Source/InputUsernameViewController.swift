@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InputUsernameViewController: UIViewController {
+class InputUsernameViewController: UIViewController, Styler {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var idStatusLabel: UILabel!
@@ -25,8 +25,8 @@ class InputUsernameViewController: UIViewController {
     }
     
     func setButtonUI() {
-        Styler.setDefaultButtonStyle(button: duplicateCheckButton)
-        Styler.setDefaultButtonStyle(button: nextButton)
+        setDefaultButtonStyle(button: duplicateCheckButton)
+        setDefaultButtonStyle(button: nextButton)
         hide(view: nextButton)
     }
     

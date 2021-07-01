@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, Styler {
     
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -31,22 +31,22 @@ class SignInViewController: UIViewController {
     }
     
     private func setTextFieldCornerRadius() {
-        Styler.setViewCornerRadius(view: usernameField)
-        Styler.setViewCornerRadius(view: passwordField)
+        setViewCornerRadius(view: usernameField)
+        setViewCornerRadius(view: passwordField)
     }
     
     private func setTextFieldPadding() {
-        Styler.setTextFieldPadding(field: usernameField)
-        Styler.setTextFieldPadding(field: passwordField)
+        setTextFieldPadding(field: usernameField)
+        setTextFieldPadding(field: passwordField)
     }
     
     private func setTextFieldShadow() {
-        Styler.setViewShadow(view: usernameField)
-        Styler.setViewShadow(view: passwordField)
+        setViewShadow(view: usernameField)
+        setViewShadow(view: passwordField)
     }
     
     private func setButtonUI() {
-        Styler.setDefaultButtonStyle(button: signInButton)
+        setDefaultButtonStyle(button: signInButton)
     }
     
     @IBAction func autoSignInClicked(sender: UIButton) {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, Styler {
 
     @IBOutlet weak var signUpStudentButton: UIButton!
     @IBOutlet weak var signUpTeacherButton: UIButton!
@@ -19,7 +19,7 @@ class SignUpViewController: UIViewController {
     }
     
     func setButtonUI() {
-        Styler.setDefaultButtonStyle(button: signUpStudentButton)
-        Styler.setDefaultButtonStyle(button: signUpTeacherButton)
+        setDefaultButtonStyle(button: signUpStudentButton)
+        setDefaultButtonStyle(button: signUpTeacherButton)
     }
 }
