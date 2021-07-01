@@ -7,7 +7,12 @@
 
 import UIKit
 
-class Styler {    
+class Styler {
+    static func setDefaultButtonStyle(button: UIButton) {
+        setViewCornerRadius(view: button)
+        setViewShadow(view: button)
+    }
+    
     static func setViewShadow(view: UIView) {
         let shadowOffset = CGSize(width: 1, height: 1)
         

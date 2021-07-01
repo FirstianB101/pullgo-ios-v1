@@ -17,6 +17,22 @@ class AnimationPresentor {
         }, delayFactor: 0.1)
         animator.startAnimation()
     }
+    
+    func slowAppear(view: UIView) {
+        if view.alpha == 1 { return }
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            view.alpha = 1
+        })
+    }
+    
+    func slowDisappear(view: UIView) {
+        if view.alpha == 0 { return }
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            view.alpha = 0
+        })
+    }
 }
 
 class AlertPresentor {

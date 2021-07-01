@@ -9,21 +9,17 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var signUpStudentButton: UIButton!
+    @IBOutlet weak var signUpTeacherButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setButtonUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setButtonUI() {
+        Styler.setDefaultButtonStyle(button: signUpStudentButton)
+        Styler.setDefaultButtonStyle(button: signUpTeacherButton)
     }
-    */
-
 }

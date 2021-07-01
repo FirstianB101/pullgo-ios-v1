@@ -46,16 +46,7 @@ class SignInViewController: UIViewController {
     }
     
     private func setButtonUI() {
-        setButtonCornerRadius()
-        setButtonShadow()
-    }
-    
-    private func setButtonCornerRadius() {
-        Styler.setViewCornerRadius(view: signInButton)
-    }
-    
-    private func setButtonShadow() {
-        Styler.setViewShadow(view: signInButton)
+        Styler.setDefaultButtonStyle(button: signInButton)
     }
     
     @IBAction func autoSignInClicked(sender: UIButton) {
