@@ -19,43 +19,43 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setFieldDesign()
-        setButtonCornerRadiusAndShadow()
+        setTextFieldUI()
+        setButtonUI()
+        setKeyboardWatcher()
     }
     
-    func setFieldDesign() {
-        setFieldCornerRadius()
-        setFieldShadowAndPadding(field: usernameField)
-        setFieldShadowAndPadding(field: passwordField)
+    private func setTextFieldUI() {
+        setTextFieldCornerRadius()
+        setTextFieldPadding()
+        setTextFieldShadow()
     }
     
-    func setButtonCornerRadiusAndShadow() {
-        let cornerRadius = signInButton.frame.height / 2
-        signInButton.layer.cornerRadius = cornerRadius
-        setViewShadow(view: signInButton)
-    }
-
-    func setFieldCornerRadius() {
-        let cornerRadius: CGFloat = usernameField.frame.height / 2
-        usernameField.layer.cornerRadius = cornerRadius
-        passwordField.layer.cornerRadius = cornerRadius
+    private func setTextFieldCornerRadius() {
+        Styler.setViewCornerRadius(view: usernameField)
+        Styler.setViewCornerRadius(view: passwordField)
     }
     
-    func setFieldShadowAndPadding(field: UITextField) {
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 0))
-        
-        field.leftView = paddingView
-        field.leftViewMode = .always
-        setViewShadow(view: field)
+    private func setTextFieldPadding() {
+        Styler.setTextFieldPadding(field: usernameField)
+        Styler.setTextFieldPadding(field: passwordField)
     }
     
-    func setViewShadow(view: UIView) {
-        let shadowOffset = CGSize(width: 1, height: 1)
-        
-        view.layer.shadowColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        view.layer.shadowOffset = shadowOffset
-        view.layer.shadowOpacity = 1
-        view.layer.shadowRadius = 2
+    private func setTextFieldShadow() {
+        Styler.setViewShadow(view: usernameField)
+        Styler.setViewShadow(view: passwordField)
+    }
+    
+    private func setButtonUI() {
+        setButtonCornerRadius()
+        setButtonShadow()
+    }
+    
+    private func setButtonCornerRadius() {
+        Styler.setViewCornerRadius(view: signInButton)
+    }
+    
+    private func setButtonShadow() {
+        Styler.setViewShadow(view: signInButton)
     }
     
     @IBAction func autoSignInClicked(sender: UIButton) {
@@ -78,12 +78,12 @@ class SignInViewController: UIViewController {
         let username: String = usernameField.text!
         let password: String = passwordField.text!
         let userType: UserType = .ToUserType(index: userTypeSegment.selectedSegmentIndex)!
-        let animator: AnimationPresentor = AnimationPresentor(view: self)
+        let animator: AnimationPresentor = AnimationPresentor()
         
         if username.isEmpty {
             animator.vibrate(view: usernameField)
-//        } else if password.isEmpty {
-//            animator.vibrate(view: passwordField)
+        } else if password.isEmpty {
+            animator.vibrate(view: passwordField)
         } else {
             viewModel.setInputs(username: username, password: password, userType: userType)
             requestSignIn()
@@ -94,7 +94,8 @@ class SignInViewController: UIViewController {
         do {
             try viewModel.requestSignIn()
         } catch SignInError.InvalidIdForTest {
-            return
+            let alert = AlertPresentor(view: self)
+            alert.present(title: "경고", context: "올바르지 않은 ID")
         } catch {
             return
         }

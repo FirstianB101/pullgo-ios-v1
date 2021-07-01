@@ -35,7 +35,8 @@ struct SignedUserInfo {
         
         let userInfo = AF.request(url)
         userInfo.responseJSON() { response in
-            // ?
+            print("\(try! response.result.get())")
+            success?()
         }
     }
     
