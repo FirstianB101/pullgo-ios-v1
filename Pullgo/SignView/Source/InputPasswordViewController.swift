@@ -27,6 +27,7 @@ class InputPasswordViewController: UIViewController, Styler {
     
     func setUI() {
         setButtonUI()
+        setTextFieldUI()
         setPasswordStatusUI()
         setCheckStatusUI()
     }
@@ -34,6 +35,11 @@ class InputPasswordViewController: UIViewController, Styler {
     func setButtonUI() {
         setViewCornerRadius(view: nextButton)
         setViewShadow(view: nextButton)
+    }
+    
+    func setTextFieldUI() {
+        setTextFieldBorderUnderline(field: passwordTextField)
+        setTextFieldBorderUnderline(field: checkTextField)
     }
     
     @IBAction func bindingPasswordInput(sender: UITextField) {
@@ -74,7 +80,7 @@ class InputPasswordViewController: UIViewController, Styler {
     }
     
     func toNextView() {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "InputInformationViewController") as! InputInformationViewController
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "InputPhoneViewController") as! InputPhoneViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

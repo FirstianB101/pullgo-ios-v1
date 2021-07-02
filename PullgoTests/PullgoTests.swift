@@ -11,11 +11,8 @@ import XCTest
 class PullgoTests: XCTestCase {
 
     func testSignUpUsernameStatus() {
-        let vc = InputPasswordViewModel()
+        let testUsername: String = "12123"
         
-        vc.password = "123"
-        vc.check = "123"
-        
-        XCTAssertEqual(vc.checkStatus, .correct)
+        XCTAssertTrue(testUsername.isUsernameValid)
     }
 }

@@ -29,4 +29,16 @@ struct SignUpInformation {
             account = Account()
         }
     }
+    
+    func mergeAccount() {
+        if SignUpInformation.shared.userType == .Student {
+            SignUpInformation.shared.student?.account = SignUpInformation.shared.account
+        } else {
+            SignUpInformation.shared.teacher?.account = SignUpInformation.shared.account
+        }
+    }
+    
+    func postSignUpInformation() {
+        
+    }
 }

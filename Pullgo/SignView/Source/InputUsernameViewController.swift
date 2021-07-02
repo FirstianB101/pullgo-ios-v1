@@ -21,6 +21,7 @@ class InputUsernameViewController: UIViewController, Styler {
         super.viewDidLoad()
 
         setButtonUI()
+        setTextFieldBorderUnderline(field: usernameTextField)
         setStatusLabel()
         hideUINeeded()
         setKeyboardWatcher()
@@ -119,7 +120,7 @@ enum SignUpUsernameStatus: String, SignUpStatus {
 
 extension String {
     var isUsernameValid: Bool {
-        let usernameRegEx = "^[a-z0-9]{1}[a-z0-9-_]{4,16}$"
+        let usernameRegEx = "^(?=.*[a-z])[a-z0-9]{1}[a-z0-9-_]{4,16}$"
         return self.predicate(regex: usernameRegEx)
     }
 }

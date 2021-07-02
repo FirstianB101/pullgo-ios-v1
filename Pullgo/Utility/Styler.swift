@@ -12,9 +12,12 @@ protocol Styler {
     func setViewShadow(view: UIView)
     func setViewCornerRadius(view: UIView)
     func setTextFieldPadding(field: UITextField)
+    func setTextFieldBorderUnderline(field: UITextField)
 }
 
 extension Styler {
+    var margin: CGFloat { get { return 30 } }
+    
     func setDefaultButtonStyle(button: UIButton) {
         setViewCornerRadius(view: button)
         setViewShadow(view: button)
@@ -40,6 +43,14 @@ extension Styler {
         
         field.leftView = paddingView
         field.leftViewMode = .always
+    }
+    
+    func setTextFieldBorderUnderline(field: UITextField) {
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0.0, y: field.frame.height - 1, width: field.bounds.width - margin, height: 1.0)
+        bottomLine.backgroundColor = UIColor.lightGray.cgColor
+        field.borderStyle = .none
+        field.layer.addSublayer(bottomLine)
     }
     
     func hide(view: UIView) {
