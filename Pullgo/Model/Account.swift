@@ -9,10 +9,10 @@ import Foundation
 import Alamofire
 
 struct Account: Codable {
-    let username: String
-    let password: String?
-    let fullName: String
-    let phone: String
+    var username: String!
+    var password: String?
+    var fullName: String!
+    var phone: String!
 }
 
 struct SignedUserInfo {

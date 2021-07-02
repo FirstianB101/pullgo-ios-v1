@@ -11,10 +11,11 @@ import XCTest
 class PullgoTests: XCTestCase {
 
     func testSignUpUsernameStatus() {
-        let vc = InputUsernameViewController()
+        let vc = InputPasswordViewModel()
         
-        vc.viewModel.username = "asd"
+        vc.password = "123"
+        vc.check = "123"
         
-        XCTAssertEqual(SignUpUsernameStatus.tooShort, vc.viewModel.status)
+        XCTAssertEqual(vc.checkStatus, .correct)
     }
 }

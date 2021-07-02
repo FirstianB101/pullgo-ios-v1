@@ -8,9 +8,9 @@
 import Foundation
 
 struct Student: Codable {
-    let id: Int?
-    let account: Account
-    let parentPhone: String
-    let schoolName: String
-    let schoolYear: Int
+    var id: Int? = nil
+    var account: Account! = nil
+    var parentPhone: String! = nil
+    var schoolName: String! = nil
+    var schoolYear: Int! = nil
 }

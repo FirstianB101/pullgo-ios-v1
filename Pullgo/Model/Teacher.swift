@@ -8,6 +8,6 @@
 import Foundation
 
 struct Teacher: Codable {
-    let id: Int?
-    let account: Account
+    var id: Int? = nil
+    var account: Account! = nil
 }

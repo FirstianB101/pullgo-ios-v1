@@ -61,10 +61,14 @@ class InputUsernameViewController: UIViewController, Styler {
         
         animator.slowAppear(view: nextButton)
     }
+    
+    @IBAction func nextButtonClicked(sender: UIButton) {
+        SignUpInformation.shared.account?.username = viewModel.username
+    }
 }
 
 class InputUsernameViewModel {
-    var status: SignUpUsernameStatus = .invalidChar
+    var status: SignUpUsernameStatus = .noInput
     
     var statusLabel: String {
         status.getMessage()
@@ -74,11 +78,11 @@ class InputUsernameViewModel {
         status.getColor()
     }
     
+    private var _username: String = ""
     var username: String {
-        get { self.username }
+        get { _username }
         set {
-            print(newValue)
-            status = .getStatus(username: newValue)
+            status = .getStatus(of: newValue)
         }
     }
     
@@ -88,7 +92,7 @@ class InputUsernameViewModel {
     }
 }
 
-enum SignUpUsernameStatus: String {
+enum SignUpUsernameStatus: String, SignUpStatus {
     case tooShort = "아직 5자리가 아니에요."
     case valid = "적절한 아이디입니다!"
     case tooLong = "너무 길어요."
@@ -97,14 +101,14 @@ enum SignUpUsernameStatus: String {
     
     func getColor() -> UIColor {
         if self == .valid { return .systemGreen }
-        else { return .red }
+        else { return .systemPink }
     }
     
     func getMessage() -> String {
         return self.rawValue
     }
     
-    static func getStatus(username: String) -> SignUpUsernameStatus {
+    static func getStatus(of username: String) -> SignUpUsernameStatus {
         if username.isUsernameValid { return .valid }
         else if username.isEmpty { return .noInput }
         else if username.count < 5 { return .tooShort }

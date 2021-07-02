@@ -22,4 +22,12 @@ class SignUpViewController: UIViewController, Styler {
         setDefaultButtonStyle(button: signUpStudentButton)
         setDefaultButtonStyle(button: signUpTeacherButton)
     }
+    
+    @IBAction func studentClicked(sender: UIButton) {
+        SignUpInformation.shared.userType = .Student
+    }
+    
+    @IBAction func teacherClicked(sender: UIButton) {
+        SignUpInformation.shared.userType = .Teacher
+    }
 }

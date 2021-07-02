@@ -18,6 +18,10 @@
 		A532DB3A26889ACC00076260 /* PullgoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DB3926889ACC00076260 /* PullgoTests.swift */; };
 		A532DB4526889ACC00076260 /* PullgoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DB4426889ACC00076260 /* PullgoUITests.swift */; };
 		A532DB5526889BD700076260 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A532DB5426889BD700076260 /* Alamofire */; };
+		A57FE018268F220700B1E609 /* InputPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE017268F220700B1E609 /* InputPasswordViewController.swift */; };
+		A57FE01A268F256B00B1E609 /* SignUpStatusProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE019268F256B00B1E609 /* SignUpStatusProtocol.swift */; };
+		A57FE01C268F401300B1E609 /* SignUpInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE01B268F401300B1E609 /* SignUpInformation.swift */; };
+		A57FE01E268F443600B1E609 /* InputInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE01D268F443600B1E609 /* InputInformationViewController.swift */; };
 		A5B469AC2688DA8A00C62F9C /* Presentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469AB2688DA8A00C62F9C /* Presentor.swift */; };
 		A5B469AF2688DF7200C62F9C /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469AE2688DF7200C62F9C /* UserType.swift */; };
 		A5B469B12688E84E00C62F9C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469B02688E84E00C62F9C /* Account.swift */; };
@@ -65,6 +69,10 @@
 		A532DB4026889ACC00076260 /* PullgoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PullgoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A532DB4426889ACC00076260 /* PullgoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullgoUITests.swift; sourceTree = "<group>"; };
 		A532DB4626889ACC00076260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A57FE017268F220700B1E609 /* InputPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPasswordViewController.swift; sourceTree = "<group>"; };
+		A57FE019268F256B00B1E609 /* SignUpStatusProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStatusProtocol.swift; sourceTree = "<group>"; };
+		A57FE01B268F401300B1E609 /* SignUpInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInformation.swift; sourceTree = "<group>"; };
+		A57FE01D268F443600B1E609 /* InputInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputInformationViewController.swift; sourceTree = "<group>"; };
 		A5B469AB2688DA8A00C62F9C /* Presentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentor.swift; sourceTree = "<group>"; };
 		A5B469AE2688DF7200C62F9C /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
 		A5B469B02688E84E00C62F9C /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -172,6 +180,10 @@
 				A532DB2626889ACB00076260 /* SignInViewController.swift */,
 				A5EDB214268D931B0085CCAE /* SignUpViewController.swift */,
 				A5191493268DC27300620A66 /* InputUsernameViewController.swift */,
+				A57FE017268F220700B1E609 /* InputPasswordViewController.swift */,
+				A57FE019268F256B00B1E609 /* SignUpStatusProtocol.swift */,
+				A57FE01B268F401300B1E609 /* SignUpInformation.swift */,
+				A57FE01D268F443600B1E609 /* InputInformationViewController.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -357,13 +369,17 @@
 				A5191496268DCC1500620A66 /* Extension.swift in Sources */,
 				A532DB2726889ACB00076260 /* SignInViewController.swift in Sources */,
 				A5B469AF2688DF7200C62F9C /* UserType.swift in Sources */,
+				A57FE01E268F443600B1E609 /* InputInformationViewController.swift in Sources */,
 				A5B469AC2688DA8A00C62F9C /* Presentor.swift in Sources */,
+				A57FE01C268F401300B1E609 /* SignUpInformation.swift in Sources */,
 				A532DB2326889ACB00076260 /* AppDelegate.swift in Sources */,
+				A57FE01A268F256B00B1E609 /* SignUpStatusProtocol.swift in Sources */,
 				A5EDB213268D8A960085CCAE /* Keyboard.swift in Sources */,
 				A5191494268DC27300620A66 /* InputUsernameViewController.swift in Sources */,
 				A5B4CD602689942200FA2967 /* ServerInfo.swift in Sources */,
 				A5EDB217268D93A90085CCAE /* Styler.swift in Sources */,
 				A5EDB215268D931B0085CCAE /* SignUpViewController.swift in Sources */,
+				A57FE018268F220700B1E609 /* InputPasswordViewController.swift in Sources */,
 				A5B469B52688EA7000C62F9C /* Teacher.swift in Sources */,
 				A532DB2526889ACB00076260 /* SceneDelegate.swift in Sources */,
 				A5B469B32688E9F600C62F9C /* Student.swift in Sources */,
