@@ -9,8 +9,6 @@ import UIKit
 
 class InputInformationViewController: UIViewController {
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
