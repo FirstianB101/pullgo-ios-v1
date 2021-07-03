@@ -479,7 +479,7 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTE-P4-dS1">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTE-P4-dS1">
                                 <rect key="frame" x="336" y="396.5" width="30" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="인증"/>
@@ -500,6 +500,21 @@
                                     <action selector="completeButtonClickedWithSender:" destination="7u2-0v-1cR" eventType="touchUpInside" id="V2O-De-LrH"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vz-jw-FEC">
+                                <rect key="frame" x="334" y="494.5" width="32" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgI-un-XGo">
+                                <rect key="frame" x="121" y="533" width="172" height="30"/>
+                                <state key="normal" title="인증번호를 받지 못하셨나요?">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="resendVerifyNumberClickedWithSender:" destination="7u2-0v-1cR" eventType="touchUpInside" id="4dq-G1-mjm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2Np-Cg-JJN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -509,7 +524,11 @@
                             <constraint firstItem="2Np-Cg-JJN" firstAttribute="trailing" secondItem="0nT-Fy-BJO" secondAttribute="trailing" constant="30" id="5x3-ol-lQi"/>
                             <constraint firstItem="B0r-UZ-D8k" firstAttribute="top" secondItem="0nT-Fy-BJO" secondAttribute="bottom" constant="65" id="Hf2-yd-Cix"/>
                             <constraint firstItem="Kuj-wz-V5g" firstAttribute="leading" secondItem="2Np-Cg-JJN" secondAttribute="leading" constant="30" id="Ihz-gK-6LZ"/>
+                            <constraint firstItem="VgI-un-XGo" firstAttribute="centerX" secondItem="Ezf-5b-vde" secondAttribute="centerX" id="KSS-np-4hJ"/>
+                            <constraint firstItem="0Vz-jw-FEC" firstAttribute="trailing" secondItem="vTE-P4-dS1" secondAttribute="trailing" id="KXv-AA-eM3"/>
                             <constraint firstItem="Kuj-wz-V5g" firstAttribute="top" secondItem="hi8-CG-ww1" secondAttribute="bottom" constant="3" id="L6e-P9-THd"/>
+                            <constraint firstItem="0Vz-jw-FEC" firstAttribute="centerY" secondItem="0nT-Fy-BJO" secondAttribute="centerY" id="OAf-DP-dkG"/>
+                            <constraint firstItem="VgI-un-XGo" firstAttribute="top" secondItem="0nT-Fy-BJO" secondAttribute="bottom" constant="7" id="ZhB-CA-c0T"/>
                             <constraint firstItem="vTE-P4-dS1" firstAttribute="centerY" secondItem="Kuj-wz-V5g" secondAttribute="centerY" id="apb-xm-DiA"/>
                             <constraint firstItem="Kuj-wz-V5g" firstAttribute="top" secondItem="vmd-E5-Lf9" secondAttribute="bottom" constant="85" id="drq-Qr-rUE"/>
                             <constraint firstItem="0nT-Fy-BJO" firstAttribute="top" secondItem="8Pg-rZ-VBd" secondAttribute="bottom" constant="3" id="h7I-WP-UuX"/>
@@ -529,6 +548,8 @@
                     <connections>
                         <outlet property="completeButton" destination="B0r-UZ-D8k" id="150-mC-tpb"/>
                         <outlet property="phoneField" destination="Kuj-wz-V5g" id="tkD-na-bFL"/>
+                        <outlet property="resendButton" destination="VgI-un-XGo" id="Cwk-rg-EI4"/>
+                        <outlet property="timerLabel" destination="0Vz-jw-FEC" id="oqd-l1-kBW"/>
                         <outlet property="verifyButton" destination="vTE-P4-dS1" id="RgQ-GH-Qa1"/>
                         <outlet property="verifyField" destination="0nT-Fy-BJO" id="ny9-uu-Rte"/>
                         <outlet property="verifyLabel" destination="8Pg-rZ-VBd" id="lgd-2R-65g"/>
@@ -556,6 +577,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

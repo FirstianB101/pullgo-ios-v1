@@ -7,6 +7,9 @@
 
 import UIKit
 
+// for TESTING
+import UserNotifications
+
 class InputPhoneViewController: UIViewController, Styler {
     
     @IBOutlet weak var phoneField: UITextField!
@@ -14,8 +17,12 @@ class InputPhoneViewController: UIViewController, Styler {
     @IBOutlet weak var verifyLabel: UILabel!
     @IBOutlet weak var verifyField: UITextField!
     @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var resendButton: UIButton!
     
     let viewModel = InputPhoneViewModel()
+    var verifyTimer: Timer?
+    var timeLeft = 15
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +30,12 @@ class InputPhoneViewController: UIViewController, Styler {
         setButtonUI()
         setTextFieldUI()
         hide(view: verifyLabel)
+        hide(view: timerLabel)
+        hide(view: resendButton)
         setKeyboardWatcher()
+        
+        // for TESTING
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound], completionHandler: {didAllow,Error in })
     }
     
     func setButtonUI() {
@@ -51,6 +63,7 @@ class InputPhoneViewController: UIViewController, Styler {
         showHiddenUI()
         viewModel.phone = phone
         viewModel.requestSendVerifyNumber()
+        startTimer()
     }
     
     func showInvalidAlert(message: String) {
@@ -69,6 +82,44 @@ class InputPhoneViewController: UIViewController, Styler {
         animator.slowAppear(view: verifyLabel)
         animator.slowAppear(view: verifyField)
         animator.slowAppear(view: completeButton)
+        animator.slowAppear(view: timerLabel)
+        animator.slowAppear(view: resendButton)
+    }
+    
+    func startTimer() {
+        timeLeft = 180
+        verifyTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerTick), userInfo: nil, repeats: true)
+    }
+    
+    @objc func timerTick() {
+        var convTime: (minute: String, second: String) = ("3", "00")
+        
+        convTime = self.secondsToMinute(time: timeLeft)
+        self.timerLabel.text = "\(convTime.minute):\(convTime.second)"
+        timeLeft -= 1
+        
+        if timeLeft < 0 {
+            self.showInvalidAlert(message: "시간이 만료되었습니다. \n인증번호를 받지 못하셨나요? 버튼을 눌러 새로운 인증번호를 받아주세요.")
+            self.verifyTimer?.invalidate()
+            self.timerLabel.text = ""
+        }
+    }
+    
+    func secondsToMinute(time: Int) -> (String, String) {
+        let minute = String(time / 60)
+        var second = String(time % 60)
+        
+        if second.count != 2 {
+            second = "0\(second)"
+        }
+        
+        return (minute, second)
+    }
+    
+    @IBAction func resendVerifyNumberClicked(sender: UIButton) {
+        self.verifyTimer?.invalidate()
+        startTimer()
+        viewModel.requestSendVerifyNumber()
     }
     
     @IBAction func completeButtonClicked(sender: UIButton) {
@@ -80,6 +131,7 @@ class InputPhoneViewController: UIViewController, Styler {
             return
         }
         
+        verifyTimer?.invalidate()
         decideNextAct()
     }
     
@@ -110,15 +162,27 @@ class InputPhoneViewModel {
         }
     }
     
+    // MARK: for TESTING
+    var testNumber: String = ""
+    
     func requestSendVerifyNumber() {
         // request Server to send Message
+        testNumber = String(Int.random(in: 1000...9999))
+        
+        let content = UNMutableNotificationContent()
+        content.title = "풀고"
+        content.subtitle = "인증번호 알림"
+        content.body = "인증번호: \(testNumber)"
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "pullgo", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     
     func isVerifyNumberCorrect() -> Bool {
         // request Server to check correct
-        let random = Int.random(in: 0...10)
-        
-        return random % 2 == 0
+        return testNumber == verifyNumber
     }
     
     func setPhoneNumberOfSignUpInfo() {

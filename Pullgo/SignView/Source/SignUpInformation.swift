@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 struct SignUpInformation {
     static var shared = SignUpInformation()
@@ -31,10 +32,12 @@ struct SignUpInformation {
     }
     
     func mergeAccount() {
+        let account = SignUpInformation.shared.account
+        
         if SignUpInformation.shared.userType == .Student {
-            SignUpInformation.shared.student?.account = SignUpInformation.shared.account
+            SignUpInformation.shared.student?.account = account
         } else {
-            SignUpInformation.shared.teacher?.account = SignUpInformation.shared.account
+            SignUpInformation.shared.teacher?.account = account
         }
     }
     
