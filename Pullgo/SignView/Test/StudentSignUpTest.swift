@@ -1,14 +1,13 @@
 //
-//  PullgoUITests.swift
+//  StudentSignUpTest.swift
 //  PullgoUITests
 //
-//  Created by 김세영 on 2021/06/27.
+//  Created by 김세영 on 2021/07/05.
 //
 
 import XCTest
-import Pullgo
 
-class PullgoUITests: XCTestCase {
+class StudentSignUpTest: XCTestCase {
 
     func testStudentSignUp() throws {
         
@@ -44,4 +43,5 @@ class PullgoUITests: XCTestCase {
         verifyField.typeText("1111")
         app.buttons["next"].tap()
     }
+
 }

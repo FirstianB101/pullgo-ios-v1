@@ -169,7 +169,7 @@ class InputPhoneViewModel {
     
     func requestSendVerifyNumber() {
         // request Server to send Message
-        testNumber = String(Int.random(in: 1000...9999))
+        testNumber = "1111"//String(Int.random(in: 1000...9999))
         
         let content = UNMutableNotificationContent()
         content.title = "풀고"

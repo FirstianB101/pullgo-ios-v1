@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -79,6 +80,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="By1-Yx-kjq">
                                         <rect key="frame" x="0.0" y="0.0" width="62" height="50"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="signUpButton"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="회원가입"/>
@@ -172,6 +174,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="clQ-Yo-yMu">
                                 <rect key="frame" x="30" y="396" width="354" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="loginStudent"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Y5F-0N-man"/>
                                 </constraints>
@@ -185,6 +188,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u34-eO-wZ7">
                                 <rect key="frame" x="30" y="462" width="354" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="loginTeacher"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="dwR-Dd-1Ma"/>
                                 </constraints>
@@ -238,6 +242,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디 입력" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="b6R-fj-bXN">
                                 <rect key="frame" x="30" y="342" width="354" height="48"/>
+                                <accessibility key="accessibilityConfiguration" identifier="inputUsername"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="xXg-x1-w2K"/>
                                 </constraints>
@@ -256,6 +261,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMq-2D-qpv">
                                 <rect key="frame" x="30" y="439" width="354" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="duplicateCheck"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="XbI-WA-t0L"/>
                                 </constraints>
@@ -268,6 +274,7 @@
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgb-Eg-4HB">
                                 <rect key="frame" x="30" y="504" width="354" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="next"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="LE6-bV-sKy"/>
                                 </constraints>
@@ -337,6 +344,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GuZ-5O-y3x">
                                 <rect key="frame" x="30" y="307" width="354" height="48"/>
+                                <accessibility key="accessibilityConfiguration" identifier="inputPassword"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="E1s-PJ-D9p"/>
                                 </constraints>
@@ -348,6 +356,7 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="다시 한 번 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hh5-gW-bfp">
                                 <rect key="frame" x="30" y="427" width="354" height="48"/>
+                                <accessibility key="accessibilityConfiguration" identifier="checkPassword"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="ZQZ-cr-5Md"/>
                                 </constraints>
@@ -372,6 +381,7 @@
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7P-Ts-0jP">
                                 <rect key="frame" x="30" y="536" width="354" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="next"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="u28-FL-Mci"/>
                                 </constraints>
@@ -453,6 +463,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="- 를 제외하고 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kuj-wz-V5g">
                                 <rect key="frame" x="30" y="390.5" width="354" height="45"/>
+                                <accessibility key="accessibilityConfiguration" identifier="inputPhone"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="ZUg-nZ-2Yx"/>
                                 </constraints>
@@ -461,6 +472,7 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="인증번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0nT-Fy-BJO">
                                 <rect key="frame" x="30" y="481" width="354" height="45"/>
+                                <accessibility key="accessibilityConfiguration" identifier="inputVerifyNumber"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="jZJ-tU-eBG"/>
                                 </constraints>
@@ -481,6 +493,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTE-P4-dS1">
                                 <rect key="frame" x="336" y="396.5" width="30" height="33"/>
+                                <accessibility key="accessibilityConfiguration" identifier="verifyButton"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="인증"/>
                                 <connections>
@@ -490,6 +503,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0r-UZ-D8k">
                                 <rect key="frame" x="30" y="591" width="354" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="next"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Zde-s7-5xy"/>
                                 </constraints>
@@ -581,14 +595,16 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="- 를 제외하고 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYm-ZA-35V">
                                 <rect key="frame" x="30" y="378" width="354" height="45"/>
+                                <accessibility key="accessibilityConfiguration" identifier="inputParentPhone"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="AbP-ab-NCM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="***학교까지 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NC8-RK-Bdq">
                                 <rect key="frame" x="30" y="465" width="354" height="45"/>
+                                <accessibility key="accessibilityConfiguration" identifier="inputSchoolName"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="gi8-hi-YtS"/>
                                 </constraints>
@@ -619,6 +635,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0q-ky-Y2W">
                                 <rect key="frame" x="30" y="624" width="354" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="next"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="a1h-3l-wPp"/>
                                 </constraints>

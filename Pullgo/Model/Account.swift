@@ -41,11 +41,7 @@ struct SignedUserInfo {
     }
     
     func getUserInfoURL() -> URL {
-        var url: URL = ServerInfo.url
-        
-        url.appendPathComponent(self.userType.ToURLComponent())
-        url.appendPathComponent(String(self.id))
-        
-        return url
+        return NetworkManager.assembleURL(components: [self.userType.ToURLComponent(),
+                                                       String(self.id)])
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A51033A82692076E007E9452 /* TeacherSignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51033A72692076E007E9452 /* TeacherSignUpTest.swift */; };
+		A51033AA2692079A007E9452 /* StudentSignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51033A92692079A007E9452 /* StudentSignUpTest.swift */; };
 		A5191494268DC27300620A66 /* InputUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5191493268DC27300620A66 /* InputUsernameViewController.swift */; };
 		A5191496268DCC1500620A66 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5191495268DCC1500620A66 /* Extension.swift */; };
 		A532DB2326889ACB00076260 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DB2226889ACB00076260 /* AppDelegate.swift */; };
@@ -29,7 +31,7 @@
 		A5B469B52688EA7000C62F9C /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469B42688EA7000C62F9C /* Teacher.swift */; };
 		A5B4CD5C26898E9800FA2967 /* thumbs-up.png in Resources */ = {isa = PBXBuildFile; fileRef = A5B4CD5B26898E9800FA2967 /* thumbs-up.png */; };
 		A5B4CD5E2689934B00FA2967 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4CD5D2689934B00FA2967 /* Error.swift */; };
-		A5B4CD602689942200FA2967 /* ServerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4CD5F2689942200FA2967 /* ServerInfo.swift */; };
+		A5B4CD602689942200FA2967 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4CD5F2689942200FA2967 /* Networking.swift */; };
 		A5C95ECC2691874000F19A55 /* InputDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C95ECB2691874000F19A55 /* InputDetailViewController.swift */; };
 		A5EDB213268D8A960085CCAE /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EDB212268D8A960085CCAE /* Keyboard.swift */; };
 		A5EDB215268D931B0085CCAE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EDB214268D931B0085CCAE /* SignUpViewController.swift */; };
@@ -54,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A51033A72692076E007E9452 /* TeacherSignUpTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSignUpTest.swift; sourceTree = "<group>"; };
+		A51033A92692079A007E9452 /* StudentSignUpTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSignUpTest.swift; sourceTree = "<group>"; };
 		A5191493268DC27300620A66 /* InputUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputUsernameViewController.swift; sourceTree = "<group>"; };
 		A5191495268DCC1500620A66 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		A532DB1F26889ACB00076260 /* Pullgo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pullgo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,7 +85,7 @@
 		A5B469B42688EA7000C62F9C /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
 		A5B4CD5B26898E9800FA2967 /* thumbs-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbs-up.png"; sourceTree = "<group>"; };
 		A5B4CD5D2689934B00FA2967 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		A5B4CD5F2689942200FA2967 /* ServerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerInfo.swift; sourceTree = "<group>"; };
+		A5B4CD5F2689942200FA2967 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		A5C95ECB2691874000F19A55 /* InputDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDetailViewController.swift; sourceTree = "<group>"; };
 		A5EDB212268D8A960085CCAE /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		A5EDB214268D931B0085CCAE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +118,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A51033A626920757007E9452 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				A51033A72692076E007E9452 /* TeacherSignUpTest.swift */,
+				A51033A92692079A007E9452 /* StudentSignUpTest.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		A532DB1626889ACB00076260 = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +183,7 @@
 		A532DB5226889B1E00076260 /* SignView */ = {
 			isa = PBXGroup;
 			children = (
+				A51033A626920757007E9452 /* Test */,
 				A532DB572688A66400076260 /* Storyboard */,
 				A532DB562688A64A00076260 /* Source */,
 			);
@@ -204,7 +218,7 @@
 			children = (
 				A5B469AB2688DA8A00C62F9C /* Presentor.swift */,
 				A5B4CD5D2689934B00FA2967 /* Error.swift */,
-				A5B4CD5F2689942200FA2967 /* ServerInfo.swift */,
+				A5B4CD5F2689942200FA2967 /* Networking.swift */,
 				A5EDB212268D8A960085CCAE /* Keyboard.swift */,
 				A5EDB216268D93A90085CCAE /* Styler.swift */,
 				A5191495268DCC1500620A66 /* Extension.swift */,
@@ -379,7 +393,7 @@
 				A57FE01A268F256B00B1E609 /* SignUpStatusProtocol.swift in Sources */,
 				A5EDB213268D8A960085CCAE /* Keyboard.swift in Sources */,
 				A5191494268DC27300620A66 /* InputUsernameViewController.swift in Sources */,
-				A5B4CD602689942200FA2967 /* ServerInfo.swift in Sources */,
+				A5B4CD602689942200FA2967 /* Networking.swift in Sources */,
 				A5EDB217268D93A90085CCAE /* Styler.swift in Sources */,
 				A5C95ECC2691874000F19A55 /* InputDetailViewController.swift in Sources */,
 				A5EDB215268D931B0085CCAE /* SignUpViewController.swift in Sources */,
@@ -404,6 +418,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A51033AA2692079A007E9452 /* StudentSignUpTest.swift in Sources */,
+				A51033A82692076E007E9452 /* TeacherSignUpTest.swift in Sources */,
 				A532DB4526889ACC00076260 /* PullgoUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

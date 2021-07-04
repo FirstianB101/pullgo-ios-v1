@@ -42,6 +42,6 @@ struct SignUpInformation {
     }
     
     func postSignUpInformation() {
-        print("post")
+        AF.request("http")
     }
 }
