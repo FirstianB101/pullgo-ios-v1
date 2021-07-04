@@ -37,6 +37,16 @@
                ReferencedContainer = "container:Pullgo.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A532DB3F26889ACC00076260"
+               BuildableName = "PullgoUITests.xctest"
+               BlueprintName = "PullgoUITests"
+               ReferencedContainer = "container:Pullgo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

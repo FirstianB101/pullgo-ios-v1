@@ -559,6 +559,116 @@
             </objects>
             <point key="canvasLocation" x="4482.608695652174" y="-286.60714285714283"/>
         </scene>
+        <!--Input Detail View Controller-->
+        <scene sceneID="IG6-Oe-6Gc">
+            <objects>
+                <viewController storyboardIdentifier="InputDetailViewController" id="5P5-dg-Z7e" customClass="InputDetailViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tu0-bl-IAN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상세정보를 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uZ-Ui-mNM">
+                                <rect key="frame" x="57" y="201" width="300" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원활한 이용을 위해 정확한 정보를 입력해주세요." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vA-Ye-UR9">
+                                <rect key="frame" x="30" y="262" width="354" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="- 를 제외하고 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYm-ZA-35V">
+                                <rect key="frame" x="30" y="378" width="354" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="AbP-ab-NCM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="***학교까지 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NC8-RK-Bdq">
+                                <rect key="frame" x="30" y="465" width="354" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="gi8-hi-YtS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ou3-JU-aVg">
+                                <rect key="frame" x="30" y="545" width="354" height="32"/>
+                                <color key="backgroundColor" name="LightAccent"/>
+                                <segments>
+                                    <segment title="1학년"/>
+                                    <segment title="2학년"/>
+                                    <segment title="3학년"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="부모님 전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hf-D2-30Y">
+                                <rect key="frame" x="30" y="351" width="354" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학교 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goV-zn-zLT">
+                                <rect key="frame" x="30" y="438" width="354" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0q-ky-Y2W">
+                                <rect key="frame" x="30" y="624" width="354" height="50"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="a1h-3l-wPp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="회원가입"/>
+                                <connections>
+                                    <action selector="signUpButtonClickedWithSender:" destination="5P5-dg-Z7e" eventType="touchUpInside" id="a2Z-xs-TBf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DlQ-q5-aIJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0hf-D2-30Y" firstAttribute="top" secondItem="9vA-Ye-UR9" secondAttribute="bottom" constant="48" id="0dr-sk-oEr"/>
+                            <constraint firstItem="rYm-ZA-35V" firstAttribute="leading" secondItem="DlQ-q5-aIJ" secondAttribute="leading" constant="30" id="39U-0w-C3O"/>
+                            <constraint firstItem="DlQ-q5-aIJ" firstAttribute="trailing" secondItem="NC8-RK-Bdq" secondAttribute="trailing" constant="30" id="5dt-Jj-oKC"/>
+                            <constraint firstItem="NC8-RK-Bdq" firstAttribute="leading" secondItem="DlQ-q5-aIJ" secondAttribute="leading" constant="30" id="7YI-R3-HsG"/>
+                            <constraint firstItem="F0q-ky-Y2W" firstAttribute="top" secondItem="ou3-JU-aVg" secondAttribute="bottom" constant="48" id="8Fd-uy-dBG"/>
+                            <constraint firstItem="8uZ-Ui-mNM" firstAttribute="centerX" secondItem="Tu0-bl-IAN" secondAttribute="centerX" id="8c0-BF-36z"/>
+                            <constraint firstItem="goV-zn-zLT" firstAttribute="top" secondItem="rYm-ZA-35V" secondAttribute="bottom" constant="15" id="AeV-8c-eWl"/>
+                            <constraint firstItem="9vA-Ye-UR9" firstAttribute="top" secondItem="8uZ-Ui-mNM" secondAttribute="bottom" constant="25" id="EyV-4M-0mL"/>
+                            <constraint firstItem="DlQ-q5-aIJ" firstAttribute="trailing" secondItem="F0q-ky-Y2W" secondAttribute="trailing" constant="30" id="FQ9-d0-ea7"/>
+                            <constraint firstItem="DlQ-q5-aIJ" firstAttribute="trailing" secondItem="rYm-ZA-35V" secondAttribute="trailing" constant="30" id="IlB-xj-UxA"/>
+                            <constraint firstItem="F0q-ky-Y2W" firstAttribute="leading" secondItem="DlQ-q5-aIJ" secondAttribute="leading" constant="30" id="Mk7-9W-7Da"/>
+                            <constraint firstItem="ou3-JU-aVg" firstAttribute="leading" secondItem="DlQ-q5-aIJ" secondAttribute="leading" constant="30" id="Mop-Wp-kWY"/>
+                            <constraint firstItem="0hf-D2-30Y" firstAttribute="trailing" secondItem="rYm-ZA-35V" secondAttribute="trailing" id="NV4-ON-8vW"/>
+                            <constraint firstItem="9vA-Ye-UR9" firstAttribute="leading" secondItem="DlQ-q5-aIJ" secondAttribute="leading" constant="30" id="PVz-Vq-Jx0"/>
+                            <constraint firstItem="rYm-ZA-35V" firstAttribute="top" secondItem="0hf-D2-30Y" secondAttribute="bottom" constant="7" id="Tsp-ls-k8R"/>
+                            <constraint firstItem="0hf-D2-30Y" firstAttribute="leading" secondItem="rYm-ZA-35V" secondAttribute="leading" id="VA2-8n-eDo"/>
+                            <constraint firstItem="DlQ-q5-aIJ" firstAttribute="trailing" secondItem="ou3-JU-aVg" secondAttribute="trailing" constant="30" id="c8K-hV-LiL"/>
+                            <constraint firstItem="goV-zn-zLT" firstAttribute="centerY" secondItem="Tu0-bl-IAN" secondAttribute="centerY" id="f8I-Xu-yUx"/>
+                            <constraint firstItem="NC8-RK-Bdq" firstAttribute="top" secondItem="goV-zn-zLT" secondAttribute="bottom" constant="7" id="fvk-ss-XtF"/>
+                            <constraint firstItem="ou3-JU-aVg" firstAttribute="top" secondItem="NC8-RK-Bdq" secondAttribute="bottom" constant="35" id="kbW-8Y-QIx"/>
+                            <constraint firstItem="goV-zn-zLT" firstAttribute="trailing" secondItem="NC8-RK-Bdq" secondAttribute="trailing" id="qtg-44-l3y"/>
+                            <constraint firstItem="goV-zn-zLT" firstAttribute="leading" secondItem="NC8-RK-Bdq" secondAttribute="leading" id="rta-iA-mx6"/>
+                            <constraint firstItem="DlQ-q5-aIJ" firstAttribute="trailing" secondItem="9vA-Ye-UR9" secondAttribute="trailing" constant="30" id="xN5-XI-cdZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="parentPhoneField" destination="rYm-ZA-35V" id="3Ib-Nt-hF7"/>
+                        <outlet property="schoolNameField" destination="NC8-RK-Bdq" id="A7J-CK-8Te"/>
+                        <outlet property="schoolYearSegment" destination="ou3-JU-aVg" id="aDo-8x-e4P"/>
+                        <outlet property="signUpButton" destination="F0q-ky-Y2W" id="CQY-Pw-wZw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YH9-Bc-0wN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5347.826086956522" y="-286.60714285714283"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="bMQ-Wg-9d0"/>

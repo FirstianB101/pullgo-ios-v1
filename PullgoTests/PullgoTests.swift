@@ -9,10 +9,5 @@ import XCTest
 @testable import Pullgo
 
 class PullgoTests: XCTestCase {
-
-    func testSignUpUsernameStatus() {
-        let testUsername: String = "12123"
-        
-        XCTAssertTrue(testUsername.isUsernameValid)
-    }
+    
 }

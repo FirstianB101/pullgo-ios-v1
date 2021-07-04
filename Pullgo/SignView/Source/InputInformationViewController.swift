@@ -137,7 +137,9 @@ class InputPhoneViewController: UIViewController, Styler {
     
     func decideNextAct() {
         if viewModel.userType == .Student {
-            
+            let vc = storyboard?.instantiateViewController(withIdentifier: "InputDetailViewController") as! InputDetailViewController
+            self.navigationItem.backButtonTitle = "전화번호 입력"
+            navigationController?.pushViewController(vc, animated: true)
         } else {
             viewModel.setPhoneNumberOfSignUpInfo()
             SignUpInformation.shared.mergeAccount()
