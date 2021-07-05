@@ -8,12 +8,18 @@
 import Foundation
 import Alamofire
 
-class NetworkManager {
+public let NetworkManager = Network.default
+
+open class Network {
     
-    private static let version: String = "v1"
-    static let url: URL = URL(string: "https://api.pullgo.kr/\(version)")!
+    public static let `default` = Network()
     
-    static func assembleURL(components: [String]) -> URL {
+    private let version: String = "v1"
+    var url: URL {
+        URL(string: "https://api.pullgo.kr/\(self.version)")!
+    }
+    
+    open func assembleURL(components: [String]) -> URL {
         var urlResult = url
         
         for component in components {
@@ -23,19 +29,41 @@ class NetworkManager {
         return urlResult
     }
     
-    static func post(url: URL, data: Encodable) -> Decodable {
-    
-    }
-    
-    private static func convertJSON(data: Encodable) -> Data? {
-        var result: Data?
-        do {
-//            result = try JSONEncoder().encode(data)
-        } catch {
-            print("NetworkManager.convertJSON(): convert json failed.")
-            result = nil
+    open func post(url: URL, data: Encodable) -> Data? {
+        guard let param = try? data.toParameter() else { return nil }
+        
+        print(param)
+        
+        var data: Data? = nil
+        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default).response { response in
+            data = response.data
         }
         
-        return result
+        return data
     }
+}
+
+extension Encodable {
+    
+    func toParameter(_ encoder: JSONEncoder = JSONEncoder()) throws -> [String : Any] {
+        guard let data = try? encoder.encode(self) else {
+            print("Convert Parameter Error!")
+            throw NetworkError.convertParameterError
+        }
+        guard let object = try? JSONSerialization.jsonObject(with: data) else {
+            print("JSON Serialization Error!")
+            throw NetworkError.JSONSerializationError
+        }
+        guard let json = object as? [String : Any] else {
+            let content = DecodingError.Context(codingPath: [], debugDescription: "Deserialized data is not dictionary")
+            throw DecodingError.typeMismatch(type(of: object), content)
+        }
+        
+        return json
+    }
+}
+
+enum NetworkError: Error {
+    case convertParameterError
+    case JSONSerializationError
 }

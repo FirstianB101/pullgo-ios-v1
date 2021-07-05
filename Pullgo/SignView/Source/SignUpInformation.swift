@@ -42,6 +42,16 @@ struct SignUpInformation {
     }
     
     func postSignUpInformation() {
-        AF.request("http")
+        let url = NetworkManager.assembleURL(components: [SignUpInformation.shared.userType.ToURLComponent()])
+        
+        if SignUpInformation.shared.userType == .Student {
+            let student = try? SignUpInformation.shared.student
+            let data = NetworkManager.post(url: url, data: student)
+            print(String(data: data!, encoding: .utf8)!)
+        } else {
+            let teacher = try? SignUpInformation.shared.teacher
+            let data = NetworkManager.post(url: url, data: teacher)
+            print(String(data: data!, encoding: .utf8)!)
+        }
     }
 }
