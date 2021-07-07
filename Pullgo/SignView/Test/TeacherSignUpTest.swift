@@ -19,7 +19,7 @@ class TeacherSignUpTest: XCTestCase {
         
         let idField = app.textFields["inputUsername"]
         idField.tap()
-        idField.typeText("11111a")
+        idField.typeText("testid")
         
         app.buttons["duplicateCheck"].tap()
         app.buttons["next"].tap()
@@ -32,6 +32,10 @@ class TeacherSignUpTest: XCTestCase {
         passwordCheckField.tap()
         passwordCheckField.typeText("123456789")
         app.buttons["next"].tap()
+        
+        let fullNameField = app.textFields["inputFullName"]
+        fullNameField.tap()
+        fullNameField.typeText("test fullname")
         
         let phoneField = app.textFields["inputPhone"]
         phoneField.tap()

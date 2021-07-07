@@ -10,7 +10,7 @@ import Alamofire
 
 public let NetworkManager = Network.default
 
-open class Network {
+public class Network {
     
     public static let `default` = Network()
     
@@ -19,7 +19,7 @@ open class Network {
         URL(string: "https://api.pullgo.kr/\(self.version)")!
     }
     
-    open func assembleURL(components: [String]) -> URL {
+    func assembleURL(components: [String]) -> URL {
         var urlResult = url
         
         for component in components {
@@ -29,7 +29,7 @@ open class Network {
         return urlResult
     }
     
-    open func post(url: URL, data: Encodable) -> Data? {
+    func post(url: URL, data: Encodable) -> Data? {
         guard let param = try? data.toParameter() else { return nil }
         
         print(param)

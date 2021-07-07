@@ -84,6 +84,7 @@ class InputUsernameViewModel {
         get { _username }
         set {
             status = .getStatus(of: newValue)
+            _username = newValue
         }
     }
     

@@ -80,7 +80,7 @@ class InputPasswordViewController: UIViewController, Styler {
     }
     
     func toNextView() {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "InputPhoneViewController") as! InputPhoneViewController
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "InputNamePhoneViewController") as! InputNamePhoneViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

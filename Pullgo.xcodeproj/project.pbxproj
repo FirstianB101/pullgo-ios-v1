@@ -23,7 +23,7 @@
 		A57FE018268F220700B1E609 /* InputPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE017268F220700B1E609 /* InputPasswordViewController.swift */; };
 		A57FE01A268F256B00B1E609 /* SignUpStatusProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE019268F256B00B1E609 /* SignUpStatusProtocol.swift */; };
 		A57FE01C268F401300B1E609 /* SignUpInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE01B268F401300B1E609 /* SignUpInformation.swift */; };
-		A57FE01E268F443600B1E609 /* InputInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE01D268F443600B1E609 /* InputInformationViewController.swift */; };
+		A57FE01E268F443600B1E609 /* InputNamePhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE01D268F443600B1E609 /* InputNamePhoneViewController.swift */; };
 		A5B469AC2688DA8A00C62F9C /* Presentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469AB2688DA8A00C62F9C /* Presentor.swift */; };
 		A5B469AF2688DF7200C62F9C /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469AE2688DF7200C62F9C /* UserType.swift */; };
 		A5B469B12688E84E00C62F9C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469B02688E84E00C62F9C /* Account.swift */; };
@@ -77,7 +77,7 @@
 		A57FE017268F220700B1E609 /* InputPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPasswordViewController.swift; sourceTree = "<group>"; };
 		A57FE019268F256B00B1E609 /* SignUpStatusProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStatusProtocol.swift; sourceTree = "<group>"; };
 		A57FE01B268F401300B1E609 /* SignUpInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInformation.swift; sourceTree = "<group>"; };
-		A57FE01D268F443600B1E609 /* InputInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputInformationViewController.swift; sourceTree = "<group>"; };
+		A57FE01D268F443600B1E609 /* InputNamePhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNamePhoneViewController.swift; sourceTree = "<group>"; };
 		A5B469AB2688DA8A00C62F9C /* Presentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentor.swift; sourceTree = "<group>"; };
 		A5B469AE2688DF7200C62F9C /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
 		A5B469B02688E84E00C62F9C /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -199,7 +199,7 @@
 				A57FE017268F220700B1E609 /* InputPasswordViewController.swift */,
 				A57FE019268F256B00B1E609 /* SignUpStatusProtocol.swift */,
 				A57FE01B268F401300B1E609 /* SignUpInformation.swift */,
-				A57FE01D268F443600B1E609 /* InputInformationViewController.swift */,
+				A57FE01D268F443600B1E609 /* InputNamePhoneViewController.swift */,
 				A5C95ECB2691874000F19A55 /* InputDetailViewController.swift */,
 			);
 			path = Source;
@@ -386,7 +386,7 @@
 				A5191496268DCC1500620A66 /* Extension.swift in Sources */,
 				A532DB2726889ACB00076260 /* SignInViewController.swift in Sources */,
 				A5B469AF2688DF7200C62F9C /* UserType.swift in Sources */,
-				A57FE01E268F443600B1E609 /* InputInformationViewController.swift in Sources */,
+				A57FE01E268F443600B1E609 /* InputNamePhoneViewController.swift in Sources */,
 				A5B469AC2688DA8A00C62F9C /* Presentor.swift in Sources */,
 				A57FE01C268F401300B1E609 /* SignUpInformation.swift in Sources */,
 				A532DB2326889ACB00076260 /* AppDelegate.swift in Sources */,

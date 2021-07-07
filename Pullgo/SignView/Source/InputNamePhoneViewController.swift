@@ -10,8 +10,9 @@ import UIKit
 // for TESTING
 import UserNotifications
 
-class InputPhoneViewController: UIViewController, Styler {
+class InputNamePhoneViewController: UIViewController, Styler {
     
+    @IBOutlet weak var fullNameField: UITextField!
     @IBOutlet weak var phoneField: UITextField!
     @IBOutlet weak var verifyButton: UIButton!
     @IBOutlet weak var verifyLabel: UILabel!
@@ -20,7 +21,7 @@ class InputPhoneViewController: UIViewController, Styler {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var resendButton: UIButton!
     
-    let viewModel = InputPhoneViewModel()
+    let viewModel = InputNamePhoneViewModel()
     var verifyTimer: Timer?
     var timeLeft = 15
     
@@ -46,6 +47,7 @@ class InputPhoneViewController: UIViewController, Styler {
     }
     
     func setTextFieldUI() {
+        setTextFieldBorderUnderline(field: fullNameField)
         setTextFieldBorderUnderline(field: phoneField)
         setTextFieldBorderUnderline(field: verifyField)
         hide(view: verifyField)
@@ -123,6 +125,8 @@ class InputPhoneViewController: UIViewController, Styler {
     }
     
     @IBAction func completeButtonClicked(sender: UIButton) {
+        if !bindingFullName() { return }
+        
         guard let verifyNumber = verifyField.text else { return }
         
         viewModel.verifyNumber = verifyNumber
@@ -133,6 +137,18 @@ class InputPhoneViewController: UIViewController, Styler {
         
         verifyTimer?.invalidate()
         decideNextAct()
+    }
+    
+    func bindingFullName() -> Bool {
+        guard let fullName = fullNameField.text else { return false }
+        if fullName.isEmpty {
+            let animator = AnimationPresentor()
+            animator.vibrate(view: fullNameField)
+            return false
+        } else {
+            viewModel.fullName = fullName
+            return true
+        }
     }
     
     func decideNextAct() {
@@ -148,7 +164,15 @@ class InputPhoneViewController: UIViewController, Styler {
     }
 }
 
-class InputPhoneViewModel {
+class InputNamePhoneViewModel {
+    private var _fullName: String = ""
+    var fullName: String {
+        get { _fullName }
+        set {
+            _fullName = newValue
+            SignUpInformation.shared.account?.fullName = newValue
+        }
+    }
     var phone: String = ""
     var verifyNumber: String = ""
     var userType: UserType {
@@ -198,3 +222,4 @@ extension String {
         return self.predicate(regex: phoneRegex)
     }
 }
+

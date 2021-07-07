@@ -27,9 +27,11 @@ class PullgoUITests: XCTestCase {
         
         let passwordField = app.secureTextFields["inputPassword"]
         passwordField.tap()
+        passwordField.tap()
         passwordField.typeText("123456789")
         
         let passwordCheckField = app.secureTextFields["checkPassword"]
+        passwordCheckField.tap()
         passwordCheckField.tap()
         passwordCheckField.typeText("123456789")
         app.buttons["next"].tap()
