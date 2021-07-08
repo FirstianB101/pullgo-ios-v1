@@ -31,21 +31,16 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A532DB3426889ACC00076260"
-               BuildableName = "PullgoTests.xctest"
-               BlueprintName = "PullgoTests"
-               ReferencedContainer = "container:Pullgo.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "A532DB3F26889ACC00076260"
                BuildableName = "PullgoUITests.xctest"
                BlueprintName = "PullgoUITests"
                ReferencedContainer = "container:Pullgo.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "PullgoUITests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

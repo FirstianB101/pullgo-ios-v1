@@ -28,16 +28,9 @@ struct SignedUserInfo {
         self.userType = type
     }
     
-    func requestSignIn() {
+    func requestSignIn(success: @escaping ((Data?) -> ()), fail: @escaping (() -> ())) {
         let url: URL = getUserInfoURL()
-        let success: (() -> (Void))? = nil
-        let fail: (() throws -> (Void))? = { throw SignInError.InvalidSignIn }
-        
-        let userInfo = AF.request(url)
-        userInfo.responseJSON() { response in
-            print("\(try! response.result.get())")
-            success?()
-        }
+        NetworkManager.get(url: url, success: success, fail: fail)
     }
     
     func getUserInfoURL() -> URL {

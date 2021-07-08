@@ -22,6 +22,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="아이디를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zN7-ru-N7r" userLabel="username">
                                 <rect key="frame" x="30" y="408" width="354" height="50"/>
                                 <color key="backgroundColor" name="LightAccent"/>
+                                <accessibility key="accessibilityConfiguration" identifier="loginUsername"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tXb-j5-qat"/>
                                 </constraints>
@@ -31,6 +32,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NeA-RT-c4z" userLabel="password">
                                 <rect key="frame" x="30" y="473" width="354" height="50"/>
                                 <color key="backgroundColor" name="LightAccent"/>
+                                <accessibility key="accessibilityConfiguration" identifier="loginPassword"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bti-5g-ibJ"/>
                                 </constraints>
@@ -47,6 +49,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeY-aB-eUW">
                                 <rect key="frame" x="30" y="574.5" width="354" height="64"/>
                                 <color key="backgroundColor" name="AccentColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="signIn"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="TsD-UL-yRB"/>
                                 </constraints>
@@ -280,7 +283,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디를 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHO-f0-XUo">
-                                <rect key="frame" x="70.5" y="240" width="273" height="36"/>
+                                <rect key="frame" x="70.5" y="240" width="273.5" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -371,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c0t-DC-eIL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2855" y="-285"/>
+            <point key="canvasLocation" x="2853.6231884057975" y="-285.26785714285711"/>
         </scene>
         <!--Input Password View Controller-->
         <scene sceneID="VkT-X7-7je">

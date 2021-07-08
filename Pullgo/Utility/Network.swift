@@ -75,8 +75,21 @@ extension Encodable {
     }
 }
 
+extension Data {
+    
+    func toObject<T: Decodable>(_ decoder: JSONDecoder = JSONDecoder(), type: T.Type) throws -> T {
+        guard let decoded = try? decoder.decode(type, from: self) else {
+            print("Decode Object Error!")
+            throw NetworkError.decodeError
+        }
+        
+        return decoded
+    }
+}
+
 enum NetworkError: Error {
     case convertParameterError
     case JSONSerializationError
+    case decodeError
 }
 

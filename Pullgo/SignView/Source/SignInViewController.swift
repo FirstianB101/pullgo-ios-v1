@@ -82,14 +82,47 @@ class SignInViewController: UIViewController, Styler {
     }
     
     func requestSignIn() {
+        let alert = AlertPresentor(view: self)
+        
         do {
-            try viewModel.requestSignIn()
+            let success: ((Data?) -> ()) = { data in
+                var teacher: Teacher? = nil
+                var student: Student? = nil
+                if self.viewModel.userType == .Student {
+                    student = try! data?.toObject(type: Student.self)
+                    SignedUserInfo.shared.student = student
+                    self.presentStudentView()
+                } else {
+                    teacher = try! data?.toObject(type: Teacher.self)
+                    SignedUserInfo.shared.teacher = teacher
+                    self.presentStudentView()
+                }
+                
+            }
+            let fail: (() -> ()) = {
+                alert.present(title: "오류", context: "오류가 발생했습니다.\n잠시 후 다시 시도해주세요.")
+                return
+            }
+            try viewModel.requestSignIn(success: success, fail: fail)
         } catch SignInError.InvalidIdForTest {
-            let alert = AlertPresentor(view: self)
             alert.present(title: "경고", context: "올바르지 않은 ID")
         } catch {
             return
         }
+    }
+    
+    func presentTeacherView() {
+        let pvc = self.presentingViewController!
+        let storyboard = UIStoryboard(name: "Teacher", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "TeacherCalenderViewController") as! TeacherCalenderViewController
+        
+        self.dismiss(animated: true, completion: {
+            pvc.present(vc, animated: true, completion: nil)
+        })
+    }
+    
+    func presentStudentView() {
+        
     }
 }
 
@@ -97,7 +130,7 @@ class SignInViewModel {
     private var autoLoginChecked: Bool = false
     private var usernameInput: String = ""
     private var passwordInput: String = ""
-    private var userType: UserType = .Student
+    var userType: UserType = .Student
     
     func isAutoLoginChecked() -> Bool {
         return autoLoginChecked
@@ -113,13 +146,13 @@ class SignInViewModel {
         self.userType = userType
     }
     
-    func requestSignIn() throws {
+    func requestSignIn(success: @escaping ((Data?) -> ()), fail: @escaping (() -> ())) throws {
         // Login API Not Supported
         // call ID for test
         guard let id = Int(usernameInput) else {
             throw SignInError.InvalidIdForTest
         }
         SignedUserInfo.shared.setUserInfo(id: id, type: userType)
-        SignedUserInfo.shared.requestSignIn()
+        SignedUserInfo.shared.requestSignIn(success: success, fail: fail)
     }
 }

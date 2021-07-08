@@ -27,6 +27,10 @@
 		A57FE01A268F256B00B1E609 /* SignUpStatusProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE019268F256B00B1E609 /* SignUpStatusProtocol.swift */; };
 		A57FE01C268F401300B1E609 /* SignUpInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE01B268F401300B1E609 /* SignUpInformation.swift */; };
 		A57FE01E268F443600B1E609 /* InputNamePhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE01D268F443600B1E609 /* InputNamePhoneViewController.swift */; };
+		A58E7A0D269758CC005FFC6F /* Teacher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58E7A0C269758CC005FFC6F /* Teacher.storyboard */; };
+		A58E7A11269758F6005FFC6F /* TeacherCalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E7A10269758F6005FFC6F /* TeacherCalenderViewController.swift */; };
+		A58E7A14269759F5005FFC6F /* TeacherUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E7A13269759F5005FFC6F /* TeacherUITest.swift */; };
+		A58E7A1526975B0D005FFC6F /* TeacherUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E7A13269759F5005FFC6F /* TeacherUITest.swift */; };
 		A5B469AC2688DA8A00C62F9C /* Presentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469AB2688DA8A00C62F9C /* Presentor.swift */; };
 		A5B469AF2688DF7200C62F9C /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469AE2688DF7200C62F9C /* UserType.swift */; };
 		A5B469B32688E9F600C62F9C /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469B22688E9F600C62F9C /* Student.swift */; };
@@ -83,6 +87,9 @@
 		A57FE019268F256B00B1E609 /* SignUpStatusProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStatusProtocol.swift; sourceTree = "<group>"; };
 		A57FE01B268F401300B1E609 /* SignUpInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInformation.swift; sourceTree = "<group>"; };
 		A57FE01D268F443600B1E609 /* InputNamePhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNamePhoneViewController.swift; sourceTree = "<group>"; };
+		A58E7A0C269758CC005FFC6F /* Teacher.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Teacher.storyboard; sourceTree = "<group>"; };
+		A58E7A10269758F6005FFC6F /* TeacherCalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCalenderViewController.swift; sourceTree = "<group>"; };
+		A58E7A13269759F5005FFC6F /* TeacherUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherUITest.swift; sourceTree = "<group>"; };
 		A5B469AB2688DA8A00C62F9C /* Presentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentor.swift; sourceTree = "<group>"; };
 		A5B469AE2688DF7200C62F9C /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
 		A5B469B22688E9F600C62F9C /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
@@ -158,6 +165,7 @@
 				A5B4CD5626898C5200FA2967 /* LaunchScreen */,
 				A5B469AD2688DF4900C62F9C /* Model */,
 				A5B469AA2688DA6700C62F9C /* Utility */,
+				A58E7A0B269758AF005FFC6F /* TeacherView */,
 				A532DB5226889B1E00076260 /* SignView */,
 				A532DB2226889ACB00076260 /* AppDelegate.swift */,
 				A532DB2426889ACB00076260 /* SceneDelegate.swift */,
@@ -217,6 +225,40 @@
 				A532DB2826889ACB00076260 /* Main.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		A58E7A0B269758AF005FFC6F /* TeacherView */ = {
+			isa = PBXGroup;
+			children = (
+				A58E7A12269759E9005FFC6F /* Test */,
+				A58E7A0F269758DD005FFC6F /* Source */,
+				A58E7A0E269758D7005FFC6F /* Storyboard */,
+			);
+			path = TeacherView;
+			sourceTree = "<group>";
+		};
+		A58E7A0E269758D7005FFC6F /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				A58E7A0C269758CC005FFC6F /* Teacher.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		A58E7A0F269758DD005FFC6F /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				A58E7A10269758F6005FFC6F /* TeacherCalenderViewController.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		A58E7A12269759E9005FFC6F /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				A58E7A13269759F5005FFC6F /* TeacherUITest.swift */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 		A5B469AA2688DA6700C62F9C /* Utility */ = {
@@ -363,6 +405,7 @@
 			files = (
 				A532DB2F26889ACC00076260 /* LaunchScreen.storyboard in Resources */,
 				A5B4CD5C26898E9800FA2967 /* thumbs-up.png in Resources */,
+				A58E7A0D269758CC005FFC6F /* Teacher.storyboard in Resources */,
 				A532DB2C26889ACC00076260 /* Assets.xcassets in Resources */,
 				A532DB2A26889ACB00076260 /* Main.storyboard in Resources */,
 			);
@@ -404,6 +447,7 @@
 				A5C95ECC2691874000F19A55 /* InputDetailViewController.swift in Sources */,
 				A5EDB215268D931B0085CCAE /* SignUpViewController.swift in Sources */,
 				A57FE018268F220700B1E609 /* InputPasswordViewController.swift in Sources */,
+				A58E7A11269758F6005FFC6F /* TeacherCalenderViewController.swift in Sources */,
 				A5B469B52688EA7000C62F9C /* Teacher.swift in Sources */,
 				A532DB2526889ACB00076260 /* SceneDelegate.swift in Sources */,
 				A5B469B32688E9F600C62F9C /* Student.swift in Sources */,
@@ -417,6 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A58E7A14269759F5005FFC6F /* TeacherUITest.swift in Sources */,
 				A532DB3A26889ACC00076260 /* PullgoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A58E7A1526975B0D005FFC6F /* TeacherUITest.swift in Sources */,
 				A51033AA2692079A007E9452 /* StudentSignUpTest.swift in Sources */,
 				A51033A82692076E007E9452 /* TeacherSignUpTest.swift in Sources */,
 				A55D3FBB26972651009DC6B7 /* FindAccountTest.swift in Sources */,
