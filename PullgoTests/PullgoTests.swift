@@ -14,8 +14,7 @@ class PullgoTests: XCTestCase {
         let account = Account(username: "yy0867", password: "123456", fullName: "김세영", phone: "01012345678")
         let teacher = Teacher(id: nil, account: account)
         
-        let url = NetworkManager.assembleURL(components: [UserType.Teacher.ToURLComponent()])
+        let param = try! teacher.toParameter()
         
-        XCTAssertEqual(url.absoluteString, "https://api.pullgo.kr/v1/teachers")
     }
 }

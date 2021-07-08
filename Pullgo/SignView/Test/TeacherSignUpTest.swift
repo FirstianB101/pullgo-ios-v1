@@ -47,6 +47,6 @@ class TeacherSignUpTest: XCTestCase {
         verifyField.typeText("1111")
         app.buttons["next"].tap()
         
-        
+        app.alerts["알림"].scrollViews.otherElements.buttons["확인"].tap()
     }
 }

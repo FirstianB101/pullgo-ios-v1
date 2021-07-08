@@ -41,17 +41,15 @@ struct SignUpInformation {
         }
     }
     
-    func postSignUpInformation() {
+    func postSignUpInformation(success: (() -> ())? = nil, fail: (() -> ())? = nil) {
         let url = NetworkManager.assembleURL(components: [SignUpInformation.shared.userType.ToURLComponent()])
         
         if SignUpInformation.shared.userType == .Student {
             let student = SignUpInformation.shared.student
-            let data = NetworkManager.post(url: url, data: student)
-            print(String(data: data!, encoding: .utf8)!)
+            NetworkManager.post(url: url, data: student, success: success, fail: fail)
         } else {
             let teacher = SignUpInformation.shared.teacher
-            let data = NetworkManager.post(url: url, data: teacher)
-            print(String(data: data!, encoding: .utf8)!)
+            NetworkManager.post(url: url, data: teacher, success: success, fail: fail)
         }
     }
 }

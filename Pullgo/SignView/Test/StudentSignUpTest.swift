@@ -33,6 +33,10 @@ class StudentSignUpTest: XCTestCase {
         passwordCheckField.typeText("123456789")
         app.buttons["next"].tap()
         
+        let fullNameField = app.textFields["inputFullName"]
+        fullNameField.tap()
+        fullNameField.typeText("김세영")
+        
         let phoneField = app.textFields["inputPhone"]
         phoneField.tap()
         phoneField.typeText("01012345678")
@@ -42,6 +46,20 @@ class StudentSignUpTest: XCTestCase {
         verifyField.tap()
         verifyField.typeText("1111")
         app.buttons["next"].tap()
+        
+        let parentPhoneField = app.textFields["inputParentPhone"]
+        parentPhoneField.tap()
+        parentPhoneField.typeText("01012346788")
+        
+        let schoolNameField = app.textFields["inputSchoolName"]
+        schoolNameField.tap()
+        schoolNameField.typeText("수리고등학교")
+        
+        app.buttons["next"].tap()
+        
+        app.alerts["알림"].scrollViews.otherElements.buttons["회원가입"].tap()
+        
+        app.alerts["알림"].scrollViews.otherElements.buttons["확인"].tap()
     }
 
 }

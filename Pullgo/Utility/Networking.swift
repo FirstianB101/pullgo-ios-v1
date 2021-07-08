@@ -18,6 +18,7 @@ public class Network {
     var url: URL {
         URL(string: "https://api.pullgo.kr/\(self.version)")!
     }
+    private let headers: HTTPHeaders = [.contentType("application/json")]
     
     func assembleURL(components: [String]) -> URL {
         var urlResult = url
@@ -29,17 +30,17 @@ public class Network {
         return urlResult
     }
     
-    func post(url: URL, data: Encodable) -> Data? {
-        guard let param = try? data.toParameter() else { return nil }
+    func post(url: URL, data: Encodable, success: (() -> ())? = nil, fail: (() -> ())? = nil) {
+        guard let param = try? data.toParameter() else { return }
         
-        print(param)
-        
-        var data: Data? = nil
-        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default).response { response in
-            data = response.data
+        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: headers).response { response in
+            switch response.result {
+            case .success(_):
+                success?()
+            case .failure(_):
+                fail?()
+            }
         }
-        
-        return data
     }
 }
 
@@ -67,3 +68,4 @@ enum NetworkError: Error {
     case convertParameterError
     case JSONSerializationError
 }
+

@@ -73,9 +73,24 @@ class InputDetailViewController: UIViewController, Styler {
             return
         }))
         actions.append(UIAlertAction(title: "회원가입", style: .default, handler: { action in
-            SignUpInformation.shared.postSignUpInformation()
+            self.sendTeacherPostRequest()
         }))
         return actions
+    }
+    
+    func sendTeacherPostRequest() {
+        let action = UIAlertAction(title: "확인", style: .default) { handler in
+            print("here")
+        }
+        let alert = AlertPresentor(view: self)
+        let success = {
+            alert.present(title: "알림", context: "회원가입이 완료되었습니다.\n입력하신 정보로 로그인해주세요.", actions: [action])
+        }
+        let fail = {
+            alert.present(title: "오류", context: "오류가 발생했습니다.\n잠시 후 다시 시도해주세요.", actions: [action])
+        }
+        
+        viewModel.postRequest(success: success, fail: fail)
     }
 }
 
@@ -111,5 +126,9 @@ class InputDetailViewModel {
     
     func isSchoolNameValid() -> Bool {
         return schoolName.contains("학교")
+    }
+    
+    func postRequest(success: @escaping (() -> ()), fail: @escaping (() -> ())) {
+        SignUpInformation.shared.postSignUpInformation(success: success, fail: fail)
     }
 }
