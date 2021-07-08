@@ -20,6 +20,8 @@
 		A532DB3A26889ACC00076260 /* PullgoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DB3926889ACC00076260 /* PullgoTests.swift */; };
 		A532DB4526889ACC00076260 /* PullgoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DB4426889ACC00076260 /* PullgoUITests.swift */; };
 		A532DB5526889BD700076260 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A532DB5426889BD700076260 /* Alamofire */; };
+		A55D3FB92697261D009DC6B7 /* FindAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55D3FB82697261D009DC6B7 /* FindAccountViewController.swift */; };
+		A55D3FBB26972651009DC6B7 /* FindAccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55D3FBA26972651009DC6B7 /* FindAccountTest.swift */; };
 		A57F5CED2695F2BE00A603DD /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F5CEC2695F2BE00A603DD /* Account.swift */; };
 		A57FE018268F220700B1E609 /* InputPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE017268F220700B1E609 /* InputPasswordViewController.swift */; };
 		A57FE01A268F256B00B1E609 /* SignUpStatusProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE019268F256B00B1E609 /* SignUpStatusProtocol.swift */; };
@@ -31,7 +33,7 @@
 		A5B469B52688EA7000C62F9C /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469B42688EA7000C62F9C /* Teacher.swift */; };
 		A5B4CD5C26898E9800FA2967 /* thumbs-up.png in Resources */ = {isa = PBXBuildFile; fileRef = A5B4CD5B26898E9800FA2967 /* thumbs-up.png */; };
 		A5B4CD5E2689934B00FA2967 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4CD5D2689934B00FA2967 /* Error.swift */; };
-		A5B4CD602689942200FA2967 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4CD5F2689942200FA2967 /* Networking.swift */; };
+		A5B4CD602689942200FA2967 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4CD5F2689942200FA2967 /* Network.swift */; };
 		A5C95ECC2691874000F19A55 /* InputDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C95ECB2691874000F19A55 /* InputDetailViewController.swift */; };
 		A5EDB213268D8A960085CCAE /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EDB212268D8A960085CCAE /* Keyboard.swift */; };
 		A5EDB215268D931B0085CCAE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EDB214268D931B0085CCAE /* SignUpViewController.swift */; };
@@ -74,6 +76,8 @@
 		A532DB4026889ACC00076260 /* PullgoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PullgoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A532DB4426889ACC00076260 /* PullgoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullgoUITests.swift; sourceTree = "<group>"; };
 		A532DB4626889ACC00076260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A55D3FB82697261D009DC6B7 /* FindAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccountViewController.swift; sourceTree = "<group>"; };
+		A55D3FBA26972651009DC6B7 /* FindAccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccountTest.swift; sourceTree = "<group>"; };
 		A57F5CEC2695F2BE00A603DD /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A57FE017268F220700B1E609 /* InputPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPasswordViewController.swift; sourceTree = "<group>"; };
 		A57FE019268F256B00B1E609 /* SignUpStatusProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStatusProtocol.swift; sourceTree = "<group>"; };
@@ -85,7 +89,7 @@
 		A5B469B42688EA7000C62F9C /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
 		A5B4CD5B26898E9800FA2967 /* thumbs-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbs-up.png"; sourceTree = "<group>"; };
 		A5B4CD5D2689934B00FA2967 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		A5B4CD5F2689942200FA2967 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		A5B4CD5F2689942200FA2967 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		A5C95ECB2691874000F19A55 /* InputDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDetailViewController.swift; sourceTree = "<group>"; };
 		A5EDB212268D8A960085CCAE /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		A5EDB214268D931B0085CCAE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 			children = (
 				A51033A72692076E007E9452 /* TeacherSignUpTest.swift */,
 				A51033A92692079A007E9452 /* StudentSignUpTest.swift */,
+				A55D3FBA26972651009DC6B7 /* FindAccountTest.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 				A57FE01B268F401300B1E609 /* SignUpInformation.swift */,
 				A57FE01D268F443600B1E609 /* InputNamePhoneViewController.swift */,
 				A5C95ECB2691874000F19A55 /* InputDetailViewController.swift */,
+				A55D3FB82697261D009DC6B7 /* FindAccountViewController.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -218,7 +224,7 @@
 			children = (
 				A5B469AB2688DA8A00C62F9C /* Presentor.swift */,
 				A5B4CD5D2689934B00FA2967 /* Error.swift */,
-				A5B4CD5F2689942200FA2967 /* Networking.swift */,
+				A5B4CD5F2689942200FA2967 /* Network.swift */,
 				A5EDB212268D8A960085CCAE /* Keyboard.swift */,
 				A5EDB216268D93A90085CCAE /* Styler.swift */,
 				A5191495268DCC1500620A66 /* Extension.swift */,
@@ -393,7 +399,7 @@
 				A57FE01A268F256B00B1E609 /* SignUpStatusProtocol.swift in Sources */,
 				A5EDB213268D8A960085CCAE /* Keyboard.swift in Sources */,
 				A5191494268DC27300620A66 /* InputUsernameViewController.swift in Sources */,
-				A5B4CD602689942200FA2967 /* Networking.swift in Sources */,
+				A5B4CD602689942200FA2967 /* Network.swift in Sources */,
 				A5EDB217268D93A90085CCAE /* Styler.swift in Sources */,
 				A5C95ECC2691874000F19A55 /* InputDetailViewController.swift in Sources */,
 				A5EDB215268D931B0085CCAE /* SignUpViewController.swift in Sources */,
@@ -401,6 +407,7 @@
 				A5B469B52688EA7000C62F9C /* Teacher.swift in Sources */,
 				A532DB2526889ACB00076260 /* SceneDelegate.swift in Sources */,
 				A5B469B32688E9F600C62F9C /* Student.swift in Sources */,
+				A55D3FB92697261D009DC6B7 /* FindAccountViewController.swift in Sources */,
 				A5B4CD5E2689934B00FA2967 /* Error.swift in Sources */,
 				A57F5CED2695F2BE00A603DD /* Account.swift in Sources */,
 			);
@@ -420,6 +427,7 @@
 			files = (
 				A51033AA2692079A007E9452 /* StudentSignUpTest.swift in Sources */,
 				A51033A82692076E007E9452 /* TeacherSignUpTest.swift in Sources */,
+				A55D3FBB26972651009DC6B7 /* FindAccountTest.swift in Sources */,
 				A532DB4526889ACC00076260 /* PullgoUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

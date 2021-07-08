@@ -42,6 +42,17 @@ public class Network {
             }
         }
     }
+    
+    func `get`(url: URL, success: ((Data?) -> ())? = nil, fail: (() -> ())? = nil) {
+        AF.request(url).response { response in
+            switch response.result {
+            case .success(let d):
+                success?(d)
+            case .failure(_):
+                fail?()
+            }
+        }
+    }
 }
 
 extension Encodable {
