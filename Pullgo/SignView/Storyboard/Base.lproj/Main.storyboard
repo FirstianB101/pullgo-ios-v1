@@ -562,17 +562,13 @@
                                     <action selector="completeButtonClickedWithSender:" destination="7u2-0v-1cR" eventType="touchUpInside" id="hnN-hI-w6D"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vz-jw-FEC">
-                                <rect key="frame" x="334" y="514.5" width="32" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" systemColor="systemOrangeColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgI-un-XGo">
-                                <rect key="frame" x="121" y="553" width="172" height="30"/>
-                                <state key="normal" title="인증번호를 받지 못하셨나요?">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                                <rect key="frame" x="297.5" y="506.5" width="68.5" height="34.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="재전송"/>
+                                <buttonConfiguration key="configuration" style="filled" title="재전송">
+                                    <color key="baseBackgroundColor" name="AccentColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="resendVerifyNumberClickedWithSender:" destination="7u2-0v-1cR" eventType="touchUpInside" id="aCh-UW-MqJ"/>
                                 </connections>
@@ -592,6 +588,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vz-jw-FEC">
+                                <rect key="frame" x="250.5" y="514.5" width="32" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2Np-Cg-JJN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -600,13 +602,11 @@
                             <constraint firstItem="hi8-CG-ww1" firstAttribute="trailing" secondItem="Kuj-wz-V5g" secondAttribute="trailing" id="4QD-Wv-Mrb"/>
                             <constraint firstItem="hi8-CG-ww1" firstAttribute="leading" secondItem="Kuj-wz-V5g" secondAttribute="leading" id="5nB-aW-HOL"/>
                             <constraint firstItem="2Np-Cg-JJN" firstAttribute="trailing" secondItem="0nT-Fy-BJO" secondAttribute="trailing" constant="30" id="5x3-ol-lQi"/>
+                            <constraint firstItem="VgI-un-XGo" firstAttribute="trailing" secondItem="vTE-P4-dS1" secondAttribute="trailing" id="CEA-Hc-Jdo"/>
                             <constraint firstItem="B0r-UZ-D8k" firstAttribute="top" secondItem="0nT-Fy-BJO" secondAttribute="bottom" constant="65" id="Hf2-yd-Cix"/>
                             <constraint firstItem="Kuj-wz-V5g" firstAttribute="leading" secondItem="2Np-Cg-JJN" secondAttribute="leading" constant="30" id="Ihz-gK-6LZ"/>
-                            <constraint firstItem="VgI-un-XGo" firstAttribute="centerX" secondItem="Ezf-5b-vde" secondAttribute="centerX" id="KSS-np-4hJ"/>
-                            <constraint firstItem="0Vz-jw-FEC" firstAttribute="trailing" secondItem="vTE-P4-dS1" secondAttribute="trailing" id="KXv-AA-eM3"/>
                             <constraint firstItem="Kuj-wz-V5g" firstAttribute="top" secondItem="hi8-CG-ww1" secondAttribute="bottom" constant="3" id="L6e-P9-THd"/>
                             <constraint firstItem="0Vz-jw-FEC" firstAttribute="centerY" secondItem="0nT-Fy-BJO" secondAttribute="centerY" id="OAf-DP-dkG"/>
-                            <constraint firstItem="VgI-un-XGo" firstAttribute="top" secondItem="0nT-Fy-BJO" secondAttribute="bottom" constant="7" id="ZhB-CA-c0T"/>
                             <constraint firstItem="vTE-P4-dS1" firstAttribute="centerY" secondItem="Kuj-wz-V5g" secondAttribute="centerY" id="apb-xm-DiA"/>
                             <constraint firstItem="hi8-CG-ww1" firstAttribute="top" secondItem="Tlw-dA-XSU" secondAttribute="bottom" constant="23" id="fjq-vv-TVZ"/>
                             <constraint firstItem="0nT-Fy-BJO" firstAttribute="top" secondItem="8Pg-rZ-VBd" secondAttribute="bottom" constant="3" id="h7I-WP-UuX"/>
@@ -620,8 +620,10 @@
                             <constraint firstItem="dzZ-QZ-9fT" firstAttribute="trailing" secondItem="Tlw-dA-XSU" secondAttribute="trailing" id="sZs-sJ-YC1"/>
                             <constraint firstItem="8Pg-rZ-VBd" firstAttribute="top" secondItem="Kuj-wz-V5g" secondAttribute="bottom" constant="23" id="sfk-gQ-t6B"/>
                             <constraint firstItem="2Np-Cg-JJN" firstAttribute="trailing" secondItem="Kuj-wz-V5g" secondAttribute="trailing" constant="30" id="vmw-FT-dQS"/>
+                            <constraint firstItem="VgI-un-XGo" firstAttribute="leading" secondItem="0Vz-jw-FEC" secondAttribute="trailing" constant="15" id="vpd-fx-dwX"/>
                             <constraint firstItem="8Pg-rZ-VBd" firstAttribute="leading" secondItem="0nT-Fy-BJO" secondAttribute="leading" id="x2C-CV-9Hz"/>
                             <constraint firstItem="8Pg-rZ-VBd" firstAttribute="trailing" secondItem="0nT-Fy-BJO" secondAttribute="trailing" id="xrr-pA-tBs"/>
+                            <constraint firstItem="VgI-un-XGo" firstAttribute="centerY" secondItem="0nT-Fy-BJO" secondAttribute="centerY" id="yGF-Ja-RhP"/>
                             <constraint firstItem="2Np-Cg-JJN" firstAttribute="trailing" secondItem="B0r-UZ-D8k" secondAttribute="trailing" constant="30" id="yrm-gy-jvV"/>
                             <constraint firstItem="dzZ-QZ-9fT" firstAttribute="leading" secondItem="Tlw-dA-XSU" secondAttribute="leading" id="zaK-8J-rgX"/>
                             <constraint firstItem="Tlw-dA-XSU" firstAttribute="top" secondItem="dzZ-QZ-9fT" secondAttribute="bottom" constant="3" id="zfS-Q5-VFH"/>
@@ -641,7 +643,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJI-Mh-pjl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4471" y="-287"/>
+            <point key="canvasLocation" x="4469.5652173913049" y="-287.27678571428572"/>
         </scene>
         <!--Input Detail View Controller-->
         <scene sceneID="IG6-Oe-6Gc">

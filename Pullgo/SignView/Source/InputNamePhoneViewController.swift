@@ -41,7 +41,9 @@ class InputNamePhoneViewController: UIViewController, Styler {
     
     func setButtonUI() {
         setViewCornerRadius(view: completeButton)
+        setViewCornerRadius(view: resendButton)
         setViewShadow(view: completeButton)
+        setViewShadow(view: resendButton)
         completeButton.setTitle(viewModel.buttonTitle, for: .normal)
         hide(view: completeButton)
     }
@@ -172,7 +174,7 @@ class InputNamePhoneViewController: UIViewController, Styler {
             alert.present(title: "알림", context: "회원가입이 완료되었습니다.\n입력하신 정보로 로그인해주세요.", actions: [action])
         }
         let fail = {
-            alert.present(title: "오류", context: "오류가 발생했습니다.\n네트워크 상태를 확인해주세요.", actions: [action])
+            alert.present(title: "오류", context: .NetworkError, actions: [action])
         }
         
         viewModel.postRequest(success: success, fail: fail)

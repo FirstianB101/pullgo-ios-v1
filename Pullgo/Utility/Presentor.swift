@@ -61,6 +61,18 @@ class AlertPresentor {
         self.view.present(alert, animated: true, completion: nil)
     }
     
+    func present(title: String, context: Message, handler: ((UIAlertAction) -> Void)? = nil) {
+        self.present(title: title, context: context.rawValue, handler: handler)
+    }
+    
+    func present(title: String, context: Message, actions: [UIAlertAction]) {
+        self.present(title: title, context: context.rawValue, actions: actions)
+    }
+    
+    func presentNetworkError() {
+        self.present(title: "오류", context: .NetworkError)
+    }
+    
     private func getAlert(title: String, context: String) -> UIAlertController {
         return UIAlertController(title: title, message: context, preferredStyle: .alert)
     }

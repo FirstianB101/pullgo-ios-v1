@@ -43,11 +43,12 @@ public class Network {
         }
     }
     
-    func `get`(url: URL, success: ((Data?) -> ())? = nil, fail: (() -> ())? = nil) {
+    func `get`(url: URL, success: ((Data?) -> ())? = nil, fail: (() -> ())? = nil, complete: (() -> ())? = nil) {
         AF.request(url).response { response in
             switch response.result {
             case .success(let d):
                 success?(d)
+                complete?()
             case .failure(_):
                 fail?()
             }
@@ -72,6 +73,24 @@ extension Encodable {
         }
         
         return json
+    }
+}
+
+extension URL {
+    
+    mutating func appendQuery(query: URLQueryItem) {
+        appendQuery(queryItems: [query])
+    }
+    
+    mutating func appendQuery(queryItems: [URLQueryItem]) {
+        var urlComp = URLComponents(string: self.absoluteString)!
+        
+        urlComp.queryItems = queryItems
+        do {
+            self = try urlComp.asURL()
+        } catch {
+            print("Append Query Error!")
+        }
     }
 }
 

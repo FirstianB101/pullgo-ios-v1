@@ -9,6 +9,33 @@
           "revision": "f96b619bcb2383b43d898402283924b80e2c4bae",
           "version": "5.4.3"
         }
+      },
+      {
+        "package": "FSCalendar",
+        "repositoryURL": "https://github.com/WenchaoD/FSCalendar",
+        "state": {
+          "branch": null,
+          "revision": "4e79a201fad268408a4fd9e2ef429497def9594f",
+          "version": "2.8.2"
+        }
+      },
+      {
+        "package": "HorizonCalendar",
+        "repositoryURL": "https://github.com/airbnb/HorizonCalendar",
+        "state": {
+          "branch": null,
+          "revision": "b2873446fe758d9cbef652d695b74010ffc1a9dc",
+          "version": "1.8.3"
+        }
+      },
+      {
+        "package": "SideMenu",
+        "repositoryURL": "https://github.com/jonkykong/SideMenu",
+        "state": {
+          "branch": null,
+          "revision": "8bd4fd128923cf5494fa726839af8afe12908ad9",
+          "version": "6.5.0"
+        }
       }
     ]
   },

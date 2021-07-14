@@ -11,10 +11,8 @@ import XCTest
 class PullgoTests: XCTestCase {
     
     func testExample() throws {
-        let account = Account(username: "yy0867", password: "123456", fullName: "김세영", phone: "01012345678")
-        let teacher = Teacher(id: nil, account: account)
+        var date = Date()
         
-        let param = try! teacher.toParameter()
-        
+        XCTAssertEqual((date + 24 * 3600).toString(), "2021-07-14")
     }
 }

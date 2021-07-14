@@ -11,6 +11,19 @@
 		A51033AA2692079A007E9452 /* StudentSignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51033A92692079A007E9452 /* StudentSignUpTest.swift */; };
 		A5191494268DC27300620A66 /* InputUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5191493268DC27300620A66 /* InputUsernameViewController.swift */; };
 		A5191496268DCC1500620A66 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5191495268DCC1500620A66 /* Extension.swift */; };
+		A5293762269ACCCD00B210C2 /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5293761269ACCCD00B210C2 /* Classroom.swift */; };
+		A5293764269ACCD700B210C2 /* Academy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5293763269ACCD700B210C2 /* Academy.swift */; };
+		A5293766269ACCE200B210C2 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5293765269ACCE200B210C2 /* Lesson.swift */; };
+		A5293768269ACCE700B210C2 /* Exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5293767269ACCE700B210C2 /* Exam.swift */; };
+		A529376A269ACCED00B210C2 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5293769269ACCED00B210C2 /* Question.swift */; };
+		A529376C269AD62A00B210C2 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A529376B269AD62A00B210C2 /* Schedule.swift */; };
+		A529376F269ADAF800B210C2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A529376E269ADAF800B210C2 /* Alamofire */; };
+		A5293771269ADAF800B210C2 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = A5293770269ADAF800B210C2 /* FSCalendar */; };
+		A5293773269ADAF800B210C2 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = A5293772269ADAF800B210C2 /* SideMenu */; };
+		A5293775269ADB0100B210C2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A5293774269ADB0100B210C2 /* Alamofire */; };
+		A5293777269ADB0100B210C2 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = A5293776269ADB0100B210C2 /* FSCalendar */; };
+		A5293779269ADB0100B210C2 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = A5293778269ADB0100B210C2 /* SideMenu */; };
+		A529377B269AE4CA00B210C2 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A529377A269AE4CA00B210C2 /* Messages.swift */; };
 		A532DB2326889ACB00076260 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DB2226889ACB00076260 /* AppDelegate.swift */; };
 		A532DB2526889ACB00076260 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DB2426889ACB00076260 /* SceneDelegate.swift */; };
 		A532DB2726889ACB00076260 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DB2626889ACB00076260 /* SignInViewController.swift */; };
@@ -39,6 +52,8 @@
 		A5B4CD5E2689934B00FA2967 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4CD5D2689934B00FA2967 /* Error.swift */; };
 		A5B4CD602689942200FA2967 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4CD5F2689942200FA2967 /* Network.swift */; };
 		A5C95ECC2691874000F19A55 /* InputDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C95ECB2691874000F19A55 /* InputDetailViewController.swift */; };
+		A5EC2ADB2697E4F400D310E0 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = A5EC2ADA2697E4F400D310E0 /* FSCalendar */; };
+		A5EC2ADE2697E9A400D310E0 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = A5EC2ADD2697E9A400D310E0 /* SideMenu */; };
 		A5EDB213268D8A960085CCAE /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EDB212268D8A960085CCAE /* Keyboard.swift */; };
 		A5EDB215268D931B0085CCAE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EDB214268D931B0085CCAE /* SignUpViewController.swift */; };
 		A5EDB217268D93A90085CCAE /* Styler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EDB216268D93A90085CCAE /* Styler.swift */; };
@@ -66,6 +81,13 @@
 		A51033A92692079A007E9452 /* StudentSignUpTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSignUpTest.swift; sourceTree = "<group>"; };
 		A5191493268DC27300620A66 /* InputUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputUsernameViewController.swift; sourceTree = "<group>"; };
 		A5191495268DCC1500620A66 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		A5293761269ACCCD00B210C2 /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
+		A5293763269ACCD700B210C2 /* Academy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Academy.swift; sourceTree = "<group>"; };
+		A5293765269ACCE200B210C2 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
+		A5293767269ACCE700B210C2 /* Exam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exam.swift; sourceTree = "<group>"; };
+		A5293769269ACCED00B210C2 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		A529376B269AD62A00B210C2 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		A529377A269AE4CA00B210C2 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		A532DB1F26889ACB00076260 /* Pullgo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pullgo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A532DB2226889ACB00076260 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A532DB2426889ACB00076260 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +131,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A532DB5526889BD700076260 /* Alamofire in Frameworks */,
+				A5EC2ADE2697E9A400D310E0 /* SideMenu in Frameworks */,
+				A5EC2ADB2697E4F400D310E0 /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +140,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A529376F269ADAF800B210C2 /* Alamofire in Frameworks */,
+				A5293773269ADAF800B210C2 /* SideMenu in Frameworks */,
+				A5293771269ADAF800B210C2 /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +150,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5293775269ADB0100B210C2 /* Alamofire in Frameworks */,
+				A5293779269ADB0100B210C2 /* SideMenu in Frameworks */,
+				A5293777269ADB0100B210C2 /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +169,13 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
+		A529376D269ADAF800B210C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A532DB1626889ACB00076260 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +183,7 @@
 				A532DB3826889ACC00076260 /* PullgoTests */,
 				A532DB4326889ACC00076260 /* PullgoUITests */,
 				A532DB2026889ACB00076260 /* Products */,
+				A529376D269ADAF800B210C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -270,6 +308,7 @@
 				A5EDB212268D8A960085CCAE /* Keyboard.swift */,
 				A5EDB216268D93A90085CCAE /* Styler.swift */,
 				A5191495268DCC1500620A66 /* Extension.swift */,
+				A529377A269AE4CA00B210C2 /* Messages.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -281,6 +320,12 @@
 				A57F5CEC2695F2BE00A603DD /* Account.swift */,
 				A5B469B22688E9F600C62F9C /* Student.swift */,
 				A5B469B42688EA7000C62F9C /* Teacher.swift */,
+				A5293761269ACCCD00B210C2 /* Classroom.swift */,
+				A5293763269ACCD700B210C2 /* Academy.swift */,
+				A5293765269ACCE200B210C2 /* Lesson.swift */,
+				A5293767269ACCE700B210C2 /* Exam.swift */,
+				A5293769269ACCED00B210C2 /* Question.swift */,
+				A529376B269AD62A00B210C2 /* Schedule.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -312,6 +357,8 @@
 			name = Pullgo;
 			packageProductDependencies = (
 				A532DB5426889BD700076260 /* Alamofire */,
+				A5EC2ADA2697E4F400D310E0 /* FSCalendar */,
+				A5EC2ADD2697E9A400D310E0 /* SideMenu */,
 			);
 			productName = Pullgo;
 			productReference = A532DB1F26889ACB00076260 /* Pullgo.app */;
@@ -331,6 +378,11 @@
 				A532DB3726889ACC00076260 /* PBXTargetDependency */,
 			);
 			name = PullgoTests;
+			packageProductDependencies = (
+				A529376E269ADAF800B210C2 /* Alamofire */,
+				A5293770269ADAF800B210C2 /* FSCalendar */,
+				A5293772269ADAF800B210C2 /* SideMenu */,
+			);
 			productName = PullgoTests;
 			productReference = A532DB3526889ACC00076260 /* PullgoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -349,6 +401,11 @@
 				A532DB4226889ACC00076260 /* PBXTargetDependency */,
 			);
 			name = PullgoUITests;
+			packageProductDependencies = (
+				A5293774269ADB0100B210C2 /* Alamofire */,
+				A5293776269ADB0100B210C2 /* FSCalendar */,
+				A5293778269ADB0100B210C2 /* SideMenu */,
+			);
 			productName = PullgoUITests;
 			productReference = A532DB4026889ACC00076260 /* PullgoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -386,6 +443,9 @@
 			mainGroup = A532DB1626889ACB00076260;
 			packageReferences = (
 				A532DB5326889BD700076260 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				A5EC2AD62697DE4A00D310E0 /* XCRemoteSwiftPackageReference "HorizonCalendar" */,
+				A5EC2AD92697E4F400D310E0 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				A5EC2ADC2697E9A400D310E0 /* XCRemoteSwiftPackageReference "SideMenu" */,
 			);
 			productRefGroup = A532DB2026889ACB00076260 /* Products */;
 			projectDirPath = "";
@@ -436,12 +496,16 @@
 				A532DB2726889ACB00076260 /* SignInViewController.swift in Sources */,
 				A5B469AF2688DF7200C62F9C /* UserType.swift in Sources */,
 				A57FE01E268F443600B1E609 /* InputNamePhoneViewController.swift in Sources */,
+				A529377B269AE4CA00B210C2 /* Messages.swift in Sources */,
+				A5293768269ACCE700B210C2 /* Exam.swift in Sources */,
 				A5B469AC2688DA8A00C62F9C /* Presentor.swift in Sources */,
 				A57FE01C268F401300B1E609 /* SignUpInformation.swift in Sources */,
 				A532DB2326889ACB00076260 /* AppDelegate.swift in Sources */,
 				A57FE01A268F256B00B1E609 /* SignUpStatusProtocol.swift in Sources */,
 				A5EDB213268D8A960085CCAE /* Keyboard.swift in Sources */,
 				A5191494268DC27300620A66 /* InputUsernameViewController.swift in Sources */,
+				A5293766269ACCE200B210C2 /* Lesson.swift in Sources */,
+				A5293762269ACCCD00B210C2 /* Classroom.swift in Sources */,
 				A5B4CD602689942200FA2967 /* Network.swift in Sources */,
 				A5EDB217268D93A90085CCAE /* Styler.swift in Sources */,
 				A5C95ECC2691874000F19A55 /* InputDetailViewController.swift in Sources */,
@@ -450,9 +514,12 @@
 				A58E7A11269758F6005FFC6F /* TeacherCalenderViewController.swift in Sources */,
 				A5B469B52688EA7000C62F9C /* Teacher.swift in Sources */,
 				A532DB2526889ACB00076260 /* SceneDelegate.swift in Sources */,
+				A529376A269ACCED00B210C2 /* Question.swift in Sources */,
 				A5B469B32688E9F600C62F9C /* Student.swift in Sources */,
+				A5293764269ACCD700B210C2 /* Academy.swift in Sources */,
 				A55D3FB92697261D009DC6B7 /* FindAccountViewController.swift in Sources */,
 				A5B4CD5E2689934B00FA2967 /* Error.swift in Sources */,
+				A529376C269AD62A00B210C2 /* Schedule.swift in Sources */,
 				A57F5CED2695F2BE00A603DD /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -801,13 +868,77 @@
 				minimumVersion = 5.4.3;
 			};
 		};
+		A5EC2AD62697DE4A00D310E0 /* XCRemoteSwiftPackageReference "HorizonCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/HorizonCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		A5EC2AD92697E4F400D310E0 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		A5EC2ADC2697E9A400D310E0 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A529376E269ADAF800B210C2 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A532DB5326889BD700076260 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		A5293770269ADAF800B210C2 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5EC2AD92697E4F400D310E0 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+		A5293772269ADAF800B210C2 /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5EC2ADC2697E9A400D310E0 /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
+		};
+		A5293774269ADB0100B210C2 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A532DB5326889BD700076260 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		A5293776269ADB0100B210C2 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5EC2AD92697E4F400D310E0 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+		A5293778269ADB0100B210C2 /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5EC2ADC2697E9A400D310E0 /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
+		};
 		A532DB5426889BD700076260 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A532DB5326889BD700076260 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		A5EC2ADA2697E4F400D310E0 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5EC2AD92697E4F400D310E0 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+		A5EC2ADD2697E9A400D310E0 /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5EC2ADC2697E9A400D310E0 /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -95,12 +95,12 @@ class SignInViewController: UIViewController, Styler {
                 } else {
                     teacher = try! data?.toObject(type: Teacher.self)
                     SignedUserInfo.shared.teacher = teacher
-                    self.presentStudentView()
+                    self.presentTeacherView()
                 }
                 
             }
             let fail: (() -> ()) = {
-                alert.present(title: "오류", context: "오류가 발생했습니다.\n잠시 후 다시 시도해주세요.")
+                alert.presentNetworkError()
                 return
             }
             try viewModel.requestSignIn(success: success, fail: fail)
@@ -112,13 +112,13 @@ class SignInViewController: UIViewController, Styler {
     }
     
     func presentTeacherView() {
-        let pvc = self.presentingViewController!
         let storyboard = UIStoryboard(name: "Teacher", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TeacherCalenderViewController") as! TeacherCalenderViewController
         
-        self.dismiss(animated: true, completion: {
-            pvc.present(vc, animated: true, completion: nil)
-        })
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .fullScreen
+        
+        self.present(vc, animated: true)
     }
     
     func presentStudentView() {

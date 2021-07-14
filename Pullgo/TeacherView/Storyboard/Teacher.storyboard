@@ -4,30 +4,148 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Teacher Calender View Controller-->
-        <scene sceneID="s0d-6b-0kx">
+        <!--View Controller-->
+        <scene sceneID="ui0-9i-uyz">
             <objects>
-                <viewController storyboardIdentifier="TeacherCalenderViewController" id="Y6W-OH-hqX" customClass="TeacherCalenderViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                <viewController id="ecK-Lf-5J3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Za-H8-FnV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="***님, 안녕하세요!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSy-pV-vVe">
+                                <rect key="frame" x="15" y="0.0" width="163" height="84"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BOD-fF-wv3"/>
+                        <color key="backgroundColor" name="LightAccent"/>
+                        <constraints>
+                            <constraint firstItem="CSy-pV-vVe" firstAttribute="top" secondItem="BOD-fF-wv3" secondAttribute="top" id="EmM-q5-Gvq"/>
+                            <constraint firstItem="CSy-pV-vVe" firstAttribute="leading" secondItem="BOD-fF-wv3" secondAttribute="leading" constant="15" id="Ljn-Tf-ZYI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4fu-J0-JVN"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="apQ-cN-frk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1578.2608695652175" y="143.97321428571428"/>
+        </scene>
+        <!--Side Menu Navigation Controller-->
+        <scene sceneID="jMm-e5-Mg1">
+            <objects>
+                <navigationController id="pud-Dq-IpZ" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="HyH-aD-C2I"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oUo-OZ-dex">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="AccentColor"/>
+                    </navigationBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="enableSwipeToDismissGesture" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="ecK-Lf-5J3" kind="relationship" relationship="rootViewController" id="FDb-DL-gHF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wi4-30-KUM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-742" y="142"/>
+        </scene>
+        <!--Teacher Calender View Controller-->
+        <scene sceneID="peP-jG-Mcl">
+            <objects>
+                <viewController storyboardIdentifier="TeacherCalenderViewController" id="leR-cV-llm" customClass="TeacherCalenderViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o6E-MB-9Ng">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAx-0t-550">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="수업 일정" id="WLk-xK-H0U">
+                                        <barButtonItem key="leftBarButtonItem" id="zuN-Lv-fh9">
+                                            <imageReference key="image" image="line.3.horizontal" catalog="system"/>
+                                            <color key="tintColor" name="AccentColor"/>
+                                            <connections>
+                                                <segue destination="pud-Dq-IpZ" kind="show" id="EZu-C8-8Lz"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" id="TY7-H8-mvG">
+                                            <imageReference key="image" image="calendar.badge.clock" catalog="system"/>
+                                            <color key="tintColor" name="AccentColor"/>
+                                            <connections>
+                                                <action selector="gotoToday:" destination="leR-cV-llm" id="1Fy-01-6WA"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="txY-yp-AT2" customClass="FSCalendar">
+                                <rect key="frame" x="10" y="98" width="394" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
+                                        <color key="value" systemColor="systemOrangeColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
+                                        <color key="value" name="AccentColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsMultipleSelection" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsSelection" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6S2-qK-vl5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hAx-0t-550" firstAttribute="leading" secondItem="6S2-qK-vl5" secondAttribute="leading" id="Eci-sc-5OI"/>
+                            <constraint firstItem="hAx-0t-550" firstAttribute="top" secondItem="6S2-qK-vl5" secondAttribute="top" id="Fpa-Ej-0gj"/>
+                            <constraint firstItem="txY-yp-AT2" firstAttribute="bottom" secondItem="6S2-qK-vl5" secondAttribute="bottom" constant="10" id="H5Z-en-sHM"/>
+                            <constraint firstItem="txY-yp-AT2" firstAttribute="leading" secondItem="6S2-qK-vl5" secondAttribute="leading" constant="10" id="VRj-Qr-H4S"/>
+                            <constraint firstItem="txY-yp-AT2" firstAttribute="top" secondItem="hAx-0t-550" secondAttribute="bottom" constant="10" id="Ywb-3o-3dz"/>
+                            <constraint firstItem="txY-yp-AT2" firstAttribute="trailing" secondItem="6S2-qK-vl5" secondAttribute="trailing" constant="-10" id="aur-oq-6xa"/>
+                            <constraint firstAttribute="trailing" secondItem="hAx-0t-550" secondAttribute="trailing" id="gRt-qU-TO4"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="calendar" destination="txY-yp-AT2" id="wpW-I3-3I7"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Njj-EI-EwE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="51" y="139"/>
+            <point key="canvasLocation" x="101" y="143"/>
         </scene>
     </scenes>
     <resources>
+        <image name="calendar.badge.clock" catalog="system" width="128" height="108"/>
+        <image name="line.3.horizontal" catalog="system" width="128" height="64"/>
+        <namedColor name="AccentColor">
+            <color red="0.55699998140335083" green="0.62400001287460327" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="LightAccent">
+            <color red="0.87000000476837158" green="0.88999998569488525" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
