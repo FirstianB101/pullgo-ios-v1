@@ -18,13 +18,17 @@ class TeacherCalenderViewController: UIViewController {
         
         setCalendarUI()
         viewModel.view = self
+        self.calendar.dataSource = self
+        self.calendar.delegate = self
+        initializeCalendar()
+    }
+    
+    func initializeCalendar() {
+        let since = calendar.currentPage.firstDate.toKST()
+        let until = since.nextMonth.firstDate.toKST()
         
-        let since = Date.getFirstDateOfMonth(date: Date())
-        let until = Date.getFirstDateOfMonth(date: since.nextMonth)
         viewModel.getLessonsBetween(since: since, until: until) {
-            self.calendar.dataSource = self
-            self.calendar.delegate = self
-            print("complete")
+            self.calendar.reloadData()
         }
     }
 }
@@ -59,7 +63,7 @@ extension TeacherCalenderViewController: FSCalendarDelegate {
     }
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
-        
+        viewModel.getLessonsBetween(since: calendar.currentPage.firstDate, until: calendar.currentPage.nextMonth.firstDate)
     }
 }
 
@@ -69,9 +73,11 @@ extension TeacherCalenderViewController: FSCalendarDataSource {
     }
 }
 
+// MARK: - ViewModel
 class TeacherCalenderViewModel {
     let teacher = SignedUserInfo.shared.teacher
     var lessonsOfMonth: [String : [Lesson]] = [:]
+    
     var view: UIViewController! = nil
     
     func getLessonsBetween(since: Date, until: Date, complete: (() -> ())? = nil) {
@@ -126,6 +132,7 @@ class TeacherCalenderViewModel {
     }
 }
 
+// MARK: - Date Extensions
 extension Date {
     
     func toString(format: String = "YYYY-MM-dd") -> String {
@@ -158,9 +165,11 @@ extension Date {
         }
     }
     
-    static func getFirstDateOfMonth(date: Date) -> Date {
-        let day = Double(date.toString(format: "dd"))! - 1
-        
-        return date - Date.day * day
+    var firstDate: Date {
+        get {
+            let day = Double(self.toString(format: "dd"))! - 2
+            
+            return self - Date.day * day
+        }
     }
 }

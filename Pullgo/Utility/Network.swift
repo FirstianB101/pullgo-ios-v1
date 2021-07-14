@@ -47,7 +47,9 @@ public class Network {
         AF.request(url).response { response in
             switch response.result {
             case .success(let d):
-                success?(d)
+                DispatchQueue.global().sync {
+                    success?(d)
+                }
                 complete?()
             case .failure(_):
                 fail?()
