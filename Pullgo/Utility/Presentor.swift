@@ -33,6 +33,24 @@ class AnimationPresentor: Styler {
             self.hide(view: view)
         })
     }
+    
+    /// Make view.alpha property to 0.3 with animate
+    func gettingDark(view: UIView) {
+        if view.alpha == 0.3 { return }
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            view.alpha = 0.3
+        })
+    }
+    
+    /// Make view.alpha property to 1 with animate
+    func gettingBright(view: UIView) {
+        if view.alpha == 1 { return }
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            view.alpha = 1
+        })
+    }
 }
 
 class AlertPresentor {

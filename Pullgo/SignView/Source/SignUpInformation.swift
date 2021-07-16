@@ -15,12 +15,12 @@ struct SignUpInformation {
     var teacher: Teacher?
     var account: Account?
     
-    private var _userType: UserType = .Student
+    private var _userType: UserType = .student
     var userType: UserType {
         get { _userType }
         set {
             _userType = newValue
-            if newValue == .Student {
+            if newValue == .student {
                 student = Student()
                 teacher = nil
             } else {
@@ -34,7 +34,7 @@ struct SignUpInformation {
     func mergeAccount() {
         let account = SignUpInformation.shared.account
         
-        if SignUpInformation.shared.userType == .Student {
+        if SignUpInformation.shared.userType == .student {
             SignUpInformation.shared.student?.account = account
         } else {
             SignUpInformation.shared.teacher?.account = account
@@ -44,7 +44,7 @@ struct SignUpInformation {
     func postSignUpInformation(success: (() -> ())? = nil, fail: (() -> ())? = nil) {
         let url = NetworkManager.assembleURL(components: [SignUpInformation.shared.userType.ToURLComponent()])
         
-        if SignUpInformation.shared.userType == .Student {
+        if SignUpInformation.shared.userType == .student {
             let student = SignUpInformation.shared.student
             NetworkManager.post(url: url, data: student, success: success, fail: fail)
         } else {

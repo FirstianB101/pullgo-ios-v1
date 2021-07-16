@@ -10,7 +10,4 @@ import Foundation
 struct Teacher: Codable {
     var id: Int? = nil
     var account: Account! = nil
-    var academies: [Academy]? = nil
-    var signedAcademy: Academy? = nil
-    
 }

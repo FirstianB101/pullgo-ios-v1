@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import UIKit
 
 struct Account: Codable {
     var username: String!
@@ -23,6 +24,9 @@ struct SignedUserInfo {
     var teacher: Teacher!
     var userType: UserType!
     
+    var academies: [Academy]? = nil
+    var signedAcademy: Academy? = nil
+    
     mutating func setUserInfo(id: Int, type: UserType) {
         self.id = id
         self.userType = type
@@ -30,11 +34,30 @@ struct SignedUserInfo {
     
     func requestSignIn(success: @escaping ((Data?) -> ()), fail: @escaping (() -> ())) {
         let url: URL = getUserInfoURL()
-        NetworkManager.get(url: url, success: success, fail: fail)
+        NetworkManager.get(url: url, success: success, fail: fail) {
+            self.getAcademyInfo()
+        }
     }
     
     func getUserInfoURL() -> URL {
-        return NetworkManager.assembleURL(components: [self.userType.ToURLComponent(),
-                                                       String(self.id)])
+        return NetworkManager.assembleURL(components: [self.userType.ToURLComponent(), String(self.id)])
+    }
+    
+    func getAcademyInfo() {
+        var url: URL = NetworkManager.assembleURL(components: ["academies"])
+        url.appendQuery(query: URLQueryItem(name: self.userType.toURLQuery(), value: String(self.id)))
+        
+        NetworkManager.get(url: url, success: { data in
+            guard let academies = try! data?.toObject(type: [Academy].self) else {
+                print("SignedUserInfo.getAcademyInfo() -> toObject error")
+                return
+            }
+            
+            SignedUserInfo.shared.academies = academies
+            if academies.isEmpty { SignedUserInfo.shared.signedAcademy = nil }
+            else { SignedUserInfo.shared.signedAcademy = academies[1] }
+        }, fail: {
+            print("SignedUserInfo.getAcademyInfo() -> Response error")
+        })
     }
 }

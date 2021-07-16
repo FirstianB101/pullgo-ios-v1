@@ -8,5 +8,8 @@
 import Foundation
 
 struct Academy: Codable {
-    
+    var name: String?
+    var phone: String?
+    var address: String?
+    var ownerId: Int?
 }

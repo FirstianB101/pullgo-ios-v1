@@ -8,24 +8,32 @@
 import Foundation
 
 enum UserType: Int {
-    case Student = 0
-    case Teacher = 1
+    case student = 0
+    case teacher = 1
     
     static func ToUserType(index: Int) -> UserType? {
         if index == 0 {
-            return .Student
+            return .student
         } else if index == 1 {
-            return .Teacher
+            return .teacher
         }
         
         return nil
     }
     
     func ToURLComponent() -> String {
-        if self == .Student {
+        if self == .student {
             return "students"
         } else {
             return "teachers"
+        }
+    }
+    
+    func toURLQuery() -> String {
+        if self == .student {
+            return "studentId"
+        } else {
+            return "teacherId"
         }
     }
 }

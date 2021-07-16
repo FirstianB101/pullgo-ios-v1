@@ -154,7 +154,7 @@ class InputNamePhoneViewController: UIViewController, Styler {
     }
     
     func decideNextAct() {
-        if viewModel.userType == .Student {
+        if viewModel.userType == .student {
             let vc = storyboard?.instantiateViewController(withIdentifier: "InputDetailViewController") as! InputDetailViewController
             self.navigationItem.backButtonTitle = "전화번호 입력"
             navigationController?.pushViewController(vc, animated: true)
@@ -197,7 +197,7 @@ class InputNamePhoneViewModel {
     }
     var buttonTitle: String {
         get {
-            if SignUpInformation.shared.userType == .Student {
+            if SignUpInformation.shared.userType == .student {
                 return "추가정보 입력"
             } else {
                 return "회원가입"

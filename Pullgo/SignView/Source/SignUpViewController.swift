@@ -24,10 +24,10 @@ class SignUpViewController: UIViewController, Styler {
     }
     
     @IBAction func studentClicked(sender: UIButton) {
-        SignUpInformation.shared.userType = .Student
+        SignUpInformation.shared.userType = .student
     }
     
     @IBAction func teacherClicked(sender: UIButton) {
-        SignUpInformation.shared.userType = .Teacher
+        SignUpInformation.shared.userType = .teacher
     }
 }

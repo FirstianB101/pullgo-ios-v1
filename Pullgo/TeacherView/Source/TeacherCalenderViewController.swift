@@ -7,6 +7,12 @@
 
 import UIKit
 import FSCalendar
+import SideMenu
+
+protocol TeacherCalenderSelectDelegate: AnyObject {
+    var selectedDate: Date? { get }
+    func getLessonsOf(date: Date) -> [Lesson]
+}
 
 class TeacherCalenderViewController: UIViewController {
     
@@ -30,6 +36,20 @@ class TeacherCalenderViewController: UIViewController {
         viewModel.getLessonsBetween(since: since, until: until) {
             self.calendar.reloadData()
         }
+    }
+    
+    @IBAction func showSideMenu(_ sender: UIBarButtonItem) {
+        TeacherViewSwitcher.showSideMenu(self)
+    }
+}
+
+extension TeacherCalenderViewController: TeacherCalenderSelectDelegate {
+    var selectedDate: Date? {
+        return calendar.selectedDate
+    }
+    
+    func getLessonsOf(date: Date) -> [Lesson] {
+        return viewModel.getLessonsOf(date: date.key)
     }
 }
 
@@ -59,11 +79,25 @@ extension TeacherCalenderViewController {
 
 extension TeacherCalenderViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let storyboard = UIStoryboard(name: "Teacher", bundle: nil)
+        guard let detailVC = storyboard.instantiateViewController(withIdentifier: "TeacherCalendarSelectViewController") as? TeacherCalendarSelectViewController else { return }
         
+        self.view.alpha = 0.3
+        
+        detailVC.modalPresentationStyle = .custom
+        detailVC.transitioningDelegate = self
+        detailVC.view.layer.cornerRadius = 25
+        detailVC.delegate = self
+        
+        present(detailVC, animated: true, completion: nil)
     }
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
-        viewModel.getLessonsBetween(since: calendar.currentPage.firstDate, until: calendar.currentPage.nextMonth.firstDate)
+        if viewModel.isLastestDataOfMonth(date: calendar.currentPage.yearAndMonth) { return }
+        
+        viewModel.getLessonsBetween(since: calendar.currentPage.firstDate, until: calendar.currentPage.nextMonth.firstDate) {
+            self.calendar.reloadData()
+        }
     }
 }
 
@@ -73,10 +107,36 @@ extension TeacherCalenderViewController: FSCalendarDataSource {
     }
 }
 
+// MARK: - Half Modal
+extension TeacherCalenderViewController: UIViewControllerTransitioningDelegate {
+    
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return HalfSizePresentationController(presentedViewController: presented, presenting: presenting)
+    }
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        return nil
+    }
+}
+
+class HalfSizePresentationController: UIPresentationController {
+    override var frameOfPresentedViewInContainerView: CGRect {
+        get {
+            guard let view = containerView else { return CGRect.zero }
+            let inset: CGFloat = 0
+            
+            return CGRect(x: inset, y: view.bounds.height * (1 / 3), width: view.bounds.width - (inset * 2), height: view.bounds.height * (2 / 3))
+        }
+    }
+}
+
+
 // MARK: - ViewModel
 class TeacherCalenderViewModel {
     let teacher = SignedUserInfo.shared.teacher
-    var lessonsOfMonth: [String : [Lesson]] = [:]
+    private var _isLastestDataOfMonth: [YearAndMonth : Bool] = [:]
+    var lessonsOfMonth: [DateKey : [Lesson]] = [:]
     
     var view: UIViewController! = nil
     
@@ -91,6 +151,7 @@ class TeacherCalenderViewModel {
                 return
             }
             self.setLessonsByReceivedData(since: since, until: until, lessons: receivedLessons)
+            self.updateLastestDataOfMonth(date: since.yearAndMonth)
         }
         
         let fail: (() -> ()) = {
@@ -112,12 +173,24 @@ class TeacherCalenderViewModel {
                 }
             }
             
-            lessonsOfMonth[date.toString()] = todayLessons
+            lessonsOfMonth[date.key] = todayLessons
             date += Date.day
         }
     }
     
-    func getLessonsOf(date: String) -> [Lesson] {
+    private func updateLastestDataOfMonth(date: YearAndMonth) {
+        _isLastestDataOfMonth[date] = true
+    }
+    
+    func isLastestDataOfMonth(date: YearAndMonth) -> Bool {
+        guard let status = _isLastestDataOfMonth[date] else {
+            return false
+        }
+        if !status { return false }
+        else { return true }
+    }
+    
+    func getLessonsOf(date: DateKey) -> [Lesson] {
         return lessonsOfMonth[date] ?? []
     }
     
@@ -132,6 +205,12 @@ class TeacherCalenderViewModel {
     }
 }
 
+/// The type of key in the dictionary that uses the "YYYY-MM" format for key
+typealias YearAndMonth = String
+
+/// The type of key in the dictionary that uses the "YYYY-MM-dd" format for key.
+typealias DateKey = String
+
 // MARK: - Date Extensions
 extension Date {
     
@@ -143,14 +222,7 @@ extension Date {
     }
     
     func toKST() -> Date {
-        let date = DateFormatter()
-        
-        date.locale = Locale(identifier: "ko_KR")
-        date.timeZone = TimeZone(identifier: "ko_KR")
-        date.dateFormat = "YYYY-MM-dd"
-
-        let kst = date.string(from: self)
-        return date.date(from: kst)!
+        return self.addingTimeInterval(9 * 3600)
     }
     
     var nextMonth: Date {
@@ -171,5 +243,13 @@ extension Date {
             
             return self - Date.day * day
         }
+    }
+    
+    var key: String {
+        return self.toString()
+    }
+    
+    var yearAndMonth: YearAndMonth {
+        return self.toString(format: "YYYY-MM")
     }
 }
