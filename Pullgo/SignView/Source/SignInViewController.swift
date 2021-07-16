@@ -107,7 +107,7 @@ class SignInViewController: UIViewController, Styler {
     
     func presentTeacherView() {
         let storyboard = UIStoryboard(name: "Teacher", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "TeacherCalenderViewController") as! TeacherCalenderViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "TeacherCalendarViewController") as! TeacherCalendarViewController
         
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .fullScreen

@@ -1,5 +1,5 @@
 //
-//  TeacherCalenderViewController.swift
+//  TeacherCalendarViewController.swift
 //  Pullgo
 //
 //  Created by 김세영 on 2021/07/09.
@@ -9,15 +9,15 @@ import UIKit
 import FSCalendar
 import SideMenu
 
-protocol TeacherCalenderSelectDelegate: AnyObject {
+protocol TeacherCalendarSelectDelegate: AnyObject {
     var selectedDate: Date? { get }
     func getLessonsOf(date: Date) -> [Lesson]
 }
 
-class TeacherCalenderViewController: UIViewController {
+class TeacherCalendarViewController: UIViewController {
     
     @IBOutlet weak var calendar: FSCalendar!
-    let viewModel = TeacherCalenderViewModel()
+    let viewModel = TeacherCalendarViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,7 @@ class TeacherCalenderViewController: UIViewController {
     }
 }
 
-extension TeacherCalenderViewController: TeacherCalenderSelectDelegate {
+extension TeacherCalendarViewController: TeacherCalendarSelectDelegate {
     var selectedDate: Date? {
         return calendar.selectedDate
     }
@@ -54,14 +54,14 @@ extension TeacherCalenderViewController: TeacherCalenderSelectDelegate {
 }
 
 // MARK: - Calendar Methods
-extension TeacherCalenderViewController {
+extension TeacherCalendarViewController {
     
     func setCalendarUI() {
         calendar.locale = Locale(identifier: "ko_KR")
-        setCalenderHeaderUI()
+        setCalendarHeaderUI()
     }
     
-    private func setCalenderHeaderUI() {
+    private func setCalendarHeaderUI() {
         calendar.appearance.headerDateFormat = "M월 YYYY"
         setWeekendHeaderColorUI()
     }
@@ -77,7 +77,7 @@ extension TeacherCalenderViewController {
     }
 }
 
-extension TeacherCalenderViewController: FSCalendarDelegate {
+extension TeacherCalendarViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let storyboard = UIStoryboard(name: "Teacher", bundle: nil)
         guard let detailVC = storyboard.instantiateViewController(withIdentifier: "TeacherCalendarSelectViewController") as? TeacherCalendarSelectViewController else { return }
@@ -101,14 +101,14 @@ extension TeacherCalenderViewController: FSCalendarDelegate {
     }
 }
 
-extension TeacherCalenderViewController: FSCalendarDataSource {
+extension TeacherCalendarViewController: FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         return viewModel.getLessonsOf(date: date.toString()).count
     }
 }
 
 // MARK: - Half Modal
-extension TeacherCalenderViewController: UIViewControllerTransitioningDelegate {
+extension TeacherCalendarViewController: UIViewControllerTransitioningDelegate {
     
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         return HalfSizePresentationController(presentedViewController: presented, presenting: presenting)
@@ -133,7 +133,7 @@ class HalfSizePresentationController: UIPresentationController {
 
 
 // MARK: - ViewModel
-class TeacherCalenderViewModel {
+class TeacherCalendarViewModel {
     let teacher = SignedUserInfo.shared.teacher
     private var _isLastestDataOfMonth: [YearAndMonth : Bool] = [:]
     var lessonsOfMonth: [DateKey : [Lesson]] = [:]

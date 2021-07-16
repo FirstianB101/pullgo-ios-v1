@@ -12,7 +12,7 @@ class TeacherCalendarSelectViewController: UIViewController {
     var initialCenter = CGPoint()
     @IBOutlet weak var lessonList: UITableView!
     @IBOutlet weak var selectedDate: UILabel!
-    weak var delegate: TeacherCalenderSelectDelegate?
+    weak var delegate: TeacherCalendarSelectDelegate?
     let viewModel = TeacherCalendarSelectViewModel()
     
     override func viewDidLoad() {
@@ -116,7 +116,7 @@ class TeacherCalendarSelectViewModel {
             return delegate?.selectedDate ?? Date()
         }
     }
-    weak var delegate: TeacherCalenderSelectDelegate?
+    weak var delegate: TeacherCalendarSelectDelegate?
     
     func setLessons() {
         guard let lessons = delegate?.getLessonsOf(date: self.selectedDate) else { print("a"); return }

@@ -152,10 +152,10 @@
             </objects>
             <point key="canvasLocation" x="-742" y="142"/>
         </scene>
-        <!--View Controller-->
+        <!--Teacher Classroom Manage View Controller-->
         <scene sceneID="OxB-a7-BEg">
             <objects>
-                <viewController id="7bP-d1-dG0" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TeacherClassroomManageViewController" id="7bP-d1-dG0" customClass="TeacherClassroomManageViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cqi-gA-nDo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,7 +164,20 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <navigationItem title="반 관리" id="JZC-tD-SbS"/>
+                                    <navigationItem title="반 관리" id="JZC-tD-SbS">
+                                        <barButtonItem key="leftBarButtonItem" id="s0O-Eh-p1l">
+                                            <imageReference key="image" image="line.3.horizontal" catalog="system"/>
+                                            <color key="tintColor" name="AccentColor"/>
+                                            <connections>
+                                                <action selector="showSideMenu:" destination="7bP-d1-dG0" id="w8h-Bd-ZrZ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="coV-pv-wlB">
+                                            <connections>
+                                                <action selector="addClassroom:" destination="7bP-d1-dG0" id="cVb-PD-COG"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -181,10 +194,10 @@
             </objects>
             <point key="canvasLocation" x="167" y="-536"/>
         </scene>
-        <!--Teacher Calender View Controller-->
+        <!--Teacher Calendar View Controller-->
         <scene sceneID="peP-jG-Mcl">
             <objects>
-                <viewController storyboardIdentifier="TeacherCalenderViewController" id="leR-cV-llm" customClass="TeacherCalenderViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TeacherCalendarViewController" id="leR-cV-llm" customClass="TeacherCalendarViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o6E-MB-9Ng">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

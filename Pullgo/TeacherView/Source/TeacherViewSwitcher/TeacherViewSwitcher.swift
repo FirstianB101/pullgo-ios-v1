@@ -17,20 +17,22 @@ enum TeacherMenu: String, CaseIterable {
     case applyAcademyJoinRequest = "학원 가입 승인"
     case academyManage = "학원 관리"
     
-    static func index(of value: TeacherMenu) -> Int {
-        switch value {
-        case .calendarView:
-            return 0
-        case .classroomManage:
-            return 1
-        case .requestClassroomJoin:
-            return 2
-        case .changeInfo:
-            return 3
-        case .applyAcademyJoinRequest:
-            return 4
-        case .academyManage:
-            return 5
+    static func value(at index: Int) -> TeacherMenu {
+        switch index {
+        case 0:
+            return .calendarView
+        case 1:
+            return .classroomManage
+        case 2:
+            return .requestClassroomJoin
+        case 3:
+            return .changeInfo
+        case 4:
+            return .applyAcademyJoinRequest
+        case 5:
+            return .academyManage
+        default:
+            return .calendarView
         }
     }
     

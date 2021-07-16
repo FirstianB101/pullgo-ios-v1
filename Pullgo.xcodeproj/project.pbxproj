@@ -58,6 +58,7 @@
 		A5EDB213268D8A960085CCAE /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EDB212268D8A960085CCAE /* Keyboard.swift */; };
 		A5EDB215268D931B0085CCAE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EDB214268D931B0085CCAE /* SignUpViewController.swift */; };
 		A5EDB217268D93A90085CCAE /* Styler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EDB216268D93A90085CCAE /* Styler.swift */; };
+		A5EFD39526A16B3E001637FB /* TeacherClassroomManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFD39426A16B3E001637FB /* TeacherClassroomManageViewController.swift */; };
 		A5FB031026A04071007FCDB7 /* TeacherCreateLessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FB030F26A04071007FCDB7 /* TeacherCreateLessonViewController.swift */; };
 		A5FB031226A0574C007FCDB7 /* TeacherViewSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FB031126A0574C007FCDB7 /* TeacherViewSwitcher.swift */; };
 		A5FB031526A05C2D007FCDB7 /* TeacherMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FB031426A05C2D007FCDB7 /* TeacherMenuViewController.swift */; };
@@ -129,6 +130,7 @@
 		A5EDB212268D8A960085CCAE /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		A5EDB214268D931B0085CCAE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		A5EDB216268D93A90085CCAE /* Styler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styler.swift; sourceTree = "<group>"; };
+		A5EFD39426A16B3E001637FB /* TeacherClassroomManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassroomManageViewController.swift; sourceTree = "<group>"; };
 		A5FB030F26A04071007FCDB7 /* TeacherCreateLessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCreateLessonViewController.swift; sourceTree = "<group>"; };
 		A5FB031126A0574C007FCDB7 /* TeacherViewSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherViewSwitcher.swift; sourceTree = "<group>"; };
 		A5FB031426A05C2D007FCDB7 /* TeacherMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherMenuViewController.swift; sourceTree = "<group>"; };
@@ -296,10 +298,9 @@
 		A58E7A0F269758DD005FFC6F /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A5EFD39326A16B27001637FB /* Classroom */,
+				A5EFD39226A16B13001637FB /* Calendar */,
 				A5FB031326A05C15007FCDB7 /* TeacherViewSwitcher */,
-				A58E7A10269758F6005FFC6F /* TeacherCalenderViewController.swift */,
-				A532DDA9269F295C007C9A34 /* TeacherCalendarSelectViewController.swift */,
-				A5FB030F26A04071007FCDB7 /* TeacherCreateLessonViewController.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -351,6 +352,24 @@
 				A532DB2D26889ACC00076260 /* LaunchScreen.storyboard */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		A5EFD39226A16B13001637FB /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				A58E7A10269758F6005FFC6F /* TeacherCalenderViewController.swift */,
+				A532DDA9269F295C007C9A34 /* TeacherCalendarSelectViewController.swift */,
+				A5FB030F26A04071007FCDB7 /* TeacherCreateLessonViewController.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		A5EFD39326A16B27001637FB /* Classroom */ = {
+			isa = PBXGroup;
+			children = (
+				A5EFD39426A16B3E001637FB /* TeacherClassroomManageViewController.swift */,
+			);
+			path = Classroom;
 			sourceTree = "<group>";
 		};
 		A5FB031326A05C15007FCDB7 /* TeacherViewSwitcher */ = {
@@ -527,6 +546,7 @@
 				A532DB2726889ACB00076260 /* SignInViewController.swift in Sources */,
 				A5B469AF2688DF7200C62F9C /* UserType.swift in Sources */,
 				A5FB031026A04071007FCDB7 /* TeacherCreateLessonViewController.swift in Sources */,
+				A5EFD39526A16B3E001637FB /* TeacherClassroomManageViewController.swift in Sources */,
 				A57FE01E268F443600B1E609 /* InputNamePhoneViewController.swift in Sources */,
 				A529377B269AE4CA00B210C2 /* Messages.swift in Sources */,
 				A5FB031526A05C2D007FCDB7 /* TeacherMenuViewController.swift in Sources */,
