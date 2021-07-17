@@ -232,7 +232,7 @@ class InputNamePhoneViewModel {
         SignUpInformation.shared.account?.phone = self.phone
     }
     
-    func postRequest(success: @escaping (() -> ()), fail: @escaping (() -> ())) {
+    func postRequest(success: @escaping EmptyClosure, fail: @escaping FailClosure) {
         SignUpInformation.shared.postSignUpInformation(success: success, fail: fail)
     }
 }

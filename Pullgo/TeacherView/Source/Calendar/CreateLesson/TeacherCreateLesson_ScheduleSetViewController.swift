@@ -1,14 +1,16 @@
 //
-//  TeacherCreateLessonViewController.swift
+//  TeacherCreateLesson_DateSetViewController.swift
 //  Pullgo
 //
-//  Created by 김세영 on 2021/07/15.
+//  Created by 김세영 on 2021/07/18.
 //
 
 import UIKit
 
-class TeacherCreateLessonViewController: UIViewController {
+class TeacherCreateLesson_ScheduleSetViewController: UIViewController {
 
+    var selectDateDelegate: TeacherCreateLessonDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

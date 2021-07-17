@@ -84,7 +84,7 @@ class SignInViewController: UIViewController, Styler {
     func requestSignIn() {
         let alert = AlertPresentor(view: self)
         
-        let success: ((Data?) -> ()) = { data in
+        let success: GetClosure = { data in
             var teacher: Teacher? = nil
             var student: Student? = nil
             if self.viewModel.userType == .student {
@@ -97,7 +97,7 @@ class SignInViewController: UIViewController, Styler {
                 self.presentTeacherView()
             }
         }
-        let fail: (() -> ()) = {
+        let fail: FailClosure = {
             alert.presentNetworkError()
             return
         }
@@ -140,7 +140,7 @@ class SignInViewModel {
         self.userType = userType
     }
     
-    func requestSignIn(success: @escaping ((Data?) -> ()), fail: @escaping (() -> ())) {
+    func requestSignIn(success: @escaping GetClosure, fail: @escaping FailClosure) {
         // Login API Not Supported
         // call ID for test
         guard let id = Int(usernameInput) else { return }

@@ -128,7 +128,7 @@ class InputDetailViewModel {
         return schoolName.contains("학교")
     }
     
-    func postRequest(success: @escaping (() -> ()), fail: @escaping (() -> ())) {
+    func postRequest(success: @escaping EmptyClosure, fail: @escaping FailClosure) {
         SignUpInformation.shared.postSignUpInformation(success: success, fail: fail)
     }
 }

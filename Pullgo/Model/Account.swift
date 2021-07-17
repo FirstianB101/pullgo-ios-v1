@@ -29,14 +29,14 @@ class SignedUserInfo {
     var academies: [Academy]? = nil
     var signedAcademy: Academy? = nil
     var classrooms: [Classroom]? = nil
-    var networkFailDelegate: NetworkFailDelegate?
+    var networkAlertDelegate: NetworkAlertDelegate?
     
     func setUserInfo(id: Int, type: UserType) {
         self.id = id
         self.userType = type
     }
     
-    func requestSignIn(success: @escaping ((Data?) -> ()), fail: @escaping (() -> ())) {
+    func requestSignIn(success: @escaping GetClosure, fail: @escaping FailClosure) {
         let url: URL = getUserInfoURL()
         NetworkManager.get(url: url, success: success, fail: fail) {
             self.getAcademyInfo()
@@ -65,11 +65,11 @@ class SignedUserInfo {
         })
     }
     
-    func getClassroomInfo(complete: @escaping (() -> ())) {
+    func getClassroomInfo(complete: @escaping EmptyClosure) {
         var url: URL = NetworkManager.assembleURL(components: ["academy", "classrooms"])
         url.appendQuery(queryItems: getQueryItems())
         
-        let success: ((Data?) -> ()) = { data in
+        let success: GetClosure = { data in
             guard let classrooms = try? data?.toObject(type: [Classroom].self) else {
                 print("SignedUserInfo.getClassroomData() -> data parse error")
                 return
@@ -77,8 +77,8 @@ class SignedUserInfo {
             SignedUser.classrooms = classrooms
         }
         
-        let fail: (() -> ()) = {
-            SignedUser.networkFailDelegate?.networkFailAlert()
+        let fail: FailClosure = {
+            SignedUser.networkAlertDelegate?.networkFailAlert()
         }
         
         NetworkManager.get(url: url, success: success, fail: fail, complete: complete)

@@ -41,7 +41,7 @@ struct SignUpInformation {
         }
     }
     
-    func postSignUpInformation(success: (() -> ())? = nil, fail: (() -> ())? = nil) {
+    func postSignUpInformation(success: EmptyClosure? = nil, fail: FailClosure? = nil) {
         let url = NetworkManager.assembleURL(components: [SignUpInformation.shared.userType.ToURLComponent()])
         
         if SignUpInformation.shared.userType == .student {
