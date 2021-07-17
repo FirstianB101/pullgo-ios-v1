@@ -89,11 +89,11 @@ class SignInViewController: UIViewController, Styler {
             var student: Student? = nil
             if self.viewModel.userType == .student {
                 student = try! data?.toObject(type: Student.self)
-                SignedUserInfo.shared.student = student
+                SignedUser.student = student
                 self.presentStudentView()
             } else {
                 teacher = try! data?.toObject(type: Teacher.self)
-                SignedUserInfo.shared.teacher = teacher
+                SignedUser.teacher = teacher
                 self.presentTeacherView()
             }
         }
@@ -144,7 +144,7 @@ class SignInViewModel {
         // Login API Not Supported
         // call ID for test
         guard let id = Int(usernameInput) else { return }
-        SignedUserInfo.shared.setUserInfo(id: id, type: userType)
-        SignedUserInfo.shared.requestSignIn(success: success, fail: fail)
+        SignedUser.setUserInfo(id: id, type: userType)
+        SignedUser.requestSignIn(success: success, fail: fail)
     }
 }

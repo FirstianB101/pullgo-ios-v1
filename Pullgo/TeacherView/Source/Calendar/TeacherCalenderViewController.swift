@@ -134,10 +134,9 @@ class HalfSizePresentationController: UIPresentationController {
 
 // MARK: - ViewModel
 class TeacherCalendarViewModel {
-    let teacher = SignedUserInfo.shared.teacher
+    let teacher = SignedUser.teacher
     private var _isLastestDataOfMonth: [YearAndMonth : Bool] = [:]
     var lessonsOfMonth: [DateKey : [Lesson]] = [:]
-    
     var view: UIViewController! = nil
     
     func getLessonsBetween(since: Date, until: Date, complete: (() -> ())? = nil) {

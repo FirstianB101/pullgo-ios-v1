@@ -58,6 +58,16 @@ public class Network {
     }
 }
 
+/// When ViewModel or Somewhere except UIViewController needs to show NetworkFail Alert,
+/// Use this delegate to print alert
+///
+/// In UIViewController of ViewModel, implements
+/// `ViewModel.delegate = self`
+/// `networkFailAlert`
+protocol NetworkFailDelegate: AnyObject {
+    func networkFailAlert()
+}
+
 extension Encodable {
     
     func toParameter(_ encoder: JSONEncoder = JSONEncoder()) throws -> [String : Any] {

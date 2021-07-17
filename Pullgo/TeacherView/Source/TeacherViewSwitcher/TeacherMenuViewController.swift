@@ -53,8 +53,8 @@ extension TeacherMenuViewController: UITableViewDataSource {
 }
 
 class TeacherMenuViewModel {
-    let fullName: String = SignedUserInfo.shared.teacher.account.fullName
-    let academyName: String = SignedUserInfo.shared.signedAcademy?.name ?? ""
+    let fullName: String = SignedUser.teacher.account.fullName
+    let academyName: String = SignedUser.signedAcademy?.name ?? ""
     var menus: [String] = []
     
     init() {

@@ -16,8 +16,10 @@ struct Account: Codable {
     var phone: String!
 }
 
-struct SignedUserInfo {
-    static var shared: SignedUserInfo = SignedUserInfo()
+let SignedUser = SignedUserInfo.default
+
+class SignedUserInfo {
+    static let `default`: SignedUserInfo = SignedUserInfo()
     
     var id: Int!
     var student: Student!
@@ -26,8 +28,10 @@ struct SignedUserInfo {
     
     var academies: [Academy]? = nil
     var signedAcademy: Academy? = nil
+    var classrooms: [Classroom]? = nil
+    var networkFailDelegate: NetworkFailDelegate?
     
-    mutating func setUserInfo(id: Int, type: UserType) {
+    func setUserInfo(id: Int, type: UserType) {
         self.id = id
         self.userType = type
     }
@@ -53,11 +57,41 @@ struct SignedUserInfo {
                 return
             }
             
-            SignedUserInfo.shared.academies = academies
-            if academies.isEmpty { SignedUserInfo.shared.signedAcademy = nil }
-            else { SignedUserInfo.shared.signedAcademy = academies[1] }
+            SignedUser.academies = academies
+            if academies.isEmpty { SignedUser.signedAcademy = nil }
+            else { SignedUser.signedAcademy = academies[0] }
         }, fail: {
             print("SignedUserInfo.getAcademyInfo() -> Response error")
         })
+    }
+    
+    func getClassroomInfo(complete: @escaping (() -> ())) {
+        var url: URL = NetworkManager.assembleURL(components: ["academy", "classrooms"])
+        url.appendQuery(queryItems: getQueryItems())
+        
+        let success: ((Data?) -> ()) = { data in
+            guard let classrooms = try? data?.toObject(type: [Classroom].self) else {
+                print("SignedUserInfo.getClassroomData() -> data parse error")
+                return
+            }
+            SignedUser.classrooms = classrooms
+        }
+        
+        let fail: (() -> ()) = {
+            SignedUser.networkFailDelegate?.networkFailAlert()
+        }
+        
+        NetworkManager.get(url: url, success: success, fail: fail, complete: complete)
+    }
+    
+    private func getQueryItems() -> [URLQueryItem] {
+        var items: [URLQueryItem] = []
+        
+        guard let teacherId = SignedUser.teacher.id else { return [] }
+        guard let academyId = SignedUser.signedAcademy?.id else { return [] }
+        
+        items.append(URLQueryItem(name: "teacherId", value: String(teacherId)))
+        items.append(URLQueryItem(name: "academyId", value: String(academyId)))
+        return items
     }
 }

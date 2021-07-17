@@ -9,10 +9,17 @@ import UIKit
 
 class TeacherClassroomManageViewController: UIViewController {
 
+    let viewModel = TeacherClassroomManageViewModel()
+    @IBOutlet weak var classroomTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        SignedUser.networkFailDelegate = self
+        SignedUser.getClassroomInfo() {
+            self.viewModel.getClassroomInfoFromSignedUser()
+            self.classroomTableView.reloadData()
+        }
     }
 
     @IBAction func showSideMenu(_ sender: UIBarButtonItem) {
@@ -21,5 +28,49 @@ class TeacherClassroomManageViewController: UIViewController {
     
     @IBAction func addClassroom(_ sender: UIBarButtonItem) {
         
+    }
+}
+
+extension TeacherClassroomManageViewController: NetworkFailDelegate {
+    func networkFailAlert() {
+        let alert = AlertPresentor(view: self)
+        alert.present(title: "오류", context: .NetworkError)
+    }
+}
+
+extension TeacherClassroomManageViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+}
+
+extension TeacherClassroomManageViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.classrooms.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TeacherClassroomCell") as! TeacherClassroomCell
+        let classroomNameParse = viewModel.classrooms[indexPath.row].parseClassroomName()
+        
+        cell.teacherNameLabel.text = classroomNameParse.teacherName
+        cell.classroomNameLabel.text = classroomNameParse.classroomName
+        cell.weekdayLabel.text = classroomNameParse.weekday
+        
+        return cell
+    }
+}
+
+class TeacherClassroomCell: UITableViewCell {
+    @IBOutlet weak var weekdayLabel: UILabel!
+    @IBOutlet weak var classroomNameLabel: UILabel!
+    @IBOutlet weak var teacherNameLabel: UILabel!
+}
+
+class TeacherClassroomManageViewModel {
+    var classrooms: [Classroom] = []
+    
+    func getClassroomInfoFromSignedUser() {
+        self.classrooms = SignedUser.classrooms ?? []
     }
 }
