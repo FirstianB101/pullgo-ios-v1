@@ -52,6 +52,7 @@
 		A5B4CD5C26898E9800FA2967 /* thumbs-up.png in Resources */ = {isa = PBXBuildFile; fileRef = A5B4CD5B26898E9800FA2967 /* thumbs-up.png */; };
 		A5B4CD5E2689934B00FA2967 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4CD5D2689934B00FA2967 /* Error.swift */; };
 		A5B4CD602689942200FA2967 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4CD5F2689942200FA2967 /* Network.swift */; };
+		A5BCA9EA26A41651008AD3F6 /* TeacherCreateLessonSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BCA9E926A41651008AD3F6 /* TeacherCreateLessonSegue.swift */; };
 		A5C60EB426A358DB007795C0 /* TeacherCreateLesson_SelectClassroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C60EB326A358DB007795C0 /* TeacherCreateLesson_SelectClassroomViewController.swift */; };
 		A5C60EB726A35E9E007795C0 /* TeacherCreateLesson_ScheduleSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C60EB626A35E9E007795C0 /* TeacherCreateLesson_ScheduleSetViewController.swift */; };
 		A5C95ECC2691874000F19A55 /* InputDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C95ECB2691874000F19A55 /* InputDetailViewController.swift */; };
@@ -129,6 +130,7 @@
 		A5B4CD5B26898E9800FA2967 /* thumbs-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbs-up.png"; sourceTree = "<group>"; };
 		A5B4CD5D2689934B00FA2967 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		A5B4CD5F2689942200FA2967 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		A5BCA9E926A41651008AD3F6 /* TeacherCreateLessonSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCreateLessonSegue.swift; sourceTree = "<group>"; };
 		A5C60EB326A358DB007795C0 /* TeacherCreateLesson_SelectClassroomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCreateLesson_SelectClassroomViewController.swift; sourceTree = "<group>"; };
 		A5C60EB626A35E9E007795C0 /* TeacherCreateLesson_ScheduleSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCreateLesson_ScheduleSetViewController.swift; sourceTree = "<group>"; };
 		A5C95ECB2691874000F19A55 /* InputDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDetailViewController.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				A5FB030F26A04071007FCDB7 /* TeacherCreateLessonViewController.swift */,
 				A5C60EB326A358DB007795C0 /* TeacherCreateLesson_SelectClassroomViewController.swift */,
 				A5C60EB626A35E9E007795C0 /* TeacherCreateLesson_ScheduleSetViewController.swift */,
+				A5BCA9E926A41651008AD3F6 /* TeacherCreateLessonSegue.swift */,
 			);
 			path = CreateLesson;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				A5FB031226A0574C007FCDB7 /* TeacherViewSwitcher.swift in Sources */,
 				A58E7A11269758F6005FFC6F /* TeacherCalenderViewController.swift in Sources */,
 				A5B469B52688EA7000C62F9C /* Teacher.swift in Sources */,
+				A5BCA9EA26A41651008AD3F6 /* TeacherCreateLessonSegue.swift in Sources */,
 				A532DB2526889ACB00076260 /* SceneDelegate.swift in Sources */,
 				A5C60EB426A358DB007795C0 /* TeacherCreateLesson_SelectClassroomViewController.swift in Sources */,
 				A529376A269ACCED00B210C2 /* Question.swift in Sources */,

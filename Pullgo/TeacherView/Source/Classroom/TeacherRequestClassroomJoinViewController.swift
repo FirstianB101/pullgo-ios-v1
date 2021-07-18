@@ -76,7 +76,7 @@ class TeacherRequestClassroomJoinViewModel {
         url.appendQuery(queryItems: [URLQueryItem(name: "nameLike", value: input),
                                      URLQueryItem(name: "academyId", value: String((SignedUser.signedAcademy?.id)!))])
         
-        let success: GetClosure = { data in
+        let success: ResponseClosure = { data in
             guard let receivedClassrooms = try? data?.toObject(type: [Classroom].self) else {
                 print("TeacherRequestClassroomJoinViewModel.searchClassroom() -> data parse error")
                 return

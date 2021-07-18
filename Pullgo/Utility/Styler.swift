@@ -35,7 +35,10 @@ extension Styler {
     func setViewCornerRadius(view: UIView) {
         let cornerRadius: CGFloat = view.frame.height / 2
         view.layer.cornerRadius = cornerRadius
-        view.layer.cornerRadius = cornerRadius
+    }
+    
+    func setViewCornerRadius(view: UIView, radius: CGFloat) {
+        view.layer.cornerRadius = radius
     }
     
     func setTextFieldPadding(field: UITextField) {

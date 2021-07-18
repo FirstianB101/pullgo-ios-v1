@@ -11,7 +11,7 @@ import UIKit
 
 public let NetworkManager = Network.default
 
-typealias GetClosure = ((Data?) -> ())
+typealias ResponseClosure = ((Data?) -> ())
 typealias FailClosure = (() -> ())
 typealias EmptyClosure = (() -> ())
 
@@ -35,20 +35,23 @@ public class Network {
         return urlResult
     }
     
-    func post(url: URL, data: Encodable, success: EmptyClosure? = nil, fail: FailClosure? = nil) {
+    func post(url: URL, data: Encodable, success: ResponseClosure? = nil, fail: FailClosure? = nil, complete: EmptyClosure? = nil) {
         guard let param = try? data.toParameter() else { return }
         
         AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: headers).response { response in
             switch response.result {
-            case .success(_):
-                success?()
+            case .success(let d):
+                DispatchQueue.global().sync {
+                    success?(d)
+                }
+                complete?()
             case .failure(_):
                 fail?()
             }
         }
     }
     
-    func `get`(url: URL, success: GetClosure? = nil, fail: FailClosure? = nil, complete: EmptyClosure? = nil) {
+    func `get`(url: URL, success: ResponseClosure? = nil, fail: FailClosure? = nil, complete: EmptyClosure? = nil) {
         AF.request(url).response { response in
             switch response.result {
             case .success(let d):

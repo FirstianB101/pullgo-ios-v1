@@ -8,31 +8,55 @@
 import UIKit
 
 protocol TeacherCreateLessonDelegate: AnyObject {
+    var getSelectedDate: Date { get }
+    var getSchedule: Schedule? { get }
     func updateSelectedClassroomButtonLabel()
     func updateSelectedClassroom(selected: Classroom)
     func updateSchedule(schedule: Schedule)
     func updateScheduleButtonLabel()
 }
 
-class TeacherCreateLessonViewController: UIViewController {
+class TeacherCreateLessonViewController: UIViewController, Styler {
     
+    let animator = AnimationPresentor()
     let viewModel = TeacherCreateLessonViewModel()
+    @IBOutlet weak var lessonNameField: UITextField!
     @IBOutlet weak var classroomSelectButton: UIButton!
     @IBOutlet weak var scheduleSelectButton: UIButton!
     @IBOutlet weak var classroomNameLabel: UILabel!
     @IBOutlet weak var classroomInfoLabel: UILabel!
     @IBOutlet weak var scheduleDateLabel: UILabel!
     @IBOutlet weak var schedulePeriodLabel: UILabel!
+    @IBOutlet weak var createLessonButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.networkAlertDelegate = self
+        setFieldUI()
         setButtonUI()
+        self.dismissKeyboard()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        let pvc = self.presentingViewController! as! TeacherCalendarSelectViewController
+        guard let date = viewModel.selectedDate else { return }
+        pvc.delegate?.requestLesson(of: date) {
+            pvc.reloadTableView()
+        }
+    }
+    
+    func setFieldUI() {
+        setTextFieldBorderUnderline(field: lessonNameField)
     }
     
     func setButtonUI() {
-        classroomSelectButton.layer.cornerRadius = 25
-        scheduleSelectButton.layer.cornerRadius = 25
+        setViewCornerRadius(view: classroomSelectButton, radius: 25)
+        setViewCornerRadius(view: scheduleSelectButton, radius: 25)
+        setViewCornerRadius(view: createLessonButton)
+        setViewShadow(view: classroomSelectButton)
+        setViewShadow(view: scheduleSelectButton)
+        setViewShadow(view: createLessonButton)
         setButtonLabelDefault()
     }
     
@@ -54,9 +78,52 @@ class TeacherCreateLessonViewController: UIViewController {
         vc.navigationItem.title = "수업 시간 설정"
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func ignoreSemiColons(_ sender: UITextField) {
+        if sender.text?.last == ";" {
+            animator.vibrate(view: sender)
+            sender.text?.removeLast()
+        }
+    }
+    
+    @IBAction func createLessonButtonClicked(_ sender: UIButton) {
+        viewModel.lessonName = lessonNameField.text!
+        if lessonNameField.text!.isEmpty {
+            animator.vibrate(view: lessonNameField)
+        } else if viewModel.selectedClassroom == nil {
+            animator.vibrate(view: classroomSelectButton)
+        } else if viewModel.lessonSchedule == nil {
+            animator.vibrate(view: scheduleSelectButton)
+        } else {
+            postLessonWithPresentAlert()
+        }
+    }
+    
+    func postLessonWithPresentAlert() {
+        let alert = AlertPresentor(view: self)
+        let cancel = UIAlertAction(title: "취소", style: .destructive, handler: nil)
+        let apply = UIAlertAction(title: "확인", style: .default, handler: { action in
+            self.viewModel.postLesson() {
+                alert.present(title: "알림", context: "수업이 생성되었습니다!") { _ in
+                    self.dismiss(animated: true)
+                }
+            }
+        })
+        alert.present(title: viewModel.lessonName,
+                      context: "반: \(viewModel.selectedClassroom!.parseClassroomName().classroomName)\n일시: \(viewModel.getDateOfSchedule())\n시간: \(viewModel.getPeriodOfSchedule())\n\n위 정보로 수업을 생성합니다.",
+                      actions: [cancel, apply])
+    }
 }
 
 extension TeacherCreateLessonViewController: TeacherCreateLessonDelegate {
+    var getSelectedDate: Date {
+        viewModel.selectedDate ?? Date()
+    }
+    
+    var getSchedule: Schedule? {
+        viewModel.lessonSchedule
+    }
+    
     func updateSchedule(schedule: Schedule) {
         viewModel.lessonSchedule = schedule
         setButtonColorSelected(button: scheduleSelectButton)
@@ -79,6 +146,7 @@ extension TeacherCreateLessonViewController: TeacherCreateLessonDelegate {
     private func setButtonLabelToSchedule(schedule: Schedule) {
         scheduleSelectButton.setTitle("", for: .normal)
         scheduleDateLabel.text = viewModel.getDateOfSchedule()
+        schedulePeriodLabel.text = viewModel.getPeriodOfSchedule()
     }
     
     func updateSelectedClassroom(selected: Classroom) {
@@ -108,7 +176,7 @@ extension TeacherCreateLessonViewController: TeacherCreateLessonDelegate {
     }
     
     private func setButtonColorSelected(button: UIButton) {
-        button.backgroundColor = UIColor(named: "LightAccent")
+        button.backgroundColor = UIColor(named: "SelectedColor")
     }
 }
 
@@ -120,8 +188,10 @@ extension TeacherCreateLessonViewController: NetworkAlertDelegate {
 }
 
 class TeacherCreateLessonViewModel {
+    var selectedDate: Date?
     var selectedClassroom: Classroom?
     var lessonSchedule: Schedule?
+    var lessonName: String = ""
     var networkAlertDelegate: NetworkAlertDelegate?
     
     func getDateOfSchedule() -> String {
@@ -129,5 +199,28 @@ class TeacherCreateLessonViewModel {
         let dateSeparated = schedule.date.split(separator: "-")
         
         return "\(dateSeparated[0])년 \(dateSeparated[1])월 \(dateSeparated[2])일"
+    }
+    
+    func getPeriodOfSchedule() -> String {
+        guard let schedule = lessonSchedule else { return "" }
+        let beginTimeSeparated = splitTime(time: schedule.beginTime)
+        let endTimeSeparated = splitTime(time: schedule.endTime)
+        
+        return "\(beginTimeSeparated[0]):\(beginTimeSeparated[1]) ~ \(endTimeSeparated[0]):\(endTimeSeparated[1])"
+    }
+    
+    private func splitTime(time: String) -> [String.SubSequence] {
+        return time.split(separator: ":")
+    }
+    
+    func postLesson(complete: @escaping EmptyClosure) {
+        let url: URL = NetworkManager.assembleURL(components: ["academy", "classroom", "lessons"])
+        let lesson: Lesson = Lesson(id: nil, classroomId: selectedClassroom!.id!, name: lessonName, schedule: lessonSchedule!)
+        
+        let fail: FailClosure = {
+            self.networkAlertDelegate?.networkFailAlert()
+        }
+        
+        NetworkManager.post(url: url, data: lesson, success: nil, fail: fail, complete: complete)
     }
 }

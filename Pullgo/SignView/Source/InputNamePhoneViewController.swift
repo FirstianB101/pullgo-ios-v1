@@ -170,7 +170,7 @@ class InputNamePhoneViewController: UIViewController, Styler {
             self.dismiss(animated: true, completion: nil)
         }
         let alert = AlertPresentor(view: self)
-        let success = {
+        let success: ResponseClosure = { data in
             alert.present(title: "알림", context: "회원가입이 완료되었습니다.\n입력하신 정보로 로그인해주세요.", actions: [action])
         }
         let fail = {
@@ -232,7 +232,7 @@ class InputNamePhoneViewModel {
         SignUpInformation.shared.account?.phone = self.phone
     }
     
-    func postRequest(success: @escaping EmptyClosure, fail: @escaping FailClosure) {
+    func postRequest(success: @escaping ResponseClosure, fail: @escaping FailClosure) {
         SignUpInformation.shared.postSignUpInformation(success: success, fail: fail)
     }
 }

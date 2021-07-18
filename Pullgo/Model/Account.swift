@@ -36,7 +36,7 @@ class SignedUserInfo {
         self.userType = type
     }
     
-    func requestSignIn(success: @escaping GetClosure, fail: @escaping FailClosure) {
+    func requestSignIn(success: @escaping ResponseClosure, fail: @escaping FailClosure) {
         let url: URL = getUserInfoURL()
         NetworkManager.get(url: url, success: success, fail: fail) {
             self.getAcademyInfo()
@@ -69,7 +69,7 @@ class SignedUserInfo {
         var url: URL = NetworkManager.assembleURL(components: ["academy", "classrooms"])
         url.appendQuery(queryItems: getQueryItems())
         
-        let success: GetClosure = { data in
+        let success: ResponseClosure = { data in
             guard let classrooms = try? data?.toObject(type: [Classroom].self) else {
                 print("SignedUserInfo.getClassroomData() -> data parse error")
                 return

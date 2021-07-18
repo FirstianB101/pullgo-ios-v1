@@ -12,6 +12,7 @@ import SideMenu
 protocol TeacherCalendarSelectDelegate: AnyObject {
     var selectedDate: Date? { get }
     func getLessonsOf(date: Date) -> [Lesson]
+    func requestLesson(of date: Date, complete: @escaping EmptyClosure)
 }
 
 class TeacherCalendarViewController: UIViewController {
@@ -44,6 +45,10 @@ class TeacherCalendarViewController: UIViewController {
 }
 
 extension TeacherCalendarViewController: TeacherCalendarSelectDelegate {
+    func requestLesson(of date: Date, complete: @escaping EmptyClosure) {
+        viewModel.getLessonsBetween(since: date, until: date.addingTimeInterval(Date.day), complete: complete)
+    }
+    
     var selectedDate: Date? {
         return calendar.selectedDate
     }
@@ -139,7 +144,7 @@ class TeacherCalendarViewModel {
         
         url.appendQuery(queryItems: assembleQueries(since: since, until: until))
         
-        let success: GetClosure = { data in
+        let success: ResponseClosure = { data in
             guard let receivedLessons = try? data?.toObject(type: [Lesson].self) else {
                 print("TeacherCalendarViewModel.getLessonsBetween() -> error in success -> receivedLesson = ...")
                 return
@@ -208,6 +213,7 @@ typealias DateKey = String
 // MARK: - Date Extensions
 extension Date {
     
+    /// base format = "YYYY-MM-dd"
     func toString(format: String = "YYYY-MM-dd") -> String {
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = format
@@ -237,6 +243,10 @@ extension Date {
             
             return self - Date.day * day
         }
+    }
+    
+    var isToday: Bool {
+        return self.toString() == Date().toString()
     }
     
     var key: String {
