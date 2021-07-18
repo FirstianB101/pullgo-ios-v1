@@ -15,7 +15,7 @@ class TeacherClassroomManageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        SignedUser.networkFailDelegate = self
+        SignedUser.networkAlertDelegate = self
         SignedUser.getClassroomInfo() {
             self.viewModel.getClassroomInfoFromSignedUser()
             self.classroomTableView.reloadData()
@@ -31,10 +31,10 @@ class TeacherClassroomManageViewController: UIViewController {
     }
 }
 
-extension TeacherClassroomManageViewController: NetworkFailDelegate {
+extension TeacherClassroomManageViewController: NetworkAlertDelegate {
     func networkFailAlert() {
         let alert = AlertPresentor(view: self)
-        alert.present(title: "오류", context: .NetworkError)
+        alert.presentNetworkError()
     }
 }
 

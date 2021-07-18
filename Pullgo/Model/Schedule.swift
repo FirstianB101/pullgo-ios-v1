@@ -8,7 +8,13 @@
 import Foundation
 
 struct Schedule: Codable {
-    let date: String
-    let beginTime: String
-    let endTime: String
+    var date: String
+    
+    /// Time Format: "hh:mm:ss"
+    var beginTime: String
+    var endTime: String
+    
+    static func ==(lhs: Schedule, rhs: Schedule) -> Bool {
+        return lhs.date == rhs.date && lhs.beginTime == rhs.beginTime && lhs.endTime == rhs.endTime
+    }
 }

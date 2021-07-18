@@ -7,8 +7,13 @@
 
 import Foundation
 import Alamofire
+import UIKit
 
 public let NetworkManager = Network.default
+
+typealias ResponseClosure = ((Data?) -> ())
+typealias FailClosure = (() -> ())
+typealias EmptyClosure = (() -> ())
 
 public class Network {
     
@@ -30,20 +35,23 @@ public class Network {
         return urlResult
     }
     
-    func post(url: URL, data: Encodable, success: (() -> ())? = nil, fail: (() -> ())? = nil) {
+    func post(url: URL, data: Encodable, success: ResponseClosure? = nil, fail: FailClosure? = nil, complete: EmptyClosure? = nil) {
         guard let param = try? data.toParameter() else { return }
         
         AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: headers).response { response in
             switch response.result {
-            case .success(_):
-                success?()
+            case .success(let d):
+                DispatchQueue.global().sync {
+                    success?(d)
+                }
+                complete?()
             case .failure(_):
                 fail?()
             }
         }
     }
     
-    func `get`(url: URL, success: ((Data?) -> ())? = nil, fail: (() -> ())? = nil, complete: (() -> ())? = nil) {
+    func `get`(url: URL, success: ResponseClosure? = nil, fail: FailClosure? = nil, complete: EmptyClosure? = nil) {
         AF.request(url).response { response in
             switch response.result {
             case .success(let d):
@@ -58,13 +66,11 @@ public class Network {
     }
 }
 
-/// When ViewModel or Somewhere except UIViewController needs to show NetworkFail Alert,
+/// When ViewModel or Somewhere except UIViewController needs to show Network Alert,
 /// Use this delegate to print alert
-///
 /// In UIViewController of ViewModel, implements
 /// `ViewModel.delegate = self`
-/// `networkFailAlert`
-protocol NetworkFailDelegate: AnyObject {
+protocol NetworkAlertDelegate: AnyObject {
     func networkFailAlert()
 }
 

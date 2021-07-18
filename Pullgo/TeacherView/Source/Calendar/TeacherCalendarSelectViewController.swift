@@ -7,11 +7,12 @@
 
 import UIKit
 
-class TeacherCalendarSelectViewController: UIViewController {
+class TeacherCalendarSelectViewController: UIViewController, Styler {
 
     var initialCenter = CGPoint()
     @IBOutlet weak var lessonList: UITableView!
     @IBOutlet weak var selectedDate: UILabel!
+    @IBOutlet weak var createLessonButton: UIButton!
     weak var delegate: TeacherCalendarSelectDelegate?
     let viewModel = TeacherCalendarSelectViewModel()
     
@@ -19,6 +20,8 @@ class TeacherCalendarSelectViewController: UIViewController {
         super.viewDidLoad()
 
         initialCenter = CGPoint(x: view.center.x, y: view.center.y + (view.center.y / 2) * (2 / 3))
+        setViewCornerRadius(view: createLessonButton)
+        setViewShadow(view: createLessonButton)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,14 +32,30 @@ class TeacherCalendarSelectViewController: UIViewController {
         setTableViewUI()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        let pvc = self.presentingViewController! as! TeacherCalendarViewController
+        pvc.calendar.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nvc = segue.destination as! UINavigationController
+        let createLessonVC = nvc.viewControllers.first as! TeacherCreateLessonViewController
+        createLessonVC.viewModel.selectedDate = viewModel.selectedDate
+    }
+    
     func setTableViewUI() {
         selectedDate.text = viewModel.selectedDate.toString(format: "YYYY년 M월 d일")
     }
     
     @IBAction func createLesson(_ sender: UIButton) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "TeacherCreateLessonViewController") as! TeacherCreateLessonViewController
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+        performSegue(withIdentifier: "TeacherCreateLessonSegue", sender: nil)
+    }
+    
+    func reloadTableView() {
+        viewModel.setLessons()
+        lessonList.reloadData()
     }
 }
 
@@ -104,8 +123,6 @@ extension TeacherCalendarSelectViewController {
 class LessonListCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var lessonNameLabel: UILabel!
-    
-    
 }
 
 class TeacherCalendarSelectViewModel {
@@ -113,13 +130,13 @@ class TeacherCalendarSelectViewModel {
     var lessons: [Lesson] = []
     var selectedDate: Date {
         get {
-            return delegate?.selectedDate ?? Date()
+            return delegate?.selectedDate?.toKST() ?? Date()
         }
     }
     weak var delegate: TeacherCalendarSelectDelegate?
     
     func setLessons() {
-        guard let lessons = delegate?.getLessonsOf(date: self.selectedDate) else { print("a"); return }
+        guard let lessons = delegate?.getLessonsOf(date: self.selectedDate) else { return }
         
         self.lessons = lessons
     }

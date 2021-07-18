@@ -12,6 +12,7 @@ import SideMenu
 protocol TeacherCalendarSelectDelegate: AnyObject {
     var selectedDate: Date? { get }
     func getLessonsOf(date: Date) -> [Lesson]
+    func requestLesson(of date: Date, complete: @escaping EmptyClosure)
 }
 
 class TeacherCalendarViewController: UIViewController {
@@ -44,6 +45,10 @@ class TeacherCalendarViewController: UIViewController {
 }
 
 extension TeacherCalendarViewController: TeacherCalendarSelectDelegate {
+    func requestLesson(of date: Date, complete: @escaping EmptyClosure) {
+        viewModel.getLessonsBetween(since: date, until: date.addingTimeInterval(Date.day), complete: complete)
+    }
+    
     var selectedDate: Date? {
         return calendar.selectedDate
     }
@@ -113,11 +118,6 @@ extension TeacherCalendarViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         return HalfSizePresentationController(presentedViewController: presented, presenting: presenting)
     }
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        return nil
-    }
 }
 
 class HalfSizePresentationController: UIPresentationController {
@@ -139,12 +139,12 @@ class TeacherCalendarViewModel {
     var lessonsOfMonth: [DateKey : [Lesson]] = [:]
     var view: UIViewController! = nil
     
-    func getLessonsBetween(since: Date, until: Date, complete: (() -> ())? = nil) {
+    func getLessonsBetween(since: Date, until: Date, complete: EmptyClosure? = nil) {
         var url: URL = NetworkManager.assembleURL(components: ["academy", "classroom", "lessons"])
         
         url.appendQuery(queryItems: assembleQueries(since: since, until: until))
         
-        let success: ((Data?) -> ()) = { data in
+        let success: ResponseClosure = { data in
             guard let receivedLessons = try? data?.toObject(type: [Lesson].self) else {
                 print("TeacherCalendarViewModel.getLessonsBetween() -> error in success -> receivedLesson = ...")
                 return
@@ -153,7 +153,7 @@ class TeacherCalendarViewModel {
             self.updateLastestDataOfMonth(date: since.yearAndMonth)
         }
         
-        let fail: (() -> ()) = {
+        let fail: FailClosure = {
             let alert = AlertPresentor(view: self.view)
             alert.presentNetworkError()
         }
@@ -213,6 +213,7 @@ typealias DateKey = String
 // MARK: - Date Extensions
 extension Date {
     
+    /// base format = "YYYY-MM-dd"
     func toString(format: String = "YYYY-MM-dd") -> String {
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = format
@@ -242,6 +243,10 @@ extension Date {
             
             return self - Date.day * day
         }
+    }
+    
+    var isToday: Bool {
+        return self.toString() == Date().toString()
     }
     
     var key: String {

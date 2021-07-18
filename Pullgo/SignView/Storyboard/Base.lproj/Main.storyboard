@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="아이디를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zN7-ru-N7r" userLabel="username">
-                                <rect key="frame" x="30" y="408" width="354" height="50"/>
+                                <rect key="frame" x="30" y="438" width="354" height="50"/>
                                 <color key="backgroundColor" name="LightAccent"/>
                                 <accessibility key="accessibilityConfiguration" identifier="loginUsername"/>
                                 <constraints>
@@ -30,7 +30,7 @@
                                 <textInputTraits key="textInputTraits" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NeA-RT-c4z" userLabel="password">
-                                <rect key="frame" x="30" y="473" width="354" height="50"/>
+                                <rect key="frame" x="30" y="503" width="354" height="50"/>
                                 <color key="backgroundColor" name="LightAccent"/>
                                 <accessibility key="accessibilityConfiguration" identifier="loginPassword"/>
                                 <constraints>
@@ -40,14 +40,14 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainViewLogo" translatesAutoresizingMaskIntoConstraints="NO" id="VVH-IA-ik1">
-                                <rect key="frame" x="100" y="93" width="214" height="214"/>
+                                <rect key="frame" x="100" y="123" width="214" height="214"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="VVH-IA-ik1" secondAttribute="height" multiplier="1:1" id="lt6-Ge-UVg"/>
                                 </constraints>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeY-aB-eUW">
-                                <rect key="frame" x="30" y="574.5" width="354" height="64"/>
+                                <rect key="frame" x="30" y="604.5" width="354" height="64"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <accessibility key="accessibilityConfiguration" identifier="signIn"/>
                                 <constraints>
@@ -61,7 +61,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8OQ-B4-QaR">
-                                <rect key="frame" x="80" y="354" width="254" height="32"/>
+                                <rect key="frame" x="80" y="384" width="254" height="32"/>
                                 <color key="backgroundColor" name="LightAccent"/>
                                 <segments>
                                     <segment title="학생"/>
@@ -69,7 +69,7 @@
                                 </segments>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Mp-IP-Lao">
-                                <rect key="frame" x="295.5" y="536" width="88.5" height="18.5"/>
+                                <rect key="frame" x="295.5" y="566" width="88.5" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" title=" 자동 로그인" image="square" catalog="system">
@@ -124,7 +124,7 @@
                             <constraint firstItem="8OQ-B4-QaR" firstAttribute="top" secondItem="VVH-IA-ik1" secondAttribute="bottom" constant="47" id="SAB-kY-50X"/>
                             <constraint firstAttribute="trailing" secondItem="VVH-IA-ik1" secondAttribute="trailing" constant="100" id="T6u-wj-U57"/>
                             <constraint firstItem="NeA-RT-c4z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="TkS-k1-bPL"/>
-                            <constraint firstItem="zN7-ru-N7r" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-20" id="XHu-kD-ihd"/>
+                            <constraint firstItem="zN7-ru-N7r" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="10" id="XHu-kD-ihd"/>
                             <constraint firstItem="5Mp-IP-Lao" firstAttribute="trailing" secondItem="zN7-ru-N7r" secondAttribute="trailing" id="Xff-YB-ZLK"/>
                             <constraint firstItem="EyY-A3-lU9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="65" id="Xfr-px-cOq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EyY-A3-lU9" secondAttribute="trailing" constant="55" id="Z6P-iB-zUr"/>
