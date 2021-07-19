@@ -55,7 +55,7 @@ class InputUsernameViewController: UIViewController, Styler {
             animator.vibrate(view: statusLabel)
             return
         } else if !viewModel.isUnique() {
-            let alert = AlertPresentor(view: self)
+            let alert = AlertPresentor(presentor: self)
             alert.present(title: "경고", context: "이미 존재하는 아이디입니다.")
             return
         }

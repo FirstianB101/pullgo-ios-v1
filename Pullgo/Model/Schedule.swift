@@ -7,12 +7,18 @@
 
 import Foundation
 
-struct Schedule: Codable {
+class Schedule: Codable {
     var date: String
     
     /// Time Format: "hh:mm:ss"
     var beginTime: String
     var endTime: String
+    
+    init(date: String, beginTime: String, endTime: String) {
+        self.date = date
+        self.beginTime = beginTime
+        self.endTime = endTime
+    }
     
     static func ==(lhs: Schedule, rhs: Schedule) -> Bool {
         return lhs.date == rhs.date && lhs.beginTime == rhs.beginTime && lhs.endTime == rhs.endTime

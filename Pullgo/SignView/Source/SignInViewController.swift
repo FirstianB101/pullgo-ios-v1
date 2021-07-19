@@ -82,7 +82,7 @@ class SignInViewController: UIViewController, Styler {
     }
     
     func requestSignIn() {
-        let alert = AlertPresentor(view: self)
+        let alert = AlertPresentor(presentor: self)
         
         let success: ResponseClosure = { data in
             var teacher: Teacher? = nil

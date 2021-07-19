@@ -100,8 +100,8 @@ class TeacherCreateLessonViewController: UIViewController, Styler {
     }
     
     func postLessonWithPresentAlert() {
-        let alert = AlertPresentor(view: self)
-        let cancel = UIAlertAction(title: "취소", style: .destructive, handler: nil)
+        let alert = AlertPresentor(presentor: self)
+        let cancel = alert.cancel
         let apply = UIAlertAction(title: "확인", style: .default, handler: { action in
             self.viewModel.postLesson() {
                 alert.present(title: "알림", context: "수업이 생성되었습니다!") { _ in
@@ -110,7 +110,7 @@ class TeacherCreateLessonViewController: UIViewController, Styler {
             }
         })
         alert.present(title: viewModel.lessonName,
-                      context: "반: \(viewModel.selectedClassroom!.parseClassroomName().classroomName)\n일시: \(viewModel.getDateOfSchedule())\n시간: \(viewModel.getPeriodOfSchedule())\n\n위 정보로 수업을 생성합니다.",
+                      context: "반: \(viewModel.selectedClassroom!.parse.classroomName)\n일시: \(viewModel.getDateOfSchedule())\n시간: \(viewModel.getPeriodOfSchedule())\n\n위 정보로 수업을 생성합니다.",
                       actions: [cancel, apply])
     }
 }
@@ -170,7 +170,7 @@ extension TeacherCreateLessonViewController: TeacherCreateLessonDelegate {
     
     private func setButtonLabelToClassroomInfo(classroom: Classroom) {
         classroomSelectButton.setTitle("", for: .normal)
-        let classroomParse = classroom.parseClassroomName()
+        let classroomParse = classroom.parse
         classroomNameLabel.text = classroomParse.classroomName
         classroomInfoLabel.text = "\(classroomParse.teacherName) (\(classroomParse.weekday))"
     }
@@ -182,7 +182,7 @@ extension TeacherCreateLessonViewController: TeacherCreateLessonDelegate {
 
 extension TeacherCreateLessonViewController: NetworkAlertDelegate {
     func networkFailAlert() {
-        let alert = AlertPresentor(view: self)
+        let alert = AlertPresentor(presentor: self)
         alert.presentNetworkError()
     }
 }
@@ -214,7 +214,7 @@ class TeacherCreateLessonViewModel {
     }
     
     func postLesson(complete: @escaping EmptyClosure) {
-        let url: URL = NetworkManager.assembleURL(components: ["academy", "classroom", "lessons"])
+        let url: URL = NetworkManager.assembleURL("academy", "classroom", "lessons")
         let lesson: Lesson = Lesson(id: nil, classroomId: selectedClassroom!.id!, name: lessonName, schedule: lessonSchedule!)
         
         let fail: FailClosure = {

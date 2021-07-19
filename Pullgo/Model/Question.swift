@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct Question: Codable {
+class Question: Codable {
     
 }

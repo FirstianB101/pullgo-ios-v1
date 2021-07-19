@@ -25,7 +25,7 @@ public class Network {
     }
     private let headers: HTTPHeaders = [.contentType("application/json")]
     
-    func assembleURL(components: [String]) -> URL {
+    func assembleURL(_ components: String...) -> URL {
         var urlResult = url
         
         for component in components {
@@ -39,6 +39,21 @@ public class Network {
         guard let param = try? data.toParameter() else { return }
         
         AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: headers).response { response in
+            switch response.result {
+            case .success(let d):
+                DispatchQueue.global().sync {
+                    success?(d)
+                }
+                complete?()
+            case .failure(_):
+                fail?()
+            }
+        }
+    }
+    
+    func post(url: URL, data: Parameters, success: ResponseClosure? = nil, fail: FailClosure? = nil, complete: EmptyClosure? = nil) {
+        
+        AF.request(url, method: .post, parameters: data, encoding: JSONEncoding.default, headers: headers).response { response in
             switch response.result {
             case .success(let d):
                 DispatchQueue.global().sync {

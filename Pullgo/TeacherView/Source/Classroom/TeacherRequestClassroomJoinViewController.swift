@@ -25,9 +25,24 @@ class TeacherRequestClassroomJoinViewController: UIViewController {
 
 }
 
-extension TeacherRequestClassroomJoinViewController: UITableViewDelegate {
+extension TeacherRequestClassroomJoinViewController: UITableViewDelegate {    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alert = AlertPresentor(presentor: self)
+        let apply = UIAlertAction(title: "요청", style: .default, handler: { _ in
+            self.requestClassroomJoin(id: self.viewModel.getClassroomId(at: indexPath.row))
+        })
+
+        alert.present(title: "\(viewModel.getClassroomName(at: indexPath.row))", context: "반 가입을 요청할까요?", actions: [alert.cancel, apply])
+    }
+    
+    private func requestClassroomJoin(id: Int) {
+        let url = NetworkManager.assembleURL("teachers", "\(String(SignedUser.id))", "apply-classroom")
+        let body: [String : Any] = ["classroomId": id]
         
+        NetworkManager.post(url: url, data: body, complete: {
+            let alert = AlertPresentor(presentor: self)
+            alert.present(title: "알림", context: "반 가입 요청을 보냈습니다!")
+        })
     }
 }
 
@@ -35,7 +50,7 @@ extension TeacherRequestClassroomJoinViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TeacherClassroomCell") as! TeacherClassroomCell
-        let classroomParse = viewModel.classrooms[indexPath.row].parseClassroomName()
+        let classroomParse = viewModel.classrooms[indexPath.row].parse
         
         cell.teacherNameLabel.text = classroomParse.teacherName
         cell.weekdayLabel.text = classroomParse.weekday
@@ -54,7 +69,7 @@ extension TeacherRequestClassroomJoinViewController: UISearchBarDelegate, Networ
         guard let input = searchBar.text else { return }
         viewModel.searchClassroom(by: input) {
             if self.viewModel.classrooms.isEmpty {
-                let alert = AlertPresentor(view: self)
+                let alert = AlertPresentor(presentor: self)
                 alert.present(title: "\(input)", context: "검색 결과가 없습니다.")
             }
             self.classroomTableView.reloadData()
@@ -62,7 +77,7 @@ extension TeacherRequestClassroomJoinViewController: UISearchBarDelegate, Networ
     }
     
     func networkFailAlert() {
-        let alert = AlertPresentor(view: self)
+        let alert = AlertPresentor(presentor: self)
         alert.presentNetworkError()
     }
 }
@@ -72,14 +87,13 @@ class TeacherRequestClassroomJoinViewModel {
     var networkAlertDelegate: NetworkAlertDelegate?
     
     func searchClassroom(by input: String, complete: @escaping EmptyClosure) {
-        var url: URL = NetworkManager.assembleURL(components: ["academy", "classrooms"])
+        var url: URL = NetworkManager.assembleURL("academy", "classrooms")
         url.appendQuery(queryItems: [URLQueryItem(name: "nameLike", value: input),
                                      URLQueryItem(name: "academyId", value: String((SignedUser.signedAcademy?.id)!))])
         
         let success: ResponseClosure = { data in
             guard let receivedClassrooms = try? data?.toObject(type: [Classroom].self) else {
-                print("TeacherRequestClassroomJoinViewModel.searchClassroom() -> data parse error")
-                return
+                fatalError("TeacherRequestClassroomJoinViewModel.searchClassroom() -> data parse error")
             }
             self.classrooms = receivedClassrooms
         }
@@ -89,5 +103,13 @@ class TeacherRequestClassroomJoinViewModel {
         }
         
         NetworkManager.get(url: url, success: success, fail: fail, complete: complete)
+    }
+    
+    func getClassroomName(at index: Int) -> String {
+        return classrooms[index].parse.classroomName
+    }
+    
+    func getClassroomId(at index: Int) -> Int {
+        return classrooms[index].id!
     }
 }

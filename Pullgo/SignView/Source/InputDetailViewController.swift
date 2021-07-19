@@ -37,7 +37,7 @@ class InputDetailViewController: UIViewController, Styler {
     @IBAction func signUpButtonClicked(sender: UIButton) {
         setViewModelData()
         
-        let alert = AlertPresentor(view: self)
+        let alert = AlertPresentor(presentor: self)
         if !viewModel.isParentPhoneValid() {
             alert.present(title: "경고", context: "전화번호 형식이 올바르지 않습니다.")
             return
@@ -82,7 +82,7 @@ class InputDetailViewController: UIViewController, Styler {
         let action = UIAlertAction(title: "확인", style: .default) { handler in
             self.dismiss(animated: true, completion: nil)
         }
-        let alert = AlertPresentor(view: self)
+        let alert = AlertPresentor(presentor: self)
         let success: ResponseClosure = { data in
             alert.present(title: "알림", context: "회원가입이 완료되었습니다.\n입력하신 정보로 로그인해주세요.", actions: [action])
         }

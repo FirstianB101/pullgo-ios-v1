@@ -56,8 +56,12 @@ class AnimationPresentor: Styler {
 class AlertPresentor {
     let view: UIViewController
     
-    init(view: UIViewController) {
-        self.view = view
+    init(presentor: UIViewController) {
+        self.view = presentor
+    }
+    
+    var cancel: UIAlertAction {
+        UIAlertAction(title: "취소", style: .destructive, handler: nil)
     }
     
     func present(title: String, context: String, handler: ((UIAlertAction) -> Void)? = nil) {

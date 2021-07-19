@@ -21,14 +21,14 @@ class TeacherCreateLesson_SelectClassroomViewController: UIViewController, Netwo
             self.viewModel.getClassroomInfoFromSignedUser()
             self.classroomTableView.reloadData()
             if self.viewModel.classrooms.isEmpty {
-                let alert = AlertPresentor(view: self)
+                let alert = AlertPresentor(presentor: self)
                 alert.present(title: "알림", context: "속한 반이 없습니다.\n반 가입 요청을 통해 반을 가입해보세요.")
             }
         }
     }
     
     func networkFailAlert() {
-        let alert = AlertPresentor(view: self)
+        let alert = AlertPresentor(presentor: self)
         alert.presentNetworkError()
     }
 }
@@ -50,7 +50,7 @@ extension TeacherCreateLesson_SelectClassroomViewController: UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TeacherClassroomCell") as! TeacherClassroomCell
-        let classroomParse = viewModel.classrooms[indexPath.row].parseClassroomName()
+        let classroomParse = viewModel.classrooms[indexPath.row].parse
         
         cell.teacherNameLabel.text = classroomParse.teacherName
         cell.weekdayLabel.text = classroomParse.weekday

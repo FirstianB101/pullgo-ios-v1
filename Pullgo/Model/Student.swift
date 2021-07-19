@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Student: Codable {
+class Student: Codable {
     var id: Int? = nil
     var account: Account! = nil
     var parentPhone: String! = nil

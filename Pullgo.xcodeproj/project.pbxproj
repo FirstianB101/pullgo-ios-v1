@@ -34,6 +34,7 @@
 		A532DB4526889ACC00076260 /* PullgoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DB4426889ACC00076260 /* PullgoUITests.swift */; };
 		A532DB5526889BD700076260 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A532DB5426889BD700076260 /* Alamofire */; };
 		A532DDAA269F295C007C9A34 /* TeacherCalendarSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DDA9269F295C007C9A34 /* TeacherCalendarSelectViewController.swift */; };
+		A53EA48226A5402F00AFF799 /* TeacherLessonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53EA48126A5402F00AFF799 /* TeacherLessonDetailViewController.swift */; };
 		A55D3FB92697261D009DC6B7 /* FindAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55D3FB82697261D009DC6B7 /* FindAccountViewController.swift */; };
 		A55D3FBB26972651009DC6B7 /* FindAccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55D3FBA26972651009DC6B7 /* FindAccountTest.swift */; };
 		A57F5CED2695F2BE00A603DD /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F5CEC2695F2BE00A603DD /* Account.swift */; };
@@ -113,6 +114,7 @@
 		A532DB4426889ACC00076260 /* PullgoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullgoUITests.swift; sourceTree = "<group>"; };
 		A532DB4626889ACC00076260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A532DDA9269F295C007C9A34 /* TeacherCalendarSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCalendarSelectViewController.swift; sourceTree = "<group>"; };
+		A53EA48126A5402F00AFF799 /* TeacherLessonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherLessonDetailViewController.swift; sourceTree = "<group>"; };
 		A55D3FB82697261D009DC6B7 /* FindAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccountViewController.swift; sourceTree = "<group>"; };
 		A55D3FBA26972651009DC6B7 /* FindAccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccountTest.swift; sourceTree = "<group>"; };
 		A57F5CEC2695F2BE00A603DD /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				A5C60EB526A35E7F007795C0 /* CreateLesson */,
 				A58E7A10269758F6005FFC6F /* TeacherCalenderViewController.swift */,
 				A532DDA9269F295C007C9A34 /* TeacherCalendarSelectViewController.swift */,
+				A53EA48126A5402F00AFF799 /* TeacherLessonDetailViewController.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				A5293768269ACCE700B210C2 /* Exam.swift in Sources */,
 				A5B469AC2688DA8A00C62F9C /* Presentor.swift in Sources */,
 				A57FE01C268F401300B1E609 /* SignUpInformation.swift in Sources */,
+				A53EA48226A5402F00AFF799 /* TeacherLessonDetailViewController.swift in Sources */,
 				A532DB2326889ACB00076260 /* AppDelegate.swift in Sources */,
 				A57FE01A268F256B00B1E609 /* SignUpStatusProtocol.swift in Sources */,
 				A5EDB213268D8A960085CCAE /* Keyboard.swift in Sources */,

@@ -9,11 +9,13 @@ import Foundation
 
 typealias ClassroomParse = (classroomName: String, teacherName: String, weekday: String)
 
-struct Classroom: Codable {
+class Classroom: Codable {
     var id: Int?
     var name: String?
     var creatorId: Int!
     var academyId: Int!
+    
+    var academyBelong: Academy?
     
     static func == (lhs: Classroom, rhs: Classroom) -> Bool {
         return (
@@ -23,8 +25,8 @@ struct Classroom: Codable {
             rhs.academyId == lhs.academyId
         )
     }
-    
-    func parseClassroomName() -> ClassroomParse {
+
+    var parse: ClassroomParse {
         var result: ClassroomParse = ("", "", "")
         guard let classroomName = self.name else { return result }
         

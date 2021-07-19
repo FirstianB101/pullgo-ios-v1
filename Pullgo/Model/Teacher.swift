@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Teacher: Codable {
+class Teacher: Codable {
     var id: Int? = nil
     var account: Account! = nil
 }

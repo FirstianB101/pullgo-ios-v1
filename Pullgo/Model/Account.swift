@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 import UIKit
 
-struct Account: Codable {
+class Account: Codable {
     var username: String!
     var password: String?
     var fullName: String!
@@ -44,17 +44,16 @@ class SignedUserInfo {
     }
     
     func getUserInfoURL() -> URL {
-        return NetworkManager.assembleURL(components: [self.userType.ToURLComponent(), String(self.id)])
+        return NetworkManager.assembleURL(self.userType.ToURLComponent(), String(self.id))
     }
     
     func getAcademyInfo() {
-        var url: URL = NetworkManager.assembleURL(components: ["academies"])
+        var url: URL = NetworkManager.assembleURL("academies")
         url.appendQuery(query: URLQueryItem(name: self.userType.toURLQuery(), value: String(self.id)))
         
         NetworkManager.get(url: url, success: { data in
             guard let academies = try! data?.toObject(type: [Academy].self) else {
-                print("SignedUserInfo.getAcademyInfo() -> toObject error")
-                return
+                fatalError("SignedUserInfo.getAcademyInfo() -> toObject error")
             }
             
             SignedUser.academies = academies
@@ -66,13 +65,12 @@ class SignedUserInfo {
     }
     
     func getClassroomInfo(complete: @escaping EmptyClosure) {
-        var url: URL = NetworkManager.assembleURL(components: ["academy", "classrooms"])
+        var url: URL = NetworkManager.assembleURL("academy", "classrooms")
         url.appendQuery(queryItems: getQueryItems())
         
         let success: ResponseClosure = { data in
             guard let classrooms = try? data?.toObject(type: [Classroom].self) else {
-                print("SignedUserInfo.getClassroomData() -> data parse error")
-                return
+                fatalError("SignedUserInfo.getClassroomData() -> data parse error")
             }
             SignedUser.classrooms = classrooms
         }

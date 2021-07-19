@@ -19,7 +19,7 @@ class TeacherCalendarSelectViewController: UIViewController, Styler {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        initialCenter = CGPoint(x: view.center.x, y: view.center.y + (view.center.y / 2) * (2 / 3))
+        initialCenter = CGPoint(x: view.center.x, y: view.bounds.height * (2 / 3))
         setViewCornerRadius(view: createLessonButton)
         setViewShadow(view: createLessonButton)
     }
@@ -70,6 +70,7 @@ extension TeacherCalendarSelectViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LessonListCell", for: indexPath) as! LessonListCell
+        cell.academyLabel.text = viewModel.getBelongAcademyName(at: indexPath.row)
         cell.lessonNameLabel.text = viewModel.lessons[indexPath.row].name
         cell.timeLabel.text = viewModel.getLessonTime(at: indexPath.row)
         
@@ -83,6 +84,7 @@ extension TeacherCalendarSelectViewController {
             
         if self.view.center.y > self.view.bounds.height * 1.2 && sender.state == .ended {
             dismissView()
+            return
         }
         
         if sender.state == .began || sender.state == .changed {
@@ -121,6 +123,7 @@ extension TeacherCalendarSelectViewController {
 }
 
 class LessonListCell: UITableViewCell {
+    @IBOutlet weak var academyLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var lessonNameLabel: UILabel!
 }
@@ -148,6 +151,11 @@ class TeacherCalendarSelectViewModel {
         message += cutSecondsInTime(time: schedule.endTime)
         
         return message
+    }
+    
+    func getBelongAcademyName(at: Int) -> String {
+        guard let academy = lessons[at].belongAcademy else { return "" }
+        return academy.name!
     }
     
     private func cutSecondsInTime(time: String) -> String {

@@ -140,21 +140,20 @@ class TeacherCalendarViewModel {
     var view: UIViewController! = nil
     
     func getLessonsBetween(since: Date, until: Date, complete: EmptyClosure? = nil) {
-        var url: URL = NetworkManager.assembleURL(components: ["academy", "classroom", "lessons"])
+        var url: URL = NetworkManager.assembleURL("academy", "classroom", "lessons")
         
         url.appendQuery(queryItems: assembleQueries(since: since, until: until))
         
         let success: ResponseClosure = { data in
             guard let receivedLessons = try? data?.toObject(type: [Lesson].self) else {
-                print("TeacherCalendarViewModel.getLessonsBetween() -> error in success -> receivedLesson = ...")
-                return
+                fatalError("TeacherCalendarViewModel.getLessonsBetween() -> error in success -> receivedLesson = ...")
             }
             self.setLessonsByReceivedData(since: since, until: until, lessons: receivedLessons)
             self.updateLastestDataOfMonth(date: since.yearAndMonth)
         }
         
         let fail: FailClosure = {
-            let alert = AlertPresentor(view: self.view)
+            let alert = AlertPresentor(presentor: self.view)
             alert.presentNetworkError()
         }
         

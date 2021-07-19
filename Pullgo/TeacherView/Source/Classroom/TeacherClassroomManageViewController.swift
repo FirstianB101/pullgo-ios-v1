@@ -33,7 +33,7 @@ class TeacherClassroomManageViewController: UIViewController {
 
 extension TeacherClassroomManageViewController: NetworkAlertDelegate {
     func networkFailAlert() {
-        let alert = AlertPresentor(view: self)
+        let alert = AlertPresentor(presentor: self)
         alert.presentNetworkError()
     }
 }
@@ -51,7 +51,7 @@ extension TeacherClassroomManageViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TeacherClassroomCell") as! TeacherClassroomCell
-        let classroomNameParse = viewModel.classrooms[indexPath.row].parseClassroomName()
+        let classroomNameParse = viewModel.classrooms[indexPath.row].parse
         
         cell.teacherNameLabel.text = classroomNameParse.teacherName
         cell.classroomNameLabel.text = classroomNameParse.classroomName
