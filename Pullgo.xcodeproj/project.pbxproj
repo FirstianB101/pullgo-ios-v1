@@ -37,6 +37,10 @@
 		A53EA48226A5402F00AFF799 /* TeacherLessonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53EA48126A5402F00AFF799 /* TeacherLessonDetailViewController.swift */; };
 		A55D3FB92697261D009DC6B7 /* FindAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55D3FB82697261D009DC6B7 /* FindAccountViewController.swift */; };
 		A55D3FBB26972651009DC6B7 /* FindAccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55D3FBA26972651009DC6B7 /* FindAccountTest.swift */; };
+		A5780AAE26AC4A6D007F6A88 /* TeacherClassroomManageExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5780AAD26AC4A6D007F6A88 /* TeacherClassroomManageExamViewController.swift */; };
+		A5780AB026AC4A7D007F6A88 /* TeacherClassroomManageRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5780AAF26AC4A7D007F6A88 /* TeacherClassroomManageRequestViewController.swift */; };
+		A5780AB226AC4A7E007F6A88 /* TeacherClassroomManageStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5780AB126AC4A7E007F6A88 /* TeacherClassroomManageStudentViewController.swift */; };
+		A5780AB426AC4A7F007F6A88 /* TeacherClassroomManageInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5780AB326AC4A7F007F6A88 /* TeacherClassroomManageInfoViewController.swift */; };
 		A57F5CED2695F2BE00A603DD /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F5CEC2695F2BE00A603DD /* Account.swift */; };
 		A57FE018268F220700B1E609 /* InputPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE017268F220700B1E609 /* InputPasswordViewController.swift */; };
 		A57FE01A268F256B00B1E609 /* SignUpStatusProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE019268F256B00B1E609 /* SignUpStatusProtocol.swift */; };
@@ -53,6 +57,7 @@
 		A5B4CD5C26898E9800FA2967 /* thumbs-up.png in Resources */ = {isa = PBXBuildFile; fileRef = A5B4CD5B26898E9800FA2967 /* thumbs-up.png */; };
 		A5B4CD5E2689934B00FA2967 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4CD5D2689934B00FA2967 /* Error.swift */; };
 		A5B4CD602689942200FA2967 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4CD5F2689942200FA2967 /* Network.swift */; };
+		A5BB71B126A689C500131C9D /* TeacherClassroomDetailSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB71B026A689C500131C9D /* TeacherClassroomDetailSegue.swift */; };
 		A5BCA9EA26A41651008AD3F6 /* TeacherCreateLessonSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BCA9E926A41651008AD3F6 /* TeacherCreateLessonSegue.swift */; };
 		A5C60EB426A358DB007795C0 /* TeacherCreateLesson_SelectClassroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C60EB326A358DB007795C0 /* TeacherCreateLesson_SelectClassroomViewController.swift */; };
 		A5C60EB726A35E9E007795C0 /* TeacherCreateLesson_ScheduleSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C60EB626A35E9E007795C0 /* TeacherCreateLesson_ScheduleSetViewController.swift */; };
@@ -117,6 +122,10 @@
 		A53EA48126A5402F00AFF799 /* TeacherLessonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherLessonDetailViewController.swift; sourceTree = "<group>"; };
 		A55D3FB82697261D009DC6B7 /* FindAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccountViewController.swift; sourceTree = "<group>"; };
 		A55D3FBA26972651009DC6B7 /* FindAccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccountTest.swift; sourceTree = "<group>"; };
+		A5780AAD26AC4A6D007F6A88 /* TeacherClassroomManageExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassroomManageExamViewController.swift; sourceTree = "<group>"; };
+		A5780AAF26AC4A7D007F6A88 /* TeacherClassroomManageRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassroomManageRequestViewController.swift; sourceTree = "<group>"; };
+		A5780AB126AC4A7E007F6A88 /* TeacherClassroomManageStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassroomManageStudentViewController.swift; sourceTree = "<group>"; };
+		A5780AB326AC4A7F007F6A88 /* TeacherClassroomManageInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassroomManageInfoViewController.swift; sourceTree = "<group>"; };
 		A57F5CEC2695F2BE00A603DD /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A57FE017268F220700B1E609 /* InputPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPasswordViewController.swift; sourceTree = "<group>"; };
 		A57FE019268F256B00B1E609 /* SignUpStatusProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStatusProtocol.swift; sourceTree = "<group>"; };
@@ -132,6 +141,7 @@
 		A5B4CD5B26898E9800FA2967 /* thumbs-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbs-up.png"; sourceTree = "<group>"; };
 		A5B4CD5D2689934B00FA2967 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		A5B4CD5F2689942200FA2967 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		A5BB71B026A689C500131C9D /* TeacherClassroomDetailSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassroomDetailSegue.swift; sourceTree = "<group>"; };
 		A5BCA9E926A41651008AD3F6 /* TeacherCreateLessonSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCreateLessonSegue.swift; sourceTree = "<group>"; };
 		A5C60EB326A358DB007795C0 /* TeacherCreateLesson_SelectClassroomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCreateLesson_SelectClassroomViewController.swift; sourceTree = "<group>"; };
 		A5C60EB626A35E9E007795C0 /* TeacherCreateLesson_ScheduleSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCreateLesson_ScheduleSetViewController.swift; sourceTree = "<group>"; };
@@ -287,6 +297,17 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		A5780AAC26AC491E007F6A88 /* ClassroomManage */ = {
+			isa = PBXGroup;
+			children = (
+				A5780AAF26AC4A7D007F6A88 /* TeacherClassroomManageRequestViewController.swift */,
+				A5780AB326AC4A7F007F6A88 /* TeacherClassroomManageInfoViewController.swift */,
+				A5780AB126AC4A7E007F6A88 /* TeacherClassroomManageStudentViewController.swift */,
+				A5780AAD26AC4A6D007F6A88 /* TeacherClassroomManageExamViewController.swift */,
+			);
+			path = ClassroomManage;
+			sourceTree = "<group>";
+		};
 		A58E7A0B269758AF005FFC6F /* TeacherView */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,8 +410,10 @@
 		A5EFD39326A16B27001637FB /* Classroom */ = {
 			isa = PBXGroup;
 			children = (
+				A5780AAC26AC491E007F6A88 /* ClassroomManage */,
 				A5EFD39426A16B3E001637FB /* TeacherClassroomManageViewController.swift */,
 				A5F7F1A526A303F600487BF7 /* TeacherRequestClassroomJoinViewController.swift */,
+				A5BB71B026A689C500131C9D /* TeacherClassroomDetailSegue.swift */,
 			);
 			path = Classroom;
 			sourceTree = "<group>";
@@ -566,6 +589,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5191496268DCC1500620A66 /* Extension.swift in Sources */,
+				A5BB71B126A689C500131C9D /* TeacherClassroomDetailSegue.swift in Sources */,
 				A5F7F1A626A303F600487BF7 /* TeacherRequestClassroomJoinViewController.swift in Sources */,
 				A532DB2726889ACB00076260 /* SignInViewController.swift in Sources */,
 				A5B469AF2688DF7200C62F9C /* UserType.swift in Sources */,
@@ -575,6 +599,7 @@
 				A529377B269AE4CA00B210C2 /* Messages.swift in Sources */,
 				A5FB031526A05C2D007FCDB7 /* TeacherMenuViewController.swift in Sources */,
 				A5293768269ACCE700B210C2 /* Exam.swift in Sources */,
+				A5780AB226AC4A7E007F6A88 /* TeacherClassroomManageStudentViewController.swift in Sources */,
 				A5B469AC2688DA8A00C62F9C /* Presentor.swift in Sources */,
 				A57FE01C268F401300B1E609 /* SignUpInformation.swift in Sources */,
 				A53EA48226A5402F00AFF799 /* TeacherLessonDetailViewController.swift in Sources */,
@@ -587,6 +612,7 @@
 				A5293762269ACCCD00B210C2 /* Classroom.swift in Sources */,
 				A5B4CD602689942200FA2967 /* Network.swift in Sources */,
 				A5EDB217268D93A90085CCAE /* Styler.swift in Sources */,
+				A5780AB426AC4A7F007F6A88 /* TeacherClassroomManageInfoViewController.swift in Sources */,
 				A5C95ECC2691874000F19A55 /* InputDetailViewController.swift in Sources */,
 				A5EDB215268D931B0085CCAE /* SignUpViewController.swift in Sources */,
 				A57FE018268F220700B1E609 /* InputPasswordViewController.swift in Sources */,
@@ -595,10 +621,12 @@
 				A5B469B52688EA7000C62F9C /* Teacher.swift in Sources */,
 				A5BCA9EA26A41651008AD3F6 /* TeacherCreateLessonSegue.swift in Sources */,
 				A532DB2526889ACB00076260 /* SceneDelegate.swift in Sources */,
+				A5780AB026AC4A7D007F6A88 /* TeacherClassroomManageRequestViewController.swift in Sources */,
 				A5C60EB426A358DB007795C0 /* TeacherCreateLesson_SelectClassroomViewController.swift in Sources */,
 				A529376A269ACCED00B210C2 /* Question.swift in Sources */,
 				A5B469B32688E9F600C62F9C /* Student.swift in Sources */,
 				A5293764269ACCD700B210C2 /* Academy.swift in Sources */,
+				A5780AAE26AC4A6D007F6A88 /* TeacherClassroomManageExamViewController.swift in Sources */,
 				A532DDAA269F295C007C9A34 /* TeacherCalendarSelectViewController.swift in Sources */,
 				A55D3FB92697261D009DC6B7 /* FindAccountViewController.swift in Sources */,
 				A5B4CD5E2689934B00FA2967 /* Error.swift in Sources */,

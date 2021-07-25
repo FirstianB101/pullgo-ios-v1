@@ -40,7 +40,14 @@ extension TeacherClassroomManageViewController: NetworkAlertDelegate {
 
 extension TeacherClassroomManageViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        TeacherClassroomManageViewModel.selectedClassroom = viewModel.classrooms[indexPath.row]
+        presentClassroomManageView()
+    }
+    
+    func presentClassroomManageView() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "TeacherClasroomDetailTabController") as! UITabBarController
         
+        self.present(vc, animated: true, completion: nil)
     }
 }
 
@@ -69,6 +76,7 @@ class TeacherClassroomCell: UITableViewCell {
 
 class TeacherClassroomManageViewModel {
     var classrooms: [Classroom] = []
+    static var selectedClassroom: Classroom!
     
     func getClassroomInfoFromSignedUser() {
         self.classrooms = SignedUser.classrooms ?? []
