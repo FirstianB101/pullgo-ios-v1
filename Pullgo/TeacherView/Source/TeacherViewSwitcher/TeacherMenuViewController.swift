@@ -28,6 +28,22 @@ class TeacherMenuViewController: UIViewController {
         """
         academyLabel.text = viewModel.academyName
     }
+    
+    @IBAction func logoutClicked(_ sender: UIButton) {
+        SignedUser.teacher = nil
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let pvc = self.presentingViewController!
+        
+        let vc = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+        
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .fullScreen
+        
+        self.dismiss(animated: true) {
+            pvc.present(vc, animated: true, completion: nil)
+        }
+    }
 }
 
 extension TeacherMenuViewController: UITableViewDelegate {
@@ -48,8 +64,6 @@ extension TeacherMenuViewController: UITableViewDataSource {
         cell.menuTitleLabel.text = viewModel.menus[indexPath.row]
         return cell
     }
-    
-    
 }
 
 class TeacherMenuViewModel {
