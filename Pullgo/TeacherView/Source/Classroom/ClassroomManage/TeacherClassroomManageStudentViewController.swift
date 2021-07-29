@@ -7,14 +7,24 @@
 
 import UIKit
 
-class TeacherClassroomManageStudentViewController: UIViewController {
+class TeacherClassroomManageStudentViewController: UIViewController, TeacherClassroomManageTopBar {
+    
+    func setPromptNameBySelectedClassroom() {
+        self.navigationController?.navigationBar.topItem?.prompt = TeacherClassroomManageViewModel.selectedClassroom.parse.classroomName
+    }
+    
+    func setTitleByTabBarMenu() {
+        self.navigationController?.navigationBar.topItem?.title = "학생 관리"
+    }
 
     let viewModel = TeacherClassroomManageStudentViewModel()
     @IBOutlet weak var studentsCollectionView: UICollectionView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
 
+        setPromptNameBySelectedClassroom()
+        setTitleByTabBarMenu()
         viewModel.updateStudents() {
             self.studentsCollectionView.reloadData()
         }

@@ -30,6 +30,7 @@ class Classroom: Codable {
     var requestStudents = [Student]()
     var teachers = [Teacher]()
     var students = [Student]()
+    var exams = [Exam]()
     
     static func == (lhs: Classroom, rhs: Classroom) -> Bool {
         return (
@@ -133,6 +134,22 @@ extension Classroom {
         }
         
         let fail: EmptyClosure = { /*self.networkAlertDelegate?.networkFailAlert()*/ }
+        
+        NetworkManager.get(url: url, success: success, fail: fail, complete: complete)
+    }
+    
+    func getExams(complete: EmptyClosure? = nil) {
+        var url = NetworkManager.assembleURL("exams")
+        url.appendQuery(query: URLQueryItem(name: "classroomId", value: String(self.id!)))
+        
+        let success: ResponseClosure = { data in
+            guard let receivedExams = try? data?.toObject(type: [Exam].self) else {
+                fatalError("Classroom.getExams() -> data parse error")
+            }
+            self.exams = receivedExams
+        }
+        
+        let fail: EmptyClosure = { }
         
         NetworkManager.get(url: url, success: success, fail: fail, complete: complete)
     }

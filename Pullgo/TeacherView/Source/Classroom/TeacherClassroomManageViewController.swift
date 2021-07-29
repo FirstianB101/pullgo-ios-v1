@@ -45,7 +45,7 @@ extension TeacherClassroomManageViewController: UITableViewDelegate {
     }
     
     func presentClassroomManageView() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "TeacherClasroomDetailTabController") as! UITabBarController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "TeacherClasroomDetailNavController") as! UINavigationController
         
         self.present(vc, animated: true, completion: nil)
     }

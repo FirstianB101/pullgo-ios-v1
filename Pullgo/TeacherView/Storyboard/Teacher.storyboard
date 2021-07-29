@@ -57,14 +57,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TeacherMenuCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeacherMenuCell" id="NHr-n1-7a9" customClass="TeacherMenuCell" customModule="Pullgo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="384" height="51.5"/>
+                                        <rect key="frame" x="0.0" y="50" width="384" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NHr-n1-7a9" id="IbL-C3-Dcy">
-                                            <rect key="frame" x="0.0" y="0.0" width="384" height="51.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="384" height="51"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ox0-Kf-zqq">
-                                                    <rect key="frame" x="20" y="15" width="344" height="21.5"/>
+                                                    <rect key="frame" x="20" y="15" width="344" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -293,26 +293,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYv-e0-blF">
-                                <rect key="frame" x="0.0" y="72.5" width="414" height="44"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <navigationItem title="학생 관리" id="blR-vh-yX9">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="4u0-U9-5HH">
-                                            <imageReference key="image" image="chevron.backward" catalog="system"/>
-                                            <color key="tintColor" name="AccentColor"/>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="반 이름" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXk-tz-kbW">
-                                <rect key="frame" x="0.0" y="52" width="414" height="20.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" name="AccentColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eq8-oF-g3w">
-                                <rect key="frame" x="10" y="126.5" width="394" height="676.5"/>
+                                <rect key="frame" x="10" y="98" width="394" height="705"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FMD-hh-RMD">
                                     <size key="itemSize" width="390" height="98"/>
@@ -379,16 +361,10 @@
                         <viewLayoutGuide key="safeArea" id="IFq-VV-hlM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="eq8-oF-g3w" firstAttribute="top" secondItem="vYv-e0-blF" secondAttribute="bottom" constant="10" id="5Lu-bC-aab"/>
                             <constraint firstItem="IFq-VV-hlM" firstAttribute="bottom" secondItem="eq8-oF-g3w" secondAttribute="bottom" constant="10" id="B3E-KO-UFh"/>
-                            <constraint firstItem="IFq-VV-hlM" firstAttribute="trailing" secondItem="IXk-tz-kbW" secondAttribute="trailing" id="EWe-Hi-YNx"/>
-                            <constraint firstItem="IXk-tz-kbW" firstAttribute="leading" secondItem="SQl-mG-aOQ" secondAttribute="leading" id="QZ3-Xj-4pC"/>
                             <constraint firstItem="IFq-VV-hlM" firstAttribute="trailing" secondItem="eq8-oF-g3w" secondAttribute="trailing" constant="10" id="Rxf-P6-Ryf"/>
-                            <constraint firstItem="vYv-e0-blF" firstAttribute="leading" secondItem="SQl-mG-aOQ" secondAttribute="leading" id="TPU-In-2Q5"/>
-                            <constraint firstItem="IFq-VV-hlM" firstAttribute="trailing" secondItem="vYv-e0-blF" secondAttribute="trailing" id="YtB-tl-tgi"/>
                             <constraint firstItem="eq8-oF-g3w" firstAttribute="leading" secondItem="IFq-VV-hlM" secondAttribute="leading" constant="10" id="b5F-tv-m9P"/>
-                            <constraint firstItem="IXk-tz-kbW" firstAttribute="top" secondItem="IFq-VV-hlM" secondAttribute="top" constant="8" id="jDQ-tJ-8Ai"/>
-                            <constraint firstItem="vYv-e0-blF" firstAttribute="top" secondItem="IXk-tz-kbW" secondAttribute="bottom" id="sGZ-8k-DlJ"/>
+                            <constraint firstItem="eq8-oF-g3w" firstAttribute="top" secondItem="IFq-VV-hlM" secondAttribute="top" constant="10" id="zjT-qx-oX0"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="학생 관리" id="lVo-Ol-DBY">
@@ -400,7 +376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zzh-Oz-e02" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4205.7971014492759" y="-958.25892857142856"/>
+            <point key="canvasLocation" x="3183" y="-949"/>
         </scene>
         <!--시험 관리-->
         <scene sceneID="O5a-Uk-vBh">
@@ -410,49 +386,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXk-nb-Ei3">
-                                <rect key="frame" x="0.0" y="72.5" width="414" height="44"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <navigationItem title="시험 관리" id="MWw-1f-CLb">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="AL9-vb-UPE">
-                                            <imageReference key="image" image="chevron.backward" catalog="system"/>
-                                            <color key="tintColor" name="AccentColor"/>
-                                            <connections>
-                                                <action selector="backButtonClicked:" destination="RdB-f2-rwL" id="7DM-Ca-f6Q"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="반 이름" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acd-SH-tsU">
-                                <rect key="frame" x="0.0" y="52" width="414" height="20.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" name="AccentColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y3I-PF-nTE">
+                                <rect key="frame" x="10" y="98" width="394" height="705"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="06C-fk-610">
+                                    <size key="itemSize" width="390" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gWJ-Pa-Idh">
+                                        <rect key="frame" x="2" y="0.0" width="390" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="k2c-Tq-NEA">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Sls-MZ-oY6">
+                                                    <rect key="frame" x="30" y="27.5" width="330" height="73"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*** 시험" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfs-w6-fyE">
+                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="27.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5/21 14:00 ~ 5/25 14:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uw-JG-MDd">
+                                                            <rect key="frame" x="0.0" y="52.5" width="330" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Sls-MZ-oY6" firstAttribute="leading" secondItem="k2c-Tq-NEA" secondAttribute="leading" constant="30" id="Kxk-dD-RjT"/>
+                                                <constraint firstItem="Sls-MZ-oY6" firstAttribute="centerY" secondItem="k2c-Tq-NEA" secondAttribute="centerY" id="MWH-mH-NrT"/>
+                                                <constraint firstAttribute="trailing" secondItem="Sls-MZ-oY6" secondAttribute="trailing" constant="30" id="qQY-bT-hEE"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="390" height="128"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qX4-04-tGX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Acd-SH-tsU" firstAttribute="top" secondItem="qX4-04-tGX" secondAttribute="top" constant="8" id="32a-2j-ALu"/>
-                            <constraint firstItem="qX4-04-tGX" firstAttribute="trailing" secondItem="TXk-nb-Ei3" secondAttribute="trailing" id="87e-56-LJf"/>
-                            <constraint firstItem="Acd-SH-tsU" firstAttribute="leading" secondItem="qX4-04-tGX" secondAttribute="leading" id="J5r-6m-Rwm"/>
-                            <constraint firstItem="TXk-nb-Ei3" firstAttribute="leading" secondItem="p5A-xc-zCt" secondAttribute="leading" id="Nwu-kV-gRF"/>
-                            <constraint firstItem="qX4-04-tGX" firstAttribute="trailing" secondItem="Acd-SH-tsU" secondAttribute="trailing" id="aND-aR-Gc1"/>
-                            <constraint firstItem="TXk-nb-Ei3" firstAttribute="top" secondItem="Acd-SH-tsU" secondAttribute="bottom" id="aNV-I3-eN9"/>
+                            <constraint firstItem="y3I-PF-nTE" firstAttribute="leading" secondItem="qX4-04-tGX" secondAttribute="leading" constant="10" id="6lE-wl-shL"/>
+                            <constraint firstItem="y3I-PF-nTE" firstAttribute="top" secondItem="qX4-04-tGX" secondAttribute="top" constant="10" id="PkR-aa-X9l"/>
+                            <constraint firstItem="qX4-04-tGX" firstAttribute="bottom" secondItem="y3I-PF-nTE" secondAttribute="bottom" constant="10" id="esC-Xl-Ety"/>
+                            <constraint firstItem="qX4-04-tGX" firstAttribute="trailing" secondItem="y3I-PF-nTE" secondAttribute="trailing" constant="10" id="ryE-Fx-kd0"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="시험 관리" id="iSV-7e-W7r">
                         <imageReference key="image" image="square.and.pencil" catalog="system"/>
                     </tabBarItem>
-                    <connections>
-                        <outlet property="classroomName" destination="Acd-SH-tsU" id="mMs-Kg-TkU"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JRG-yH-Eya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3170" y="-957"/>
+            <point key="canvasLocation" x="5424.6376811594209" y="-975"/>
         </scene>
         <!--요청 관리-->
         <scene sceneID="sJs-OG-PFv">
@@ -462,27 +457,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LUf-GF-fyf">
-                                <rect key="frame" x="0.0" y="72.5" width="414" height="44"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <navigationItem title="요청 관리" id="mOm-hP-PDG">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="MNP-Ap-eQV">
-                                            <imageReference key="image" image="chevron.backward" catalog="system"/>
-                                            <color key="tintColor" name="AccentColor"/>
-                                            <connections>
-                                                <action selector="backButtonClicked:" destination="edD-iq-WuW" id="zZA-D8-1fO"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" id="6cH-jN-h69">
-                                            <imageReference key="image" image="slider.horizontal.3" catalog="system"/>
-                                            <color key="tintColor" name="AccentColor"/>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V1G-AH-RaO">
-                                <rect key="frame" x="10" y="184.5" width="394" height="613.5"/>
+                                <rect key="frame" x="10" y="141" width="394" height="657"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="P6b-Py-A8R">
                                     <size key="itemSize" width="123" height="128"/>
@@ -556,17 +532,11 @@
                                     <outlet property="delegate" destination="edD-iq-WuW" id="gPp-dR-scJ"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="반 이름" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2H8-Yy-O7q">
-                                <rect key="frame" x="0.0" y="52" width="414" height="20.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" name="AccentColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ri9-6n-X9T">
-                                <rect key="frame" x="80" y="131.5" width="254" height="39"/>
+                                <rect key="frame" x="80" y="98" width="254" height="29"/>
                                 <color key="backgroundColor" name="LightAccent"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="Hbr-8g-h8S"/>
+                                    <constraint firstAttribute="height" constant="28" id="Hbr-8g-h8S"/>
                                 </constraints>
                                 <segments>
                                     <segment title="학생"/>
@@ -581,37 +551,52 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="fA8-6f-33O" firstAttribute="bottom" secondItem="V1G-AH-RaO" secondAttribute="bottom" constant="15" id="0jJ-t6-qRX"/>
+                            <constraint firstItem="Ri9-6n-X9T" firstAttribute="top" secondItem="fA8-6f-33O" secondAttribute="top" constant="10" id="34Y-sx-0jc"/>
                             <constraint firstItem="Ri9-6n-X9T" firstAttribute="leading" secondItem="fA8-6f-33O" secondAttribute="leading" constant="80" id="4HM-7s-yxA"/>
-                            <constraint firstItem="LUf-GF-fyf" firstAttribute="top" secondItem="2H8-Yy-O7q" secondAttribute="bottom" id="9Ec-ko-gHG"/>
-                            <constraint firstItem="Ri9-6n-X9T" firstAttribute="top" secondItem="LUf-GF-fyf" secondAttribute="bottom" constant="15" id="D6B-Nm-ytB"/>
                             <constraint firstItem="V1G-AH-RaO" firstAttribute="leading" secondItem="fA8-6f-33O" secondAttribute="leading" constant="10" id="DWV-YY-8gf"/>
                             <constraint firstItem="fA8-6f-33O" firstAttribute="trailing" secondItem="V1G-AH-RaO" secondAttribute="trailing" constant="10" id="MPs-86-MIm"/>
-                            <constraint firstItem="fA8-6f-33O" firstAttribute="trailing" secondItem="LUf-GF-fyf" secondAttribute="trailing" id="Mgd-xG-yrY"/>
-                            <constraint firstItem="LUf-GF-fyf" firstAttribute="leading" secondItem="NCb-QH-iuL" secondAttribute="leading" id="O6s-uQ-FUD"/>
-                            <constraint firstAttribute="trailing" secondItem="2H8-Yy-O7q" secondAttribute="trailing" id="Tca-lp-dda"/>
                             <constraint firstItem="fA8-6f-33O" firstAttribute="trailing" secondItem="Ri9-6n-X9T" secondAttribute="trailing" constant="80" id="a9b-HU-wRw"/>
                             <constraint firstItem="V1G-AH-RaO" firstAttribute="top" secondItem="Ri9-6n-X9T" secondAttribute="bottom" constant="15" id="lZ4-Ok-diD"/>
-                            <constraint firstItem="2H8-Yy-O7q" firstAttribute="leading" secondItem="fA8-6f-33O" secondAttribute="leading" id="yMc-t0-Lsm"/>
-                            <constraint firstItem="2H8-Yy-O7q" firstAttribute="top" secondItem="fA8-6f-33O" secondAttribute="top" constant="8" id="yft-dh-tAu"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="요청 관리" id="4Dg-ih-hIH">
                         <imageReference key="image" image="person.fill.checkmark" catalog="system"/>
                     </tabBarItem>
                     <connections>
-                        <outlet property="classroomName" destination="2H8-Yy-O7q" id="w0O-9a-sfd"/>
                         <outlet property="requestCollectionView" destination="V1G-AH-RaO" id="B1e-Jk-F8R"/>
                         <outlet property="userTypeSegment" destination="Ri9-6n-X9T" id="jq6-oh-DwL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="InI-JO-f3z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4197" y="-256"/>
+            <point key="canvasLocation" x="5417" y="-270"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JLo-tN-Vjt">
+            <objects>
+                <navigationController storyboardIdentifier="TeacherClasroomDetailNavController" id="dBK-09-2cN" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="b54-pT-Bgv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="LightAccent"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="eIW-SZ-ZOc" kind="relationship" relationship="rootViewController" id="gev-yw-3td"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7qu-Pb-gyi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1064" y="-541"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="6Uw-yj-7Kd">
             <objects>
                 <tabBarController storyboardIdentifier="TeacherClasroomDetailTabController" id="eIW-SZ-ZOc" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="P59-6s-ry8"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="G7w-8S-MVv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -626,7 +611,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LmI-zh-i4I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1062" y="-536"/>
+            <point key="canvasLocation" x="2026" y="-544"/>
         </scene>
         <!--Teacher Calendar View Controller-->
         <scene sceneID="peP-jG-Mcl">
@@ -1470,36 +1455,8 @@
                     <view key="view" contentMode="scaleToFill" id="tBd-MN-JPD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqr-Oj-cS5">
-                                <rect key="frame" x="0.0" y="72.5" width="414" height="44"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <navigationItem title="반 수정 및 삭제" id="wsJ-Yd-gkD">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="dzT-dH-JSR">
-                                            <imageReference key="image" image="chevron.backward" catalog="system"/>
-                                            <color key="tintColor" name="AccentColor"/>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="반 이름" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nn-yM-D70">
-                                <rect key="frame" x="0.0" y="52" width="414" height="20.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" name="AccentColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="8rO-Ui-Rja"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="8nn-yM-D70" firstAttribute="top" secondItem="8rO-Ui-Rja" secondAttribute="top" constant="8" id="0o4-a3-IWN"/>
-                            <constraint firstItem="dqr-Oj-cS5" firstAttribute="top" secondItem="8nn-yM-D70" secondAttribute="bottom" id="DS3-cf-uD9"/>
-                            <constraint firstItem="dqr-Oj-cS5" firstAttribute="leading" secondItem="tBd-MN-JPD" secondAttribute="leading" id="JFe-Ib-rny"/>
-                            <constraint firstAttribute="trailing" secondItem="8nn-yM-D70" secondAttribute="trailing" id="hMJ-Oj-b4f"/>
-                            <constraint firstItem="8nn-yM-D70" firstAttribute="leading" secondItem="8rO-Ui-Rja" secondAttribute="leading" id="nTc-M3-f0U"/>
-                            <constraint firstItem="8rO-Ui-Rja" firstAttribute="trailing" secondItem="dqr-Oj-cS5" secondAttribute="trailing" id="rPv-dU-oft"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="반 수정 및 삭재" id="cGK-Ke-wNY">
                         <imageReference key="image" image="square.grid.2x2" catalog="system"/>
@@ -1512,14 +1469,12 @@
     </scenes>
     <resources>
         <image name="calendar.badge.clock" catalog="system" width="128" height="108"/>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="person.fill.checkmark" catalog="system" width="128" height="88"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <image name="square.grid.2x2" catalog="system" width="128" height="114"/>
         <namedColor name="AccentColor">

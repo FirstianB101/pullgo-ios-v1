@@ -9,16 +9,16 @@ import UIKit
 
 class TeacherClassroomManageRequestViewController: UIViewController, TeacherClassroomManageTopBar, NetworkAlertDelegate {
     
-    @IBOutlet weak var classroomName: UILabel!
     @IBOutlet weak var requestCollectionView: UICollectionView!
     @IBOutlet weak var userTypeSegment: UISegmentedControl!
     let viewModel = TeacherClassroomManageRequestViewModel()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
 
         setSegmentUI()
         setPromptNameBySelectedClassroom()
+        setTitleByTabBarMenu()
         viewModel.networkAlertDelegate = self
         viewModel.updateRequest() {
             self.requestCollectionView.reloadData()
@@ -26,16 +26,15 @@ class TeacherClassroomManageRequestViewController: UIViewController, TeacherClas
     }
     
     func setPromptNameBySelectedClassroom() {
-        classroomName.text = TeacherClassroomManageViewModel.selectedClassroom.parse.classroomName
+        self.navigationController?.navigationBar.topItem?.prompt = TeacherClassroomManageViewModel.selectedClassroom.parse.classroomName
+    }
+    
+    func setTitleByTabBarMenu() {
+        self.navigationController?.navigationBar.topItem?.title = "요청 관리"
     }
     
     func setSegmentUI() {
         
-    }
-    
-    @IBAction func backButtonClicked(_ sender: UIBarButtonItem) {
-        dismissSelectedClassroom()
-        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func userTypeSelected(_ sender: UISegmentedControl) {

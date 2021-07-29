@@ -8,10 +8,9 @@
 import UIKit
 
 protocol TeacherClassroomManageTopBar {
-    var classroomName: UILabel! { get set }
     func setPromptNameBySelectedClassroom()
     func dismissSelectedClassroom()
-    func backButtonClicked(_ sedner: UIBarButtonItem)
+    func setTitleByTabBarMenu()
 }
 
 extension TeacherClassroomManageTopBar {
@@ -21,20 +20,34 @@ extension TeacherClassroomManageTopBar {
 }
 
 class TeacherClassroomManageExamViewController: UIViewController, TeacherClassroomManageTopBar {
-    @IBOutlet weak var classroomName: UILabel!
+    let viewModel = TeacherClassroomManageExamViewModel()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
 
         setPromptNameBySelectedClassroom()
+        setTitleByTabBarMenu()
+        viewModel.getExams {
+            
+        }
+    }
+    
+    func setTitleByTabBarMenu() {
+        self.navigationController?.navigationBar.topItem?.title = "시험 관리"
     }
     
     func setPromptNameBySelectedClassroom() {
-        classroomName.text = TeacherClassroomManageViewModel.selectedClassroom.parse.classroomName
+        self.navigationController?.navigationBar.topItem?.prompt = TeacherClassroomManageViewModel.selectedClassroom.parse.classroomName
     }
+}
+
+class TeacherClassroomManageExamViewModel {
+    var exams = [Exam]()
     
-    @IBAction func backButtonClicked(_ sender: UIBarButtonItem) {
-        dismissSelectedClassroom()
-        self.dismiss(animated: true, completion: nil)
+    func getExams(complete: @escaping EmptyClosure) {
+        TeacherClassroomManageViewModel.selectedClassroom.getExams() {
+            self.exams = TeacherClassroomManageViewModel.selectedClassroom.exams
+            complete()
+        }
     }
 }
