@@ -6,16 +6,30 @@
 //
 
 import Foundation
+import SwiftUI
 
 typealias ClassroomParse = (classroomName: String, teacherName: String, weekday: String)
 
 class Classroom: Codable {
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case creatorId
+        case academyId
+    }
+    
     var id: Int?
     var name: String?
     var creatorId: Int!
     var academyId: Int!
     
     var academyBelong: Academy?
+    
+    var requestTeachers = [Teacher]()
+    var requestStudents = [Student]()
+    var teachers = [Teacher]()
+    var students = [Student]()
     
     static func == (lhs: Classroom, rhs: Classroom) -> Bool {
         return (
@@ -53,5 +67,73 @@ class Classroom: Codable {
         result.removeLast()
         result.removeLast()
         return result
+    }
+}
+
+// Do Network Process
+extension Classroom {
+    
+    func getStudents(complete: EmptyClosure? = nil) {
+        var url = NetworkManager.assembleURL("students")
+        url.appendQuery(query: URLQueryItem(name: "classroomId", value: String(self.id!)))
+        
+        let success: ResponseClosure = { data in
+            guard let receivedStudents = try? data?.toObject(type: [Student].self) else {
+                fatalError("Classroom.getStudents() -> data parse error")
+            }
+            self.students = receivedStudents
+        }
+        
+        let fail: EmptyClosure = { }
+        
+        NetworkManager.get(url: url, success: success, fail: fail, complete: complete)
+    }
+    
+    func getTeachers(complete: EmptyClosure? = nil) {
+        var url = NetworkManager.assembleURL("teachers")
+        url.appendQuery(query: URLQueryItem(name: "classroomId", value: String(self.id!)))
+        
+        let success: ResponseClosure = { data in
+            guard let receivedTeachers = try? data?.toObject(type: [Teacher].self) else {
+                fatalError("Classroom.getTeachers() -> data parse error")
+            }
+            self.teachers = receivedTeachers
+        }
+        
+        let fail: EmptyClosure = { }
+        
+        NetworkManager.get(url: url, success: success, fail: fail, complete: complete)
+    }
+    
+    func getRequestStudents(complete: EmptyClosure? = nil) {
+        var url = NetworkManager.assembleURL("students")
+        url.appendQuery(query: URLQueryItem(name: "appliedClassroomId", value: String(self.id!)))
+        
+        let success: ResponseClosure = { data in
+            guard let receivedRequestStudents = try? data?.toObject(type: [Student].self) else {
+                fatalError("Classroom.getRequestStudents() -> data parse error")
+            }
+            self.requestStudents = receivedRequestStudents
+        }
+        
+        let fail: EmptyClosure = { /*self.networkAlertDelegate?.networkFailAlert()*/ }
+        
+        NetworkManager.get(url: url, success: success, fail: fail, complete: complete)
+    }
+    
+    func getRequestTeachers(complete: EmptyClosure? = nil) {
+        var url = NetworkManager.assembleURL("teachers")
+        url.appendQuery(query: URLQueryItem(name: "appliedClassroomId", value: String(self.id!)))
+        
+        let success: ResponseClosure = { data in
+            guard let receivedRequestTeachers = try? data?.toObject(type: [Teacher].self) else {
+                fatalError("Classroom.getRequestTeachers() -> data parse error")
+            }
+            self.requestTeachers = receivedRequestTeachers
+        }
+        
+        let fail: EmptyClosure = { /*self.networkAlertDelegate?.networkFailAlert()*/ }
+        
+        NetworkManager.get(url: url, success: success, fail: fail, complete: complete)
     }
 }

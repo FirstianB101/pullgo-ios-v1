@@ -94,8 +94,8 @@ class TeacherClassroomManageRequestCell: UICollectionViewCell {
 }
 
 class TeacherClassroomManageRequestViewModel {
-    var requestStudents: [Student] = []
-    var requestTeachers: [Teacher] = []
+    var requestStudents = [Student]()
+    var requestTeachers = [Teacher]()
     var networkAlertDelegate: NetworkAlertDelegate?
     var userType: UserType = .student
     
@@ -105,35 +105,17 @@ class TeacherClassroomManageRequestViewModel {
     }
     
     func updateRequestTeachers(complete: EmptyClosure? = nil) {
-        var url = NetworkManager.assembleURL("teachers")
-        url.appendQuery(query: URLQueryItem(name: "appliedClassroomId", value: String(TeacherClassroomManageViewModel.selectedClassroom.id!)))
-        
-        let success: ResponseClosure = { data in
-            guard let receivedRequestTeachers = try? data?.toObject(type: [Teacher].self) else {
-                fatalError("TeacherClassroomManageRequestViewModel.updateRequestTeachers() -> data parse error")
-            }
-            self.requestTeachers = receivedRequestTeachers
+        TeacherClassroomManageViewModel.selectedClassroom.getRequestTeachers() {
+            self.requestTeachers = TeacherClassroomManageViewModel.selectedClassroom.requestTeachers
+            complete?()
         }
-        
-        let fail: EmptyClosure = { self.networkAlertDelegate?.networkFailAlert() }
-        
-        NetworkManager.get(url: url, success: success, fail: fail, complete: complete)
     }
     
     func updateRequestStudents(complete: EmptyClosure? = nil) {
-        var url = NetworkManager.assembleURL("students")
-        url.appendQuery(query: URLQueryItem(name: "appliedClassroomId", value: String(TeacherClassroomManageViewModel.selectedClassroom.id!)))
-        
-        let success: ResponseClosure = { data in
-            guard let receivedRequestStudents = try? data?.toObject(type: [Student].self) else {
-                fatalError("TeacherClassroomManageRequestViewModel.updateRequestStudents() -> data parse error")
-            }
-            self.requestStudents = receivedRequestStudents
+        TeacherClassroomManageViewModel.selectedClassroom.getRequestStudents() {
+            self.requestStudents = TeacherClassroomManageViewModel.selectedClassroom.requestStudents
+            complete?()
         }
-        
-        let fail: EmptyClosure = { self.networkAlertDelegate?.networkFailAlert() }
-        
-        NetworkManager.get(url: url, success: success, fail: fail, complete: complete)
     }
     
     func getStudentName(at index: Int) -> String {
