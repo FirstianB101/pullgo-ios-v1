@@ -10,16 +10,18 @@ import UIKit
 class TeacherClassroomManageRequestViewController: UIViewController, TeacherClassroomManageTopBar, NetworkAlertDelegate {
     
     @IBOutlet weak var classroomName: UILabel!
-    @IBOutlet weak var studentCollectionView: UICollectionView!
+    @IBOutlet weak var requestCollectionView: UICollectionView!
+    @IBOutlet weak var userTypeSegment: UISegmentedControl!
     let viewModel = TeacherClassroomManageRequestViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setSegmentUI()
         setPromptNameBySelectedClassroom()
         viewModel.networkAlertDelegate = self
         viewModel.updateRequest() {
-            self.studentCollectionView.reloadData()
+            self.requestCollectionView.reloadData()
         }
     }
     
@@ -27,9 +29,18 @@ class TeacherClassroomManageRequestViewController: UIViewController, TeacherClas
         classroomName.text = TeacherClassroomManageViewModel.selectedClassroom.parse.classroomName
     }
     
+    func setSegmentUI() {
+        
+    }
+    
     @IBAction func backButtonClicked(_ sender: UIBarButtonItem) {
         dismissSelectedClassroom()
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func userTypeSelected(_ sender: UISegmentedControl) {
+        viewModel.userType = UserType.ToUserType(index: sender.selectedSegmentIndex)!
+        self.requestCollectionView.reloadData()
     }
     
     func networkFailAlert() {
@@ -38,20 +49,24 @@ class TeacherClassroomManageRequestViewController: UIViewController, TeacherClas
     }
 }
 
-extension TeacherClassroomManageRequestViewController: UICollectionViewDelegate {
-    
-}
-
 extension TeacherClassroomManageRequestViewController: UICollectionViewDataSource, Styler {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.requestStudents.count + viewModel.requestTeachers.count
+        let count = viewModel.userType == .student ? viewModel.requestStudents.count : viewModel.requestTeachers.count
+        
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeacherClassroomManageRequestCell", for: indexPath) as! TeacherClassroomManageRequestCell
         
-        cell.fullName.text = viewModel.getStudentName(at: indexPath.item)
-        cell.studentSchoolInfo.text = viewModel.getSchoolInfo(at: indexPath.item)
+        if viewModel.userType == .student {
+            cell.fullName.text = viewModel.getStudentName(at: indexPath.item)
+            cell.studentSchoolInfo.text = viewModel.getSchoolInfo(at: indexPath.item)
+        } else {
+            cell.fullName.text = viewModel.getTeacherName(at: indexPath.item)
+            cell.studentSchoolInfo.text = ""
+        }
+        
         setCellUI(cell: cell)
         
         return cell
@@ -60,11 +75,8 @@ extension TeacherClassroomManageRequestViewController: UICollectionViewDataSourc
 
 extension TeacherClassroomManageRequestViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height: CGFloat = 128
-        let padding: CGFloat = 10
-        let width = collectionView.bounds.width - padding * 2
         
-        return CGSize(width: width, height: height)
+        return CGSize(width: view.bounds.width - 40, height: 128)
     }
 }
 
@@ -85,6 +97,7 @@ class TeacherClassroomManageRequestViewModel {
     var requestStudents: [Student] = []
     var requestTeachers: [Teacher] = []
     var networkAlertDelegate: NetworkAlertDelegate?
+    var userType: UserType = .student
     
     func updateRequest(complete: EmptyClosure? = nil) {
         updateRequestTeachers(complete: complete)
@@ -131,5 +144,10 @@ class TeacherClassroomManageRequestViewModel {
     func getSchoolInfo(at index: Int) -> String {
         let student = self.requestStudents[index]
         return student.schoolName + " " + "\(String(student.schoolYear))학년"
+    }
+    
+    func getTeacherName(at index: Int) -> String {
+        let teacher = self.requestTeachers[index]
+        return teacher.account.fullName + " 선생님"
     }
 }

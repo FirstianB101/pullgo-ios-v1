@@ -411,7 +411,7 @@
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V1G-AH-RaO">
-                                <rect key="frame" x="10" y="177.5" width="394" height="620.5"/>
+                                <rect key="frame" x="10" y="184.5" width="394" height="613.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="P6b-Py-A8R">
                                     <size key="itemSize" width="123" height="128"/>
@@ -445,7 +445,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OB-4F-RlZ">
-                                                    <rect key="frame" x="181" y="85.5" width="53.5" height="34.5"/>
+                                                    <rect key="frame" x="181" y="81.5" width="53.5" height="34.5"/>
                                                     <color key="tintColor" red="1" green="0.099748169590000005" blue="0.17523895489999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="삭제"/>
@@ -454,7 +454,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJ9-Q2-0NB">
-                                                    <rect key="frame" x="247.5" y="85.5" width="53.5" height="34.5"/>
+                                                    <rect key="frame" x="247.5" y="81.5" width="53.5" height="34.5"/>
                                                     <color key="tintColor" name="AccentColor"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="tinted" title="승인"/>
@@ -470,7 +470,7 @@
                                                 <constraint firstItem="FeR-Lk-yPI" firstAttribute="leading" secondItem="csw-7t-Ng8" secondAttribute="leading" constant="20" id="gzf-7U-ZSt"/>
                                                 <constraint firstAttribute="trailing" secondItem="SJ9-Q2-0NB" secondAttribute="trailing" constant="24" id="muT-NI-dZi"/>
                                                 <constraint firstAttribute="trailing" secondItem="FeR-Lk-yPI" secondAttribute="trailing" constant="20" id="urk-sC-6uF"/>
-                                                <constraint firstAttribute="bottom" secondItem="SJ9-Q2-0NB" secondAttribute="bottom" constant="8" id="xA6-Uv-JLI"/>
+                                                <constraint firstAttribute="bottom" secondItem="SJ9-Q2-0NB" secondAttribute="bottom" constant="12" id="xA6-Uv-JLI"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="325" height="128"/>
@@ -482,7 +482,7 @@
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="edD-iq-WuW" id="Kaz-jE-L1G"/>
-                                    <outlet property="delegate" destination="edD-iq-WuW" id="jVS-L4-2mG"/>
+                                    <outlet property="delegate" destination="edD-iq-WuW" id="gPp-dR-scJ"/>
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="반 이름" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2H8-Yy-O7q">
@@ -491,13 +491,19 @@
                                 <color key="textColor" name="AccentColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ri9-6n-X9T">
-                                <rect key="frame" x="80" y="131.5" width="254" height="32"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ri9-6n-X9T">
+                                <rect key="frame" x="80" y="131.5" width="254" height="39"/>
                                 <color key="backgroundColor" name="LightAccent"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="Hbr-8g-h8S"/>
+                                </constraints>
                                 <segments>
                                     <segment title="학생"/>
                                     <segment title="선생님"/>
                                 </segments>
+                                <connections>
+                                    <action selector="userTypeSelected:" destination="edD-iq-WuW" eventType="valueChanged" id="NPa-qh-3mm"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fA8-6f-33O"/>
@@ -523,12 +529,13 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="classroomName" destination="2H8-Yy-O7q" id="w0O-9a-sfd"/>
-                        <outlet property="studentCollectionView" destination="V1G-AH-RaO" id="B1e-Jk-F8R"/>
+                        <outlet property="requestCollectionView" destination="V1G-AH-RaO" id="B1e-Jk-F8R"/>
+                        <outlet property="userTypeSegment" destination="Ri9-6n-X9T" id="jq6-oh-DwL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="InI-JO-f3z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3166.666666666667" y="-267.1875"/>
+            <point key="canvasLocation" x="4197" y="-256"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="6Uw-yj-7Kd">
@@ -1429,7 +1436,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hSR-ra-WaH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4207" y="-268"/>
+            <point key="canvasLocation" x="3165" y="-254"/>
         </scene>
     </scenes>
     <resources>
