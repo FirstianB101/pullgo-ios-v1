@@ -10,7 +10,7 @@ import UIKit
 extension UIViewController {
     func setKeyboardWatcher() {
         keyboardWatcher(show: #selector(keyboardWillShow), hide: #selector(keyboardWillHide))
-        self.dismissKeyboard()
+        self.setDismissKeyboardEnable()
     }
     
     func keyboardWatcher(show: Selector, hide: Selector) {
@@ -32,7 +32,7 @@ extension UIViewController {
         }
     }
     
-    func dismissKeyboard() {
+    func setDismissKeyboardEnable() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboardTouchOutside))
         view.addGestureRecognizer(tap)
     }

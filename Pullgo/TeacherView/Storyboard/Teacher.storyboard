@@ -165,6 +165,196 @@
             </objects>
             <point key="canvasLocation" x="-742" y="142"/>
         </scene>
+        <!--학원 선택-->
+        <scene sceneID="uJh-0r-faj">
+            <objects>
+                <viewController storyboardIdentifier="TeacherCreateClassroomSelectAcademyViewController" id="yhQ-2O-Bf0" customClass="TeacherCreateClassroomSelectAcademyViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AzQ-kH-pMO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iWm-5q-85p">
+                                <rect key="frame" x="10" y="74" width="394" height="758"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="mnR-AP-zo2">
+                                    <size key="itemSize" width="386" height="93"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TeacherCreateClassroomSelectAcademyCell" id="GrV-Q1-AN0" customClass="TeacherCreateClassroomSelectAcademyCell" customModule="Pullgo" customModuleProvider="target">
+                                        <rect key="frame" x="4" y="0.0" width="386" height="93"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dGP-mk-h4c">
+                                            <rect key="frame" x="0.0" y="0.0" width="386" height="93"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*** 학원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad1-pv-nVo">
+                                                    <rect key="frame" x="20" y="34" width="311" height="25.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pyd-BF-MLw">
+                                                    <rect key="frame" x="351" y="41" width="15" height="11.5"/>
+                                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="15" id="PC8-Ub-pBb"/>
+                                                    </constraints>
+                                                    <imageReference key="image" image="checkmark" catalog="system"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ad1-pv-nVo" firstAttribute="leading" secondItem="dGP-mk-h4c" secondAttribute="leading" constant="20" id="64e-0w-5d0"/>
+                                                <constraint firstItem="pyd-BF-MLw" firstAttribute="centerY" secondItem="dGP-mk-h4c" secondAttribute="centerY" id="Mgd-9w-mkX"/>
+                                                <constraint firstItem="ad1-pv-nVo" firstAttribute="centerY" secondItem="dGP-mk-h4c" secondAttribute="centerY" id="PuR-12-lmV"/>
+                                                <constraint firstAttribute="trailing" secondItem="pyd-BF-MLw" secondAttribute="trailing" constant="20" id="itT-zx-3he"/>
+                                                <constraint firstItem="pyd-BF-MLw" firstAttribute="leading" secondItem="ad1-pv-nVo" secondAttribute="trailing" constant="20" id="pbL-8i-QAC"/>
+                                                <constraint firstItem="pyd-BF-MLw" firstAttribute="width" secondItem="pyd-BF-MLw" secondAttribute="height" multiplier="1:1" id="qFE-F3-ptP"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="386" height="93"/>
+                                        <connections>
+                                            <outlet property="academyNameLabel" destination="ad1-pv-nVo" id="9wz-tN-Nwg"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="yhQ-2O-Bf0" id="Nma-gf-ol7"/>
+                                    <outlet property="delegate" destination="yhQ-2O-Bf0" id="LhH-8A-GRr"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Uk8-pa-83P"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Uk8-pa-83P" firstAttribute="trailing" secondItem="iWm-5q-85p" secondAttribute="trailing" constant="10" id="EXH-C9-9oM"/>
+                            <constraint firstItem="Uk8-pa-83P" firstAttribute="bottom" secondItem="iWm-5q-85p" secondAttribute="bottom" constant="30" id="JdK-Ng-nTq"/>
+                            <constraint firstItem="iWm-5q-85p" firstAttribute="leading" secondItem="Uk8-pa-83P" secondAttribute="leading" constant="10" id="Kf3-eZ-nDg"/>
+                            <constraint firstItem="iWm-5q-85p" firstAttribute="top" secondItem="Uk8-pa-83P" secondAttribute="top" constant="30" id="epr-yo-Vtq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="학원 선택" id="LyT-Pc-ILz"/>
+                    <connections>
+                        <outlet property="academyCollectionView" destination="iWm-5q-85p" id="p2a-9u-4OL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Elo-cA-kB9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2336.231884057971" y="-544.41964285714278"/>
+        </scene>
+        <!--Teacher Create Classroom View Controller-->
+        <scene sceneID="bk6-mK-ijs">
+            <objects>
+                <viewController id="xDw-bA-Vky" customClass="TeacherCreateClassroomViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uPg-Df-8Ib">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새로운 반을  생성합니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jor-5X-rLX">
+                                <rect key="frame" x="30" y="188.5" width="354" height="72"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="반 이름을 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7iB-lo-cAK">
+                                <rect key="frame" x="30" y="306.5" width="354" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="b3d-Fo-xMo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kei-vG-c8l">
+                                <rect key="frame" x="30" y="381.5" width="354" height="79"/>
+                                <color key="backgroundColor" name="LightAccent"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="학원을 선택해주세요.">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectAcademyClicked:" destination="xDw-bA-Vky" eventType="touchUpInside" id="iDJ-Ye-azK"/>
+                                    <action selector="selectScheduleButtonClicked:" destination="I1G-3p-3oO" eventType="touchUpInside" id="mPR-tr-cSA"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ef8-yG-OZu">
+                                <rect key="frame" x="354" y="415.5" width="15" height="11.5"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ef8-yG-OZu" secondAttribute="height" multiplier="1:1" id="MH7-jO-mvC"/>
+                                    <constraint firstAttribute="width" constant="15" id="dho-iN-O4g"/>
+                                </constraints>
+                                <imageReference key="image" image="chevron.right" catalog="system"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UOY-se-rYl">
+                                <rect key="frame" x="30" y="508.5" width="354" height="50"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="x9n-un-XoE"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="반 생성하기"/>
+                                <connections>
+                                    <action selector="createClassroomClicked:" destination="xDw-bA-Vky" eventType="touchUpInside" id="fhh-Eh-r1P"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9mD-IU-gdk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9mD-IU-gdk" firstAttribute="trailing" secondItem="kei-vG-c8l" secondAttribute="trailing" constant="30" id="6cP-A8-npU"/>
+                            <constraint firstItem="9mD-IU-gdk" firstAttribute="trailing" secondItem="7iB-lo-cAK" secondAttribute="trailing" constant="30" id="7FO-TO-Ecp"/>
+                            <constraint firstItem="UOY-se-rYl" firstAttribute="top" secondItem="kei-vG-c8l" secondAttribute="bottom" constant="48" id="7zF-CE-g4X"/>
+                            <constraint firstItem="7iB-lo-cAK" firstAttribute="top" secondItem="jor-5X-rLX" secondAttribute="bottom" constant="46" id="ABJ-Lf-Lvy"/>
+                            <constraint firstItem="jor-5X-rLX" firstAttribute="leading" secondItem="9mD-IU-gdk" secondAttribute="leading" constant="30" id="Cw7-Dn-LKf"/>
+                            <constraint firstItem="9mD-IU-gdk" firstAttribute="trailing" secondItem="UOY-se-rYl" secondAttribute="trailing" constant="30" id="Dgy-QN-xyK"/>
+                            <constraint firstItem="kei-vG-c8l" firstAttribute="top" secondItem="7iB-lo-cAK" secondAttribute="bottom" constant="30" id="Ky4-e6-RrF"/>
+                            <constraint firstItem="ef8-yG-OZu" firstAttribute="width" secondItem="ef8-yG-OZu" secondAttribute="height" multiplier="1:1" id="QGN-8U-UOP"/>
+                            <constraint firstItem="kei-vG-c8l" firstAttribute="centerY" secondItem="uPg-Df-8Ib" secondAttribute="centerY" id="Qw0-1M-Cw9"/>
+                            <constraint firstItem="ef8-yG-OZu" firstAttribute="centerY" secondItem="kei-vG-c8l" secondAttribute="centerY" id="Rpw-GQ-qEQ"/>
+                            <constraint firstItem="kei-vG-c8l" firstAttribute="leading" secondItem="9mD-IU-gdk" secondAttribute="leading" constant="30" id="Scq-RZ-zAw"/>
+                            <constraint firstItem="UOY-se-rYl" firstAttribute="leading" secondItem="9mD-IU-gdk" secondAttribute="leading" constant="30" id="VF7-dG-nAK"/>
+                            <constraint firstItem="7iB-lo-cAK" firstAttribute="leading" secondItem="9mD-IU-gdk" secondAttribute="leading" constant="30" id="b75-br-cw5"/>
+                            <constraint firstItem="kei-vG-c8l" firstAttribute="width" secondItem="kei-vG-c8l" secondAttribute="height" multiplier="9:2" id="ckR-Gk-ivr"/>
+                            <constraint firstItem="ef8-yG-OZu" firstAttribute="width" secondItem="ef8-yG-OZu" secondAttribute="height" multiplier="1:1" id="nDv-do-P6J"/>
+                            <constraint firstItem="ef8-yG-OZu" firstAttribute="leading" secondItem="kei-vG-c8l" secondAttribute="trailing" constant="-30" id="pxp-qf-L0L"/>
+                            <constraint firstItem="9mD-IU-gdk" firstAttribute="trailing" secondItem="jor-5X-rLX" secondAttribute="trailing" constant="30" id="xJP-vT-0IY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZLt-86-5Ju">
+                        <barButtonItem key="backBarButtonItem" title="반 생성" id="NL4-tS-xw6"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="academySelectButton" destination="kei-vG-c8l" id="G4h-gH-5hI"/>
+                        <outlet property="classroomCreateButton" destination="UOY-se-rYl" id="HNh-Ph-2RL"/>
+                        <outlet property="classroomNameField" destination="7iB-lo-cAK" id="umG-JA-fqa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rIV-nV-U66" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1571" y="-544"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xa3-Aa-rea">
+            <objects>
+                <navigationController id="HYt-We-3Ik" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="h57-S1-jaN"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="y98-hR-nco">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xDw-bA-Vky" kind="relationship" relationship="rootViewController" id="9Tm-FD-22k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H4C-LL-5xm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-733" y="-542"/>
+        </scene>
         <!--Teacher Classroom Manage View Controller-->
         <scene sceneID="OxB-a7-BEg">
             <objects>
@@ -196,6 +386,7 @@
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="coV-pv-wlB">
                                             <connections>
                                                 <action selector="addClassroom:" destination="7bP-d1-dG0" id="cVb-PD-COG"/>
+                                                <segue destination="HYt-We-3Ik" kind="show" id="1c6-JZ-jn4"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1469,6 +1660,7 @@
     </scenes>
     <resources>
         <image name="calendar.badge.clock" catalog="system" width="128" height="108"/>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>

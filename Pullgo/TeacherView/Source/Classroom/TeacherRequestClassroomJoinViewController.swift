@@ -16,7 +16,7 @@ class TeacherRequestClassroomJoinViewController: UIViewController {
         super.viewDidLoad()
 
         viewModel.networkAlertDelegate = self
-        self.dismissKeyboard()
+        self.setDismissKeyboardEnable()
     }
     
     @IBAction func showSideMenu(_ sender: UIBarButtonItem) {

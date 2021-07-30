@@ -34,7 +34,7 @@ class TeacherCreateLessonViewController: UIViewController, Styler {
         viewModel.networkAlertDelegate = self
         setFieldUI()
         setButtonUI()
-        self.dismissKeyboard()
+        self.setDismissKeyboardEnable()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
