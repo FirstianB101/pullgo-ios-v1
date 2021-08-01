@@ -11,8 +11,5 @@ import XCTest
 class PullgoTests: XCTestCase {
     
     func testExample() throws {
-        let date = DateFormatter().string(from: Date())
-        
-        XCTAssertEqual(date, "")
     }
 }
