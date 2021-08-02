@@ -242,10 +242,3 @@ class TeacherCreateClassroomViewModel {
         return selectedWeekdays[day]!
     }
 }
-
-Teacher Classroom -> Create Classroom complete
-
-formatting classroom name (HTTP Body) with separator ";"
-by using `formattingClassroomName() -> String` method
-send HTTP POST request for server
-when POST request complete
