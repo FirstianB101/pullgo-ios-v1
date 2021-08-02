@@ -16,6 +16,10 @@ class TeacherClassroomManageViewController: UIViewController {
         super.viewDidLoad()
         
         SignedUser.networkAlertDelegate = self
+        getClassroomInfo()
+    }
+    
+    public func getClassroomInfo() {
         SignedUser.getClassroomInfo() {
             self.viewModel.getClassroomInfoFromSignedUser()
             self.classroomTableView.reloadData()

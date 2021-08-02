@@ -103,7 +103,16 @@ class TeacherCreateClassroomViewController: UIViewController, Styler, NetworkAle
     
     private func classroomCreateCompleteAlert() {
         let alert = AlertPresentor(presentor: self)
-        alert.present(title: viewModel.classroomName, context: "반이 생성되었습니다.")
+        alert.present(title: viewModel.classroomName, context: "반이 생성되었습니다.") { action in
+            self.reloadPresentingVCData()
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    private func reloadPresentingVCData() {
+        let pvc = self.presentingViewController as! TeacherClassroomManageViewController
+        
+        pvc.getClassroomInfo()
     }
     
     @IBAction func weekdayButtonsClicked(_ sender: UIButton) {
@@ -136,6 +145,7 @@ extension TeacherCreateClassroomViewController: TeacherCreateClassroomSelectAcad
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "TeacherCreateClassroomSelectAcademyViewController") as! TeacherCreateClassroomSelectAcademyViewController
         
         vc.viewModel.selectAcademyDelegate = self
+        vc.navigationController?.navigationItem.title = "학원 선택"
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -148,9 +158,8 @@ class TeacherCreateClassroomViewModel {
     var selectedWeekdays: [String : Bool] = [:]
     
     init() {
-        Weekday.allCases.forEach { d in
-            print(d.rawValue)
-            selectedWeekdays[d.rawValue] = false
+        Weekday.allCases.forEach { day in
+            selectedWeekdays[day.rawValue] = false
         }
     }
     
@@ -167,14 +176,17 @@ class TeacherCreateClassroomViewModel {
         return true
     }
     
-    func sendCreateClassroomRequest(complete: @escaping EmptyClosure) {
+    func sendCreateClassroomRequest(success: @escaping EmptyClosure) {
         let url = NetworkManager.assembleURL("academy", "classrooms")
         let classroomBody = createClassroomBody()
+        let success: ResponseClosure = { data in
+            success()
+        }
         let fail: FailClosure = {
             self.networkFailDelegate?.networkFailAlert()
         }
         
-        NetworkManager.post(url: url, data: classroomBody, fail: fail, complete: complete)
+        NetworkManager.post(url: url, data: classroomBody, success: success, fail: fail)
     }
     
     func createClassroomBody() -> Parameters {
@@ -190,7 +202,36 @@ class TeacherCreateClassroomViewModel {
     }
     
     func formattingClassroomName() -> String {
-        return ""
+        var formattedClassroomName: String = ""
+        appendClassroomName(&formattedClassroomName)
+        appendTeacherFullName(&formattedClassroomName)
+        appendSelectedWeekday(&formattedClassroomName)
+        
+        return formattedClassroomName
+    }
+    
+    private func appendClassroomName(_ classroomName: inout String) {
+        classroomName += self.classroomName
+        appendSeparator(&classroomName)
+    }
+    
+    private func appendTeacherFullName(_ classroomName: inout String) {
+        classroomName += SignedUser.teacher.account.fullName
+        appendSeparator(&classroomName)
+    }
+    
+    private func appendSelectedWeekday(_ classroomName: inout String) {
+        Weekday.allCases.forEach { day in
+            guard let isDaySelected = self.selectedWeekdays[day.rawValue] else { return }
+            if isDaySelected {
+                classroomName += day.rawValue
+            }
+        }
+    }
+    
+    private func appendSeparator(_ classroomName: inout String) {
+        let separator = ";"
+        classroomName += separator
     }
     
     func toggleWeekdaySelect(day: String) {
@@ -201,3 +242,10 @@ class TeacherCreateClassroomViewModel {
         return selectedWeekdays[day]!
     }
 }
+
+Teacher Classroom -> Create Classroom complete
+
+formatting classroom name (HTTP Body) with separator ";"
+by using `formattingClassroomName() -> String` method
+send HTTP POST request for server
+when POST request complete
