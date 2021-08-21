@@ -13,6 +13,7 @@ protocol Styler {
     func setViewCornerRadius(view: UIView)
     func setTextFieldPadding(field: UITextField)
     func setTextFieldBorderUnderline(field: UITextField)
+    func setTextFieldBorderUnderline(fields: UITextField...)
 }
 
 extension Styler {
@@ -54,6 +55,12 @@ extension Styler {
         bottomLine.backgroundColor = UIColor.lightGray.cgColor
         field.borderStyle = .none
         field.layer.addSublayer(bottomLine)
+    }
+    
+    func setTextFieldBorderUnderline(fields: UITextField...) {
+        for field in fields {
+            setTextFieldBorderUnderline(field: field)
+        }
     }
     
     func setCellUI(cell: UICollectionViewCell) {

@@ -67,6 +67,7 @@ extension TeacherClassroomManageRequestViewController: UICollectionViewDataSourc
         }
         
         setCellUI(cell: cell)
+        setViewCornerRadius(view: cell.applyRequestButton, radius: 7)
         
         return cell
     }
@@ -82,6 +83,7 @@ extension TeacherClassroomManageRequestViewController: UICollectionViewDelegateF
 class TeacherClassroomManageRequestCell: UICollectionViewCell {
     @IBOutlet weak var studentSchoolInfo: UILabel!
     @IBOutlet weak var fullName: UILabel!
+    @IBOutlet weak var applyRequestButton: UIButton!
     
     @IBAction func deleteRequest(_ sender: UIButton) {
         

@@ -19,6 +19,7 @@ class TeacherMenuViewController: UIViewController {
         super.viewDidLoad()
 
         setLabels()
+        hideNavigationBar()
     }
     
     func setLabels() {
@@ -27,6 +28,10 @@ class TeacherMenuViewController: UIViewController {
         안녕하세요!
         """
         academyLabel.text = viewModel.academyName
+    }
+    
+    func hideNavigationBar() {
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     @IBAction func logoutClicked(_ sender: UIButton) {

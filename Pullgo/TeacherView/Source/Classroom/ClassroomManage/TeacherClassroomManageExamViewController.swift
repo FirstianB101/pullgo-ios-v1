@@ -21,6 +21,7 @@ extension TeacherClassroomManageTopBar {
 
 class TeacherClassroomManageExamViewController: UIViewController, TeacherClassroomManageTopBar {
     let viewModel = TeacherClassroomManageExamViewModel()
+    @IBOutlet weak var examListCollection: UICollectionView!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -28,7 +29,7 @@ class TeacherClassroomManageExamViewController: UIViewController, TeacherClassro
         setPromptNameBySelectedClassroom()
         setTitleByTabBarMenu()
         viewModel.getExams {
-            
+            self.examListCollection.reloadData()
         }
     }
     
@@ -41,6 +42,38 @@ class TeacherClassroomManageExamViewController: UIViewController, TeacherClassro
     }
 }
 
+extension TeacherClassroomManageExamViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let height: CGFloat = 138
+        let padding: CGFloat = 10
+        let width = collectionView.bounds.width - padding * 2
+        
+        return CGSize(width: width, height: height)
+    }
+}
+
+extension TeacherClassroomManageExamViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.exams.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeacherExamListCell", for: indexPath) as! TeacherExamListCell
+        
+        cell.examNameLabel.text = viewModel.getExamName(at: indexPath.item)
+        cell.timeLabel.text = viewModel.getExamTime(at: indexPath.item)
+        cell.timeLimitLabel.text = viewModel.getTimeLimit(at: indexPath.item)
+        
+        return cell
+    }
+}
+
+class TeacherExamListCell: UICollectionViewCell {
+    @IBOutlet weak var examNameLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var timeLimitLabel: UILabel!
+}
+
 class TeacherClassroomManageExamViewModel {
     var exams = [Exam]()
     
@@ -49,5 +82,23 @@ class TeacherClassroomManageExamViewModel {
             self.exams = TeacherClassroomManageViewModel.selectedClassroom.exams
             complete()
         }
+    }
+    
+    func getExamName(at index: Int) -> String {
+        guard let examName = self.exams[index].name else { return "" }
+        return examName
+    }
+    
+    func getExamTime(at index: Int) -> String {
+        let beginTime = self.exams[index].getBeginDateTime()
+        let endTime = self.exams[index].getEndDateTime()
+        
+        return beginTime + " ~ " + endTime
+    }
+    
+    func getTimeLimit(at index: Int) -> String {
+        let timeLimit = self.exams[index].getTimeLimit()
+        
+        return "제한 시간: " + timeLimit
     }
 }
