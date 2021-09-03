@@ -7,23 +7,34 @@
 
 import UIKit
 
-class TeacherCreateLesson_ScheduleSetViewController: UIViewController, Styler {
+class TeacherCreateLesson_ScheduleSetViewController: UIViewController, PGDatePickerDelegate {
 
     let viewModel = TeacherCreateLesson_ScheduleSetViewModel()
+    let datePicker = UIDatePicker()
+    let timePicker = UIDatePicker()
     var selectDateDelegate: TeacherCreateLessonDelegate?
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var beginTimePicker: UIDatePicker!
-    @IBOutlet weak var endTimePicker: UIDatePicker!
-    @IBOutlet weak var selectButton: UIButton!
+    @IBOutlet weak var selectButton: PGButton!
+    @IBOutlet weak var lessonDateField: PGTextField!
+    @IBOutlet weak var lessonStartTimeField: PGTextField!
+    @IBOutlet weak var lessonEndTimeField: PGTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setPickerInfo()
         setDatePickerLimit()
         setDatePickerSelectedDate()
-        setTimePickerLimit()
-        setButtonUI()
-        loadScheduleIfNeeded()
+        setKeyboardWatcher()
+    }
+    
+    func setPickerInfo() {
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.locale = Locale(identifier: "ko_KR")
+        timePicker.preferredDatePickerStyle = .wheels
+        timePicker.locale = Locale(identifier: "ko_KR")
+        
+        setDatePickerView()
+        setTimePickerView()
     }
     
     func setDatePickerLimit() {
@@ -37,75 +48,50 @@ class TeacherCreateLesson_ScheduleSetViewController: UIViewController, Styler {
         viewModel.setDate(date: datePicker.date)
     }
     
-    func setTimePickerLimit() {
-        if datePicker.date.isToday {
-            beginTimePicker.minimumDate = Date()
-            endTimePicker.minimumDate = Date()
-        }
-        endTimePicker.date = Date(timeInterval: 2 * 60 * 60, since: Date())
+    func setDatePickerView() {
+        datePicker.datePickerMode = .date
+        lessonDateField.useTextFieldByDatePicker(picker: datePicker)
+        lessonDateField.toolbarDelegate = self
     }
     
-    func setButtonUI() {
-        setViewCornerRadius(view: selectButton)
-        setViewShadow(view: selectButton)
-        selectButton.setTitle("설정 완료", for: .normal)
-        selectButton.backgroundColor = .lightGray
-    }
-    
-    func loadScheduleIfNeeded() {
-        guard let schedule = selectDateDelegate?.getSchedule else { return }
-        let dateFormatter = DateFormatter()
-        viewModel.schedule = schedule
-        
-        dateFormatter.dateFormat = "YYYY-MM-dd"
-        datePicker.date = dateFormatter.date(from: schedule.date)!
-        
-        dateFormatter.dateFormat = "HH:mm:ss"
-        beginTimePicker.date = dateFormatter.date(from: schedule.beginTime)!
-        endTimePicker.date = dateFormatter.date(from: schedule.endTime)!
-        updateButtonState()
-    }
-    
-    @IBAction func dateSelected(_ sender: UIDatePicker) {
-        viewModel.setDate(date: sender.date)
-        setTimePickerLimit()
-    }
-    
-    @IBAction func beginTimeSelected(_ sender: UIDatePicker) {
-        viewModel.setBeginTime(time: sender.date.toString(format: "HH:mm:ss"))
-        endTimePicker.minimumDate = beginTimePicker.date
-        updateButtonState()
-    }
-    
-    @IBAction func endTimeSelected(_ sender: UIDatePicker) {
-        viewModel.setEndTime(time: sender.date.toString(format: "HH:mm:ss"))
-        updateButtonState()
-    }
-    
-    func updateButtonState() {
-        if viewModel.isAllSelected() {
-            selectButton.backgroundColor = UIColor(named: "AccentColor")
-        }
+    func setTimePickerView() {
+        timePicker.datePickerMode = .time
+        lessonStartTimeField.useTextFieldByDatePicker(picker: timePicker)
+        lessonStartTimeField.toolbarDelegate = self
+        lessonEndTimeField.useTextFieldByDatePicker(picker: timePicker)
+        lessonEndTimeField.toolbarDelegate = self
     }
     
     @IBAction func selectButtonClicked(_ sender: UIButton) {
         let animator = AnimationPresentor()
         
         if !viewModel.isBeginTimeSelected() {
-            animator.vibrate(view: beginTimePicker)
+            animator.vibrate(view: lessonDateField)
             return
         } else if !viewModel.isEndTimeSelected() {
-            animator.vibrate(view: endTimePicker)
+            animator.vibrate(view: lessonStartTimeField)
             return
         } else if viewModel.schedule.beginTime == viewModel.schedule.endTime {
-            animator.vibrate(view: beginTimePicker)
-            animator.vibrate(view: endTimePicker)
+            animator.vibrate(view: lessonStartTimeField)
+            animator.vibrate(view: lessonEndTimeField)
             return
         }
         
         self.selectDateDelegate?.updateSchedule(schedule: viewModel.schedule)
         self.selectDateDelegate?.updateScheduleButtonLabel()
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func datePicker(_ inputView: PGTextField, selected: Date) {
+        var format: String
+        
+        if inputView == lessonDateField {
+            format = "YYYY / MM / dd"
+        } else {
+            format = "HH : mm"
+        }
+        
+        inputView.text = selected.toString(format: format + "  ")
     }
 }
 

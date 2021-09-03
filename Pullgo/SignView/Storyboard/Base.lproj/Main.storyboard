@@ -44,7 +44,7 @@
                                 </constraints>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeY-aB-eUW">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeY-aB-eUW" customClass="PGButton" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="604.5" width="354" height="64"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <accessibility key="accessibilityConfiguration" identifier="signIn"/>
@@ -214,7 +214,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="clQ-Yo-yMu">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="clQ-Yo-yMu" customClass="PGButton" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="396" width="354" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <accessibility key="accessibilityConfiguration" identifier="loginStudent"/>
@@ -228,7 +228,7 @@
                                     <segue destination="inl-Nt-EVD" kind="show" id="bMQ-Wg-9d0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u34-eO-wZ7">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u34-eO-wZ7" customClass="PGButton" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="462" width="354" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <accessibility key="accessibilityConfiguration" identifier="loginTeacher"/>
@@ -283,7 +283,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디를 입력해주세요" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="b6R-fj-bXN">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디를 입력해주세요" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="b6R-fj-bXN" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="342" width="354" height="48"/>
                                 <accessibility key="accessibilityConfiguration" identifier="inputUsername"/>
                                 <constraints>
@@ -301,7 +301,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMq-2D-qpv">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMq-2D-qpv" customClass="PGButton" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="439" width="354" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <accessibility key="accessibilityConfiguration" identifier="duplicateCheck"/>
@@ -314,7 +314,7 @@
                                     <action selector="duplicateCheckButtonClickedWithSender:" destination="inl-Nt-EVD" eventType="touchUpInside" id="8kW-zc-Cf0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgb-Eg-4HB">
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgb-Eg-4HB" customClass="PGButton" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="504" width="354" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <accessibility key="accessibilityConfiguration" identifier="next"/>
@@ -385,7 +385,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GuZ-5O-y3x">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GuZ-5O-y3x" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="307" width="354" height="48"/>
                                 <accessibility key="accessibilityConfiguration" identifier="inputPassword"/>
                                 <constraints>
@@ -397,7 +397,7 @@
                                     <action selector="bindingPasswordInputWithSender:" destination="fSJ-sp-onk" eventType="editingChanged" id="Pag-kZ-rXl"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="다시 한 번 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hh5-gW-bfp">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="다시 한 번 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hh5-gW-bfp" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="427" width="354" height="48"/>
                                 <accessibility key="accessibilityConfiguration" identifier="checkPassword"/>
                                 <constraints>
@@ -421,7 +421,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7P-Ts-0jP">
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7P-Ts-0jP" customClass="PGButton" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="536" width="354" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <accessibility key="accessibilityConfiguration" identifier="next"/>
@@ -504,7 +504,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="- 를 제외하고 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kuj-wz-V5g">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="- 를 제외하고 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kuj-wz-V5g" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="410.5" width="354" height="45"/>
                                 <accessibility key="accessibilityConfiguration" identifier="inputPhone"/>
                                 <constraints>
@@ -513,7 +513,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="인증번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0nT-Fy-BJO">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="인증번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0nT-Fy-BJO" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="501" width="354" height="45"/>
                                 <accessibility key="accessibilityConfiguration" identifier="inputVerifyNumber"/>
                                 <constraints>
@@ -543,7 +543,7 @@
                                     <action selector="requestButtonClickedWithSender:" destination="7u2-0v-1cR" eventType="touchUpInside" id="ggJ-SI-Lsl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0r-UZ-D8k">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0r-UZ-D8k" customClass="PGButton" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="611" width="354" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <accessibility key="accessibilityConfiguration" identifier="next"/>
@@ -571,7 +571,7 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름을 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tlw-dA-XSU">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름을 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tlw-dA-XSU" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="320" width="354" height="45"/>
                                 <accessibility key="accessibilityConfiguration" identifier="inputFullName"/>
                                 <constraints>
@@ -657,7 +657,7 @@
                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="- 를 제외하고 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYm-ZA-35V">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="- 를 제외하고 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYm-ZA-35V" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="378" width="354" height="45"/>
                                 <accessibility key="accessibilityConfiguration" identifier="inputParentPhone"/>
                                 <constraints>
@@ -666,7 +666,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="***학교까지 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NC8-RK-Bdq">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="***학교까지 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NC8-RK-Bdq" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="461" width="354" height="45"/>
                                 <accessibility key="accessibilityConfiguration" identifier="inputSchoolName"/>
                                 <constraints>
@@ -696,7 +696,7 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0q-ky-Y2W">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0q-ky-Y2W" customClass="PGButton" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="620" width="354" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <accessibility key="accessibilityConfiguration" identifier="next"/>
@@ -751,6 +751,56 @@
             <point key="canvasLocation" x="5347.826086956522" y="-286.60714285714283"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="0nT-Fy-BJO">
+            <size key="intrinsicContentSize" width="204" height="34"/>
+        </designable>
+        <designable name="B0r-UZ-D8k">
+            <size key="intrinsicContentSize" width="63" height="34"/>
+        </designable>
+        <designable name="F0q-ky-Y2W">
+            <size key="intrinsicContentSize" width="63" height="34"/>
+        </designable>
+        <designable name="GuZ-5O-y3x">
+            <size key="intrinsicContentSize" width="204" height="34"/>
+        </designable>
+        <designable name="H7P-Ts-0jP">
+            <size key="intrinsicContentSize" width="91.5" height="22"/>
+        </designable>
+        <designable name="Kuj-wz-V5g">
+            <size key="intrinsicContentSize" width="221" height="34"/>
+        </designable>
+        <designable name="NC8-RK-Bdq">
+            <size key="intrinsicContentSize" width="212.5" height="34"/>
+        </designable>
+        <designable name="RMq-2D-qpv">
+            <size key="intrinsicContentSize" width="67" height="34"/>
+        </designable>
+        <designable name="Tlw-dA-XSU">
+            <size key="intrinsicContentSize" width="173" height="34"/>
+        </designable>
+        <designable name="b6R-fj-bXN">
+            <size key="intrinsicContentSize" width="188.5" height="34"/>
+        </designable>
+        <designable name="cgb-Eg-4HB">
+            <size key="intrinsicContentSize" width="91.5" height="22"/>
+        </designable>
+        <designable name="clQ-Yo-yMu">
+            <size key="intrinsicContentSize" width="156.5" height="22"/>
+        </designable>
+        <designable name="hh5-gW-bfp">
+            <size key="intrinsicContentSize" width="197.5" height="34"/>
+        </designable>
+        <designable name="qeY-aB-eUW">
+            <size key="intrinsicContentSize" width="52" height="36"/>
+        </designable>
+        <designable name="rYm-ZA-35V">
+            <size key="intrinsicContentSize" width="221" height="34"/>
+        </designable>
+        <designable name="u34-eO-wZ7">
+            <size key="intrinsicContentSize" width="174" height="22"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="bMQ-Wg-9d0"/>
     </inferredMetricsTieBreakers>
