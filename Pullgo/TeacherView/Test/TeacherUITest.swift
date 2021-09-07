@@ -30,6 +30,8 @@ class TeacherUITest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        app.segmentedControls.buttons["선생님"].tap()
+        
         let usernameField = app.textFields["loginUsername"]
         usernameField.tap()
         usernameField.typeText("2")
@@ -39,5 +41,6 @@ class TeacherUITest: XCTestCase {
         passwordField.typeText("123123")
         
         app.buttons["signIn"].tap()
+                
     }
 }

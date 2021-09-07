@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import SnapKit
 
 @IBDesignable
-public class PGButton: UIButton, Styler {
+public class PGButton: UIButton {
     required init?(coder: NSCoder) {
         super.init(coder: coder)!
         setStyle()

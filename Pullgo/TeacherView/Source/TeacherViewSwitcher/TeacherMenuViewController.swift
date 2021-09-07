@@ -10,7 +10,6 @@ import SideMenu
 
 class TeacherMenuViewController: UIViewController {
 
-    let animator = AnimationPresentor()
     let viewModel = TeacherMenuViewModel()
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var academyLabel: UILabel!

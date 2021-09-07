@@ -68,6 +68,14 @@ class TeacherCreateClassroomViewController: UIViewController, Styler, NetworkAle
         weekdayButtons.forEach { setViewCornerRadius(view: $0) }
     }
     
+    @IBAction func ignoreSemiColons(_ sender: UITextField) {
+        if sender.text?.last == ";" {
+            
+            sender.vibrate()
+            sender.text?.removeLast()
+        }
+    }
+    
     @IBAction func createClassroomClicked(_ sender: UIButton) {
         guard let classroomName = classroomNameField.text else { return }
         viewModel.updateClassroomName(name: classroomName)

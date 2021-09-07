@@ -16,7 +16,6 @@ class InputPasswordViewController: UIViewController, Styler {
     @IBOutlet weak var nextButton: UIButton!
     
     let viewModel = InputPasswordViewModel()
-    let animator = AnimationPresentor()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,13 +65,13 @@ class InputPasswordViewController: UIViewController, Styler {
     
     @IBAction func nextButtonClicked(sender: UIButton) {
         if viewModel.password.isEmpty {
-            animator.vibrate(view: passwordTextField)
+            passwordTextField.vibrate()
         } else if viewModel.check.isEmpty {
-            animator.vibrate(view: checkTextField)
+            checkTextField.vibrate()
         } else if viewModel.status != .valid {
-            animator.vibrate(view: passwordStatusLabel)
+            passwordStatusLabel.vibrate()
         } else if viewModel.checkStatus != .correct {
-            animator.vibrate(view: correctCheckLabel)
+            correctCheckLabel.vibrate()
         } else {
             SignUpInformation.shared.account?.password = viewModel.password
             toNextView()

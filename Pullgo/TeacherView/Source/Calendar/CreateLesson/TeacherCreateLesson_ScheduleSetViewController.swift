@@ -63,17 +63,15 @@ class TeacherCreateLesson_ScheduleSetViewController: UIViewController, PGDatePic
     }
     
     @IBAction func selectButtonClicked(_ sender: UIButton) {
-        let animator = AnimationPresentor()
-        
         if !viewModel.isBeginTimeSelected() {
-            animator.vibrate(view: lessonDateField)
+            lessonDateField.vibrate()
             return
         } else if !viewModel.isEndTimeSelected() {
-            animator.vibrate(view: lessonStartTimeField)
+            lessonStartTimeField.vibrate()
             return
         } else if viewModel.schedule.beginTime == viewModel.schedule.endTime {
-            animator.vibrate(view: lessonStartTimeField)
-            animator.vibrate(view: lessonEndTimeField)
+            lessonStartTimeField.vibrate()
+            lessonEndTimeField.vibrate()
             return
         }
         

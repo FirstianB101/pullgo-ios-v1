@@ -15,7 +15,6 @@ class InputUsernameViewController: UIViewController, Styler {
     @IBOutlet weak var nextButton: UIButton!
     
     let viewModel = InputUsernameViewModel()
-    let animator = AnimationPresentor()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +41,7 @@ class InputUsernameViewController: UIViewController, Styler {
         guard let username = sender.text else { return }
         viewModel.username = username
         setStatusLabel()
-        animator.slowDisappear(view: nextButton)
+        nextButton.slowDisappear()
     }
     
     func setStatusLabel() {
@@ -52,7 +51,7 @@ class InputUsernameViewController: UIViewController, Styler {
     
     @IBAction func duplicateCheckButtonClicked(sender: UIButton) {
         if viewModel.status != .valid {
-            animator.vibrate(view: statusLabel)
+            statusLabel.vibrate()
             return
         } else if !viewModel.isUnique() {
             let alert = AlertPresentor(presentor: self)
@@ -60,7 +59,7 @@ class InputUsernameViewController: UIViewController, Styler {
             return
         }
         
-        animator.slowAppear(view: nextButton)
+        nextButton.slowAppear()
     }
     
     @IBAction func nextButtonClicked(sender: UIButton) {

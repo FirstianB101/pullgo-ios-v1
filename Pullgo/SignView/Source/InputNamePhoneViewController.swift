@@ -82,12 +82,11 @@ class InputNamePhoneViewController: UIViewController, Styler {
     }
     
     func showHiddenUI() {
-        let animator = AnimationPresentor()
-        animator.slowAppear(view: verifyLabel)
-        animator.slowAppear(view: verifyField)
-        animator.slowAppear(view: completeButton)
-        animator.slowAppear(view: timerLabel)
-        animator.slowAppear(view: resendButton)
+        verifyLabel.slowAppear()
+        verifyField.slowAppear()
+        completeButton.slowAppear()
+        timerLabel.slowAppear()
+        resendButton.slowAppear()
     }
     
     func startTimer() {
@@ -144,8 +143,7 @@ class InputNamePhoneViewController: UIViewController, Styler {
     func bindingFullName() -> Bool {
         guard let fullName = fullNameField.text else { return false }
         if fullName.isEmpty {
-            let animator = AnimationPresentor()
-            animator.vibrate(view: fullNameField)
+            fullNameField.vibrate()
             return false
         } else {
             viewModel.fullName = fullName

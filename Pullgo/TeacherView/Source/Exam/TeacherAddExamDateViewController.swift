@@ -7,13 +7,6 @@
 
 import UIKit
 
-protocol TeacherExamDateDelegate {
-    func setBeginDate()
-    func setEndDate()
-    func setBeginDateUI()
-    func setEndDateUI()
-}
-
 class TeacherAddExamDateViewController: UIViewController, Styler {
 
     @IBOutlet weak var selectBeginDateButton: UIButton!
@@ -36,9 +29,10 @@ class TeacherAddExamDateViewController: UIViewController, Styler {
     }
     
     @IBAction func selectBeginDate(_ sender: UIButton) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TeacherSelectExamDateViewController") as! TeacherSelectExamDateViewController
-        vc.navigationItem.title = "시작 날짜"
-        vc.viewModel.dateCase = .beginDate
+        let vc = self.storyboard?.instantiateViewController(identifier: "datePickerView") as! DatePickerViewController
+        
+        vc.datePickerMode = .dateWithTimeLimit
+        vc.navigationItem.title = "시험 시간 설정"
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -49,23 +43,5 @@ class TeacherAddExamDateViewController: UIViewController, Styler {
         vc.viewModel.dateCase = .endDate
         
         self.navigationController?.pushViewController(vc, animated: true)
-    }
-}
-
-extension TeacherAddExamDateViewController: TeacherExamDateDelegate {
-    func setBeginDate() {
-        
-    }
-    
-    func setEndDate() {
-        
-    }
-    
-    func setBeginDateUI() {
-        
-    }
-    
-    func setEndDateUI() {
-        
     }
 }

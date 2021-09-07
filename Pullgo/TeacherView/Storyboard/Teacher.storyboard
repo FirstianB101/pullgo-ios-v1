@@ -255,6 +255,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="ignoreSemiColons:" destination="xDw-bA-Vky" eventType="editingChanged" id="NGc-iQ-Sbk"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="요일을 선택해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ED1-QQ-NUm">
                                 <rect key="frame" x="30" y="392.5" width="354" height="20.5"/>
@@ -1081,21 +1084,6 @@
             </objects>
             <point key="canvasLocation" x="7567" y="-983"/>
         </scene>
-        <!--Teacher Select Exam Date View Controller-->
-        <scene sceneID="B79-pe-ycU">
-            <objects>
-                <viewController storyboardIdentifier="TeacherSelectExamDateViewController" id="60S-tA-BH5" customClass="TeacherSelectExamDateViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WrB-dN-jhm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="c8U-kH-gtH"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rRB-KX-kMI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="8324.63768115942" y="-984.375"/>
-        </scene>
         <!--요청 관리-->
         <scene sceneID="sJs-OG-PFv">
             <objects>
@@ -1282,6 +1270,7 @@
                                 <rect key="frame" x="10" y="98" width="394" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="tintColor" name="AccentColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="calendar"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
                                         <color key="value" systemColor="systemOrangeColor"/>
@@ -1769,16 +1758,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="; 을 제외하고 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="emj-l3-07I" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="수업 이름을 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="emj-l3-07I" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="318.5" width="354" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="yKX-gl-0Fg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="ignoreSemiColons:" destination="I1G-3p-3oO" eventType="editingChanged" id="mvQ-ja-JtV"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KrD-QG-Bj0" customClass="PGButton" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="662" width="354" height="50"/>
@@ -1860,115 +1846,138 @@
             </objects>
             <point key="canvasLocation" x="2817" y="-1947"/>
         </scene>
-        <!--Teacher Create Lesson Schedule Set View Controller-->
-        <scene sceneID="VOg-k8-r3d">
+        <!--Date Picker View Controller-->
+        <scene sceneID="9C6-GB-D4o">
             <objects>
-                <viewController storyboardIdentifier="TeacherCreateLesson_ScheduleSetViewController" id="MfA-wR-uYC" customClass="TeacherCreateLesson_ScheduleSetViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Mxv-TB-cpJ">
+                <viewController storyboardIdentifier="datePickerView" id="cmo-e8-ugG" customClass="DatePickerViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JPt-rU-IPL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날짜를 선택해주세요." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vip-n0-lcL">
-                                <rect key="frame" x="30" y="235.5" width="354" height="32.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간을 설정해주세요." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcr-EE-4oq">
-                                <rect key="frame" x="30" y="362" width="354" height="32.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시작 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAb-dS-PZ3">
-                                <rect key="frame" x="30" y="419.5" width="74.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="종료 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vrq-Yb-PZQ">
-                                <rect key="frame" x="30" y="468.5" width="74.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수업 일시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JY-EZ-xUN">
-                                <rect key="frame" x="30" y="293" width="74.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ly5-mM-aTG">
-                                <rect key="frame" x="30" y="557.5" width="354" height="55"/>
-                                <color key="backgroundColor" name="AccentColor"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="A0R-Yc-CV3">
+                                <rect key="frame" x="30" y="237" width="354" height="422"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="fnZ-PE-qQv">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="91.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날짜를 선택해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRv-Iw-V2o">
+                                                <rect key="frame" x="0.0" y="0.0" width="223" height="32.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="kXo-Tm-TbG">
+                                                <rect key="frame" x="0.0" y="57.5" width="354" height="34"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수업 일시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgl-tj-shG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="74.5" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7d6-oR-PQ3" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
+                                                        <rect key="frame" x="119.5" y="0.0" width="234.5" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="kXo-Tm-TbG" secondAttribute="trailing" id="Kz2-pz-54J"/>
+                                            <constraint firstItem="kXo-Tm-TbG" firstAttribute="leading" secondItem="fnZ-PE-qQv" secondAttribute="leading" id="MUo-hr-r4m"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="MlN-Lq-n5B">
+                                        <rect key="frame" x="0.0" y="156.5" width="354" height="150.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간을 설정해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVq-6l-wRR">
+                                                <rect key="frame" x="0.0" y="0.0" width="223" height="32.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="oKU-9r-U1a">
+                                                <rect key="frame" x="0.0" y="57.5" width="354" height="34"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시작 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGs-Zl-rRM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="74.5" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u6x-7f-9dD" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
+                                                        <rect key="frame" x="119.5" y="0.0" width="234.5" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="Pt8-of-95j">
+                                                <rect key="frame" x="0.0" y="116.5" width="354" height="34"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="종료 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brA-QU-ixz">
+                                                        <rect key="frame" x="0.0" y="0.0" width="74.5" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GsT-rD-xA3" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
+                                                        <rect key="frame" x="119.5" y="0.0" width="234.5" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Pt8-of-95j" secondAttribute="trailing" id="8kp-bW-unf"/>
+                                            <constraint firstItem="Pt8-of-95j" firstAttribute="leading" secondItem="MlN-Lq-n5B" secondAttribute="leading" id="Cwu-vi-lnX"/>
+                                            <constraint firstAttribute="trailing" secondItem="oKU-9r-U1a" secondAttribute="trailing" id="GS5-UQ-eUI"/>
+                                            <constraint firstItem="oKU-9r-U1a" firstAttribute="leading" secondItem="MlN-Lq-n5B" secondAttribute="leading" id="UIu-Ol-Ms9"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bt3-S1-nw8" customClass="PGButton" customModule="Pullgo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="372" width="354" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="01L-Ib-vxw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="선택 완료"/>
+                                        <connections>
+                                            <action selector="selectComplete:" destination="cmo-e8-ugG" eventType="touchUpInside" id="8PJ-EZ-trT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="9pI-Og-wXA"/>
+                                    <constraint firstAttribute="trailing" secondItem="MlN-Lq-n5B" secondAttribute="trailing" id="0SJ-Cm-hwT"/>
+                                    <constraint firstAttribute="trailing" secondItem="bt3-S1-nw8" secondAttribute="trailing" id="Hqg-6B-Rz7"/>
+                                    <constraint firstItem="fnZ-PE-qQv" firstAttribute="leading" secondItem="A0R-Yc-CV3" secondAttribute="leading" id="MBT-Pn-8pG"/>
+                                    <constraint firstAttribute="trailing" secondItem="fnZ-PE-qQv" secondAttribute="trailing" id="axV-WZ-mJt"/>
+                                    <constraint firstItem="MlN-Lq-n5B" firstAttribute="leading" secondItem="A0R-Yc-CV3" secondAttribute="leading" id="gnZ-YE-Ncm"/>
+                                    <constraint firstItem="bt3-S1-nw8" firstAttribute="leading" secondItem="A0R-Yc-CV3" secondAttribute="leading" id="sRg-ZV-pwL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="설정 완료">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectButtonClicked:" destination="MfA-wR-uYC" eventType="touchUpInside" id="IEg-XK-U2G"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gTL-By-ffb" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
-                                <rect key="frame" x="134.5" y="288" width="249.5" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3p1-hD-YXz" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
-                                <rect key="frame" x="134.5" y="414.5" width="249.5" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2lb-II-c9L" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
-                                <rect key="frame" x="134.5" y="463.5" width="249.5" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="mHb-dG-rRT"/>
+                        <viewLayoutGuide key="safeArea" id="IcV-oI-5J8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gTL-By-ffb" firstAttribute="centerY" secondItem="3JY-EZ-xUN" secondAttribute="centerY" id="5GQ-vf-PeP"/>
-                            <constraint firstItem="vip-n0-lcL" firstAttribute="leading" secondItem="mHb-dG-rRT" secondAttribute="leading" constant="30" id="6PL-WR-MdC"/>
-                            <constraint firstItem="mHb-dG-rRT" firstAttribute="trailing" secondItem="2lb-II-c9L" secondAttribute="trailing" constant="30" id="6oI-pL-TpM"/>
-                            <constraint firstItem="3JY-EZ-xUN" firstAttribute="leading" secondItem="vip-n0-lcL" secondAttribute="leading" id="7Ik-82-bma"/>
-                            <constraint firstItem="bcr-EE-4oq" firstAttribute="centerY" secondItem="Mxv-TB-cpJ" secondAttribute="centerY" constant="-70" id="8CP-RJ-Ejr"/>
-                            <constraint firstItem="bcr-EE-4oq" firstAttribute="top" secondItem="3JY-EZ-xUN" secondAttribute="bottom" constant="45" id="AWR-M1-Q2I"/>
-                            <constraint firstItem="ly5-mM-aTG" firstAttribute="top" secondItem="Vrq-Yb-PZQ" secondAttribute="bottom" constant="65" id="H3S-wR-Om6"/>
-                            <constraint firstItem="Vrq-Yb-PZQ" firstAttribute="trailing" secondItem="zAb-dS-PZ3" secondAttribute="trailing" id="H5r-3Z-toG"/>
-                            <constraint firstItem="zAb-dS-PZ3" firstAttribute="leading" secondItem="bcr-EE-4oq" secondAttribute="leading" id="IYa-K3-SvD"/>
-                            <constraint firstItem="mHb-dG-rRT" firstAttribute="trailing" secondItem="bcr-EE-4oq" secondAttribute="trailing" constant="30" id="Je5-iP-nlD"/>
-                            <constraint firstItem="3JY-EZ-xUN" firstAttribute="top" secondItem="vip-n0-lcL" secondAttribute="bottom" constant="25" id="K1I-Le-Q0V"/>
-                            <constraint firstItem="ly5-mM-aTG" firstAttribute="trailing" secondItem="bcr-EE-4oq" secondAttribute="trailing" id="LdA-61-Vv5"/>
-                            <constraint firstItem="3p1-hD-YXz" firstAttribute="leading" secondItem="zAb-dS-PZ3" secondAttribute="trailing" constant="30" id="Oju-ms-xqP"/>
-                            <constraint firstItem="mHb-dG-rRT" firstAttribute="trailing" secondItem="3p1-hD-YXz" secondAttribute="trailing" constant="30" id="POY-tC-U0P"/>
-                            <constraint firstItem="2lb-II-c9L" firstAttribute="centerY" secondItem="Vrq-Yb-PZQ" secondAttribute="centerY" id="QpL-SX-3KH"/>
-                            <constraint firstItem="zAb-dS-PZ3" firstAttribute="top" secondItem="bcr-EE-4oq" secondAttribute="bottom" constant="25" id="Qqy-bR-JLG"/>
-                            <constraint firstItem="2lb-II-c9L" firstAttribute="leading" secondItem="Vrq-Yb-PZQ" secondAttribute="trailing" constant="30" id="Twc-F9-yhn"/>
-                            <constraint firstItem="Vrq-Yb-PZQ" firstAttribute="leading" secondItem="zAb-dS-PZ3" secondAttribute="leading" id="VAt-Qc-kmZ"/>
-                            <constraint firstItem="gTL-By-ffb" firstAttribute="leading" secondItem="3JY-EZ-xUN" secondAttribute="trailing" constant="30" id="VBo-Tf-ouQ"/>
-                            <constraint firstItem="3p1-hD-YXz" firstAttribute="centerY" secondItem="zAb-dS-PZ3" secondAttribute="centerY" id="X2Z-2S-JqX"/>
-                            <constraint firstItem="mHb-dG-rRT" firstAttribute="trailing" secondItem="gTL-By-ffb" secondAttribute="trailing" constant="30" id="Xkb-kK-HpM"/>
-                            <constraint firstItem="ly5-mM-aTG" firstAttribute="leading" secondItem="bcr-EE-4oq" secondAttribute="leading" id="ckD-rC-qW7"/>
-                            <constraint firstItem="bcr-EE-4oq" firstAttribute="leading" secondItem="mHb-dG-rRT" secondAttribute="leading" constant="30" id="k07-Nl-Lxe"/>
-                            <constraint firstItem="Vrq-Yb-PZQ" firstAttribute="top" secondItem="zAb-dS-PZ3" secondAttribute="bottom" constant="25" id="n3x-7y-5wk"/>
-                            <constraint firstItem="mHb-dG-rRT" firstAttribute="trailing" secondItem="vip-n0-lcL" secondAttribute="trailing" constant="30" id="ytg-ho-Qfg"/>
+                            <constraint firstItem="IcV-oI-5J8" firstAttribute="trailing" secondItem="A0R-Yc-CV3" secondAttribute="trailing" constant="30" id="l44-3Y-xaU"/>
+                            <constraint firstItem="A0R-Yc-CV3" firstAttribute="centerY" secondItem="JPt-rU-IPL" secondAttribute="centerY" id="m0S-jj-dg8"/>
+                            <constraint firstItem="A0R-Yc-CV3" firstAttribute="leading" secondItem="IcV-oI-5J8" secondAttribute="leading" constant="30" id="sat-A9-cL2"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="lessonDateField" destination="gTL-By-ffb" id="kHO-jW-fdr"/>
-                        <outlet property="lessonEndTimeField" destination="2lb-II-c9L" id="v2S-4I-iO3"/>
-                        <outlet property="lessonStartTimeField" destination="3p1-hD-YXz" id="VgB-fV-W2f"/>
-                        <outlet property="selectButton" destination="ly5-mM-aTG" id="WQG-fk-zdX"/>
+                        <outlet property="beginTimeField" destination="u6x-7f-9dD" id="cGS-EP-fMG"/>
+                        <outlet property="dateField" destination="7d6-oR-PQ3" id="jBl-aO-ulG"/>
+                        <outlet property="endTimeField" destination="GsT-rD-xA3" id="ofT-l6-rjV"/>
+                        <outlet property="mutableLabel" destination="BGs-Zl-rRM" id="1lc-cd-eKj"/>
+                        <outlet property="mutableStackView" destination="Pt8-of-95j" id="pJp-o6-F1n"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UOe-Ec-6JN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PLM-mP-Egl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3664" y="-1953"/>
+            <point key="canvasLocation" x="4977" y="-1908"/>
         </scene>
         <!--반 선택-->
         <scene sceneID="sM2-zN-NZW">
@@ -2057,7 +2066,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pA-Kt-FFJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3675" y="-2622"/>
+            <point key="canvasLocation" x="3670" y="-1945"/>
         </scene>
         <!--반 수정 및 삭제-->
         <scene sceneID="sC5-O4-cXZ">
@@ -2120,11 +2129,8 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="2lb-II-c9L">
-            <size key="intrinsicContentSize" width="33" height="34"/>
-        </designable>
-        <designable name="3p1-hD-YXz">
-            <size key="intrinsicContentSize" width="33" height="34"/>
+        <designable name="7d6-oR-PQ3">
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="7iB-lo-cAK">
             <size key="intrinsicContentSize" width="198" height="34"/>
@@ -2135,6 +2141,9 @@
         <designable name="EWX-Ua-stM">
             <size key="intrinsicContentSize" width="43" height="34"/>
         </designable>
+        <designable name="GsT-rD-xA3">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
         <designable name="HxO-2M-Fph">
             <size key="intrinsicContentSize" width="91.5" height="22"/>
         </designable>
@@ -2144,17 +2153,20 @@
         <designable name="UOY-se-rYl">
             <size key="intrinsicContentSize" width="78" height="33"/>
         </designable>
-        <designable name="emj-l3-07I">
-            <size key="intrinsicContentSize" width="223" height="34"/>
+        <designable name="bt3-S1-nw8">
+            <size key="intrinsicContentSize" width="64" height="33"/>
         </designable>
-        <designable name="gTL-By-ffb">
-            <size key="intrinsicContentSize" width="33" height="34"/>
+        <designable name="emj-l3-07I">
+            <size key="intrinsicContentSize" width="213.5" height="34"/>
         </designable>
         <designable name="nRv-m3-ksr">
             <size key="intrinsicContentSize" width="237" height="34"/>
         </designable>
         <designable name="q2n-FN-xcD">
             <size key="intrinsicContentSize" width="67" height="34"/>
+        </designable>
+        <designable name="u6x-7f-9dD">
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="ysn-qz-PkV">
             <size key="intrinsicContentSize" width="57.5" height="34"/>

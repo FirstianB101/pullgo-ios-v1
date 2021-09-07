@@ -18,7 +18,6 @@ protocol TeacherCreateLessonDelegate: AnyObject {
 
 class TeacherCreateLessonViewController: UIViewController, Styler {
     
-    let animator = AnimationPresentor()
     let viewModel = TeacherCreateLessonViewModel()
     @IBOutlet weak var lessonNameField: UITextField!
     @IBOutlet weak var classroomSelectButton: UIButton!
@@ -73,27 +72,20 @@ class TeacherCreateLessonViewController: UIViewController, Styler {
     }
     
     @IBAction func selectScheduleButtonClicked(_ sender: UIButton) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "TeacherCreateLesson_ScheduleSetViewController") as! TeacherCreateLesson_ScheduleSetViewController
-        vc.selectDateDelegate = self
+        let vc = storyboard?.instantiateViewController(identifier: "datePickerView") as! DatePickerViewController
         vc.navigationItem.title = "수업 시간 설정"
+        vc.datePickerMode = .dateAndTime
         self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @IBAction func ignoreSemiColons(_ sender: UITextField) {
-        if sender.text?.last == ";" {
-            animator.vibrate(view: sender)
-            sender.text?.removeLast()
-        }
     }
     
     @IBAction func createLessonButtonClicked(_ sender: UIButton) {
         viewModel.lessonName = lessonNameField.text!
         if lessonNameField.text!.isEmpty {
-            animator.vibrate(view: lessonNameField)
+            lessonNameField.vibrate()
         } else if viewModel.selectedClassroom == nil {
-            animator.vibrate(view: classroomSelectButton)
+            classroomSelectButton.vibrate()
         } else if viewModel.lessonSchedule == nil {
-            animator.vibrate(view: scheduleSelectButton)
+            scheduleSelectButton.vibrate()
         } else {
             postLessonWithPresentAlert()
         }

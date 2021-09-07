@@ -7,10 +7,11 @@
 
 import Foundation
 
-class Schedule: Codable {
+struct Schedule: Codable {
+    /// Date Format: YYYY-MM-dd
     var date: String
     
-    /// Time Format: "hh:mm:ss"
+    /// Time Format: "HH:mm:ss"
     var beginTime: String
     var endTime: String
     

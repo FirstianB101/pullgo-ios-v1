@@ -12,7 +12,7 @@ protocol PGDatePickerDelegate {
 }
 
 @IBDesignable
-public class PGTextField: UITextField, Styler {
+public class PGTextField: UITextField {
     
     var toolbarDelegate: PGDatePickerDelegate?
     
@@ -36,10 +36,15 @@ public class PGTextField: UITextField, Styler {
     }
     
     public func useTextFieldByDatePicker(picker: UIDatePicker) {
+        picker.preferredDatePickerStyle = .wheels
         let toolbar = PGToolbar(datePicker: picker, inputView: self)
         
+        if picker.datePickerMode == .time {
+            picker.minuteInterval = 5
+        }
         self.inputAccessoryView = toolbar
         self.inputView = picker
+        self.font = UIFont.systemFont(ofSize: 18)
     }
 }
 

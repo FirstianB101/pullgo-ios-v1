@@ -114,10 +114,9 @@ extension TeacherCalendarSelectViewController {
     }
     
     func dismissView() {
-        let animator = AnimationPresentor()
         let pvc = self.presentingViewController!
         dismiss(animated: true) {
-            animator.gettingBright(view: pvc.view)
+            pvc.view.gettingBright()
         }
     }
 }

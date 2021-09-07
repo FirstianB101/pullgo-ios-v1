@@ -7,52 +7,6 @@
 
 import UIKit
 
-class AnimationPresentor: Styler {
-    func vibrate(view: UIView) {
-        let animator = UIViewPropertyAnimator(duration: 1, dampingRatio: 0.1, animations: {
-            view.transform = CGAffineTransform(translationX: 3, y: 0)
-        })
-        animator.addAnimations ({
-            view.transform = CGAffineTransform(translationX: 0, y: 0)
-        }, delayFactor: 0.1)
-        animator.startAnimation()
-    }
-    
-    func slowAppear(view: UIView) {
-        if view.alpha == 1 { return }
-        
-        UIView.animate(withDuration: 0.5, animations: {
-            self.show(view: view)
-        })
-    }
-    
-    func slowDisappear(view: UIView) {
-        if view.alpha == 0 { return }
-        
-        UIView.animate(withDuration: 0.5, animations: {
-            self.hide(view: view)
-        })
-    }
-    
-    /// Make view.alpha property to 0.3 with animate
-    func gettingDark(view: UIView) {
-        if view.alpha == 0.3 { return }
-        
-        UIView.animate(withDuration: 0.5, animations: {
-            view.alpha = 0.3
-        })
-    }
-    
-    /// Make view.alpha property to 1 with animate
-    func gettingBright(view: UIView) {
-        if view.alpha == 1 { return }
-        
-        UIView.animate(withDuration: 0.5, animations: {
-            view.alpha = 1
-        })
-    }
-}
-
 class AlertPresentor {
     let view: UIViewController
     

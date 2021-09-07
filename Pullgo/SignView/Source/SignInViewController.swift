@@ -69,12 +69,11 @@ class SignInViewController: UIViewController, Styler {
         let username: String = usernameField.text!
         let password: String = passwordField.text!
         let userType: UserType = .ToUserType(index: userTypeSegment.selectedSegmentIndex)!
-        let animator: AnimationPresentor = AnimationPresentor()
         
         if username.isEmpty {
-            animator.vibrate(view: usernameField)
+            usernameField.vibrate()
         } else if password.isEmpty {
-            animator.vibrate(view: passwordField)
+            passwordField.vibrate()
         } else {
             viewModel.setInputs(username: username, password: password, userType: userType)
             requestSignIn()
