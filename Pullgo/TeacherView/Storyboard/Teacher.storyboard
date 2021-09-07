@@ -1781,6 +1781,12 @@
                                     <action selector="createLessonButtonClicked:" destination="I1G-3p-3oO" eventType="touchUpInside" id="x5b-BU-kzW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkA-5f-mTU">
+                                <rect key="frame" x="364" y="108" width="30" height="30"/>
+                                <connections>
+                                    <action selector="dismiss:" destination="I1G-3p-3oO" eventType="touchUpInside" id="ljv-Wv-qrd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i8L-4u-auA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1818,11 +1824,13 @@
                             <constraint firstItem="i8L-4u-auA" firstAttribute="trailing" secondItem="H1h-RP-dsG" secondAttribute="trailing" constant="30" id="ie2-3Y-U5L"/>
                             <constraint firstItem="zmr-az-s5E" firstAttribute="top" secondItem="SY0-M5-QFH" secondAttribute="bottom" constant="35" id="im6-SS-9Z7"/>
                             <constraint firstItem="u3E-HT-0lQ" firstAttribute="leading" secondItem="Hlw-8B-Otq" secondAttribute="leading" id="jWK-q2-uZC"/>
+                            <constraint firstItem="gkA-5f-mTU" firstAttribute="top" secondItem="i8L-4u-auA" secondAttribute="top" constant="20" id="jcg-6R-P2D"/>
                             <constraint firstItem="sxK-42-krs" firstAttribute="centerY" secondItem="hIP-W4-C5v" secondAttribute="centerY" constant="10" id="mLL-0z-egv"/>
                             <constraint firstItem="sxK-42-krs" firstAttribute="leading" secondItem="i8L-4u-auA" secondAttribute="leading" constant="30" id="q1y-rM-UtB"/>
                             <constraint firstItem="KrD-QG-Bj0" firstAttribute="leading" secondItem="H1h-RP-dsG" secondAttribute="leading" id="qM1-Bn-LPe"/>
                             <constraint firstItem="H1h-RP-dsG" firstAttribute="leading" secondItem="Hlw-8B-Otq" secondAttribute="leading" constant="-20" id="qgu-O3-Y0w"/>
                             <constraint firstItem="H1h-RP-dsG" firstAttribute="top" secondItem="Hlw-8B-Otq" secondAttribute="top" constant="-13" id="t5Y-QW-5P0"/>
+                            <constraint firstItem="i8L-4u-auA" firstAttribute="trailing" secondItem="gkA-5f-mTU" secondAttribute="trailing" constant="20" id="vGD-7g-NUa"/>
                             <constraint firstItem="emj-l3-07I" firstAttribute="top" secondItem="zmr-az-s5E" secondAttribute="bottom" constant="8" id="xu9-zY-LEf"/>
                             <constraint firstItem="i8L-4u-auA" firstAttribute="trailing" secondItem="SY0-M5-QFH" secondAttribute="trailing" constant="30" id="y2F-Of-h4z"/>
                             <constraint firstItem="3Qs-4t-IXc" firstAttribute="leading" secondItem="Seq-2o-rdH" secondAttribute="leading" id="yRq-xC-7dU"/>
@@ -2128,50 +2136,6 @@
             <point key="canvasLocation" x="3162" y="-249"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="7d6-oR-PQ3">
-            <size key="intrinsicContentSize" width="32" height="34"/>
-        </designable>
-        <designable name="7iB-lo-cAK">
-            <size key="intrinsicContentSize" width="198" height="34"/>
-        </designable>
-        <designable name="A1Y-3p-GUG">
-            <size key="intrinsicContentSize" width="203.5" height="34"/>
-        </designable>
-        <designable name="EWX-Ua-stM">
-            <size key="intrinsicContentSize" width="43" height="34"/>
-        </designable>
-        <designable name="GsT-rD-xA3">
-            <size key="intrinsicContentSize" width="32" height="34"/>
-        </designable>
-        <designable name="HxO-2M-Fph">
-            <size key="intrinsicContentSize" width="91.5" height="22"/>
-        </designable>
-        <designable name="KrD-QG-Bj0">
-            <size key="intrinsicContentSize" width="67" height="34"/>
-        </designable>
-        <designable name="UOY-se-rYl">
-            <size key="intrinsicContentSize" width="78" height="33"/>
-        </designable>
-        <designable name="bt3-S1-nw8">
-            <size key="intrinsicContentSize" width="64" height="33"/>
-        </designable>
-        <designable name="emj-l3-07I">
-            <size key="intrinsicContentSize" width="213.5" height="34"/>
-        </designable>
-        <designable name="nRv-m3-ksr">
-            <size key="intrinsicContentSize" width="237" height="34"/>
-        </designable>
-        <designable name="q2n-FN-xcD">
-            <size key="intrinsicContentSize" width="67" height="34"/>
-        </designable>
-        <designable name="u6x-7f-9dD">
-            <size key="intrinsicContentSize" width="32" height="34"/>
-        </designable>
-        <designable name="ysn-qz-PkV">
-            <size key="intrinsicContentSize" width="57.5" height="34"/>
-        </designable>
-    </designables>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="arrow.right.square.fill" catalog="system" width="128" height="114"/>

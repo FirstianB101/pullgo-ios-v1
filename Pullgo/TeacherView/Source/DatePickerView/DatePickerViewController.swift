@@ -19,7 +19,7 @@ public enum DatePickerViewMode: Int {
 }
 
 @objc protocol DatePickerViewDelegate {
-    @objc optional func datePickerView(date: Date, beginTime: Date, endTime: Date)
+    @objc optional func datePickerView(schedule: Schedule)
     @objc optional func datePickerView(date: Date, timeLimit: Date)
 }
 
@@ -67,6 +67,7 @@ class DatePickerViewController: UIViewController {
         let datePicker = UIDatePicker(mode: .date)
         let timePicker = UIDatePicker(mode: .time)
         
+        datePicker.minimumDate = Date()
         dateField.useTextFieldByDatePicker(picker: datePicker)
         beginTimeField.useTextFieldByDatePicker(picker: timePicker)
         endTimeField.useTextFieldByDatePicker(picker: timePicker)
@@ -83,15 +84,56 @@ class DatePickerViewController: UIViewController {
     }
     
     @IBAction func selectComplete(_ sender: PGButton) {
+        if !checkEmptyInputs() { return }
         guard let date = viewModel.date, let beginTime = viewModel.beginTime else { return }
         
         if datePickerMode == .dateAndTime {
-            guard let endTime = viewModel.endTime else { return }
-            delegate?.datePickerView?(date: date, beginTime: beginTime, endTime: endTime)
+            if !checkTimeValid() {
+                let alert = AlertPresentor(presentor: self)
+                alert.present(title: "경고", context: "종료 시간이 시작 시간보다 빠릅니다.") { _ in
+                    self.beginTimeField.becomeFirstResponder()
+                }
+            }
+            guard let schedule = viewModel.convertSchedule() else { return }
+            delegate?.datePickerView?(schedule: schedule)
         }
         else if datePickerMode == .dateWithTimeLimit {
             delegate?.datePickerView?(date: date, timeLimit: beginTime)
         }
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func checkTimeValid() -> Bool {
+        if self.datePickerMode == .dateAndTime {
+            return checkTimeValid_dateAndTime()
+        }
+        return true
+    }
+    
+    private func checkTimeValid_dateAndTime() -> Bool {
+        return viewModel.isValidTimeInterval()
+    }
+    
+    private func checkEmptyInputs() -> Bool {
+        return checkIsEmpty(fields: dateField, beginTimeField, endTimeField)
+    }
+    
+    private func checkIsEmpty(fields: PGTextField...) -> Bool {
+        for field in fields {
+            if self.datePickerMode == .dateWithTimeLimit && field == endTimeField { continue }
+            
+            guard let text = field.text else {
+                field.vibrate()
+                return false
+            }
+            if text.isEmpty {
+                field.vibrate()
+                return false
+            }
+        }
+        
+        return true
     }
 }
 
@@ -127,6 +169,11 @@ class DatePickerViewModel {
     
     public func setEndTime(time: Date) {
         self.endTime = time
+    }
+    
+    public func isValidTimeInterval() -> Bool {
+        guard let beginTime = self.beginTime, let endTime = self.endTime else { return false }
+        return beginTime < endTime
     }
     
     public func convertSchedule() -> Schedule? {

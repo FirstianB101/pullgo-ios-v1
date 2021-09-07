@@ -13,7 +13,7 @@ class TeacherAddExamViewController: UIViewController, Styler {
     @IBOutlet weak var hourField: UITextField!
     @IBOutlet weak var minuteField: UITextField!
     @IBOutlet weak var passScoreField: UITextField!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var nextButton: PGButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

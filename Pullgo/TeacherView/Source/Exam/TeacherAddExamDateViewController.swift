@@ -11,7 +11,7 @@ class TeacherAddExamDateViewController: UIViewController, Styler {
 
     @IBOutlet weak var selectBeginDateButton: UIButton!
     @IBOutlet weak var selectEndDateButton: UIButton!
-    @IBOutlet weak var createExamButton: UIButton!
+    @IBOutlet weak var createExamButton: PGButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,19 +29,25 @@ class TeacherAddExamDateViewController: UIViewController, Styler {
     }
     
     @IBAction func selectBeginDate(_ sender: UIButton) {
-        let vc = self.storyboard?.instantiateViewController(identifier: "datePickerView") as! DatePickerViewController
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "datePickerView") as! DatePickerViewController
         
         vc.datePickerMode = .dateWithTimeLimit
-        vc.navigationItem.title = "시험 시간 설정"
+        vc.navigationItem.title = "시작 날짜 설정"
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func selectEndDate(_ sender: UIButton) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TeacherSelectExamDateViewController") as! TeacherSelectExamDateViewController
-        vc.navigationItem.title = "마감 날짜"
-        vc.viewModel.dateCase = .endDate
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "datePickerView") as! DatePickerViewController
+        
+        vc.datePickerMode = .dateWithTimeLimit
+        vc.navigationItem.title = "마감 날짜 설정"
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
+}
+
+extension TeacherAddExamDateViewController: DatePickerViewDelegate {
+    
+    
 }

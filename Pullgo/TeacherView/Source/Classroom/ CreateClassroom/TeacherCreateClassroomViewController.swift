@@ -30,7 +30,7 @@ class TeacherCreateClassroomViewController: UIViewController, Styler, NetworkAle
     
 
     @IBOutlet weak var classroomNameField: UITextField!
-    @IBOutlet weak var classroomCreateButton: UIButton!
+    @IBOutlet weak var classroomCreateButton: PGButton!
     @IBOutlet weak var academySelectButton: UIButton!
     @IBOutlet var weekdayButtons: [UIButton]!
     let viewModel = TeacherCreateClassroomViewModel()

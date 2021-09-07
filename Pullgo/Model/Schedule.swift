@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Schedule: Codable {
+@objc class Schedule: NSObject, Codable {
     /// Date Format: YYYY-MM-dd
     var date: String
     

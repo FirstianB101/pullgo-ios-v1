@@ -8,12 +8,8 @@
 import UIKit
 
 protocol TeacherCreateLessonDelegate: AnyObject {
-    var getSelectedDate: Date { get }
-    var getSchedule: Schedule? { get }
     func updateSelectedClassroomButtonLabel()
     func updateSelectedClassroom(selected: Classroom)
-    func updateSchedule(schedule: Schedule)
-    func updateScheduleButtonLabel()
 }
 
 class TeacherCreateLessonViewController: UIViewController, Styler {
@@ -26,7 +22,7 @@ class TeacherCreateLessonViewController: UIViewController, Styler {
     @IBOutlet weak var classroomInfoLabel: UILabel!
     @IBOutlet weak var scheduleDateLabel: UILabel!
     @IBOutlet weak var schedulePeriodLabel: UILabel!
-    @IBOutlet weak var createLessonButton: UIButton!
+    @IBOutlet weak var createLessonButton: PGButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +71,7 @@ class TeacherCreateLessonViewController: UIViewController, Styler {
         let vc = storyboard?.instantiateViewController(identifier: "datePickerView") as! DatePickerViewController
         vc.navigationItem.title = "수업 시간 설정"
         vc.datePickerMode = .dateAndTime
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -105,9 +102,29 @@ class TeacherCreateLessonViewController: UIViewController, Styler {
                       context: "반: \(viewModel.selectedClassroom!.parse.classroomName)\n일시: \(viewModel.getDateOfSchedule())\n시간: \(viewModel.getPeriodOfSchedule())\n\n위 정보로 수업을 생성합니다.",
                       actions: [cancel, apply])
     }
+    
+    @IBAction func dismiss(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
-extension TeacherCreateLessonViewController: TeacherCreateLessonDelegate {
+extension TeacherCreateLessonViewController: DatePickerViewDelegate, TeacherCreateLessonDelegate {
+    func datePickerView(schedule: Schedule) {
+        updateSchedule(schedule: schedule)
+    }
+    
+    private func updateSchedule(schedule: Schedule) {
+        viewModel.lessonSchedule = schedule
+        setButtonColorSelected(button: scheduleSelectButton)
+        setButtonLabelToSchedule(schedule: schedule)
+    }
+    
+    private func setButtonLabelToSchedule(schedule: Schedule) {
+        scheduleSelectButton.setTitle("", for: .normal)
+        scheduleDateLabel.text = viewModel.getDateOfSchedule()
+        schedulePeriodLabel.text = viewModel.getPeriodOfSchedule()
+    }
+    
     var getSelectedDate: Date {
         viewModel.selectedDate ?? Date()
     }
@@ -116,29 +133,10 @@ extension TeacherCreateLessonViewController: TeacherCreateLessonDelegate {
         viewModel.lessonSchedule
     }
     
-    func updateSchedule(schedule: Schedule) {
-        viewModel.lessonSchedule = schedule
-        setButtonColorSelected(button: scheduleSelectButton)
-    }
-    
-    func updateScheduleButtonLabel() {
-        guard let schedule = viewModel.lessonSchedule else {
-            setScheduleButtonLabelToDefault()
-            return
-        }
-        setButtonLabelToSchedule(schedule: schedule)
-    }
-    
     private func setScheduleButtonLabelToDefault() {
         scheduleSelectButton.setTitle("수업 시간을 설정해주세요.", for: .normal)
         scheduleDateLabel.text = ""
         schedulePeriodLabel.text = ""
-    }
-    
-    private func setButtonLabelToSchedule(schedule: Schedule) {
-        scheduleSelectButton.setTitle("", for: .normal)
-        scheduleDateLabel.text = viewModel.getDateOfSchedule()
-        schedulePeriodLabel.text = viewModel.getPeriodOfSchedule()
     }
     
     func updateSelectedClassroom(selected: Classroom) {

@@ -11,7 +11,6 @@ protocol PGDatePickerDelegate {
     func datePicker(_ inputView: PGTextField, selected: Date)
 }
 
-@IBDesignable
 public class PGTextField: UITextField {
     
     var toolbarDelegate: PGDatePickerDelegate?
