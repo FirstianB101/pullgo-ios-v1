@@ -14,13 +14,13 @@ import SnapKit
  */
 
 public enum DatePickerViewMode: Int {
-    case dateAndTime = 0
+    case dateAndTimePeriod = 0
     case dateWithTimeLimit
 }
 
 @objc protocol DatePickerViewDelegate {
-    @objc optional func datePickerView(schedule: Schedule)
-    @objc optional func datePickerView(date: Date, timeLimit: Date)
+    @objc optional func datePickerView(_ sender: PGSelectButton?, schedule: Schedule)
+    @objc optional func datePickerView(_ sender: PGSelectButton?, date: Date, time: Date)
 }
 
 /// Should push in Navigation Controller
@@ -36,9 +36,11 @@ class DatePickerViewController: UIViewController {
     @IBOutlet weak var mutableStackView: UIStackView!
     @IBOutlet weak var mutableLabel: UILabel!
     
-    var datePickerMode: DatePickerViewMode = .dateAndTime
+    var datePickerMode: DatePickerViewMode = .dateAndTimePeriod
     let viewModel = DatePickerViewModel()
+    
     var delegate: DatePickerViewDelegate?
+    var sender: PGSelectButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,8 +58,8 @@ class DatePickerViewController: UIViewController {
     }
     
     private func setUIByDatePickerViewMode() {
-        if datePickerMode == .dateAndTime {
-            setUIDateAndTime()
+        if datePickerMode == .dateAndTimePeriod {
+            setUIDateAndTimePeriod()
         } else if datePickerMode == .dateWithTimeLimit {
             setUIDateWithTimeLimit()
         }
@@ -73,7 +75,7 @@ class DatePickerViewController: UIViewController {
         endTimeField.useTextFieldByDatePicker(picker: timePicker)
     }
     
-    private func setUIDateAndTime() {
+    private func setUIDateAndTimePeriod() {
         mutableLabel.text = "시작 시간"
         mutableStackView.isHidden = false
     }
@@ -87,7 +89,7 @@ class DatePickerViewController: UIViewController {
         if !checkEmptyInputs() { return }
         guard let date = viewModel.date, let beginTime = viewModel.beginTime else { return }
         
-        if datePickerMode == .dateAndTime {
+        if datePickerMode == .dateAndTimePeriod {
             if !checkTimeValid() {
                 let alert = AlertPresentor(presentor: self)
                 alert.present(title: "경고", context: "종료 시간이 시작 시간보다 빠릅니다.") { _ in
@@ -95,23 +97,23 @@ class DatePickerViewController: UIViewController {
                 }
             }
             guard let schedule = viewModel.convertSchedule() else { return }
-            delegate?.datePickerView?(schedule: schedule)
+            delegate?.datePickerView?(self.sender, schedule: schedule)
         }
         else if datePickerMode == .dateWithTimeLimit {
-            delegate?.datePickerView?(date: date, timeLimit: beginTime)
+            delegate?.datePickerView?(self.sender, date: date, time: beginTime)
         }
         
         self.navigationController?.popViewController(animated: true)
     }
     
     private func checkTimeValid() -> Bool {
-        if self.datePickerMode == .dateAndTime {
-            return checkTimeValid_dateAndTime()
+        if self.datePickerMode == .dateAndTimePeriod {
+            return checkTimeValid_dateAndTimePeriod()
         }
         return true
     }
     
-    private func checkTimeValid_dateAndTime() -> Bool {
+    private func checkTimeValid_dateAndTimePeriod() -> Bool {
         return viewModel.isValidTimeInterval()
     }
     

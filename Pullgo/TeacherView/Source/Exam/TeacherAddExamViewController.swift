@@ -95,8 +95,6 @@ class TeacherAddExamViewModel {
     var examName: String = ""
     var limitTime: String = ""
     var passScore: Int = 0
-    var beginDate: String = ""
-    var endDate: String = ""
     
     func updateExamName(name: String) {
         self.examName = name
@@ -110,13 +108,5 @@ class TeacherAddExamViewModel {
         var scoreInput = score
         scoreInput.removeLast()
         self.passScore = Int(scoreInput)!
-    }
-    
-    func updateBeginDate(date: String) {
-        var parseDate = date.split(separator: "/").map { $0 }
-    }
-    
-    func updateEndDate(date: String) {
-        
     }
 }

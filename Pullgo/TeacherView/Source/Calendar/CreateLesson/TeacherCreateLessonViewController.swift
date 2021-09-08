@@ -70,7 +70,7 @@ class TeacherCreateLessonViewController: UIViewController, Styler {
     @IBAction func selectScheduleButtonClicked(_ sender: UIButton) {
         let vc = storyboard?.instantiateViewController(identifier: "datePickerView") as! DatePickerViewController
         vc.navigationItem.title = "수업 시간 설정"
-        vc.datePickerMode = .dateAndTime
+        vc.datePickerMode = .dateAndTimePeriod
         vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }

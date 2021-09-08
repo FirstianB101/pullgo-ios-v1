@@ -46,6 +46,8 @@ class PGSelectButton: UIButton {
     }
     
     private func setStyle() {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
         self.setViewCornerRadius(view: self, radius: 15)
         self.setViewShadow(view: self)
         setUIDeselect()
@@ -76,13 +78,17 @@ class PGSelectButton: UIButton {
         
         setSelectedTitleConstraints(selectedTitleLabel)
         setSelectedSubtitleConstraints(selectedSubtitleLabel)
+        
+        selectedTitleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        selectedSubtitleLabel.font = UIFont.systemFont(ofSize: 15)
+        selectedSubtitleLabel.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
     }
     
     private func setSelectedTitleConstraints(_ label: UILabel) {
         label.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self).offset(-13)
+            make.top.equalTo(self).offset(13)
             make.trailing.equalTo(self).offset(20)
-            make.leading.equalTo(self).offset(-20)
+            make.leading.equalTo(self).offset(20)
         }
     }
     
@@ -90,21 +96,20 @@ class PGSelectButton: UIButton {
         label.snp.makeConstraints { (make) -> Void in
             make.bottom.equalTo(self).offset(-13)
             make.trailing.equalTo(self).offset(20)
-            make.leading.equalTo(self).offset(-20)
+            make.leading.equalTo(self).offset(20)
         }
     }
     
     private func addArrowImage() {
-        let arrow = UIImage(named: "chevron.right")
+        let arrow = UIImage(systemName: "chevron.right")!
         let arrowView = UIImageView(image: arrow)
         
         self.addSubview(arrowView)
         
         arrowView.snp.makeConstraints { (make) -> Void in
-            make.right.equalTo(self).offset(-30)
-            make.width.equalTo(15)
-            make.height.equalTo(15)
-            make.centerY.equalTo(self.frame.midY)
+            make.right.equalTo(self).offset(-20)
+            make.size.equalTo(CGSize(width: 10, height: 15))
+            make.centerY.equalTo(self)
         }
     }
     
@@ -116,6 +121,11 @@ class PGSelectButton: UIButton {
         } else if state == .selected {
             setUISelected()
         }
+    }
+    
+    public func setDeselectedTitle(_ title: String) {
+        self.deselectTitle = title
+        self.setTitle(title, for: .normal)
     }
     
     public func setSelectedTitle(_ title: String) {
