@@ -751,56 +751,6 @@
             <point key="canvasLocation" x="5347.826086956522" y="-286.60714285714283"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="0nT-Fy-BJO">
-            <size key="intrinsicContentSize" width="204" height="34"/>
-        </designable>
-        <designable name="B0r-UZ-D8k">
-            <size key="intrinsicContentSize" width="63" height="34"/>
-        </designable>
-        <designable name="F0q-ky-Y2W">
-            <size key="intrinsicContentSize" width="63" height="34"/>
-        </designable>
-        <designable name="GuZ-5O-y3x">
-            <size key="intrinsicContentSize" width="204" height="34"/>
-        </designable>
-        <designable name="H7P-Ts-0jP">
-            <size key="intrinsicContentSize" width="91.5" height="22"/>
-        </designable>
-        <designable name="Kuj-wz-V5g">
-            <size key="intrinsicContentSize" width="221" height="34"/>
-        </designable>
-        <designable name="NC8-RK-Bdq">
-            <size key="intrinsicContentSize" width="212.5" height="34"/>
-        </designable>
-        <designable name="RMq-2D-qpv">
-            <size key="intrinsicContentSize" width="67" height="34"/>
-        </designable>
-        <designable name="Tlw-dA-XSU">
-            <size key="intrinsicContentSize" width="173" height="34"/>
-        </designable>
-        <designable name="b6R-fj-bXN">
-            <size key="intrinsicContentSize" width="188.5" height="34"/>
-        </designable>
-        <designable name="cgb-Eg-4HB">
-            <size key="intrinsicContentSize" width="91.5" height="22"/>
-        </designable>
-        <designable name="clQ-Yo-yMu">
-            <size key="intrinsicContentSize" width="156.5" height="22"/>
-        </designable>
-        <designable name="hh5-gW-bfp">
-            <size key="intrinsicContentSize" width="197.5" height="34"/>
-        </designable>
-        <designable name="qeY-aB-eUW">
-            <size key="intrinsicContentSize" width="52" height="36"/>
-        </designable>
-        <designable name="rYm-ZA-35V">
-            <size key="intrinsicContentSize" width="221" height="34"/>
-        </designable>
-        <designable name="u34-eO-wZ7">
-            <size key="intrinsicContentSize" width="174" height="22"/>
-        </designable>
-    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="bMQ-Wg-9d0"/>
     </inferredMetricsTieBreakers>

@@ -89,10 +89,12 @@ class SignInViewController: UIViewController, Styler {
             if self.viewModel.userType == .student {
                 student = try! data?.toObject(type: Student.self)
                 SignedUser.student = student
+                self.viewModel.setAutoLoginInfo()
                 self.presentStudentView()
             } else {
                 teacher = try! data?.toObject(type: Teacher.self)
                 SignedUser.teacher = teacher
+                self.viewModel.setAutoLoginInfo()
                 self.presentTeacherView()
             }
         }
@@ -145,5 +147,17 @@ class SignInViewModel {
         guard let id = Int(usernameInput) else { return }
         SignedUser.setUserInfo(id: id, type: userType)
         SignedUser.requestSignIn(success: success, fail: fail)
+    }
+    
+    func setAutoLoginInfo() {
+        if !autoLoginChecked { return }
+        
+        let plist = UserDefaults.standard
+        
+        plist.set(true, forKey: plistKeys.AutoLoginKey.rawValue)
+        plist.set(userType.rawValue, forKey: plistKeys.userTypeKey.rawValue)
+        plist.set(SignedUser.id, forKey: plistKeys.userIdKey.rawValue)
+        
+        plist.synchronize()
     }
 }

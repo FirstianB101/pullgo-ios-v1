@@ -11,12 +11,67 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        let autoLoginEnable = UserDefaults.standard.bool(forKey: plistKeys.AutoLoginKey.rawValue)
+        
+        print(autoLoginEnable)
+        
+        if !autoLoginEnable { return }
+        else {
+            guard let userType = UserType(rawValue: UserDefaults.standard.integer(forKey: plistKeys.userTypeKey.rawValue)) else { return }
+            let userId = UserDefaults.standard.integer(forKey: plistKeys.userIdKey.rawValue)
+            
+            SignedUser.setUserInfo(id: userId, type: userType)
+            
+            let success: ResponseClosure = { data in
+                var teacher: Teacher?
+                var student: Student?
+                
+                if userType == .teacher {
+                    teacher = try! data?.toObject(type: Teacher.self)
+                    SignedUser.teacher = teacher
+                    self.presentTeacherView()
+                } else if userType == .student {
+                    student = try! data?.toObject(type: Student.self)
+                    SignedUser.student = student
+                    self.presentStudentView()
+                }
+            }
+            
+            let fail: FailClosure = {
+                self.presentSignInView()
+            }
+            
+            SignedUser.requestSignIn(success: success, fail: fail)
+        }
+    }
+    
+    private func presentTeacherView() {
+        let storyboard = UIStoryboard(name: "Teacher", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "TeacherCalendarViewController") as! TeacherCalendarViewController
+        
+        present(vc)
+    }
+    
+    private func presentStudentView() {
+        
+    }
+    
+    private func presentSignInView() {
+        return
+    }
+    
+    private func present(_ vc: UIViewController) {
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .fullScreen
+        
+        self.window?.rootViewController = vc
+        self.window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

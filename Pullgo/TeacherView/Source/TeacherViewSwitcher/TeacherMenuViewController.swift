@@ -45,6 +45,7 @@ class TeacherMenuViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         
         self.dismiss(animated: true) {
+            self.viewModel.removeAutoLoginInfo()
             pvc.present(vc, animated: true, completion: nil)
         }
     }
@@ -80,6 +81,10 @@ class TeacherMenuViewModel {
             // Conditions have to be added
             menus.append(menu.rawValue)
         }
+    }
+    
+    func removeAutoLoginInfo() {
+        UserDefaults.standard.set(false, forKey: plistKeys.AutoLoginKey.rawValue)
     }
 }
 
