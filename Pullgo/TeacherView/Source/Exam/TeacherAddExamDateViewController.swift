@@ -13,8 +13,6 @@ class TeacherAddExamDateViewController: UIViewController, Styler {
     @IBOutlet weak var selectEndDateButton: PGSelectButton!
     @IBOutlet weak var createExamButton: PGButton!
     
-    let viewModel = TeacherAddExamDateViewModel()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,20 +45,39 @@ class TeacherAddExamDateViewController: UIViewController, Styler {
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func createLesson(_ sender: PGButton) {
+        let url = NetworkManager.assembleURL("exams")
+        let alert = AlertPresentor(presentor: self)
+        
+        let success: ResponseClosure = { _ in
+            let okay = UIAlertAction(title: "예", style: .default) { _ in
+                
+            }
+            let cancel = UIAlertAction(title: "아니오", style: .cancel, handler: nil)
+            alert.present(title: createdExam.name, context: "시험이 생성되었습니다.\n문제를 바로 출제하시겠어요?", actions: [cancel, okay])
+        }
+        
+        let fail: FailClosure = {
+            alert.presentNetworkError()
+        }
+        
+        NetworkManager.post(url: url, data: createdExam, success: success, fail: fail, complete: nil)
+    }
 }
 
 extension TeacherAddExamDateViewController: DatePickerViewDelegate {
     
     func datePickerView(_ sender: PGSelectButton?, date: Date, time: Date) {
-        let mergedDate = viewModel.mergeDateAndTime(date: date, time: time)
+        let mergedDate = createdExam.mergeDateAndTime(date: date, time: time)
         let title = date.toString(format: "YYYY년 MM월 dd일")
         let subtitle = time.toString(format: "HH시 mm분")
         
         if sender == selectBeginDateButton {
-            viewModel.startDate = mergedDate
+            createdExam.beginDateTime = mergedDate
             selectButtonSelected(sender, title: title, subtitle: subtitle)
         } else if sender == selectEndDateButton {
-            viewModel.endDate = mergedDate
+            createdExam.endDateTime = mergedDate
             selectButtonSelected(sender, title: title, subtitle: subtitle)
         }
     }
@@ -69,18 +86,5 @@ extension TeacherAddExamDateViewController: DatePickerViewDelegate {
         sender?.setSelectedTitle(title)
         sender?.setSelectedSubtitle(subtitle)
         sender?.setState(for: .selected)
-    }
-}
-
-class TeacherAddExamDateViewModel {
-    var startDate: String!
-    var endDate: String!
-    
-    func mergeDateAndTime(date: Date, time: Date) -> String {
-        var merge = date.toString()
-        merge.append("T")
-        merge.append(time.toString(format: "HH:mm:ss"))
-        
-        return merge
     }
 }

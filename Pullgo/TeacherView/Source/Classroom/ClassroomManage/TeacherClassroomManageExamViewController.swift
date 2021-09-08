@@ -52,7 +52,7 @@ extension TeacherClassroomManageExamViewController: UICollectionViewDelegate, UI
     }
 }
 
-extension TeacherClassroomManageExamViewController: UICollectionViewDataSource {
+extension TeacherClassroomManageExamViewController: UICollectionViewDataSource, Styler {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.exams.count
     }
@@ -63,6 +63,7 @@ extension TeacherClassroomManageExamViewController: UICollectionViewDataSource {
         cell.examNameLabel.text = viewModel.getExamName(at: indexPath.item)
         cell.timeLabel.text = viewModel.getExamTime(at: indexPath.item)
         cell.timeLimitLabel.text = viewModel.getTimeLimit(at: indexPath.item)
+        setCellUI(cell: cell)
         
         return cell
     }

@@ -11,6 +11,6 @@ import XCTest
 class PullgoTests: XCTestCase {
     
     func testExample() throws {
-        let str = "2021/3/25 12:30:00"
+        
     }
 }

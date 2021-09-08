@@ -30,7 +30,14 @@ class Exam: Codable {
     }
     
     func getTimeLimit() -> String {
-        let timeLimit = self.timeLimit.toISO8601
-        return timeLimit.toString(format: "HH시간 mm분")
+        let timeLimits = self.timeLimit.split(separator: "H")
+        let hour = timeLimits[0].filter { $0.isNumber }
+        var minute = "0"
+        
+        if timeLimits.count >= 2 {
+            minute = timeLimits[1].filter { $0.isNumber }
+        }
+        
+        return "\(hour)시간 \(minute)분"
     }
 }

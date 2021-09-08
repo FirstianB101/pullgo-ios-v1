@@ -11,7 +11,7 @@ extension String {
     var toISO8601: Date {
         get {
             let formatter = ISO8601DateFormatter()
-            guard let date = formatter.date(from: self) else { return Date() }
+            guard let date = formatter.date(from: self + "+0000") else { return Date() }
             return date
         }
     }

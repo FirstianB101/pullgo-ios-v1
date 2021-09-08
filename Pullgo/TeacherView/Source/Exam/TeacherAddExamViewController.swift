@@ -40,7 +40,7 @@ class TeacherAddExamViewController: UIViewController, Styler {
         
         if !checkEmptyField() {
             createdExam.updateExamName(name: examName)
-            createdExam.updateLimitTime(hour: hour, minute: minute)
+            createdExam.updateTimeLimit(hour: hour, minute: minute)
             createdExam.updatePassScore(score: passScore)
             
             presentNextVC()
@@ -89,24 +89,36 @@ class TeacherAddExamViewController: UIViewController, Styler {
 
 let createdExam = TeacherAddExamViewModel.default
 
-class TeacherAddExamViewModel {
+class TeacherAddExamViewModel: Codable {
     static let `default` = TeacherAddExamViewModel()
     
-    var examName: String = ""
-    var limitTime: String = ""
+    var classroomId = TeacherClassroomManageViewModel.selectedClassroom.id!
+    var creatorId = SignedUser.id!
+    var name: String = ""
+    var timeLimit: String = ""
     var passScore: Int = 0
+    var beginDateTime: String = ""
+    var endDateTime: String = ""
     
     func updateExamName(name: String) {
-        self.examName = name
+        self.name = name
     }
     
-    func updateLimitTime(hour: String, minute: String) {
-        self.limitTime = "PT\(hour)H\(minute)M"
+    func updateTimeLimit(hour: String, minute: String) {
+        self.timeLimit = "PT\(hour)H\(minute)M"
     }
     
     func updatePassScore(score: String) {
         var scoreInput = score
         scoreInput.removeLast()
         self.passScore = Int(scoreInput)!
+    }
+    
+    func mergeDateAndTime(date: Date, time: Date) -> String {
+        var merge = date.toString()
+        merge.append("T")
+        merge.append(time.toString(format: "HH:mm:00"))
+        
+        return merge
     }
 }
