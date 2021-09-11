@@ -15,15 +15,13 @@ protocol TeacherCreateLessonDelegate: AnyObject {
 class TeacherCreateLessonViewController: UIViewController, Styler {
     
     let viewModel = TeacherCreateLessonViewModel()
-    @IBOutlet weak var lessonNameField: UITextField!
+    @IBOutlet weak var lessonNameField: PGTextField!
     @IBOutlet weak var classroomSelectButton: UIButton!
-    @IBOutlet weak var scheduleSelectButton: UIButton!
+    @IBOutlet weak var scheduleSelectButton: PGSelectButton!
     @IBOutlet weak var classroomNameLabel: UILabel!
     @IBOutlet weak var classroomInfoLabel: UILabel!
-    @IBOutlet weak var scheduleDateLabel: UILabel!
-    @IBOutlet weak var schedulePeriodLabel: UILabel!
     @IBOutlet weak var createLessonButton: PGButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.networkAlertDelegate = self
@@ -46,12 +44,9 @@ class TeacherCreateLessonViewController: UIViewController, Styler {
     }
     
     func setButtonUI() {
-        setViewCornerRadius(view: classroomSelectButton, radius: 25)
-        setViewCornerRadius(view: scheduleSelectButton, radius: 25)
-        setViewCornerRadius(view: createLessonButton)
+        setViewCornerRadius(view: classroomSelectButton, radius: 15)
         setViewShadow(view: classroomSelectButton)
-        setViewShadow(view: scheduleSelectButton)
-        setViewShadow(view: createLessonButton)
+        
         setButtonLabelDefault()
     }
     
@@ -109,7 +104,7 @@ class TeacherCreateLessonViewController: UIViewController, Styler {
 }
 
 extension TeacherCreateLessonViewController: DatePickerViewDelegate, TeacherCreateLessonDelegate {
-    func datePickerView(schedule: Schedule) {
+    func datePickerView(_ sender: PGSelectButton?, schedule: Schedule) {
         updateSchedule(schedule: schedule)
     }
     
@@ -120,9 +115,12 @@ extension TeacherCreateLessonViewController: DatePickerViewDelegate, TeacherCrea
     }
     
     private func setButtonLabelToSchedule(schedule: Schedule) {
-        scheduleSelectButton.setTitle("", for: .normal)
-        scheduleDateLabel.text = viewModel.getDateOfSchedule()
-        schedulePeriodLabel.text = viewModel.getPeriodOfSchedule()
+        scheduleSelectButton.setState(for: .selected)
+        let date = viewModel.getDateOfSchedule()
+        let period = viewModel.getPeriodOfSchedule()
+        
+        scheduleSelectButton.setSelectedTitle(date)
+        scheduleSelectButton.setSelectedSubtitle(period)
     }
     
     var getSelectedDate: Date {
@@ -134,9 +132,8 @@ extension TeacherCreateLessonViewController: DatePickerViewDelegate, TeacherCrea
     }
     
     private func setScheduleButtonLabelToDefault() {
+        scheduleSelectButton.setState(for: .deselect)
         scheduleSelectButton.setTitle("수업 시간을 설정해주세요.", for: .normal)
-        scheduleDateLabel.text = ""
-        schedulePeriodLabel.text = ""
     }
     
     func updateSelectedClassroom(selected: Classroom) {

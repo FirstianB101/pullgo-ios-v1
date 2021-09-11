@@ -1715,7 +1715,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1h-RP-dsG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1h-RP-dsG" customClass="PGSelectButton" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="551.5" width="354" height="78.5"/>
                                 <color key="backgroundColor" name="LightAccent"/>
                                 <constraints>
@@ -1724,34 +1724,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="수업 시간을 설정해주세요.">
+                                <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="selectScheduleButtonClicked:" destination="I1G-3p-3oO" eventType="touchUpInside" id="dhR-OY-MiU"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n5l-LM-Pjv">
-                                <rect key="frame" x="354" y="585" width="15" height="11.5"/>
-                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="15" id="Wwz-hf-1cz"/>
-                                    <constraint firstAttribute="width" secondItem="n5l-LM-Pjv" secondAttribute="height" multiplier="1:1" id="zzU-Vo-J9s"/>
-                                </constraints>
-                                <imageReference key="image" image="chevron.right" catalog="system"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시작 시간 ~ 종료 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3E-HT-0lQ">
-                                <rect key="frame" x="50" y="599" width="314" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수업 날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hlw-8B-Otq">
-                                <rect key="frame" x="50" y="564.5" width="314" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수업 이름을 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmr-az-s5E">
                                 <rect key="frame" x="30" y="289.5" width="354" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
@@ -1767,7 +1746,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KrD-QG-Bj0" customClass="PGButton" customModule="Pullgo" customModuleProvider="target">
-                                <rect key="frame" x="30" y="662" width="354" height="50"/>
+                                <rect key="frame" x="30" y="665" width="354" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="IoU-1W-RBu"/>
@@ -1795,41 +1774,32 @@
                             <constraint firstItem="3Qs-4t-IXc" firstAttribute="bottom" secondItem="sxK-42-krs" secondAttribute="bottom" constant="-13" id="0zE-iu-Bz2"/>
                             <constraint firstItem="sxK-42-krs" firstAttribute="top" secondItem="Seq-2o-rdH" secondAttribute="top" constant="-13" id="269-aF-aVa"/>
                             <constraint firstItem="emj-l3-07I" firstAttribute="trailing" secondItem="zmr-az-s5E" secondAttribute="trailing" id="3A8-T9-lPm"/>
+                            <constraint firstItem="KrD-QG-Bj0" firstAttribute="top" secondItem="H1h-RP-dsG" secondAttribute="bottom" constant="35" id="3Z0-Rk-2ea"/>
                             <constraint firstItem="H1h-RP-dsG" firstAttribute="leading" secondItem="i8L-4u-auA" secondAttribute="leading" constant="30" id="82L-ic-xnT"/>
                             <constraint firstItem="3Qs-4t-IXc" firstAttribute="trailing" secondItem="Seq-2o-rdH" secondAttribute="trailing" id="9nU-1r-wuI"/>
                             <constraint firstItem="SY0-M5-QFH" firstAttribute="leading" secondItem="i8L-4u-auA" secondAttribute="leading" constant="30" id="D3s-hg-sXb"/>
-                            <constraint firstItem="u3E-HT-0lQ" firstAttribute="bottom" secondItem="H1h-RP-dsG" secondAttribute="bottom" constant="-13" id="Ia8-Q9-7YJ"/>
                             <constraint firstItem="9KN-Kc-WN6" firstAttribute="centerY" secondItem="sxK-42-krs" secondAttribute="centerY" id="Ihz-Ib-xpg"/>
                             <constraint firstItem="H1h-RP-dsG" firstAttribute="width" secondItem="H1h-RP-dsG" secondAttribute="height" multiplier="9:2" id="ItA-eQ-GVL"/>
-                            <constraint firstItem="H1h-RP-dsG" firstAttribute="trailing" secondItem="Hlw-8B-Otq" secondAttribute="trailing" constant="20" id="JmU-Cc-bjN"/>
-                            <constraint firstItem="u3E-HT-0lQ" firstAttribute="trailing" secondItem="Hlw-8B-Otq" secondAttribute="trailing" id="KNi-Dk-uYY"/>
                             <constraint firstItem="i8L-4u-auA" firstAttribute="trailing" secondItem="sxK-42-krs" secondAttribute="trailing" constant="30" id="MiM-1b-VHB"/>
                             <constraint firstItem="zmr-az-s5E" firstAttribute="leading" secondItem="INa-3h-PY8" secondAttribute="leading" id="P0X-Sv-vzt"/>
-                            <constraint firstItem="KrD-QG-Bj0" firstAttribute="top" secondItem="u3E-HT-0lQ" secondAttribute="bottom" constant="45" id="PEG-ag-sdk"/>
                             <constraint firstItem="zmr-az-s5E" firstAttribute="trailing" secondItem="INa-3h-PY8" secondAttribute="trailing" id="PVv-if-oUf"/>
                             <constraint firstItem="4IS-YX-DBd" firstAttribute="leading" secondItem="i8L-4u-auA" secondAttribute="leading" constant="30" id="Rqf-9X-Fkz"/>
                             <constraint firstItem="4IS-YX-DBd" firstAttribute="top" secondItem="emj-l3-07I" secondAttribute="bottom" constant="25" id="SAd-Jc-daR"/>
                             <constraint firstItem="sxK-42-krs" firstAttribute="leading" secondItem="Seq-2o-rdH" secondAttribute="leading" constant="-20" id="WU7-yq-5gm"/>
                             <constraint firstItem="INa-3h-PY8" firstAttribute="trailing" secondItem="4IS-YX-DBd" secondAttribute="trailing" id="Xsx-3g-R51"/>
-                            <constraint firstItem="n5l-LM-Pjv" firstAttribute="width" secondItem="n5l-LM-Pjv" secondAttribute="height" multiplier="1:1" id="ZeL-6f-3FF"/>
                             <constraint firstItem="INa-3h-PY8" firstAttribute="top" secondItem="sxK-42-krs" secondAttribute="bottom" constant="25" id="ae4-ek-BJr"/>
-                            <constraint firstItem="n5l-LM-Pjv" firstAttribute="leading" secondItem="H1h-RP-dsG" secondAttribute="trailing" constant="-30" id="ahY-4l-Rqg"/>
                             <constraint firstItem="9KN-Kc-WN6" firstAttribute="leading" secondItem="sxK-42-krs" secondAttribute="trailing" constant="-30" id="cDE-fQ-EhA"/>
                             <constraint firstItem="H1h-RP-dsG" firstAttribute="top" secondItem="INa-3h-PY8" secondAttribute="bottom" constant="8" id="dfL-mg-rK4"/>
                             <constraint firstItem="sxK-42-krs" firstAttribute="trailing" secondItem="Seq-2o-rdH" secondAttribute="trailing" constant="20" id="fOB-TX-F5g"/>
-                            <constraint firstItem="n5l-LM-Pjv" firstAttribute="centerY" secondItem="H1h-RP-dsG" secondAttribute="centerY" id="grI-gl-VKs"/>
                             <constraint firstItem="emj-l3-07I" firstAttribute="leading" secondItem="zmr-az-s5E" secondAttribute="leading" id="hY6-kN-AAz"/>
                             <constraint firstItem="i8L-4u-auA" firstAttribute="trailing" secondItem="4IS-YX-DBd" secondAttribute="trailing" constant="30" id="hvf-4Z-Rid"/>
                             <constraint firstItem="INa-3h-PY8" firstAttribute="leading" secondItem="4IS-YX-DBd" secondAttribute="leading" id="i2h-2k-JM7"/>
                             <constraint firstItem="i8L-4u-auA" firstAttribute="trailing" secondItem="H1h-RP-dsG" secondAttribute="trailing" constant="30" id="ie2-3Y-U5L"/>
                             <constraint firstItem="zmr-az-s5E" firstAttribute="top" secondItem="SY0-M5-QFH" secondAttribute="bottom" constant="35" id="im6-SS-9Z7"/>
-                            <constraint firstItem="u3E-HT-0lQ" firstAttribute="leading" secondItem="Hlw-8B-Otq" secondAttribute="leading" id="jWK-q2-uZC"/>
                             <constraint firstItem="gkA-5f-mTU" firstAttribute="top" secondItem="i8L-4u-auA" secondAttribute="top" constant="20" id="jcg-6R-P2D"/>
                             <constraint firstItem="sxK-42-krs" firstAttribute="centerY" secondItem="hIP-W4-C5v" secondAttribute="centerY" constant="10" id="mLL-0z-egv"/>
                             <constraint firstItem="sxK-42-krs" firstAttribute="leading" secondItem="i8L-4u-auA" secondAttribute="leading" constant="30" id="q1y-rM-UtB"/>
                             <constraint firstItem="KrD-QG-Bj0" firstAttribute="leading" secondItem="H1h-RP-dsG" secondAttribute="leading" id="qM1-Bn-LPe"/>
-                            <constraint firstItem="H1h-RP-dsG" firstAttribute="leading" secondItem="Hlw-8B-Otq" secondAttribute="leading" constant="-20" id="qgu-O3-Y0w"/>
-                            <constraint firstItem="H1h-RP-dsG" firstAttribute="top" secondItem="Hlw-8B-Otq" secondAttribute="top" constant="-13" id="t5Y-QW-5P0"/>
                             <constraint firstItem="i8L-4u-auA" firstAttribute="trailing" secondItem="gkA-5f-mTU" secondAttribute="trailing" constant="20" id="vGD-7g-NUa"/>
                             <constraint firstItem="emj-l3-07I" firstAttribute="top" secondItem="zmr-az-s5E" secondAttribute="bottom" constant="8" id="xu9-zY-LEf"/>
                             <constraint firstItem="i8L-4u-auA" firstAttribute="trailing" secondItem="SY0-M5-QFH" secondAttribute="trailing" constant="30" id="y2F-Of-h4z"/>
@@ -1845,8 +1815,6 @@
                         <outlet property="classroomSelectButton" destination="sxK-42-krs" id="xu3-Au-LpT"/>
                         <outlet property="createLessonButton" destination="KrD-QG-Bj0" id="Xm9-Pc-Rym"/>
                         <outlet property="lessonNameField" destination="emj-l3-07I" id="bO2-dh-2PE"/>
-                        <outlet property="scheduleDateLabel" destination="Hlw-8B-Otq" id="hfx-us-BeF"/>
-                        <outlet property="schedulePeriodLabel" destination="u3E-HT-0lQ" id="Fz2-QV-ffI"/>
                         <outlet property="scheduleSelectButton" destination="H1h-RP-dsG" id="soy-Yf-Elu"/>
                     </connections>
                 </viewController>
