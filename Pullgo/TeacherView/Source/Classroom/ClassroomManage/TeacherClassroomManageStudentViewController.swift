@@ -29,6 +29,13 @@ class TeacherClassroomManageStudentViewController: UIViewController, TeacherClas
             self.studentsCollectionView.reloadData()
         }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.setCollectionViewBackgroundColor()
+        studentsCollectionView.setCollectionViewBackgroundColor()
+    }
 }
 
 extension TeacherClassroomManageStudentViewController: UICollectionViewDelegate {

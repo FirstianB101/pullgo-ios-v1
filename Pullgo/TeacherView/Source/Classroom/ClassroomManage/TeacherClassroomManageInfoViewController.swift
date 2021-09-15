@@ -6,23 +6,25 @@
 
 import UIKit
 
-class TeacherClassroomManageInfoViewController: UIViewController {
+class TeacherClassroomManageInfoViewController: UIViewController, TeacherClassroomManageTopBar {
 
+    func setTitleByTabBarMenu() {
+        self.navigationController?.navigationBar.topItem?.title = "반 수정 및 삭제"
+    }
+    
+    func setPromptNameBySelectedClassroom() {
+        self.navigationController?.navigationBar.topItem?.prompt = TeacherClassroomManageViewModel.selectedClassroom.parse.classroomName
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setTitleByTabBarMenu()
+        setPromptNameBySelectedClassroom()
+        
+        let selectionTab = PGSelectionTab()
+        self.view.addSubview(selectionTab)
+        selectionTab.setConstraints(by: self)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

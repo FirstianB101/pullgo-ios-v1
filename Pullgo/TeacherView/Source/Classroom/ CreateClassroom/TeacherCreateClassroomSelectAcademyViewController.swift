@@ -44,7 +44,7 @@ extension TeacherCreateClassroomSelectAcademyViewController: UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeacherCreateClassroomSelectAcademyCell", for: indexPath) as! TeacherCreateClassroomSelectAcademyCell
         
         cell.academyNameLabel.text = viewModel.getAcademyName(at: indexPath.item)
-        setCellUI(cell: cell)
+        cell.setCellUI()
         
         return cell
     }

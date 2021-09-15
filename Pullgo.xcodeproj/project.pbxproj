@@ -15,6 +15,7 @@
 		A51033AA2692079A007E9452 /* StudentSignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51033A92692079A007E9452 /* StudentSignUpTest.swift */; };
 		A5191494268DC27300620A66 /* InputUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5191493268DC27300620A66 /* InputUsernameViewController.swift */; };
 		A5191496268DCC1500620A66 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5191495268DCC1500620A66 /* Extension.swift */; };
+		A520AAD626EE3BCB0099CD94 /* PGSelectionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A520AAD526EE3BCB0099CD94 /* PGSelectionTab.swift */; };
 		A5293762269ACCCD00B210C2 /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5293761269ACCCD00B210C2 /* Classroom.swift */; };
 		A5293764269ACCD700B210C2 /* Academy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5293763269ACCD700B210C2 /* Academy.swift */; };
 		A5293766269ACCE200B210C2 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5293765269ACCE200B210C2 /* Lesson.swift */; };
@@ -113,6 +114,7 @@
 		A51033A92692079A007E9452 /* StudentSignUpTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSignUpTest.swift; sourceTree = "<group>"; };
 		A5191493268DC27300620A66 /* InputUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputUsernameViewController.swift; sourceTree = "<group>"; };
 		A5191495268DCC1500620A66 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		A520AAD526EE3BCB0099CD94 /* PGSelectionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGSelectionTab.swift; sourceTree = "<group>"; };
 		A5293761269ACCCD00B210C2 /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
 		A5293763269ACCD700B210C2 /* Academy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Academy.swift; sourceTree = "<group>"; };
 		A5293765269ACCE200B210C2 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
@@ -449,6 +451,7 @@
 				A5CFCCA926DE26E70069F536 /* PGButton.swift */,
 				A5CFCCAB26DE29240069F536 /* PGTextField.swift */,
 				A508196826E780A00094A50C /* PGSelectButton.swift */,
+				A520AAD526EE3BCB0099CD94 /* PGSelectionTab.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -691,6 +694,7 @@
 				A5780AB226AC4A7E007F6A88 /* TeacherClassroomManageStudentViewController.swift in Sources */,
 				A5B469AC2688DA8A00C62F9C /* Presentor.swift in Sources */,
 				A57FE01C268F401300B1E609 /* SignUpInformation.swift in Sources */,
+				A520AAD626EE3BCB0099CD94 /* PGSelectionTab.swift in Sources */,
 				A53EA48226A5402F00AFF799 /* TeacherLessonDetailViewController.swift in Sources */,
 				A532DB2326889ACB00076260 /* AppDelegate.swift in Sources */,
 				A57FE01A268F256B00B1E609 /* SignUpStatusProtocol.swift in Sources */,

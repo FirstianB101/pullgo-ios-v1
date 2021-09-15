@@ -62,26 +62,30 @@ extension Styler {
             setTextFieldBorderUnderline(field: field)
         }
     }
-    
-    func setCellUI(cell: UICollectionViewCell) {
-        cell.contentView.layer.cornerRadius = 25.0
-        cell.contentView.layer.borderWidth = 0.2
-        cell.contentView.layer.borderColor = UIColor.gray.cgColor
-        cell.contentView.layer.masksToBounds = true;
-        cell.contentView.layer.backgroundColor = UIColor.white.cgColor
-        
-        cell.layer.shadowColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        cell.layer.shadowOffset = CGSize(width: 2, height: 2.0)
-        cell.layer.shadowRadius = 2
-        cell.layer.shadowOpacity = 1
-        cell.layer.masksToBounds = false;
-    }
-    
     func hide(view: UIView) {
         view.alpha = 0
     }
     
     func show(view: UIView) {
         view.alpha = 1
+    }
+}
+
+extension UICollectionViewCell {
+    
+    func setCellUI() {
+        self.contentView.layer.cornerRadius = 25.0
+        self.contentView.layer.borderWidth = 0
+        self.contentView.layer.masksToBounds = true;
+        self.contentView.layer.backgroundColor = UIColor.white.cgColor
+    }
+}
+
+extension UIView {
+    
+    func setCollectionViewBackgroundColor() {
+        if let color = UIColor(named: "CollectionViewBackground") {
+            self.backgroundColor = color
+        }
     }
 }

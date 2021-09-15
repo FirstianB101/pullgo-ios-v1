@@ -196,8 +196,8 @@ class TeacherCalendarViewModel {
         var items: [URLQueryItem] = []
         
         items.append(URLQueryItem(name: "teacherId", value: String((self.teacher?.id!)!)))
-        items.append(URLQueryItem(name: "sinceDate", value: since.toKST().toString()))
-        items.append(URLQueryItem(name: "untilDate", value: until.toKST().toString()))
+        items.append(URLQueryItem(name: "sinceDate", value: since.toString()))
+        items.append(URLQueryItem(name: "untilDate", value: until.toString()))
         
         return items
     }

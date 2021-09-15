@@ -66,7 +66,7 @@ extension TeacherClassroomManageRequestViewController: UICollectionViewDataSourc
             cell.studentSchoolInfo.text = ""
         }
         
-        setCellUI(cell: cell)
+        cell.setCellUI()
         setViewCornerRadius(view: cell.applyRequestButton, radius: 7)
         
         return cell

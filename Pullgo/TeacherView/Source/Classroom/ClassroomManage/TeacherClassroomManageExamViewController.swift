@@ -33,6 +33,13 @@ class TeacherClassroomManageExamViewController: UIViewController, TeacherClassro
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.setCollectionViewBackgroundColor()
+        examListCollection.setCollectionViewBackgroundColor()
+    }
+    
     func setTitleByTabBarMenu() {
         self.navigationController?.navigationBar.topItem?.title = "시험 관리"
     }
@@ -63,7 +70,7 @@ extension TeacherClassroomManageExamViewController: UICollectionViewDataSource, 
         cell.examNameLabel.text = viewModel.getExamName(at: indexPath.item)
         cell.timeLabel.text = viewModel.getExamTime(at: indexPath.item)
         cell.timeLimitLabel.text = viewModel.getTimeLimit(at: indexPath.item)
-        setCellUI(cell: cell)
+        cell.setCellUI()
         
         return cell
     }
