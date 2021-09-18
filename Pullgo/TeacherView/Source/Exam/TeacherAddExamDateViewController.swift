@@ -48,7 +48,7 @@ class TeacherAddExamDateViewController: UIViewController, Styler {
     
     @IBAction func createLesson(_ sender: PGButton) {
         let url = NetworkManager.assembleURL("exams")
-        let alert = AlertPresentor(presentor: self)
+        let alert = PGAlertPresentor(presentor: self)
         
         let success: ResponseClosure = { _ in
             let okay = UIAlertAction(title: "예", style: .default) { _ in

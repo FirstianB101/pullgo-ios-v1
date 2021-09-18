@@ -91,7 +91,7 @@ class DatePickerViewController: UIViewController {
         
         if datePickerMode == .dateAndTimePeriod {
             if !checkTimeValid() {
-                let alert = AlertPresentor(presentor: self)
+                let alert = PGAlertPresentor(presentor: self)
                 alert.present(title: "경고", context: "종료 시간이 시작 시간보다 빠릅니다.") { _ in
                     self.beginTimeField.becomeFirstResponder()
                 }

@@ -71,7 +71,7 @@ class InputNamePhoneViewController: UIViewController, Styler {
     }
     
     func showInvalidAlert(message: String) {
-        let alert = AlertPresentor(presentor: self)
+        let alert = PGAlertPresentor(presentor: self)
         alert.present(title: "경고", context: message)
     }
     
@@ -167,7 +167,7 @@ class InputNamePhoneViewController: UIViewController, Styler {
         let action = UIAlertAction(title: "확인", style: .default) { handler in
             self.dismiss(animated: true, completion: nil)
         }
-        let alert = AlertPresentor(presentor: self)
+        let alert = PGAlertPresentor(presentor: self)
         let success: ResponseClosure = { data in
             alert.present(title: "알림", context: "회원가입이 완료되었습니다.\n입력하신 정보로 로그인해주세요.", actions: [action])
         }

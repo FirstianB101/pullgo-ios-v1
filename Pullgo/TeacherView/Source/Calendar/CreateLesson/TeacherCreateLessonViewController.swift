@@ -84,7 +84,7 @@ class TeacherCreateLessonViewController: UIViewController, Styler {
     }
     
     func postLessonWithPresentAlert() {
-        let alert = AlertPresentor(presentor: self)
+        let alert = PGAlertPresentor(presentor: self)
         let cancel = alert.cancel
         let apply = UIAlertAction(title: "확인", style: .default, handler: { action in
             self.viewModel.postLesson() {
@@ -169,7 +169,7 @@ extension TeacherCreateLessonViewController: DatePickerViewDelegate, TeacherCrea
 
 extension TeacherCreateLessonViewController: NetworkAlertDelegate {
     func networkFailAlert() {
-        let alert = AlertPresentor(presentor: self)
+        let alert = PGAlertPresentor(presentor: self)
         alert.presentNetworkError()
     }
 }

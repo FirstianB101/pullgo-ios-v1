@@ -64,8 +64,7 @@
 		A5B469B32688E9F600C62F9C /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469B22688E9F600C62F9C /* Student.swift */; };
 		A5B469B52688EA7000C62F9C /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469B42688EA7000C62F9C /* Teacher.swift */; };
 		A5B4CD5C26898E9800FA2967 /* thumbs-up.png in Resources */ = {isa = PBXBuildFile; fileRef = A5B4CD5B26898E9800FA2967 /* thumbs-up.png */; };
-		A5B4CD5E2689934B00FA2967 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4CD5D2689934B00FA2967 /* Error.swift */; };
-		A5B4CD602689942200FA2967 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4CD5F2689942200FA2967 /* Network.swift */; };
+		A5B4CD602689942200FA2967 /* PGNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4CD5F2689942200FA2967 /* PGNetwork.swift */; };
 		A5BB71B126A689C500131C9D /* TeacherClassroomDetailSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB71B026A689C500131C9D /* TeacherClassroomDetailSegue.swift */; };
 		A5BCA9EA26A41651008AD3F6 /* TeacherCreateLessonSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BCA9E926A41651008AD3F6 /* TeacherCreateLessonSegue.swift */; };
 		A5C60EB426A358DB007795C0 /* TeacherCreateLesson_SelectClassroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C60EB326A358DB007795C0 /* TeacherCreateLesson_SelectClassroomViewController.swift */; };
@@ -160,8 +159,7 @@
 		A5B469B22688E9F600C62F9C /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		A5B469B42688EA7000C62F9C /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
 		A5B4CD5B26898E9800FA2967 /* thumbs-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbs-up.png"; sourceTree = "<group>"; };
-		A5B4CD5D2689934B00FA2967 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		A5B4CD5F2689942200FA2967 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		A5B4CD5F2689942200FA2967 /* PGNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGNetwork.swift; sourceTree = "<group>"; };
 		A5BB71B026A689C500131C9D /* TeacherClassroomDetailSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassroomDetailSegue.swift; sourceTree = "<group>"; };
 		A5BCA9E926A41651008AD3F6 /* TeacherCreateLessonSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCreateLessonSegue.swift; sourceTree = "<group>"; };
 		A5C60EB326A358DB007795C0 /* TeacherCreateLesson_SelectClassroomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCreateLesson_SelectClassroomViewController.swift; sourceTree = "<group>"; };
@@ -398,8 +396,7 @@
 			children = (
 				A5FB031626A09154007FCDB7 /* SideMenu */,
 				A5B469AB2688DA8A00C62F9C /* Presentor.swift */,
-				A5B4CD5D2689934B00FA2967 /* Error.swift */,
-				A5B4CD5F2689942200FA2967 /* Network.swift */,
+				A5B4CD5F2689942200FA2967 /* PGNetwork.swift */,
 				A5EDB212268D8A960085CCAE /* Keyboard.swift */,
 				A5EDB216268D93A90085CCAE /* Styler.swift */,
 				A5191495268DCC1500620A66 /* Extension.swift */,
@@ -704,7 +701,7 @@
 				A5293766269ACCE200B210C2 /* Lesson.swift in Sources */,
 				A5CFCCAC26DE29240069F536 /* PGTextField.swift in Sources */,
 				A5293762269ACCCD00B210C2 /* Classroom.swift in Sources */,
-				A5B4CD602689942200FA2967 /* Network.swift in Sources */,
+				A5B4CD602689942200FA2967 /* PGNetwork.swift in Sources */,
 				A5EDB217268D93A90085CCAE /* Styler.swift in Sources */,
 				A5780AB426AC4A7F007F6A88 /* TeacherClassroomManageInfoViewController.swift in Sources */,
 				A5C95ECC2691874000F19A55 /* InputDetailViewController.swift in Sources */,
@@ -729,7 +726,6 @@
 				A5780AAE26AC4A6D007F6A88 /* TeacherClassroomManageExamViewController.swift in Sources */,
 				A532DDAA269F295C007C9A34 /* TeacherCalendarSelectViewController.swift in Sources */,
 				A55D3FB92697261D009DC6B7 /* FindAccountViewController.swift in Sources */,
-				A5B4CD5E2689934B00FA2967 /* Error.swift in Sources */,
 				A5CFCCAA26DE26E70069F536 /* PGButton.swift in Sources */,
 				A529376C269AD62A00B210C2 /* Schedule.swift in Sources */,
 				A57F5CED2695F2BE00A603DD /* Account.swift in Sources */,

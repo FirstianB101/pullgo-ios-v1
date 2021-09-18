@@ -153,7 +153,7 @@ class TeacherCalendarViewModel {
         }
         
         let fail: FailClosure = {
-            let alert = AlertPresentor(presentor: self.view)
+            let alert = PGAlertPresentor(presentor: self.view)
             alert.presentNetworkError()
         }
         

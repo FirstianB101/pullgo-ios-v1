@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AlertPresentor {
+class PGAlertPresentor {
     let view: UIViewController
     
     init(presentor: UIViewController) {

@@ -24,7 +24,7 @@ enum Weekday: String, CaseIterable {
 
 class TeacherCreateClassroomViewController: UIViewController, Styler, NetworkAlertDelegate {
     func networkFailAlert() {
-        let alert = AlertPresentor(presentor: self)
+        let alert = PGAlertPresentor(presentor: self)
         alert.presentNetworkError()
     }
     
@@ -99,18 +99,18 @@ class TeacherCreateClassroomViewController: UIViewController, Styler, NetworkAle
     }
     
     private func classroomNameEmptyAlert() {
-        let alert = AlertPresentor(presentor: self)
+        let alert = PGAlertPresentor(presentor: self)
         alert.present(title: "알림", context: "반 이름을 입력해주세요.")
     }
     
     
     private func academyNotSelectedAlert() {
-        let alert = AlertPresentor(presentor: self)
+        let alert = PGAlertPresentor(presentor: self)
         alert.present(title: "알림", context: "학원을 선택해주세요.")
     }
     
     private func classroomCreateCompleteAlert() {
-        let alert = AlertPresentor(presentor: self)
+        let alert = PGAlertPresentor(presentor: self)
         alert.present(title: viewModel.classroomName, context: "반이 생성되었습니다.") { action in
             self.reloadPresentingVCData()
             self.dismiss(animated: true, completion: nil)

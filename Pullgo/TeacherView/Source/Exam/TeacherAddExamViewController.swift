@@ -63,7 +63,7 @@ class TeacherAddExamViewController: UIViewController, Styler {
     }
     
     func alertEmpty(content: String) {
-        let alert = AlertPresentor(presentor: self)
+        let alert = PGAlertPresentor(presentor: self)
         alert.present(title: "경고", context: "\(content) 입력해주세요.")
     }
     

@@ -37,7 +37,7 @@ class TeacherClassroomManageViewController: UIViewController {
 
 extension TeacherClassroomManageViewController: NetworkAlertDelegate {
     func networkFailAlert() {
-        let alert = AlertPresentor(presentor: self)
+        let alert = PGAlertPresentor(presentor: self)
         alert.presentNetworkError()
     }
 }

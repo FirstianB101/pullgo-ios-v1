@@ -43,7 +43,7 @@ class TeacherClassroomManageRequestViewController: UIViewController, TeacherClas
     }
     
     func networkFailAlert() {
-        let alert = AlertPresentor(presentor: self)
+        let alert = PGAlertPresentor(presentor: self)
         alert.presentNetworkError()
     }
 }

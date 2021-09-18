@@ -7,10 +7,4 @@
 
 import Foundation
 
-class Student: Codable {
-    var id: Int? = nil
-    var account: Account! = nil
-    var parentPhone: String! = nil
-    var schoolName: String! = nil
-    var schoolYear: Int! = nil
-}
+class Student: 

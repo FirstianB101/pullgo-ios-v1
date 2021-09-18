@@ -27,7 +27,7 @@ class TeacherRequestClassroomJoinViewController: UIViewController {
 
 extension TeacherRequestClassroomJoinViewController: UITableViewDelegate {    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let alert = AlertPresentor(presentor: self)
+        let alert = PGAlertPresentor(presentor: self)
         let apply = UIAlertAction(title: "요청", style: .default, handler: { _ in
             self.requestClassroomJoin(id: self.viewModel.getClassroomId(at: indexPath.row))
         })
@@ -40,7 +40,7 @@ extension TeacherRequestClassroomJoinViewController: UITableViewDelegate {
         let body: [String : Any] = ["classroomId": id]
         
         NetworkManager.post(url: url, data: body, complete: {
-            let alert = AlertPresentor(presentor: self)
+            let alert = PGAlertPresentor(presentor: self)
             alert.present(title: "알림", context: "반 가입 요청을 보냈습니다!")
         })
     }
@@ -69,7 +69,7 @@ extension TeacherRequestClassroomJoinViewController: UISearchBarDelegate, Networ
         guard let input = searchBar.text else { return }
         viewModel.searchClassroom(by: input) {
             if self.viewModel.classrooms.isEmpty {
-                let alert = AlertPresentor(presentor: self)
+                let alert = PGAlertPresentor(presentor: self)
                 alert.present(title: "\(input)", context: "검색 결과가 없습니다.")
             }
             self.classroomTableView.reloadData()
@@ -77,7 +77,7 @@ extension TeacherRequestClassroomJoinViewController: UISearchBarDelegate, Networ
     }
     
     func networkFailAlert() {
-        let alert = AlertPresentor(presentor: self)
+        let alert = PGAlertPresentor(presentor: self)
         alert.presentNetworkError()
     }
 }
