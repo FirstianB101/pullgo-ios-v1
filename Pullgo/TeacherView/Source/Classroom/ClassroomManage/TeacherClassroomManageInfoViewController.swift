@@ -22,9 +22,6 @@ class TeacherClassroomManageInfoViewController: UIViewController, TeacherClassro
         setTitleByTabBarMenu()
         setPromptNameBySelectedClassroom()
         
-        let selectionTab = PGSelectionTab()
-        self.view.addSubview(selectionTab)
-        selectionTab.setConstraints(by: self)
     }
     
 }
