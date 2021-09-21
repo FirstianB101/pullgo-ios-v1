@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum UserType: Int {
-    case student = 0
-    case teacher = 1
+enum UserType: String {
+    case student = "student"
+    case teacher = "teacher"
     
     static func ToUserType(index: Int) -> UserType? {
         if index == 0 {
@@ -21,19 +21,23 @@ enum UserType: Int {
         return nil
     }
     
-    func ToURLComponent() -> String {
-        if self == .student {
-            return "students"
-        } else {
-            return "teachers"
-        }
+    public func toURLComponent() -> String {
+        return self.rawValue.appending("s")
     }
     
-    func toURLQuery() -> String {
-        if self == .student {
-            return "studentId"
-        } else {
-            return "teacherId"
-        }
+    public func toUserTypeId() -> String {
+        return self.rawValue.appending("Id")
+    }
+    
+    public func toApplyingUserTypeId() -> String {
+        return "applying" + self.rawValue.capitalized + "Id"
+    }
+    
+    public func toAcceptComponent() -> String {
+        return "accept-\(self.rawValue)"
+    }
+    
+    public func toKickComponent() -> String {
+        return "kick-\(self.rawValue)"
     }
 }

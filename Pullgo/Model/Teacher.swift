@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Teacher: Codable {
-    var id: Int? = nil
-    var account: Account! = nil
+class Teacher: PGNetworkable {
+    
+    var account: Account!
 }

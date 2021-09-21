@@ -1,6 +1,8 @@
 import UIKit
 import Alamofire
 
+typealias Parameter = Parameters
+
 let PGNetwork = _PGNetwork.default
 
 // MARK: - PGNetworkError
@@ -12,16 +14,6 @@ enum PGError: Error {
     case JSONSerializationError
 }
 
-protocol PGNetworkable: Codable {
-    var id: Int? { get set }
-    
-    func get()
-    func getNextPage()
-    func post()
-    func patch()
-    static func delete(id: Int)
-}
-
 class _PGNetwork {
     public static let `default` = _PGNetwork()
     
@@ -29,10 +21,14 @@ class _PGNetwork {
     private let headers: HTTPHeaders = [.contentType("application/json")]
     
     public let pagingSize: Int = 20
-    public var baseURI: URL { URL(string: "https://api.pullgo.kr/\(self.apiVersion)")! }
+    public var baseURI: URL = URL(string: "https://api.pullgo.kr/\(PGNetwork.apiVersion)")!
     
     
     // MARK: - Public Methods
+    public func appendURL(_ urls: String...) -> URL {
+        let url = self.baseURI
+        return url.appendURL(urls)
+    }
     
     public func get<T: Decodable>(url: URL, type: T.Type, completion: @escaping ((T) -> ())) {
         AF.request(url).response { response in
@@ -52,12 +48,16 @@ class _PGNetwork {
         }
     }
     
-    public func post(url: URL, parameter: Encodable, completion: (() -> ())? = nil) {
+    public func post(url: URL, parameter: Encodable, completion: (() -> Void)? = nil) {
         guard let param = try? parameter.toParameter() else { return }
         
-        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: headers).response { response in
+        self.post(url: url, parameter: param, completion: completion)
+    }
+    
+    public func post(url: URL, parameter: Parameters, completion: (() -> Void)? = nil) {
+        AF.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: headers).response { response in
             switch response.result {
-                case .success(_):
+            case .success(_):
                 completion?()
             case .failure(_):
                 self.presentNetworkAlert()
@@ -65,12 +65,12 @@ class _PGNetwork {
         }
     }
     
-    public func patch(url: URL, parameter: Encodable, completion: (() -> ())? = nil) {
+    public func patch(url: URL, parameter: Encodable, completion: (() -> Void)? = nil) {
         guard let param = try? parameter.toParameter() else { return }
         
         AF.request(url, method: .patch, parameters: param, encoding: JSONEncoding.default, headers: headers).response { response in
             switch response.result {
-                case .success(_):
+            case .success(_):
                 completion?()
             case .failure(_):
                 self.presentNetworkAlert()
@@ -78,10 +78,10 @@ class _PGNetwork {
         }
     }
     
-    public func delete(url: URL, completion: (() -> ())? = nil) {
+    public func delete(url: URL, completion: (() -> Void)? = nil) {
         AF.request(url, method: .delete).response { response in
             switch response.result {
-                case .success(_):
+            case .success(_):
                 completion?()
             case .failure(_):
                 self.presentNetworkAlert()
@@ -135,27 +135,36 @@ extension Encodable {
 
 extension URL {
     
-    public mutating func appendURL(_ urls: String...) {
+    public func appendURL(_ urls: [String]) -> URL {
+        var result = self
         for url in urls {
-            self.appendPathComponent(url)
+            result.appendPathComponent(url)
         }
+        return result
     }
     
-    public mutating func appendQuery(_ items: [URLQueryItem]) {
-        guard var components = URLComponents(string: self.absoluteString) else { return }
+    public func appendQuery(_ items: [URLQueryItem]) -> URL {
+        guard var components = URLComponents(string: self.absoluteString) else {
+            print("URL::appendQuery() -> URL to Component fail.")
+            return PGNetwork.baseURI
+        }
         
-        components.queryItems = items
+        for item in items {
+            components.queryItems?.append(item)
+        }
+        
         do {
-            self = try components.asURL()
+            return try components.asURL()
         } catch {
-            fatalError("Appending Query Failed")
+            print(error.localizedDescription)
+            return PGNetwork.baseURI
         }
     }
     
-    public mutating func pagination(page: Int) {
+    public func pagination(page: Int) -> URL {
         let sizeQuery = URLQueryItem(name: "size", value: String(PGNetwork.pagingSize))
         let pageQuery = URLQueryItem(name: "page", value: String(page))
-        self.appendQuery([sizeQuery, pageQuery])
+        return self.appendQuery([sizeQuery, pageQuery])
     }
 }
 
@@ -176,17 +185,3 @@ extension UIApplication {
         return rootViewController
     }
 }
-
-/*
- let alertController = UIAlertController(title: "title", message: "message", preferredStyle: .alert)
- //...
- var rootViewController = UIApplication.shared.keyWindow?.rootViewController
- if let navigationController = rootViewController as? UINavigationController {
-     rootViewController = navigationController.viewControllers.first
- }
- if let tabBarController = rootViewController as? UITabBarController {
-     rootViewController = tabBarController.selectedViewController
- }
- //...
- rootViewController?.present(alertController, animated: true, completion: nil)
- */

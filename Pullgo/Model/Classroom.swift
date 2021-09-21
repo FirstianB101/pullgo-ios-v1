@@ -10,7 +10,7 @@ import SwiftUI
 
 typealias ClassroomParse = (classroomName: String, teacherName: String, weekday: String)
 
-class Classroom: Codable {
+class Classroom: PGNetworkable {
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -19,7 +19,13 @@ class Classroom: Codable {
         case academyId
     }
     
-    var id: Int?
+    private var classroomId: String {
+        guard let id = self.id else {
+            fatalError("Classroom::id -> id is nil.")
+        }
+        return String(id)
+    }
+    
     var name: String?
     var creatorId: Int!
     var academyId: Int!
@@ -71,86 +77,10 @@ class Classroom: Codable {
     }
 }
 
-// Do Network Process
 extension Classroom {
     
-    func getStudents(complete: EmptyClosure? = nil) {
-        var url = NetworkManager.assembleURL("students")
-        url.appendQuery(query: URLQueryItem(name: "classroomId", value: String(self.id!)))
+    public func getTeachers(page: Int, completion: (([Teacher]) -> Void)) {
         
-        let success: ResponseClosure = { data in
-            guard let receivedStudents = try? data?.toObject(type: [Student].self) else {
-                fatalError("Classroom.getStudents() -> data parse error")
-            }
-            self.students = receivedStudents
-        }
-        
-        let fail: EmptyClosure = { }
-        
-        NetworkManager.get(url: url, success: success, fail: fail, complete: complete)
     }
     
-    func getTeachers(complete: EmptyClosure? = nil) {
-        var url = NetworkManager.assembleURL("teachers")
-        url.appendQuery(query: URLQueryItem(name: "classroomId", value: String(self.id!)))
-        
-        let success: ResponseClosure = { data in
-            guard let receivedTeachers = try? data?.toObject(type: [Teacher].self) else {
-                fatalError("Classroom.getTeachers() -> data parse error")
-            }
-            self.teachers = receivedTeachers
-        }
-        
-        let fail: EmptyClosure = { }
-        
-        NetworkManager.get(url: url, success: success, fail: fail, complete: complete)
-    }
-    
-    func getRequestStudents(complete: EmptyClosure? = nil) {
-        var url = NetworkManager.assembleURL("students")
-        url.appendQuery(query: URLQueryItem(name: "appliedClassroomId", value: String(self.id!)))
-        
-        let success: ResponseClosure = { data in
-            guard let receivedRequestStudents = try? data?.toObject(type: [Student].self) else {
-                fatalError("Classroom.getRequestStudents() -> data parse error")
-            }
-            self.requestStudents = receivedRequestStudents
-        }
-        
-        let fail: EmptyClosure = { /*self.networkAlertDelegate?.networkFailAlert()*/ }
-        
-        NetworkManager.get(url: url, success: success, fail: fail, complete: complete)
-    }
-    
-    func getRequestTeachers(complete: EmptyClosure? = nil) {
-        var url = NetworkManager.assembleURL("teachers")
-        url.appendQuery(query: URLQueryItem(name: "appliedClassroomId", value: String(self.id!)))
-        
-        let success: ResponseClosure = { data in
-            guard let receivedRequestTeachers = try? data?.toObject(type: [Teacher].self) else {
-                fatalError("Classroom.getRequestTeachers() -> data parse error")
-            }
-            self.requestTeachers = receivedRequestTeachers
-        }
-        
-        let fail: EmptyClosure = { /*self.networkAlertDelegate?.networkFailAlert()*/ }
-        
-        NetworkManager.get(url: url, success: success, fail: fail, complete: complete)
-    }
-    
-    func getExams(complete: EmptyClosure? = nil) {
-        var url = NetworkManager.assembleURL("exams")
-        url.appendQuery(query: URLQueryItem(name: "classroomId", value: String(self.id!)))
-        
-        let success: ResponseClosure = { data in
-            guard let receivedExams = try? data?.toObject(type: [Exam].self) else {
-                fatalError("Classroom.getExams() -> data parse error")
-            }
-            self.exams = receivedExams
-        }
-        
-        let fail: EmptyClosure = { }
-        
-        NetworkManager.get(url: url, success: success, fail: fail, complete: complete)
-    }
 }
