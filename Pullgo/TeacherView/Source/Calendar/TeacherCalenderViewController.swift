@@ -140,24 +140,7 @@ class TeacherCalendarViewModel {
     var view: UIViewController! = nil
     
     func getLessonsBetween(since: Date, until: Date, complete: EmptyClosure? = nil) {
-        var url: URL = NetworkManager.assembleURL("academy", "classroom", "lessons")
         
-        url.appendQuery(queryItems: assembleQueries(since: since, until: until))
-        
-        let success: ResponseClosure = { data in
-            guard let receivedLessons = try? data?.toObject(type: [Lesson].self) else {
-                fatalError("TeacherCalendarViewModel.getLessonsBetween() -> error in success -> receivedLesson = ...")
-            }
-            self.setLessonsByReceivedData(since: since, until: until, lessons: receivedLessons)
-            self.updateLastestDataOfMonth(date: since.yearAndMonth)
-        }
-        
-        let fail: FailClosure = {
-            let alert = PGAlertPresentor(presentor: self.view)
-            alert.presentNetworkError()
-        }
-        
-        NetworkManager.get(url: url, success: success, fail: fail, complete: complete)
     }
     
     private func setLessonsByReceivedData(since: Date, until: Date, lessons: [Lesson]) {

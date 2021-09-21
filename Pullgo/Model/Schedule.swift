@@ -21,6 +21,12 @@ import Foundation
         self.endTime = endTime
     }
     
+    convenience init(date: Date, beginTime: Date, endTime: Date) {
+        self.init(date: date.toString(),
+                  beginTime: beginTime.toString(format: "HH:mm:ss"),
+                  endTime: endTime.toString(format: "HH:mm:ss"))
+    }
+    
     static func ==(lhs: Schedule, rhs: Schedule) -> Bool {
         return lhs.date == rhs.date && lhs.beginTime == rhs.beginTime && lhs.endTime == rhs.endTime
     }

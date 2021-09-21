@@ -27,7 +27,7 @@ class _PGNetwork {
     // MARK: - Public Methods
     public func appendURL(_ urls: String...) -> URL {
         let url = self.baseURI
-        return url.appendURL(urls)
+        return url.appendingURL(urls)
     }
     
     public func get<T: Decodable>(url: URL, type: T.Type, completion: @escaping ((T) -> ())) {
@@ -135,7 +135,7 @@ extension Encodable {
 
 extension URL {
     
-    public func appendURL(_ urls: [String]) -> URL {
+    public func appendingURL(_ urls: [String]) -> URL {
         var result = self
         for url in urls {
             result.appendPathComponent(url)
@@ -143,7 +143,7 @@ extension URL {
         return result
     }
     
-    public func appendQuery(_ items: [URLQueryItem]) -> URL {
+    public func appendingQuery(_ items: [URLQueryItem]) -> URL {
         guard var components = URLComponents(string: self.absoluteString) else {
             print("URL::appendQuery() -> URL to Component fail.")
             return PGNetwork.baseURI
@@ -164,7 +164,7 @@ extension URL {
     public func pagination(page: Int) -> URL {
         let sizeQuery = URLQueryItem(name: "size", value: String(PGNetwork.pagingSize))
         let pageQuery = URLQueryItem(name: "page", value: String(page))
-        return self.appendQuery([sizeQuery, pageQuery])
+        return self.appendingQuery([sizeQuery, pageQuery])
     }
 }
 

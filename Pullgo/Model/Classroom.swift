@@ -26,7 +26,7 @@ class Classroom: PGNetworkable {
         return String(id)
     }
     
-    var name: String?
+    var name: String!
     var creatorId: Int!
     var academyId: Int!
     
@@ -78,9 +78,55 @@ class Classroom: PGNetworkable {
 }
 
 extension Classroom {
-    
-    public func getTeachers(page: Int, completion: (([Teacher]) -> Void)) {
-        
+    private var classroomIdQuery: URLQueryItem {
+        return URLQueryItem(name: "classroomId", value: self.classroomId)
     }
     
+    private var appliedClassroomIdQuery: URLQueryItem {
+        return URLQueryItem(name: "appliedClassroomId", value: self.classroomId)
+    }
+    
+    public func getTeachers(page: Int, completion: @escaping (([Teacher]) -> Void)) {
+        let url = PGURLs.teachers.appendingQuery([self.classroomIdQuery])
+        
+        PGNetwork.get(url: url, type: [Teacher].self, completion: completion)
+    }
+    
+    public func getAppliedTeachers(page: Int, completion: @escaping (([Teacher]) -> Void)) {
+        let url = PGURLs.teachers.appendingQuery([self.appliedClassroomIdQuery])
+        
+        PGNetwork.get(url: url, type: [Teacher].self, completion: completion)
+    }
+    
+    public func getStudents(page: Int, completion: @escaping (([Student]) -> Void)) {
+        let url = PGURLs.students.appendingQuery([self.classroomIdQuery])
+        
+        PGNetwork.get(url: url, type: [Student].self, completion: completion)
+    }
+    
+    public func getAppliedStudents(page: Int, completion: @escaping (([Student]) -> Void)) {
+        let url = PGURLs.students.appendingQuery([self.appliedClassroomIdQuery])
+        
+        PGNetwork.get(url: url, type: [Student].self, completion: completion)
+    }
+    
+    public func getExams(page: Int, completion: @escaping (([Exam]) -> Void)) {
+        let url = PGURLs.exams.appendingQuery([self.classroomIdQuery])
+        
+        PGNetwork.get(url: url, type: [Exam].self, completion: completion)
+    }
+    
+    public func accept(userType: UserType, userId: Int, completion: @escaping (() -> Void)) {
+        let url = PGURLs.classrooms.appendingURL([self.classroomId, userType.toAcceptComponent()])
+        let parameter = userType.toParameter(userId: userId)
+        
+        PGNetwork.post(url: url, parameter: parameter, completion: completion)
+    }
+    
+    public func kick(userType: UserType, userId: Int, completion: @escaping (() -> Void)) {
+        let url = PGURLs.classrooms.appendingURL([self.classroomId, userType.toKickComponent()])
+        let parameter = userType.toParameter(userId: userId)
+        
+        PGNetwork.post(url: url, parameter: parameter, completion: completion)
+    }
 }

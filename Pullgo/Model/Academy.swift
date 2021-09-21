@@ -39,45 +39,45 @@ extension Academy {
     
     // MARK: public methods
     public func getTeachers(page: Int, completion: @escaping (([Teacher]) -> Void)) {
-        let url = PGURLs.teachers.appendQuery([self.academyIdQuery]).pagination(page: page)
+        let url = PGURLs.teachers.appendingQuery([self.academyIdQuery]).pagination(page: page)
         
         PGNetwork.get(url: url, type: [Teacher].self, completion: completion)
     }
     
     public func getAppliedTeachers(page: Int, completion: @escaping (([Teacher]) -> Void)) {
-        let url = PGURLs.teachers.appendQuery([self.appliedAcademyIdQuery]).pagination(page: page)
+        let url = PGURLs.teachers.appendingQuery([self.appliedAcademyIdQuery]).pagination(page: page)
         
         PGNetwork.get(url: url, type: [Teacher].self, completion: completion)
     }
     
     public func getStudents(page: Int, completion: @escaping (([Student]) -> Void)) {
-        let url = PGURLs.students.appendQuery([self.academyIdQuery]).pagination(page: page)
+        let url = PGURLs.students.appendingQuery([self.academyIdQuery]).pagination(page: page)
         
         PGNetwork.get(url: url, type: [Student].self, completion: completion)
     }
     
     public func getAppliedStudents(page: Int, completion: @escaping (([Student]) -> Void)) {
-        let url = PGURLs.students.appendQuery([self.appliedAcademyIdQuery]).pagination(page: page)
+        let url = PGURLs.students.appendingQuery([self.appliedAcademyIdQuery]).pagination(page: page)
         
         PGNetwork.get(url: url, type: [Student].self, completion: completion)
     }
     
     public func getClassrooms(page: Int, completion: @escaping (([Classroom]) -> Void)) {
-        let url = PGURLs.classrooms.appendQuery([self.academyIdQuery]).pagination(page: page)
+        let url = PGURLs.classrooms.appendingQuery([self.academyIdQuery]).pagination(page: page)
         
         PGNetwork.get(url: url, type: [Classroom].self, completion: completion)
     }
     
     public func accept(userType: UserType, userId: Int, completion: @escaping (() -> Void)) {
-        let url = PGURLs.academies.appendURL(["\(academyId)", userType.toAcceptComponent()])
-        let param: Parameter = [userType.toUserTypeId() : userId]
+        let url = PGURLs.academies.appendingURL(["\(academyId)", userType.toAcceptComponent()])
+        let param = userType.toParameter(userId: userId)
         
         PGNetwork.post(url: url, parameter: param, completion: completion)
     }
     
     public func kick(userType: UserType, userId: Int, completion: @escaping (() -> Void)) {
-        let url = PGURLs.academies.appendURL(["\(academyId)", userType.toKickComponent()])
-        let param: Parameter = [userType.toUserTypeId() : userId]
+        let url = PGURLs.academies.appendingURL(["\(academyId)", userType.toKickComponent()])
+        let param = userType.toParameter(userId: userId)
         
         PGNetwork.post(url: url, parameter: param, completion: completion)
     }

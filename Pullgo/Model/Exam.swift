@@ -7,8 +7,8 @@
 
 import Foundation
 
-class Exam: Codable {
-    var id: Int!
+class Exam: PGNetworkable {
+    
     var classroomId: Int!
     var creatorId: Int!
     var name: String!
@@ -18,6 +18,13 @@ class Exam: Codable {
     var passScore: Int!
     var cancelled: Bool!
     var finished: Bool!
+    
+    private var examId: String {
+        guard let examId = self.id else {
+            fatalError("Exam::id -> id is nil.")
+        }
+        return String(examId)
+    }
     
     func getBeginDateTime() -> String {
         let beginDate = beginDateTime.toISO8601
@@ -39,5 +46,18 @@ class Exam: Codable {
         }
         
         return "\(hour)시간 \(minute)분"
+    }
+}
+
+extension Exam {
+    private var examIdQuery: URLQueryItem {
+        return URLQueryItem(name: "examId", value: self.examId)
+    }
+    
+    public func getQuestions(page: Int, completion: @escaping (([Question]) -> Void)) {
+        let url = PGURLs.questions.appendingQuery([self.examIdQuery])
+            .pagination(page: page)
+        
+        PGNetwork.get(url: url, type: [Question].self, completion: completion)
     }
 }

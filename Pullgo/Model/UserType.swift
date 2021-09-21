@@ -40,4 +40,8 @@ enum UserType: String {
     public func toKickComponent() -> String {
         return "kick-\(self.rawValue)"
     }
+    
+    public func toParameter(userId: Int) -> Parameter {
+        return [self.toUserTypeId() : String(userId)]
+    }
 }

@@ -52,7 +52,7 @@ class PGNetworkable: Codable {
             return
         }
         
-        PGNetwork.get(url: url.appendURL([String(id)]), type: Self.self, completion: completion)
+        PGNetwork.get(url: url.appendingURL([String(id)]), type: Self.self, completion: completion)
     }
 //    func copy(_ object: T)
     func post(completion: (() -> ())? = nil) {
@@ -61,7 +61,7 @@ class PGNetworkable: Codable {
             return
         }
         
-        PGNetwork.post(url: url.appendURL([String(id)]), parameter: self, completion: completion)
+        PGNetwork.post(url: url.appendingURL([String(id)]), parameter: self, completion: completion)
     }
     
     func patch(completion: (() -> ())? = nil) {
@@ -70,7 +70,7 @@ class PGNetworkable: Codable {
             return
         }
         
-        PGNetwork.patch(url: url.appendURL([String(id)]), parameter: self, completion: completion)
+        PGNetwork.patch(url: url.appendingURL([String(id)]), parameter: self, completion: completion)
     }
     
     func delete(completion: (() -> ())?) {
@@ -79,6 +79,6 @@ class PGNetworkable: Codable {
             return
         }
         
-        PGNetwork.delete(url: url.appendURL([String(id)]), completion: completion)
+        PGNetwork.delete(url: url.appendingURL([String(id)]), completion: completion)
     }
 }

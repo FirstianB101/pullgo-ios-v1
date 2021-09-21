@@ -7,6 +7,10 @@
 
 import Foundation
 
-class Question: Codable {
+class Question: PGNetworkable {
     
+    var answer: [Int]!
+    var pictureUrl: String!
+    var content: String!
+    var examId: Int!
 }
