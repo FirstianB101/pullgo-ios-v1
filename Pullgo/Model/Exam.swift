@@ -58,6 +58,6 @@ extension Exam {
         let url = PGURLs.questions.appendingQuery([self.examIdQuery])
             .pagination(page: page)
         
-        PGNetwork.get(url: url, type: [Question].self, completion: completion)
+        PGNetwork.get(url: url, type: [Question].self, success: completion)
     }
 }

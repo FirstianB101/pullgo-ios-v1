@@ -7,13 +7,13 @@
 
 import UIKit
 
-class InputPasswordViewController: UIViewController, Styler {
+class InputPasswordViewController: UIViewController {
     
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var checkTextField: UITextField!
+    @IBOutlet weak var passwordTextField: PGTextField!
+    @IBOutlet weak var checkTextField: PGTextField!
     @IBOutlet weak var passwordStatusLabel: UILabel!
     @IBOutlet weak var correctCheckLabel: UILabel!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var nextButton: PGButton!
     
     let viewModel = InputPasswordViewModel()
 
@@ -21,24 +21,12 @@ class InputPasswordViewController: UIViewController, Styler {
         super.viewDidLoad()
 
         setUI()
-        setKeyboardWatcher()
+        self.setKeyboardDismissWatcher()
     }
     
     func setUI() {
-        setButtonUI()
-        setTextFieldUI()
         setPasswordStatusUI()
         setCheckStatusUI()
-    }
-    
-    func setButtonUI() {
-        setViewCornerRadius(view: nextButton)
-        setViewShadow(view: nextButton)
-    }
-    
-    func setTextFieldUI() {
-        setTextFieldBorderUnderline(field: passwordTextField)
-        setTextFieldBorderUnderline(field: checkTextField)
     }
     
     @IBAction func bindingPasswordInput(sender: UITextField) {
@@ -64,21 +52,19 @@ class InputPasswordViewController: UIViewController, Styler {
     }
     
     @IBAction func nextButtonClicked(sender: UIButton) {
-        if viewModel.password.isEmpty {
-            passwordTextField.vibrate()
-        } else if viewModel.check.isEmpty {
-            checkTextField.vibrate()
-        } else if viewModel.status != .valid {
+        if !checkAllFieldValid(fields: [passwordTextField, checkTextField]) { return }
+            
+        if viewModel.status != .valid {
             passwordStatusLabel.vibrate()
         } else if viewModel.checkStatus != .correct {
             correctCheckLabel.vibrate()
         } else {
             SignUpInformation.shared.account?.password = viewModel.password
-            toNextView()
+            presentInputPhoneView()
         }
     }
     
-    func toNextView() {
+    func presentInputPhoneView() {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "InputNamePhoneViewController") as! InputNamePhoneViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }

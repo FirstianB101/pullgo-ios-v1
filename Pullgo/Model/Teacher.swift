@@ -9,5 +9,6 @@ import Foundation
 
 class Teacher: PGNetworkable {
     
+    var token: String!
     var account: Account!
 }

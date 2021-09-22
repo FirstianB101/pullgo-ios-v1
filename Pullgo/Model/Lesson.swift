@@ -34,6 +34,6 @@ extension Lesson {
         }
         let url = PGURLs.academies.appendingURL([String(academyId)])
         
-        PGNetwork.get(url: url, type: Academy.self, completion: completion)
+        PGNetwork.get(url: url, type: Academy.self, success: completion)
     }
 }

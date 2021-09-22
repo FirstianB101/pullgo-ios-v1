@@ -7,106 +7,31 @@
 
 import UIKit
 
-class SignInViewController: UIViewController, Styler {
+class SignInViewController: UIViewController {
     
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var signInButton: PGButton!
     @IBOutlet weak var userTypeSegment: UISegmentedControl!
     
-    let viewModel: SignInViewModel = SignInViewModel()
+    let viewModel = SignInViewModel()
+    
+    let autoLoginCheckedImage = UIImage(systemName: "square")!
+    let autoLoginUncheckedImage = UIImage(systemName: "checkmark.square.fill")!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setTextFieldUI()
-        setButtonUI()
-        setKeyboardWatcher()
+        self.setKeyboardDismissWatcher()
     }
     
     private func setTextFieldUI() {
-        setTextFieldCornerRadius()
-        setTextFieldPadding()
-        setTextFieldShadow()
+        usernameField.setViewCornerRadiusAndShadow()
+        passwordField.setViewCornerRadiusAndShadow()
     }
     
-    private func setTextFieldCornerRadius() {
-        setViewCornerRadius(view: usernameField)
-        setViewCornerRadius(view: passwordField)
-    }
-    
-    private func setTextFieldPadding() {
-        setTextFieldPadding(field: usernameField)
-        setTextFieldPadding(field: passwordField)
-    }
-    
-    private func setTextFieldShadow() {
-        setViewShadow(view: usernameField)
-        setViewShadow(view: passwordField)
-    }
-    
-    private func setButtonUI() {
-        setDefaultButtonStyle(button: signInButton)
-    }
-    
-    @IBAction func autoSignInClicked(sender: UIButton) {
-        viewModel.toggleAutoLoginStatus()
-        toggleAutoSignInImage(sender: sender)
-    }
-    
-    func toggleAutoSignInImage(sender: UIButton) {
-        let uncheckedImage: UIImage = UIImage(systemName: "square")!
-        let checkedImage: UIImage = UIImage(systemName: "checkmark.square.fill")!
-        
-        if viewModel.isAutoLoginChecked() {
-            sender.setImage(checkedImage, for: .normal)
-        } else {
-            sender.setImage(uncheckedImage, for: .normal)
-        }
-    }
-    
-    @IBAction func signInClicked(sender: UIButton) {
-        let username: String = usernameField.text!
-        let password: String = passwordField.text!
-        let userType: UserType = .ToUserType(index: userTypeSegment.selectedSegmentIndex)!
-        
-        if username.isEmpty {
-            usernameField.vibrate()
-        } else if password.isEmpty {
-            passwordField.vibrate()
-        } else {
-            viewModel.setInputs(username: username, password: password, userType: userType)
-            requestSignIn()
-        }
-    }
-    
-    func requestSignIn() {
-        let alert = PGAlertPresentor(presentor: self)
-        
-        let success: ResponseClosure = { data in
-            var teacher: Teacher? = nil
-            var student: Student? = nil
-            if self.viewModel.userType == .student {
-                student = try! data?.toObject(type: Student.self)
-                SignedUser.student = student
-                self.viewModel.setAutoLoginInfo()
-                self.presentStudentView()
-            } else {
-                teacher = try! data?.toObject(type: Teacher.self)
-                SignedUser.teacher = teacher
-                self.viewModel.setAutoLoginInfo()
-                self.presentTeacherView()
-            }
-        }
-        let fail: FailClosure = {
-            alert.presentNetworkError()
-            return
-        }
-        
-        viewModel.requestSignIn(success: success, fail: fail)
-    }
-    
-    func presentTeacherView() {
+    private func presentTeacherView() {
         let storyboard = UIStoryboard(name: "Teacher", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TeacherCalendarViewController") as! TeacherCalendarViewController
         
@@ -116,8 +41,58 @@ class SignInViewController: UIViewController, Styler {
         self.present(vc, animated: true)
     }
     
-    func presentStudentView() {
+    private func presentStudentView() {
         
+    }
+}
+
+// MARK: IBActions
+extension SignInViewController {
+    @IBAction func signInButtonClicked(_ sender: PGButton) {
+        let userType = UserType.toUserType(index: self.userTypeSegment.selectedSegmentIndex)!
+        
+        if !self.checkAllFieldValid(fields: [usernameField, passwordField]) { return }
+        
+        viewModel.setInputs(username: usernameField.text!, password: passwordField.text!, userType: userType)
+        viewModel.signInProcess(fail: self.signInFail, completion: self.signInSuccess)
+    }
+    
+    private func signInFail(error: PGNetworkError) {
+        var message: Message = .networkError
+        
+        if error.responseCode == 401 {
+            message = .signInFail
+        }
+        
+        let presentor = PGAlertPresentor(presentor: self)
+        presentor.present(title: "알림", context: message)
+    }
+    
+    private func signInSuccess(data: Data?) {
+        
+        do {
+            guard let userInfo = try data?.toObject(type: _PGSignedUser.self) else { return }
+            
+            viewModel.setPGSignedUser(userInfo: userInfo)
+            viewModel.autoLoginProcess()
+            
+            if viewModel.userType == .student {
+                self.presentStudentView()
+            } else if viewModel.userType == .teacher {
+                self.presentTeacherView()
+            }
+            
+        } catch {
+            let presentor = PGAlertPresentor(presentor: self)
+            presentor.present(title: "오류", context: .unknownError)
+        }
+    }
+    
+    @IBAction func autoLoginButtonClicked(_ sender: UIButton) {
+        viewModel.toggleAutoLoginStatus()
+        let image = viewModel.isAutoLoginChecked() ?
+            self.autoLoginCheckedImage : self.autoLoginUncheckedImage
+        sender.setImage(image, for: .normal)
     }
 }
 
@@ -127,37 +102,39 @@ class SignInViewModel {
     private var passwordInput: String = ""
     var userType: UserType = .student
     
-    func isAutoLoginChecked() -> Bool {
+    public func isAutoLoginChecked() -> Bool {
         return autoLoginChecked
     }
     
-    func toggleAutoLoginStatus() {
+    public func toggleAutoLoginStatus() {
         autoLoginChecked = !autoLoginChecked
     }
     
-    func setInputs(username: String, password: String, userType: UserType) {
+    public func setInputs(username: String, password: String, userType: UserType) {
         self.usernameInput = username
         self.passwordInput = password
         self.userType = userType
     }
     
-    func requestSignIn(success: @escaping ResponseClosure, fail: @escaping FailClosure) {
-        // Login API Not Supported
-        // call ID for test
-        guard let id = Int(usernameInput) else { return }
-        SignedUser.setUserInfo(id: id, type: userType)
-        SignedUser.requestSignIn(success: success, fail: fail)
+    public func signInProcess(fail: @escaping ((PGNetworkError) -> Void), completion: @escaping ((Data?) -> Void)) {
+        PGSignedUser.signIn(username: self.usernameInput,
+                            password: self.passwordInput,
+                            success: completion,
+                            fail: fail)
     }
     
-    func setAutoLoginInfo() {
-        if !autoLoginChecked { return }
+    public func setPGSignedUser(userInfo: _PGSignedUser) {
+        PGSignedUser.token = userInfo.token
+        if self.userType == .student {
+            PGSignedUser.student = userInfo.student
+        } else if self.userType == .teacher {
+            PGSignedUser.teacher = userInfo.teacher
+        }
+    }
+    
+    public func autoLoginProcess() {
+        if self.autoLoginChecked == false { return }
         
-        let plist = UserDefaults.standard
-        
-        plist.set(true, forKey: plistKeys.AutoLoginKey.rawValue)
-        plist.set(userType.rawValue, forKey: plistKeys.userTypeKey.rawValue)
-        plist.set(SignedUser.id, forKey: plistKeys.userIdKey.rawValue)
-        
-        plist.synchronize()
+        // 키체인에 토큰 저장
     }
 }

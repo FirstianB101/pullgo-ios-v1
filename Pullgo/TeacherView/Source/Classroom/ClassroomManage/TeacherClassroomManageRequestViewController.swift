@@ -38,7 +38,7 @@ class TeacherClassroomManageRequestViewController: UIViewController, TeacherClas
     }
     
     @IBAction func userTypeSelected(_ sender: UISegmentedControl) {
-        viewModel.userType = UserType.ToUserType(index: sender.selectedSegmentIndex)!
+        viewModel.userType = UserType.toUserType(index: sender.selectedSegmentIndex)!
         self.requestCollectionView.reloadData()
     }
     

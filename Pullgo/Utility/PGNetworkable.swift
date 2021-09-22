@@ -9,6 +9,8 @@ import Foundation
 
 public struct PGURLs: RawRepresentable {
     
+    public static let token:        URL = PGNetwork.appendURL("auth", "token")
+    public static let me:           URL = PGNetwork.appendURL("auth", "me")
     public static let academies:    URL = PGNetwork.appendURL("academies")
     public static let classrooms:   URL = PGNetwork.appendURL("academy", "classrooms")
     public static let lessons:      URL = PGNetwork.appendURL("academy", "classroom", "lessons")
@@ -46,39 +48,39 @@ class PGNetworkable: Codable {
         try container.encode(id, forKey: .id)
     }
         
-    public func get(completion: @escaping ((Self) -> ())) {
+    public func get(success: @escaping ((Self) -> ()), fail: ((PGNetworkError) -> Void)? = nil) {
         guard let id = self.id else {
             print("PGNetworkable::get() -> id is nil.")
             return
         }
         
-        PGNetwork.get(url: url.appendingURL([String(id)]), type: Self.self, completion: completion)
+        PGNetwork.get(url: url.appendingURL([String(id)]), type: Self.self, success: success, fail: fail)
     }
 //    func copy(_ object: T)
-    func post(completion: (() -> ())? = nil) {
+    func post(success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
         guard let id = self.id else {
             print("PGNetworkable::post() -> id is nil.")
             return
         }
         
-        PGNetwork.post(url: url.appendingURL([String(id)]), parameter: self, completion: completion)
+        PGNetwork.post(url: url.appendingURL([String(id)]), parameter: self, success: success, fail: fail)
     }
     
-    func patch(completion: (() -> ())? = nil) {
+    func patch(success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
         guard let id = self.id else {
             print("PGNetworkable::patch() -> id is nil.")
             return
         }
         
-        PGNetwork.patch(url: url.appendingURL([String(id)]), parameter: self, completion: completion)
+        PGNetwork.patch(url: url.appendingURL([String(id)]), parameter: self, success: success, fail: fail)
     }
     
-    func delete(completion: (() -> ())?) {
+    func delete(success: (() -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
         guard let id = self.id else {
             print("PGNetworkable::delete() -> id is nil.")
             return
         }
         
-        PGNetwork.delete(url: url.appendingURL([String(id)]), completion: completion)
+        PGNetwork.delete(url: url.appendingURL([String(id)]), success: success, fail: fail)
     }
 }

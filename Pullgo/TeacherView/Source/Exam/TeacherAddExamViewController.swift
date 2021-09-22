@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TeacherAddExamViewController: UIViewController, Styler {
+class TeacherAddExamViewController: UIViewController {
 
     @IBOutlet weak var examNameField: UITextField!
     @IBOutlet weak var hourField: UITextField!
@@ -20,7 +20,7 @@ class TeacherAddExamViewController: UIViewController, Styler {
 
         setTextFieldUI()
         setButtonUI()
-        self.setKeyboardWatcher()
+        self.setKeyboardDismissWatcher()
     }
 
     func setTextFieldUI() {

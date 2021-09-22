@@ -7,20 +7,13 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController, Styler {
+class SignUpViewController: UIViewController {
 
-    @IBOutlet weak var signUpStudentButton: UIButton!
-    @IBOutlet weak var signUpTeacherButton: UIButton!
+    @IBOutlet weak var signUpStudentButton: PGButton!
+    @IBOutlet weak var signUpTeacherButton: PGButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setButtonUI()
-    }
-    
-    func setButtonUI() {
-        setDefaultButtonStyle(button: signUpStudentButton)
-        setDefaultButtonStyle(button: signUpTeacherButton)
     }
     
     @IBAction func studentClicked(sender: UIButton) {

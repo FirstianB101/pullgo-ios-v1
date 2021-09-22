@@ -41,31 +41,31 @@ extension Academy {
     public func getTeachers(page: Int, completion: @escaping (([Teacher]) -> Void)) {
         let url = PGURLs.teachers.appendingQuery([self.academyIdQuery]).pagination(page: page)
         
-        PGNetwork.get(url: url, type: [Teacher].self, completion: completion)
+        PGNetwork.get(url: url, type: [Teacher].self, success: completion)
     }
     
     public func getAppliedTeachers(page: Int, completion: @escaping (([Teacher]) -> Void)) {
         let url = PGURLs.teachers.appendingQuery([self.appliedAcademyIdQuery]).pagination(page: page)
         
-        PGNetwork.get(url: url, type: [Teacher].self, completion: completion)
+        PGNetwork.get(url: url, type: [Teacher].self, success: completion)
     }
     
     public func getStudents(page: Int, completion: @escaping (([Student]) -> Void)) {
         let url = PGURLs.students.appendingQuery([self.academyIdQuery]).pagination(page: page)
         
-        PGNetwork.get(url: url, type: [Student].self, completion: completion)
+        PGNetwork.get(url: url, type: [Student].self, success: completion)
     }
     
     public func getAppliedStudents(page: Int, completion: @escaping (([Student]) -> Void)) {
         let url = PGURLs.students.appendingQuery([self.appliedAcademyIdQuery]).pagination(page: page)
         
-        PGNetwork.get(url: url, type: [Student].self, completion: completion)
+        PGNetwork.get(url: url, type: [Student].self, success: completion)
     }
     
     public func getClassrooms(page: Int, completion: @escaping (([Classroom]) -> Void)) {
         let url = PGURLs.classrooms.appendingQuery([self.academyIdQuery]).pagination(page: page)
         
-        PGNetwork.get(url: url, type: [Classroom].self, completion: completion)
+        PGNetwork.get(url: url, type: [Classroom].self, success: completion)
     }
     
     public func accept(userType: UserType, userId: Int, completion: @escaping (() -> Void)) {

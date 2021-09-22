@@ -7,34 +7,21 @@
 
 import UIKit
 
-class InputUsernameViewController: UIViewController, Styler {
+class InputUsernameViewController: UIViewController {
     
-    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var usernameTextField: PGTextField!
     @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var duplicateCheckButton: UIButton!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var duplicateCheckButton: PGButton!
+    @IBOutlet weak var nextButton: PGButton!
     
     let viewModel = InputUsernameViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setButtonUI()
-        setTextFieldBorderUnderline(field: usernameTextField)
         setStatusLabel()
-        hideUINeeded()
-        setKeyboardWatcher()
-    }
-    
-    func setButtonUI() {
-        setViewCornerRadius(view: duplicateCheckButton)
-        setViewCornerRadius(view: nextButton)
-        setViewShadow(view: duplicateCheckButton)
-        setViewShadow(view: nextButton)
-    }
-    
-    func hideUINeeded() {
-        hide(view: nextButton)
+        nextButton.hide()
+        self.setKeyboardDismissWatcher()
     }
     
     @IBAction func bindingUsername(sender: UITextField) {
@@ -50,10 +37,9 @@ class InputUsernameViewController: UIViewController, Styler {
     }
     
     @IBAction func duplicateCheckButtonClicked(sender: UIButton) {
-        if viewModel.status != .valid {
-            statusLabel.vibrate()
-            return
-        } else if !viewModel.isUnique() {
+        if !self.checkAllFieldValid(fields: [usernameTextField]) { return }
+        
+        if !viewModel.isUnique() {
             let alert = PGAlertPresentor(presentor: self)
             alert.present(title: "경고", context: "이미 존재하는 아이디입니다.")
             return

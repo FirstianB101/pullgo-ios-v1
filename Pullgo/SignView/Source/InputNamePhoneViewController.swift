@@ -10,14 +10,14 @@ import UIKit
 // for TESTING
 import UserNotifications
 
-class InputNamePhoneViewController: UIViewController, Styler {
+class InputNamePhoneViewController: UIViewController {
     
-    @IBOutlet weak var fullNameField: UITextField!
-    @IBOutlet weak var phoneField: UITextField!
+    @IBOutlet weak var fullNameField: PGTextField!
+    @IBOutlet weak var phoneField: PGTextField!
     @IBOutlet weak var verifyButton: UIButton!
     @IBOutlet weak var verifyLabel: UILabel!
-    @IBOutlet weak var verifyField: UITextField!
-    @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var verifyField: PGTextField!
+    @IBOutlet weak var completeButton: PGButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var resendButton: UIButton!
     
@@ -28,31 +28,20 @@ class InputNamePhoneViewController: UIViewController, Styler {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setButtonUI()
-        setTextFieldUI()
-        hide(view: verifyLabel)
-        hide(view: timerLabel)
-        hide(view: resendButton)
-        setKeyboardWatcher()
+        completeButton.setTitle(viewModel.buttonTitle, for: .normal)
+        hideUI()
+        self.setKeyboardDismissWatcher()
         
         // for TESTING
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound], completionHandler: {didAllow,Error in })
     }
     
-    func setButtonUI() {
-        setViewCornerRadius(view: completeButton)
-        setViewCornerRadius(view: resendButton)
-        setViewShadow(view: completeButton)
-        setViewShadow(view: resendButton)
-        completeButton.setTitle(viewModel.buttonTitle, for: .normal)
-        hide(view: completeButton)
-    }
-    
-    func setTextFieldUI() {
-        setTextFieldBorderUnderline(field: fullNameField)
-        setTextFieldBorderUnderline(field: phoneField)
-        setTextFieldBorderUnderline(field: verifyField)
-        hide(view: verifyField)
+    func hideUI() {
+        verifyLabel.hide()
+        verifyField.hide()
+        timerLabel.hide()
+        resendButton.hide()
+        completeButton.hide()
     }
     
     @IBAction func requestButtonClicked(sender: UIButton) {
@@ -75,10 +64,16 @@ class InputNamePhoneViewController: UIViewController, Styler {
         alert.present(title: "경고", context: message)
     }
     
-    func blockPhoneFieldInput() {
+    private func blockPhoneFieldInput() {
         phoneField.isEnabled = false
         verifyButton.isEnabled = false
         phoneField.alpha = 0.3
+    }
+    
+    private func unblockPhoneFieldInput() {
+        phoneField.isEnabled = true
+        verifyButton.isEnabled = true
+        phoneField.slowAppear()
     }
     
     func showHiddenUI() {
@@ -105,6 +100,7 @@ class InputNamePhoneViewController: UIViewController, Styler {
             self.showInvalidAlert(message: "시간이 만료되었습니다. \n인증번호를 받지 못하셨나요? 버튼을 눌러 새로운 인증번호를 받아주세요.")
             self.verifyTimer?.invalidate()
             self.timerLabel.text = ""
+            unblockPhoneFieldInput()
         }
     }
     
@@ -126,11 +122,11 @@ class InputNamePhoneViewController: UIViewController, Styler {
     }
     
     @IBAction func completeButtonClicked(sender: UIButton) {
-        if !bindingFullName() { return }
+        if !checkAllFieldValid(fields: [verifyField, fullNameField, phoneField]) { return }
         
-        guard let verifyNumber = verifyField.text else { return }
+        viewModel.fullName = fullNameField.text!
+        viewModel.verifyNumber = verifyField.text!
         
-        viewModel.verifyNumber = verifyNumber
         if !viewModel.isVerifyNumberCorrect() {
             showInvalidAlert(message: "인증번호가 올바르지 않습니다.")
             return
@@ -164,18 +160,13 @@ class InputNamePhoneViewController: UIViewController, Styler {
     }
     
     func sendTeacherPostRequest() {
-        let action = UIAlertAction(title: "확인", style: .default) { handler in
-            self.dismiss(animated: true, completion: nil)
-        }
-        let alert = PGAlertPresentor(presentor: self)
-        let success: ResponseClosure = { data in
-            alert.present(title: "알림", context: "회원가입이 완료되었습니다.\n입력하신 정보로 로그인해주세요.", actions: [action])
-        }
-        let fail = {
-            alert.present(title: "오류", context: .NetworkError, actions: [action])
-        }
-        
-        viewModel.postRequest(success: success, fail: fail)
+        SignUpInformation.shared.teacher?.post(success: { data in
+            let presentor = PGAlertPresentor(presentor: self)
+            let action = UIAlertAction(title: "로그인 화면으로", style: .default) { action in
+                self.dismiss(animated: true, completion: nil)
+            }
+            presentor.present(title: "알림", context: "풀고의 회원이 되신 것을 환영합니다!", actions: [action])
+        })
     }
 }
 

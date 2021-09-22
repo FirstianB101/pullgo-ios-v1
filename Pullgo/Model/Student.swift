@@ -8,6 +8,7 @@ import Foundation
 
 class Student: PGNetworkable {
     
+    var token: String!
     var account: Account!
     var parentPhone: String!
     var schoolName: String!

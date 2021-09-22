@@ -48,7 +48,7 @@ class DatePickerViewController: UIViewController {
         setTextFieldToolbarDelegate()
         setUIByDatePickerViewMode()
         setFieldToDatePicker()
-        setKeyboardWatcher()
+        self.setKeyboardDismissWatcher()
     }
     
     private func setTextFieldToolbarDelegate() {

@@ -9,18 +9,24 @@ import Foundation
 
 class Account: Codable {
     var username: String!
+    var password: String?
     var fullName: String!
     var phone: String!
 }
 
 let PGSignedUser = _PGSignedUser.default
-class _PGSignedUser {
+class _PGSignedUser: Codable {
     public static let `default` = _PGSignedUser()
     
-    var userType: UserType!
+    var token: String!
     var student: Student!
     var teacher: Teacher!
     
+    enum CodingKeys: CodingKey {
+        case token, student, teacher
+    }
+    
+    var userType: UserType!
     var id: Int? {
         if self.userType == .student {
             return student.id
@@ -37,6 +43,16 @@ class _PGSignedUser {
         }
         return String(userId)
     }
+    
+    // MARK: - SignIn Methods
+    public func signIn(username: String, password: String, success: @escaping ((Data?) -> Void), fail: @escaping ((PGNetworkError) -> Void)) {
+        let url = PGURLs.token
+        let parameter: Parameter = ["username" : username, "password" : password]
+        
+        PGNetwork.post(url: url, parameter: parameter, fail: fail, success: success)
+    }
+    
+    
     
     // MARK: - GET Methods
     public func getAcademies(page: Int, completion: @escaping (([Academy]) -> Void)) {
@@ -117,3 +133,4 @@ class _PGSignedUser {
         PGNetwork.post(url: url, parameter: parameter) { completion() }
     }
 }
+

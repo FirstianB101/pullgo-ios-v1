@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView: Styler {
+extension UIView {
 
     func vibrate() {
         let animator = UIViewPropertyAnimator(duration: 1, dampingRatio: 0.1, animations: {

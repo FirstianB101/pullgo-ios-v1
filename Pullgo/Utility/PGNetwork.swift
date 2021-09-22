@@ -2,13 +2,12 @@ import UIKit
 import Alamofire
 
 typealias Parameter = Parameters
+typealias PGNetworkError = AFError
 
 let PGNetwork = _PGNetwork.default
 
 // MARK: - PGNetworkError
 enum PGError: Error {
-    case ResponseError
-    case RequestError
     case DecodeError
     case ConvertParameterError
     case JSONSerializationError
@@ -19,6 +18,11 @@ class _PGNetwork {
     
     private let apiVersion: String = "v1"
     private let headers: HTTPHeaders = [.contentType("application/json")]
+    private var headerWithToken: HTTPHeaders {
+        var header = headers
+        header.add(.authorization(bearerToken: PGSignedUser.token))
+        return header
+    }
     
     public let pagingSize: Int = 20
     public var baseURI: URL = URL(string: "https://api.pullgo.kr/\(PGNetwork.apiVersion)")!
@@ -30,61 +34,85 @@ class _PGNetwork {
         return url.appendingURL(urls)
     }
     
-    public func get<T: Decodable>(url: URL, type: T.Type, completion: @escaping ((T) -> ())) {
-        AF.request(url).response { response in
+    public func get<T: Decodable>(url: URL, type: T.Type, success: @escaping ((T) -> ()), fail: ((AFError) -> Void)? = nil) {
+        AF.request(url, method: .get, headers: self.headerWithToken).response { response in
             switch response.result {
             case .success(let d):
                 do {
                     if let receivedData = d {
                         let receivedObject = try receivedData.toObject(type: type)
-                        completion(receivedObject)
+                        success(receivedObject)
                     }
                 } catch {
                     fatalError("JSON Decode Error -> \(error.localizedDescription)")
                 }
-            case .failure(_):
-                self.presentNetworkAlert()
+            case .failure(let e):
+                if let failClosure = fail {
+                    failClosure(e)
+                } else if e.responseCode == 401 {
+                    self.presentUnauthorizedAlert()
+                } else {
+                    self.presentNetworkAlert()
+                }
             }
         }
     }
     
-    public func post(url: URL, parameter: Encodable, completion: (() -> Void)? = nil) {
+    public func post(url: URL, parameter: Encodable, success: ((Data?) -> Void)? = nil, fail: ((AFError) -> Void)? = nil) {
         guard let param = try? parameter.toParameter() else { return }
         
-        self.post(url: url, parameter: param, completion: completion)
+        self.post(url: url, parameter: param, success: success, fail: fail)
     }
     
-    public func post(url: URL, parameter: Parameters, completion: (() -> Void)? = nil) {
-        AF.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: headers).response { response in
+    public func post(url: URL, parameter: Parameters, success: ((Data?) -> Void)? = nil, fail: ((AFError) -> Void)? = nil) {
+        AF.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: self.headerWithToken).response { response in
             switch response.result {
-            case .success(_):
-                completion?()
-            case .failure(_):
-                self.presentNetworkAlert()
+            case .success(let d):
+                success?(d)
+            case .failure(let e):
+                if let failClosure = fail {
+                    failClosure(e)
+                } else if e.responseCode == 401 {
+                    self.presentUnauthorizedAlert()
+                } else {
+                    self.presentNetworkAlert()
+                }
             }
         }
     }
     
-    public func patch(url: URL, parameter: Encodable, completion: (() -> Void)? = nil) {
+    public func patch(url: URL, parameter: Encodable, success: ((Data?) -> Void)? = nil, fail: ((AFError) -> Void)? = nil) {
         guard let param = try? parameter.toParameter() else { return }
         
-        AF.request(url, method: .patch, parameters: param, encoding: JSONEncoding.default, headers: headers).response { response in
+        AF.request(url, method: .patch, parameters: param, encoding: JSONEncoding.default, headers: self.headerWithToken).response { response in
             switch response.result {
-            case .success(_):
-                completion?()
-            case .failure(_):
-                self.presentNetworkAlert()
+            case .success(let d):
+                success?(d)
+            case .failure(let e):
+                if let failClosure = fail {
+                    failClosure(e)
+                } else if e.responseCode == 401 {
+                    self.presentUnauthorizedAlert()
+                } else {
+                    self.presentNetworkAlert()
+                }
             }
         }
     }
     
-    public func delete(url: URL, completion: (() -> Void)? = nil) {
-        AF.request(url, method: .delete).response { response in
+    public func delete(url: URL, success: (() -> Void)? = nil, fail: ((AFError) -> Void)? = nil) {
+        AF.request(url, method: .delete, headers: self.headerWithToken).response { response in
             switch response.result {
             case .success(_):
-                completion?()
-            case .failure(_):
-                self.presentNetworkAlert()
+                success?()
+            case .failure(let e):
+                if let failClosure = fail {
+                    failClosure(e)
+                } else if e.responseCode == 401 {
+                    self.presentUnauthorizedAlert()
+                } else {
+                    self.presentNetworkAlert()
+                }
             }
         }
     }
@@ -95,6 +123,15 @@ class _PGNetwork {
         
         let alert = PGAlertPresentor(presentor: topViewController)
         alert.presentNetworkError()
+    }
+    
+    private func presentUnauthorizedAlert() {
+        guard let topViewController = UIApplication.shared.topViewController else { return }
+        
+        let alert = PGAlertPresentor(presentor: topViewController)
+        alert.present(title: "알림", context: "로그인 정보가 만료되었습니다. 다시 로그인 후 풀고를 이용해주세요!") { handler in
+            // 로그인 화면으로 돌아가기
+        }
     }
 }
 

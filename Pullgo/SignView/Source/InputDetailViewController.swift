@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InputDetailViewController: UIViewController, Styler {
+class InputDetailViewController: UIViewController {
     
     @IBOutlet weak var parentPhoneField: UITextField!
     @IBOutlet weak var schoolNameField: UITextField!
@@ -21,7 +21,7 @@ class InputDetailViewController: UIViewController, Styler {
 
         setButtonUI()
         setTextFieldUI()
-        setKeyboardWatcher()
+        self.setKeyboardDismissWatcher()
     }
     
     func setButtonUI() {
@@ -87,7 +87,7 @@ class InputDetailViewController: UIViewController, Styler {
             alert.present(title: "알림", context: "회원가입이 완료되었습니다.\n입력하신 정보로 로그인해주세요.", actions: [action])
         }
         let fail = {
-            alert.present(title: "오류", context: .NetworkError, actions: [action])
+            alert.present(title: "오류", context: .networkError, actions: [action])
         }
         
         viewModel.postRequest(success: success, fail: fail)

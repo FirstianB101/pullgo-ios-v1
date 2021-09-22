@@ -35,7 +35,7 @@ extension TeacherCreateClassroomSelectAcademyViewController: UICollectionViewDel
     }
 }
 
-extension TeacherCreateClassroomSelectAcademyViewController: UICollectionViewDataSource, Styler {
+extension TeacherCreateClassroomSelectAcademyViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.academies.count
     }

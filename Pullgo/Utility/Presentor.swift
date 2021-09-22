@@ -46,7 +46,7 @@ class PGAlertPresentor {
     }
     
     func presentNetworkError() {
-        self.present(title: "오류", context: .NetworkError)
+        self.present(title: "오류", context: .networkError)
     }
     
     private func getAlert(title: String, context: String) -> UIAlertController {

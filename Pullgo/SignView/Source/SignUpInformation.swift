@@ -8,8 +8,8 @@
 import Foundation
 import Alamofire
 
-struct SignUpInformation {
-    static var shared = SignUpInformation()
+class SignUpInformation {
+    static let shared = SignUpInformation()
     
     var student: Student?
     var teacher: Teacher?
@@ -21,10 +21,10 @@ struct SignUpInformation {
         set {
             _userType = newValue
             if newValue == .student {
-                student = Student()
+                student = Student(url: PGURLs.students)
                 teacher = nil
             } else {
-                teacher = Teacher()
+                teacher = Teacher(url: PGURLs.teachers)
                 student = nil
             }
             account = Account()
@@ -38,18 +38,6 @@ struct SignUpInformation {
             SignUpInformation.shared.student?.account = account
         } else {
             SignUpInformation.shared.teacher?.account = account
-        }
-    }
-    
-    func postSignUpInformation(success: ResponseClosure? = nil, fail: FailClosure? = nil) {
-        let url = NetworkManager.assembleURL(SignUpInformation.shared.userType.toURLComponent())
-        
-        if SignUpInformation.shared.userType == .student {
-            let student = SignUpInformation.shared.student
-            NetworkManager.post(url: url, data: student, success: success, fail: fail)
-        } else {
-            let teacher = SignUpInformation.shared.teacher
-            NetworkManager.post(url: url, data: teacher, success: success, fail: fail)
         }
     }
 }

@@ -11,7 +11,7 @@ enum UserType: String {
     case student = "student"
     case teacher = "teacher"
     
-    static func ToUserType(index: Int) -> UserType? {
+    static func toUserType(index: Int) -> UserType? {
         if index == 0 {
             return .student
         } else if index == 1 {

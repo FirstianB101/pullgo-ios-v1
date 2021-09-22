@@ -22,7 +22,7 @@ enum Weekday: String, CaseIterable {
     case saturday = "토"
 }
 
-class TeacherCreateClassroomViewController: UIViewController, Styler, NetworkAlertDelegate {
+class TeacherCreateClassroomViewController: UIViewController {
     func networkFailAlert() {
         let alert = PGAlertPresentor(presentor: self)
         alert.presentNetworkError()

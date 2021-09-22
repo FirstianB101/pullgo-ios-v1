@@ -31,7 +31,7 @@ public class PGTextField: UITextField {
     }
     
     private func setStyle() {
-        setTextFieldBorderUnderline(field: self)
+        self.setTextFieldBorderUnderline()
     }
     
     public func useTextFieldByDatePicker(picker: UIDatePicker) {

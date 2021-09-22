@@ -5,7 +5,7 @@
 //  Created by 김세영 on 2021/07/01.
 //
 
-import Foundation
+import UIKit
 
 extension String {
     var toISO8601: Date {
@@ -73,5 +73,22 @@ extension Date {
     
     var yearAndMonth: YearAndMonth {
         return self.toString(format: "YYYY-MM")
+    }
+}
+
+extension UIViewController {
+    
+    public func checkAllFieldValid(fields: [UITextField]) -> Bool {
+        for field in fields {
+            if let text = field.text {
+                if text.isEmpty {
+                    field.vibrate()
+                    return false
+                }
+            } else {
+                field.vibrate()
+                return false
+            }
+        }
     }
 }

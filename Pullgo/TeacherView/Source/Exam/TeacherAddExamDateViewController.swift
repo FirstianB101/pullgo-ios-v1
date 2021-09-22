@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TeacherAddExamDateViewController: UIViewController, Styler {
+class TeacherAddExamDateViewController: UIViewController {
 
     @IBOutlet weak var selectBeginDateButton: PGSelectButton!
     @IBOutlet weak var selectEndDateButton: PGSelectButton!
