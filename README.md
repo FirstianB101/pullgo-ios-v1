@@ -4,7 +4,7 @@
 
 이 프로젝트는 서버, 웹, 안드로이드, iOS로 각각 개발되는 중입니다.
 - [서버 깃허브](https://github.com/FirstianB101/pullgo-server)
-- [안드로이드 깃허브](https://github.com/FirstianB101/pullgo-android)
+- [안드로이드 깃허브](https://github.com/FirstianB101/pullgo-android) (Private)
 
 ## 풀고 디자인
 
