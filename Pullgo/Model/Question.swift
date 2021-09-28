@@ -13,4 +13,12 @@ class Question: PGNetworkable {
     var pictureUrl: String!
     var content: String!
     var examId: Int!
+    
+    init() {
+        super.init(url: PGURLs.questions)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
 }

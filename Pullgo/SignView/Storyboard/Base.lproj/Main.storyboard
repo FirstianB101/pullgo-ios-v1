@@ -56,7 +56,6 @@
                                 <state key="normal" title="로그인"/>
                                 <connections>
                                     <action selector="signInButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VgU-JT-oKw"/>
-                                    <action selector="signInClickedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wXi-E8-6G6"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8OQ-B4-QaR">

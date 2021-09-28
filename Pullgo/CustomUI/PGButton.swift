@@ -25,8 +25,7 @@ public class PGButton: UIButton {
     }
     
     private func setStyle() {
-        setViewCornerRadius(view: self)
-        setViewShadow(view: self)
+        self.setViewCornerRadiusAndShadow()
         self.backgroundColor = UIColor(named: "AccentColor")!
         self.tintColor = .white
     }

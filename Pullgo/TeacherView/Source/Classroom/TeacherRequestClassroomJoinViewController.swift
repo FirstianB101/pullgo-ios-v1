@@ -15,8 +15,7 @@ class TeacherRequestClassroomJoinViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel.networkAlertDelegate = self
-        self.setDismissKeyboardEnable()
+        self.setKeyboardDismissWatcher()
     }
     
     @IBAction func showSideMenu(_ sender: UIBarButtonItem) {
@@ -36,13 +35,10 @@ extension TeacherRequestClassroomJoinViewController: UITableViewDelegate {
     }
     
     private func requestClassroomJoin(id: Int) {
-        let url = NetworkManager.assembleURL("teachers", "\(String(SignedUser.id))", "apply-classroom")
-        let body: [String : Any] = ["classroomId": id]
-        
-        NetworkManager.post(url: url, data: body, complete: {
+        PGSignedUser.applyClassroom(classroomId: id) { _ in
             let alert = PGAlertPresentor(presentor: self)
             alert.present(title: "알림", context: "반 가입 요청을 보냈습니다!")
-        })
+        }
     }
 }
 
@@ -64,7 +60,7 @@ extension TeacherRequestClassroomJoinViewController: UITableViewDataSource {
     }
 }
 
-extension TeacherRequestClassroomJoinViewController: UISearchBarDelegate, NetworkAlertDelegate {
+extension TeacherRequestClassroomJoinViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let input = searchBar.text else { return }
         viewModel.searchClassroom(by: input) {
@@ -75,34 +71,19 @@ extension TeacherRequestClassroomJoinViewController: UISearchBarDelegate, Networ
             self.classroomTableView.reloadData()
         }
     }
-    
-    func networkFailAlert() {
-        let alert = PGAlertPresentor(presentor: self)
-        alert.presentNetworkError()
-    }
 }
 
 class TeacherRequestClassroomJoinViewModel {
     var classrooms: [Classroom] = []
-    var networkAlertDelegate: NetworkAlertDelegate?
     
-    func searchClassroom(by input: String, complete: @escaping EmptyClosure) {
-        var url: URL = NetworkManager.assembleURL("academy", "classrooms")
-        url.appendQuery(queryItems: [URLQueryItem(name: "nameLike", value: input),
-                                     URLQueryItem(name: "academyId", value: String((SignedUser.signedAcademy?.id)!))])
+    func searchClassroom(by input: String, complete: @escaping (() -> Void)) {
+        let url = PGURLs.classrooms.appendingQuery([URLQueryItem(name: "academyId", value: String(PGSignedUser.selectedAcademy.id!)),
+                                                    URLQueryItem(name: "nameLike", value: input)])
         
-        let success: ResponseClosure = { data in
-            guard let receivedClassrooms = try? data?.toObject(type: [Classroom].self) else {
-                fatalError("TeacherRequestClassroomJoinViewModel.searchClassroom() -> data parse error")
-            }
-            self.classrooms = receivedClassrooms
+        PGNetwork.get(url: url, type: [Classroom].self) { classrooms in
+            self.classrooms = classrooms
+            complete()
         }
-        
-        let fail: FailClosure = {
-            self.networkAlertDelegate?.networkFailAlert()
-        }
-        
-        NetworkManager.get(url: url, success: success, fail: fail, complete: complete)
     }
     
     func getClassroomName(at index: Int) -> String {

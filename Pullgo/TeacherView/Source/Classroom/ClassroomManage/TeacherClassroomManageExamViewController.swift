@@ -36,7 +36,6 @@ class TeacherClassroomManageExamViewController: UIViewController, TeacherClassro
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.setCollectionViewBackgroundColor()
         examListCollection.setCollectionViewBackgroundColor()
     }
     
@@ -59,7 +58,7 @@ extension TeacherClassroomManageExamViewController: UICollectionViewDelegate, UI
     }
 }
 
-extension TeacherClassroomManageExamViewController: UICollectionViewDataSource, Styler {
+extension TeacherClassroomManageExamViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.exams.count
     }
@@ -85,10 +84,12 @@ class TeacherExamListCell: UICollectionViewCell {
 class TeacherClassroomManageExamViewModel {
     var exams = [Exam]()
     
-    func getExams(complete: @escaping EmptyClosure) {
-        TeacherClassroomManageViewModel.selectedClassroom.getExams() {
-            self.exams = TeacherClassroomManageViewModel.selectedClassroom.exams
-            complete()
+    private var page: Int = 0
+    
+    func getExams(completion: @escaping (() -> Void)) {
+        TeacherClassroomManageViewModel.selectedClassroom.getExams(page: self.page) { exams in
+            self.exams = exams
+            completion()
         }
     }
     

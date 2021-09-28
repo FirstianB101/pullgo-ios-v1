@@ -14,6 +14,10 @@ class TeacherCreateClassroomSelectAcademyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.getAcademies {
+            self.academyCollectionView.reloadData()
+        }
     }
 }
 
@@ -51,11 +55,20 @@ extension TeacherCreateClassroomSelectAcademyViewController: UICollectionViewDat
 }
 
 class TeacherCreateClassroomSelectAcademyViewModel {
-    let academies: [Academy] = SignedUser.academies ?? []
+    var academies: [Academy] = []
     var selectAcademyDelegate: TeacherCreateClassroomSelectAcademyDelegate?
     
     func getAcademyName(at index: Int) -> String {
         return academies[index].name!
+    }
+    
+    func getAcademies(completion: @escaping (() -> Void)) {
+        let url = PGURLs.academies.appendingQuery([URLQueryItem(name: "teacherId", value: String(PGSignedUser.id!))])
+        
+        PGNetwork.get(url: url, type: [Academy].self) { academies in
+            self.academies = academies
+            completion()
+        }
     }
 }
 

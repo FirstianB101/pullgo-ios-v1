@@ -23,7 +23,7 @@ extension UIView {
         if self.alpha == 1 { return }
         
         UIView.animate(withDuration: 0.5, animations: {
-            self.show(view: self)
+            self.show()
         })
     }
     
@@ -31,7 +31,7 @@ extension UIView {
         if self.alpha == 0 { return }
         
         UIView.animate(withDuration: 0.5, animations: {
-            self.hide(view: self)
+            self.hide()
         })
     }
     

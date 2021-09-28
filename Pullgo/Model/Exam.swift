@@ -19,6 +19,14 @@ class Exam: PGNetworkable {
     var cancelled: Bool!
     var finished: Bool!
     
+    init() {
+        super.init(url: PGURLs.exams)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
+    
     private var examId: String {
         guard let examId = self.id else {
             fatalError("Exam::id -> id is nil.")

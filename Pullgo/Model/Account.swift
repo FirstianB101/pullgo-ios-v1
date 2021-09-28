@@ -12,6 +12,7 @@ class Account: Codable {
     var password: String?
     var fullName: String!
     var phone: String!
+    var role: String?
 }
 
 let PGSignedUser = _PGSignedUser.default
@@ -21,6 +22,7 @@ class _PGSignedUser: Codable {
     var token: String!
     var student: Student!
     var teacher: Teacher!
+    var selectedAcademy: Academy!
     
     enum CodingKeys: CodingKey {
         case token, student, teacher
@@ -49,9 +51,14 @@ class _PGSignedUser: Codable {
         let url = PGURLs.token
         let parameter: Parameter = ["username" : username, "password" : password]
         
-        PGNetwork.post(url: url, parameter: parameter, fail: fail, success: success)
+        PGNetwork.post(url: url, parameter: parameter, success: success, fail: fail)
     }
     
+    // MARK: - Logout Method
+    public func logout() {
+        self.teacher = nil
+        self.student = nil
+    }
     
     
     // MARK: - GET Methods
@@ -73,7 +80,8 @@ class _PGSignedUser: Codable {
     
     public func getClassrooms(page: Int, completion: @escaping (([Classroom]) -> Void)) {
         let url = PGURLs.classrooms
-            .appendingQuery([URLQueryItem(name: self.userType.toUserTypeId(), value: userId)])
+            .appendingQuery([URLQueryItem(name: "academyId", value: String(self.selectedAcademy.id!)),
+                             URLQueryItem(name: self.userType.toUserTypeId(), value: userId)])
             .pagination(page: page)
         
         PGNetwork.get(url: url, type: [Classroom].self) { completion($0) }
@@ -81,7 +89,8 @@ class _PGSignedUser: Codable {
     
     public func getApplyingClassrooms(page: Int, completion: @escaping (([Classroom]) -> Void)) {
         let url = PGURLs.classrooms
-            .appendingQuery([URLQueryItem(name: self.userType.toApplyingUserTypeId(), value: userId)])
+            .appendingQuery([URLQueryItem(name: "academyId", value: String(self.selectedAcademy.id!)),
+                             URLQueryItem(name: self.userType.toApplyingUserTypeId(), value: userId)])
             .pagination(page: page)
         
         PGNetwork.get(url: url, type: [Classroom].self) { completion($0) }
@@ -105,32 +114,32 @@ class _PGSignedUser: Codable {
         PGNetwork.get(url: url, type: [Exam].self) { completion($0) }
     }
     
-    public func applyAcademy(academyId: Int, completion: @escaping (() -> Void)) {
+    public func applyAcademy(academyId: Int, completion: @escaping ((Data?) -> Void)) {
         let url = PGNetwork.appendURL(self.userType.toURLComponent(), userId, "apply-academy")
         let parameter: Parameter = ["academyId" : academyId]
         
-        PGNetwork.post(url: url, parameter: parameter) { completion() }
+        PGNetwork.post(url: url, parameter: parameter, success: completion)
     }
     
-    public func removeApplyAcademy(academyId: Int, completion: @escaping (() -> Void)) {
+    public func removeApplyAcademy(academyId: Int, completion: @escaping ((Data?) -> Void)) {
         let url = PGNetwork.appendURL(self.userType.toURLComponent(), userId, "remove-applied-academy")
         let parameter: Parameter = ["academyId" : academyId]
         
-        PGNetwork.post(url: url, parameter: parameter) { completion() }
+        PGNetwork.post(url: url, parameter: parameter, success: completion)
     }
 
-    public func applyClassroom(classroomId: Int, completion: @escaping (() -> Void)) {
+    public func applyClassroom(classroomId: Int, completion: @escaping ((Data?) -> Void)) {
         let url = PGNetwork.appendURL(self.userType.toURLComponent(), userId, "apply-classroom")
         let parameter: Parameter = ["classroomId" : classroomId]
         
-        PGNetwork.post(url: url, parameter: parameter) { completion() }
+        PGNetwork.post(url: url, parameter: parameter, success: completion)
     }
     
-    public func removeApplyClassroom(classroomId: Int, completion: @escaping (() -> Void)) {
+    public func removeApplyClassroom(classroomId: Int, completion: @escaping ((Data?) -> Void)) {
         let url = PGNetwork.appendURL(self.userType.toURLComponent(), userId, "remove-applied-classroom")
         let parameter: Parameter = ["classroomId" : classroomId]
         
-        PGNetwork.post(url: url, parameter: parameter) { completion() }
+        PGNetwork.post(url: url, parameter: parameter, success: completion)
     }
 }
 

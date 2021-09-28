@@ -48,8 +48,8 @@ class PGSelectButton: UIButton {
     private func setStyle() {
         self.translatesAutoresizingMaskIntoConstraints = false
         
-        self.setViewCornerRadius(view: self, radius: 15)
-        self.setViewShadow(view: self)
+        self.setViewCornerRadius(radius: 15)
+        self.setViewShadow()
         setUIDeselect()
         
         addArrowImage()

@@ -6,11 +6,13 @@
 //
 
 import XCTest
+import Alamofire
 @testable import Pullgo
 
 class PullgoTests: XCTestCase {
     
     func testExample() throws {
+        
         
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TeacherCreateLesson_SelectClassroomViewController: UIViewController, NetworkAlertDelegate {
+class TeacherCreateLesson_SelectClassroomViewController: UIViewController {
 
     var selectClassroomDelegate: TeacherCreateLessonDelegate?
     let viewModel = TeacherCreateLesson_SelectClassroomViewModel()
@@ -16,20 +16,9 @@ class TeacherCreateLesson_SelectClassroomViewController: UIViewController, Netwo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        SignedUser.networkAlertDelegate = self
-        SignedUser.getClassroomInfo() {
-            self.viewModel.getClassroomInfoFromSignedUser()
+        viewModel.getClassrooms {
             self.classroomTableView.reloadData()
-            if self.viewModel.classrooms.isEmpty {
-                let alert = PGAlertPresentor(presentor: self)
-                alert.present(title: "알림", context: "속한 반이 없습니다.\n반 가입 요청을 통해 반을 가입해보세요.")
-            }
         }
-    }
-    
-    func networkFailAlert() {
-        let alert = PGAlertPresentor(presentor: self)
-        alert.presentNetworkError()
     }
 }
 
@@ -61,10 +50,13 @@ extension TeacherCreateLesson_SelectClassroomViewController: UITableViewDataSour
 }
 
 class TeacherCreateLesson_SelectClassroomViewModel {
-    var networkAlertDelegate: NetworkAlertDelegate?
     var classrooms: [Classroom] = []
+    var page: Int = 0
     
-    func getClassroomInfoFromSignedUser() {
-        classrooms = SignedUser.classrooms ?? []
+    public func getClassrooms(completion: @escaping (() -> Void)) {
+        PGSignedUser.getClassrooms(page: page) { classrooms in
+            self.classrooms = classrooms
+            completion()
+        }
     }
 }

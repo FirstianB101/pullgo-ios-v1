@@ -35,32 +35,27 @@ extension Date {
     func toString(format: String = "YYYY-MM-dd") -> String {
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = format
+        formatter.locale = .current
+        formatter.timeZone = .current
         
         return formatter.string(from: self)
     }
     
-    func toKST() -> Date {
-        return self.addingTimeInterval(9 * 3600)
+    static var day: TimeInterval {
+        return 24 * 60 * 60
     }
     
     var nextMonth: Date {
-        get {
-            return self + 40 * Date.day
-        }
+        self + 40 * Date.day
     }
     
-    static var day: TimeInterval {
-        get {
-            return 24 * 60 * 60
-        }
+    var tommorow: Date {
+        self + Date.day
     }
-    
     var firstDate: Date {
-        get {
-            let day = Double(self.toString(format: "dd"))! - 2
-            
-            return self - Date.day * day
-        }
+        let day = Double(self.toString(format: "dd"))! - 2
+        
+        return self - Date.day * day
     }
     
     var isToday: Bool {
@@ -90,5 +85,7 @@ extension UIViewController {
                 return false
             }
         }
+        
+        return true
     }
 }

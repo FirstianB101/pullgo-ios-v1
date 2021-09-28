@@ -13,6 +13,7 @@
 		A508196926E780A00094A50C /* PGSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A508196826E780A00094A50C /* PGSelectButton.swift */; };
 		A5191494268DC27300620A66 /* InputUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5191493268DC27300620A66 /* InputUsernameViewController.swift */; };
 		A5191496268DCC1500620A66 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5191495268DCC1500620A66 /* Extension.swift */; };
+		A51D238B26FDBBE400466C05 /* PGUnregisteredNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51D238A26FDBBE400466C05 /* PGUnregisteredNotification.swift */; };
 		A520AAD626EE3BCB0099CD94 /* PGSelectionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A520AAD526EE3BCB0099CD94 /* PGSelectionTab.swift */; };
 		A5293762269ACCCD00B210C2 /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5293761269ACCCD00B210C2 /* Classroom.swift */; };
 		A5293764269ACCD700B210C2 /* Academy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5293763269ACCD700B210C2 /* Academy.swift */; };
@@ -111,6 +112,7 @@
 		A508196826E780A00094A50C /* PGSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGSelectButton.swift; sourceTree = "<group>"; };
 		A5191493268DC27300620A66 /* InputUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputUsernameViewController.swift; sourceTree = "<group>"; };
 		A5191495268DCC1500620A66 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		A51D238A26FDBBE400466C05 /* PGUnregisteredNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGUnregisteredNotification.swift; sourceTree = "<group>"; };
 		A520AAD526EE3BCB0099CD94 /* PGSelectionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGSelectionTab.swift; sourceTree = "<group>"; };
 		A5293761269ACCCD00B210C2 /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
 		A5293763269ACCD700B210C2 /* Academy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Academy.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		A57FE019268F256B00B1E609 /* SignUpStatusProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStatusProtocol.swift; sourceTree = "<group>"; };
 		A57FE01B268F401300B1E609 /* SignUpInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInformation.swift; sourceTree = "<group>"; };
 		A57FE01D268F443600B1E609 /* InputNamePhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNamePhoneViewController.swift; sourceTree = "<group>"; };
+		A58480B727037F8900C7DDA5 /* PGPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = PGPlayground.playground; path = Pullgo/PGPlayground.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A58E7A0C269758CC005FFC6F /* Teacher.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Teacher.storyboard; sourceTree = "<group>"; };
 		A58E7A10269758F6005FFC6F /* TeacherCalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCalenderViewController.swift; sourceTree = "<group>"; };
 		A58E7A13269759F5005FFC6F /* TeacherUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherUITest.swift; sourceTree = "<group>"; };
@@ -273,6 +276,7 @@
 		A532DB2126889ACB00076260 /* Pullgo */ = {
 			isa = PBXGroup;
 			children = (
+				A58480B727037F8900C7DDA5 /* PGPlayground.playground */,
 				A5CFCCA826DE26D70069F536 /* CustomUI */,
 				A5B4CD5626898C5200FA2967 /* LaunchScreen */,
 				A5B469AD2688DF4900C62F9C /* Model */,
@@ -449,6 +453,7 @@
 				A5CFCCAB26DE29240069F536 /* PGTextField.swift */,
 				A508196826E780A00094A50C /* PGSelectButton.swift */,
 				A520AAD526EE3BCB0099CD94 /* PGSelectionTab.swift */,
+				A51D238A26FDBBE400466C05 /* PGUnregisteredNotification.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -710,6 +715,7 @@
 				A5EDB215268D931B0085CCAE /* SignUpViewController.swift in Sources */,
 				A508196726E748320094A50C /* Animation.swift in Sources */,
 				A57FE018268F220700B1E609 /* InputPasswordViewController.swift in Sources */,
+				A51D238B26FDBBE400466C05 /* PGUnregisteredNotification.swift in Sources */,
 				A5FB031226A0574C007FCDB7 /* TeacherViewSwitcher.swift in Sources */,
 				A58E7A11269758F6005FFC6F /* TeacherCalenderViewController.swift in Sources */,
 				A5B469B52688EA7000C62F9C /* Teacher.swift in Sources */,

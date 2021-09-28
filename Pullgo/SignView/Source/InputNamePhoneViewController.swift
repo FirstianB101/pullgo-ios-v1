@@ -160,13 +160,30 @@ class InputNamePhoneViewController: UIViewController {
     }
     
     func sendTeacherPostRequest() {
-        SignUpInformation.shared.teacher?.post(success: { data in
-            let presentor = PGAlertPresentor(presentor: self)
-            let action = UIAlertAction(title: "로그인 화면으로", style: .default) { action in
-                self.dismiss(animated: true, completion: nil)
-            }
-            presentor.present(title: "알림", context: "풀고의 회원이 되신 것을 환영합니다!", actions: [action])
-        })
+        
+        let teacher = Teacher()
+        teacher.account = SignUpInformation.shared.account
+        
+//        SignUpInformation.shared.teacher?.post(success: { data in
+//            guard let data = try? data?.toObject(type: _PGSignedUser.self) else {
+//                return
+//            }
+//
+//            PGSignedUser.token = data.token
+//            if data.teacher == nil {
+//                PGSignedUser.student = data.student
+//            } else {
+//                PGSignedUser.teacher = data.teacher
+//            }
+//
+//            print(data)
+//
+//            let presentor = PGAlertPresentor(presentor: self)
+//            let action = UIAlertAction(title: "로그인 화면으로", style: .default) { action in
+//                self.dismiss(animated: true, completion: nil)
+//            }
+//            presentor.present(title: "알림", context: "풀고의 회원이 되신 것을 환영합니다!", actions: [action])
+//        })
     }
 }
 
@@ -221,9 +238,6 @@ class InputNamePhoneViewModel {
         SignUpInformation.shared.account?.phone = self.phone
     }
     
-    func postRequest(success: @escaping ResponseClosure, fail: @escaping FailClosure) {
-        SignUpInformation.shared.postSignUpInformation(success: success, fail: fail)
-    }
 }
 
 extension String {

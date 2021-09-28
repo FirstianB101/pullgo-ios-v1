@@ -4,7 +4,7 @@ import Alamofire
 typealias Parameter = Parameters
 typealias PGNetworkError = AFError
 
-let PGNetwork = _PGNetwork.default
+let PGNetwork = _PGNetwork.shared
 
 // MARK: - PGNetworkError
 enum PGError: Error {
@@ -14,19 +14,25 @@ enum PGError: Error {
 }
 
 class _PGNetwork {
-    public static let `default` = _PGNetwork()
+    static let shared = _PGNetwork()
     
     private let apiVersion: String = "v1"
     private let headers: HTTPHeaders = [.contentType("application/json")]
-    private var headerWithToken: HTTPHeaders {
-        var header = headers
-        header.add(.authorization(bearerToken: PGSignedUser.token))
-        return header
+    private var headerWithToken: HTTPHeaders? {
+        if let token = PGSignedUser.token {
+            var header = headers
+            header.add(.authorization(bearerToken: token))
+            return header
+        }
+        return nil
     }
     
     public let pagingSize: Int = 20
-    public var baseURI: URL = URL(string: "https://api.pullgo.kr/\(PGNetwork.apiVersion)")!
+    public var baseURI: URL
     
+    init() {
+        self.baseURI = URL(string: "https://api.pullgo.kr/\(self.apiVersion)")!
+    }
     
     // MARK: - Public Methods
     public func appendURL(_ urls: String...) -> URL {
@@ -65,6 +71,7 @@ class _PGNetwork {
     }
     
     public func post(url: URL, parameter: Parameters, success: ((Data?) -> Void)? = nil, fail: ((AFError) -> Void)? = nil) {
+        
         AF.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: self.headerWithToken).response { response in
             switch response.result {
             case .success(let d):
@@ -198,8 +205,8 @@ extension URL {
         }
     }
     
-    public func pagination(page: Int) -> URL {
-        let sizeQuery = URLQueryItem(name: "size", value: String(PGNetwork.pagingSize))
+    public func pagination(page: Int, size: Int = 20) -> URL {
+        let sizeQuery = URLQueryItem(name: "size", value: String(size))
         let pageQuery = URLQueryItem(name: "page", value: String(page))
         return self.appendingQuery([sizeQuery, pageQuery])
     }

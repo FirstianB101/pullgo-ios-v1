@@ -18,7 +18,7 @@ class TeacherClassroomManageStudentViewController: UIViewController, TeacherClas
     }
 
     let viewModel = TeacherClassroomManageStudentViewModel()
-    @IBOutlet weak var studentsCollectionView: UICollectionView!
+    @IBOutlet weak var studentTableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -26,29 +26,32 @@ class TeacherClassroomManageStudentViewController: UIViewController, TeacherClas
         setPromptNameBySelectedClassroom()
         setTitleByTabBarMenu()
         viewModel.updateStudents() {
-            self.studentsCollectionView.reloadData()
+            self.studentTableView.reloadData()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.setCollectionViewBackgroundColor()
-        studentsCollectionView.setCollectionViewBackgroundColor()
     }
 }
 
-extension TeacherClassroomManageStudentViewController: UICollectionViewDelegate {
-    
+extension TeacherClassroomManageStudentViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "TeacherClassroomDetailStudentViewController") else { return }
+        
+        // student 넘겨주기
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
-extension TeacherClassroomManageStudentViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension TeacherClassroomManageStudentViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.students.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeacherClassroomManageStudentCell", for: indexPath) as! TeacherClassroomManageStudentCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TeacherClassroomManageStudentCell", for: indexPath) as! TeacherClassroomManageStudentCell
         
         cell.schoolInfoLabel.text = viewModel.getSchoolInfo(at: indexPath.item)
         cell.studentNameLabel.text = viewModel.getStudentName(at: indexPath.item)
@@ -56,10 +59,9 @@ extension TeacherClassroomManageStudentViewController: UICollectionViewDataSourc
         return cell
     }
     
-    
 }
 
-class TeacherClassroomManageStudentCell: UICollectionViewCell {
+class TeacherClassroomManageStudentCell: UITableViewCell {
     @IBOutlet weak var schoolInfoLabel: UILabel!
     @IBOutlet weak var studentNameLabel: UILabel!
 }
@@ -67,10 +69,12 @@ class TeacherClassroomManageStudentCell: UICollectionViewCell {
 class TeacherClassroomManageStudentViewModel {
     var students = [Student]()
     
-    func updateStudents(complete: EmptyClosure? = nil) {
-        TeacherClassroomManageViewModel.selectedClassroom.getStudents() {
-            self.students = TeacherClassroomManageViewModel.selectedClassroom.students
-            complete?()
+    private var page: Int = 0
+    
+    func updateStudents(completion: @escaping (() -> Void)) {
+        TeacherClassroomManageViewModel.selectedClassroom.getStudents(page: page) { students in
+            self.students = students
+            completion()
         }
     }
     

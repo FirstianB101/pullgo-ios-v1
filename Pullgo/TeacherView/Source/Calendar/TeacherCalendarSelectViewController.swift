@@ -7,28 +7,26 @@
 
 import UIKit
 
-class TeacherCalendarSelectViewController: UIViewController, Styler {
+class TeacherCalendarSelectViewController: UIViewController {
 
-    var initialCenter = CGPoint()
     @IBOutlet weak var lessonList: UITableView!
     @IBOutlet weak var selectedDate: UILabel!
     @IBOutlet weak var createLessonButton: UIButton!
-    weak var delegate: TeacherCalendarSelectDelegate?
+    
+    var initialCenter = CGPoint()
     let viewModel = TeacherCalendarSelectViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         initialCenter = CGPoint(x: view.center.x, y: view.bounds.height * (2 / 3))
-        setViewCornerRadius(view: createLessonButton)
-        setViewShadow(view: createLessonButton)
+        createLessonButton.setViewCornerRadiusAndShadow()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        viewModel.delegate = self.delegate
-        viewModel.setLessons()
+        viewModel.getLessons()
         setTableViewUI()
     }
     
@@ -54,8 +52,9 @@ class TeacherCalendarSelectViewController: UIViewController, Styler {
     }
     
     func reloadTableView() {
-        viewModel.setLessons()
-        lessonList.reloadData()
+        viewModel.getLessons() {
+            self.lessonList.reloadData()
+        }
     }
 }
 
@@ -70,7 +69,9 @@ extension TeacherCalendarSelectViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LessonListCell", for: indexPath) as! LessonListCell
-        cell.academyLabel.text = viewModel.getBelongAcademyName(at: indexPath.row)
+        viewModel.getBelongAcademyName(at: indexPath.row) { academyName in
+            cell.academyLabel.text = academyName
+        }
         cell.lessonNameLabel.text = viewModel.lessons[indexPath.row].name
         cell.timeLabel.text = viewModel.getLessonTime(at: indexPath.row)
         
@@ -130,17 +131,17 @@ class LessonListCell: UITableViewCell {
 class TeacherCalendarSelectViewModel {
     
     var lessons: [Lesson] = []
-    var selectedDate: Date {
-        get {
-            return delegate?.selectedDate?.toKST() ?? Date()
-        }
-    }
-    weak var delegate: TeacherCalendarSelectDelegate?
+    var selectedDate: Date!
     
-    func setLessons() {
-        guard let lessons = delegate?.getLessonsOf(date: self.selectedDate) else { return }
+    public func getLessons(completion: (() -> Void)? = nil) {
+        let url = PGURLs.lessons.appendingQuery([URLQueryItem(name: "teacherId", value: String(PGSignedUser.teacher.id!)),
+                                                 URLQueryItem(name: "sinceDate", value: selectedDate.toString()),
+                                                 URLQueryItem(name: "untilDate", value: selectedDate.tommorow.toString())])
         
-        self.lessons = lessons
+        PGNetwork.get(url: url, type: [Lesson].self) { lessons in
+            self.lessons = lessons
+            completion?()
+        }
     }
     
     func getLessonTime(at: Int) -> String {
@@ -152,9 +153,11 @@ class TeacherCalendarSelectViewModel {
         return message
     }
     
-    func getBelongAcademyName(at: Int) -> String {
-        guard let academy = lessons[at].belongAcademy else { return "" }
-        return academy.name!
+    func getBelongAcademyName(at: Int, completion: @escaping ((String) -> Void)) {
+        let lesson = self.lessons[at]
+        lesson.getBelongedAcademy { academy in
+            completion(academy.name)
+        }
     }
     
     private func cutSecondsInTime(time: String) -> String {

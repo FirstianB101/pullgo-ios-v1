@@ -15,30 +15,17 @@ class TeacherClassroomManageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        SignedUser.networkAlertDelegate = self
-        getClassroomInfo()
+        getClassroom()
     }
     
-    public func getClassroomInfo() {
-        SignedUser.getClassroomInfo() {
-            self.viewModel.getClassroomInfoFromSignedUser()
+    public func getClassroom() {
+        viewModel.getClassroom {
             self.classroomTableView.reloadData()
         }
     }
 
     @IBAction func showSideMenu(_ sender: UIBarButtonItem) {
         TeacherViewSwitcher.showSideMenu(self)
-    }
-    
-    @IBAction func addClassroom(_ sender: UIBarButtonItem) {
-        
-    }
-}
-
-extension TeacherClassroomManageViewController: NetworkAlertDelegate {
-    func networkFailAlert() {
-        let alert = PGAlertPresentor(presentor: self)
-        alert.presentNetworkError()
     }
 }
 
@@ -82,7 +69,12 @@ class TeacherClassroomManageViewModel {
     var classrooms: [Classroom] = []
     static var selectedClassroom: Classroom!
     
-    func getClassroomInfoFromSignedUser() {
-        self.classrooms = SignedUser.classrooms ?? []
+    private var page: Int = 0
+    
+    public func getClassroom(completion: @escaping (() -> Void)) {
+        PGSignedUser.getClassrooms(page: self.page) { classrooms in
+            self.classrooms = classrooms
+            completion()
+        }
     }
 }

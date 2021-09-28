@@ -8,12 +8,7 @@
 import UIKit
 import FSCalendar
 import SideMenu
-
-protocol TeacherCalendarSelectDelegate: AnyObject {
-    var selectedDate: Date? { get }
-    func getLessonsOf(date: Date) -> [Lesson]
-    func requestLesson(of date: Date, complete: @escaping EmptyClosure)
-}
+import SnapKit
 
 class TeacherCalendarViewController: UIViewController {
     
@@ -23,16 +18,42 @@ class TeacherCalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setCalendarUI()
-        viewModel.view = self
-        self.calendar.dataSource = self
-        self.calendar.delegate = self
-        initializeCalendar()
+        PGSignedUser.getAcademies(page: 0) { academies in
+            if academies.isEmpty {
+                self.presentNoAcademy()
+            } else {
+                PGSignedUser.selectedAcademy = academies[0]
+                self.setCalendarUI()
+                self.initializeCalendar()
+            }
+        }
     }
     
-    func initializeCalendar() {
-        let since = calendar.currentPage.firstDate.toKST()
-        let until = since.nextMonth.firstDate.toKST()
+    private func presentNoAcademy() {
+        self.calendar.isHidden = true
+        
+        let noti = PGUnregisteredNotification()
+        noti.setText("가입된 학원이 없습니다.")
+        noti.setAction("학원 가입하기", target: self, selector: #selector(joinAcademy))
+        self.view.addSubview(noti)
+        
+        noti.snp.makeConstraints { make in
+            make.leading.equalTo(self.view).offset(30)
+            make.trailing.equalTo(self.view).offset(30)
+            make.centerY.equalTo(self.view)
+        }
+    }
+    
+    @objc private func joinAcademy() {
+        // 학원 가입 뷰로 전환
+    }
+    
+    private func initializeCalendar() {
+        let since = calendar.currentPage.firstDate
+        let until = since.nextMonth.firstDate
+        
+        self.calendar.dataSource = self
+        self.calendar.delegate = self
         
         viewModel.getLessonsBetween(since: since, until: until) {
             self.calendar.reloadData()
@@ -44,25 +65,11 @@ class TeacherCalendarViewController: UIViewController {
     }
 }
 
-extension TeacherCalendarViewController: TeacherCalendarSelectDelegate {
-    func requestLesson(of date: Date, complete: @escaping EmptyClosure) {
-        viewModel.getLessonsBetween(since: date, until: date.addingTimeInterval(Date.day), complete: complete)
-    }
-    
-    var selectedDate: Date? {
-        return calendar.selectedDate
-    }
-    
-    func getLessonsOf(date: Date) -> [Lesson] {
-        return viewModel.getLessonsOf(date: date.key)
-    }
-}
-
 // MARK: - Calendar Methods
 extension TeacherCalendarViewController {
     
     func setCalendarUI() {
-        calendar.locale = Locale(identifier: "ko_KR")
+        calendar.locale = .current
         setCalendarHeaderUI()
     }
     
@@ -78,7 +85,7 @@ extension TeacherCalendarViewController {
     }
     
     @IBAction func gotoToday(_ sender: UIBarButtonItem) {
-        calendar.select(Date().toKST(), scrollToDate: true)
+        calendar.select(Date(), scrollToDate: true)
     }
 }
 
@@ -92,7 +99,7 @@ extension TeacherCalendarViewController: FSCalendarDelegate {
         detailVC.modalPresentationStyle = .custom
         detailVC.transitioningDelegate = self
         detailVC.view.layer.cornerRadius = 25
-        detailVC.delegate = self
+        detailVC.viewModel.selectedDate = date
         
         present(detailVC, animated: true, completion: nil)
     }
@@ -134,13 +141,20 @@ class HalfSizePresentationController: UIPresentationController {
 
 // MARK: - ViewModel
 class TeacherCalendarViewModel {
-    let teacher = SignedUser.teacher
-    private var _isLastestDataOfMonth: [YearAndMonth : Bool] = [:]
     var lessonsOfMonth: [DateKey : [Lesson]] = [:]
-    var view: UIViewController! = nil
+    private let lessonsSize: Int = 100
+    private var _isLastestDataOfMonth: [YearAndMonth : Bool] = [:]
     
-    func getLessonsBetween(since: Date, until: Date, complete: EmptyClosure? = nil) {
+    public func getLessonsBetween(since: Date, until: Date, complete: (() -> Void)? = nil) {
+        let url = PGURLs.lessons.appendingQuery([URLQueryItem(name: "teacherId", value: String(PGSignedUser.teacher.id!)),
+                                                 URLQueryItem(name: "sinceDate", value: since.toString()),
+                                                 URLQueryItem(name: "untilDate", value: until.toString())])
+            .pagination(page: 0, size: self.lessonsSize)
         
+        PGNetwork.get(url: url, type: [Lesson].self) { lessons in
+            self.setLessonsByReceivedData(since: since, until: until, lessons: lessons)
+            complete?()
+        }
     }
     
     private func setLessonsByReceivedData(since: Date, until: Date, lessons: [Lesson]) {
@@ -173,15 +187,5 @@ class TeacherCalendarViewModel {
     
     func getLessonsOf(date: DateKey) -> [Lesson] {
         return lessonsOfMonth[date] ?? []
-    }
-    
-    private func assembleQueries(since: Date, until: Date) -> [URLQueryItem] {
-        var items: [URLQueryItem] = []
-        
-        items.append(URLQueryItem(name: "teacherId", value: String((self.teacher?.id!)!)))
-        items.append(URLQueryItem(name: "sinceDate", value: since.toString()))
-        items.append(URLQueryItem(name: "untilDate", value: until.toString()))
-        
-        return items
     }
 }

@@ -13,4 +13,12 @@ class Student: PGNetworkable {
     var parentPhone: String!
     var schoolName: String!
     var schoolYear: Int!
+    
+    init() {
+        super.init(url: PGURLs.students)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
 }

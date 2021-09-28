@@ -29,6 +29,8 @@ class SignInViewController: UIViewController {
     private func setTextFieldUI() {
         usernameField.setViewCornerRadiusAndShadow()
         passwordField.setViewCornerRadiusAndShadow()
+        usernameField.setTextFieldPadding()
+        passwordField.setTextFieldPadding()
     }
     
     private func presentTeacherView() {
@@ -72,6 +74,9 @@ extension SignInViewController {
         
         do {
             guard let userInfo = try data?.toObject(type: _PGSignedUser.self) else { return }
+            print(userInfo.student)
+            print(userInfo.teacher)
+            print(userInfo.token)
             
             viewModel.setPGSignedUser(userInfo: userInfo)
             viewModel.autoLoginProcess()
@@ -127,8 +132,10 @@ class SignInViewModel {
         PGSignedUser.token = userInfo.token
         if self.userType == .student {
             PGSignedUser.student = userInfo.student
+            PGSignedUser.userType = .student
         } else if self.userType == .teacher {
             PGSignedUser.teacher = userInfo.teacher
+            PGSignedUser.userType = .teacher
         }
     }
     

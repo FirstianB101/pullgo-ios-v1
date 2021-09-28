@@ -34,7 +34,7 @@ class TeacherMenuViewController: UIViewController {
     }
     
     @IBAction func logoutClicked(_ sender: UIButton) {
-        SignedUser.teacher = nil
+        PGSignedUser.logout()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let pvc = self.presentingViewController!
@@ -72,8 +72,8 @@ extension TeacherMenuViewController: UITableViewDataSource {
 }
 
 class TeacherMenuViewModel {
-    let fullName: String = SignedUser.teacher.account.fullName
-    let academyName: String = SignedUser.signedAcademy?.name ?? ""
+    let fullName: String = PGSignedUser.teacher.account.fullName
+    let academyName: String = PGSignedUser.selectedAcademy.name ?? ""
     var menus: [String] = []
     
     init() {
@@ -84,7 +84,7 @@ class TeacherMenuViewModel {
     }
     
     func removeAutoLoginInfo() {
-        UserDefaults.standard.set(false, forKey: plistKeys.AutoLoginKey.rawValue)
+//        UserDefaults.standard.set(false, forKey: plistKeys.AutoLoginKey.rawValue)
     }
 }
 

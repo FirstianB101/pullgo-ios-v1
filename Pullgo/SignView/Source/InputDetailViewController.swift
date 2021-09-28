@@ -9,29 +9,17 @@ import UIKit
 
 class InputDetailViewController: UIViewController {
     
-    @IBOutlet weak var parentPhoneField: UITextField!
-    @IBOutlet weak var schoolNameField: UITextField!
+    @IBOutlet weak var parentPhoneField: PGTextField!
+    @IBOutlet weak var schoolNameField: PGTextField!
     @IBOutlet weak var schoolYearSegment: UISegmentedControl!
-    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var signUpButton: PGButton!
     
     let viewModel = InputDetailViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setButtonUI()
-        setTextFieldUI()
         self.setKeyboardDismissWatcher()
-    }
-    
-    func setButtonUI() {
-        setViewCornerRadius(view: signUpButton)
-        setViewShadow(view: signUpButton)
-    }
-    
-    func setTextFieldUI() {
-        setTextFieldBorderUnderline(field: parentPhoneField)
-        setTextFieldBorderUnderline(field: schoolNameField)
     }
     
     @IBAction func signUpButtonClicked(sender: UIButton) {
@@ -55,7 +43,12 @@ class InputDetailViewController: UIViewController {
             이 정보로 회원가입을 진행할까요?
             """
         
-        alert.present(title: "알림", context: context, actions: getActions())
+        let cancel = alert.cancel
+        let okay = UIAlertAction(title: "회원가입", style: .default, handler: { _ in
+            self.sendTeacherPostRequest()
+        })
+        
+        alert.present(title: "알림", context: context, actions: [cancel, okay])
     }
     
     func setViewModelData() {
@@ -67,30 +60,16 @@ class InputDetailViewController: UIViewController {
         viewModel.schoolYear = schoolYearSegment.selectedSegmentIndex + 1
     }
     
-    func getActions() -> [UIAlertAction] {
-        var actions: [UIAlertAction] = []
-        actions.append(UIAlertAction(title: "취소", style: .destructive, handler: { action in
-            return
-        }))
-        actions.append(UIAlertAction(title: "회원가입", style: .default, handler: { action in
-            self.sendTeacherPostRequest()
-        }))
-        return actions
-    }
-    
     func sendTeacherPostRequest() {
-        let action = UIAlertAction(title: "확인", style: .default) { handler in
-            self.dismiss(animated: true, completion: nil)
-        }
-        let alert = PGAlertPresentor(presentor: self)
-        let success: ResponseClosure = { data in
-            alert.present(title: "알림", context: "회원가입이 완료되었습니다.\n입력하신 정보로 로그인해주세요.", actions: [action])
-        }
-        let fail = {
-            alert.present(title: "오류", context: .networkError, actions: [action])
-        }
         
-        viewModel.postRequest(success: success, fail: fail)
+        viewModel.postRequest(success: { data in
+            let alert = PGAlertPresentor(presentor: self)
+            let action = UIAlertAction(title: "확인", style: .default) { handler in
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+            alert.present(title: "알림", context: "회원가입이 완료되었습니다.\n입력하신 정보로 로그인해주세요.", actions: [action])
+        })
     }
 }
 
@@ -128,7 +107,7 @@ class InputDetailViewModel {
         return schoolName.contains("학교")
     }
     
-    func postRequest(success: @escaping ResponseClosure, fail: @escaping FailClosure) {
-        SignUpInformation.shared.postSignUpInformation(success: success, fail: fail)
+    func postRequest(success: @escaping ((Data?) -> Void)) {
+        SignUpInformation.shared.student?.post(success: success)
     }
 }

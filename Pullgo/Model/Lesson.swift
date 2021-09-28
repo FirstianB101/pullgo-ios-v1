@@ -18,6 +18,13 @@ class Lesson: PGNetworkable {
         case id, classroomId, name, schedule
     }
     
+    init() {
+        super.init(url: PGURLs.lessons)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
 }
 
 extension Lesson {

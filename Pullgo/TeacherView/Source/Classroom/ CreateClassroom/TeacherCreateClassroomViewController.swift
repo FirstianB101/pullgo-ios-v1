@@ -23,13 +23,8 @@ enum Weekday: String, CaseIterable {
 }
 
 class TeacherCreateClassroomViewController: UIViewController {
-    func networkFailAlert() {
-        let alert = PGAlertPresentor(presentor: self)
-        alert.presentNetworkError()
-    }
-    
 
-    @IBOutlet weak var classroomNameField: UITextField!
+    @IBOutlet weak var classroomNameField: PGTextField!
     @IBOutlet weak var classroomCreateButton: PGButton!
     @IBOutlet weak var academySelectButton: UIButton!
     @IBOutlet var weekdayButtons: [UIButton]!
@@ -38,10 +33,9 @@ class TeacherCreateClassroomViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUI()
+        setButtonUI()
         setWeekdayButtonID()
-        setDismissKeyboardEnable()
-        viewModel.networkFailDelegate = self
+        self.setKeyboardDismissWatcher()
     }
     
     func setWeekdayButtonID() {
@@ -51,21 +45,12 @@ class TeacherCreateClassroomViewController: UIViewController {
         }
     }
     
-    func setUI() {
-        setTextFieldBorderUnderline(field: classroomNameField)
-        setButtonUI()
-        setWeekdayButtonCircle()
-    }
-    
     func setButtonUI() {
-        setViewCornerRadius(view: classroomCreateButton)
-        setViewShadow(view: classroomCreateButton)
-        setViewCornerRadius(view: academySelectButton, radius: 25)
-        setViewShadow(view: academySelectButton)
+        academySelectButton.setViewCornerRadiusAndShadow(radius: 25)
     }
     
     func setWeekdayButtonCircle() {
-        weekdayButtons.forEach { setViewCornerRadius(view: $0) }
+        weekdayButtons.forEach { $0.setViewCornerRadius() }
     }
     
     @IBAction func ignoreSemiColons(_ sender: UITextField) {
@@ -81,7 +66,7 @@ class TeacherCreateClassroomViewController: UIViewController {
         viewModel.updateClassroomName(name: classroomName)
         
         if !isClassroomInformationEmpty() {
-            viewModel.sendCreateClassroomRequest() {
+            viewModel.createClassroom() { _ in
                 self.classroomCreateCompleteAlert()
             }
         }
@@ -120,7 +105,7 @@ class TeacherCreateClassroomViewController: UIViewController {
     private func reloadPresentingVCData() {
         let pvc = self.presentingViewController as! TeacherClassroomManageViewController
         
-        pvc.getClassroomInfo()
+        pvc.getClassroom()
     }
     
     @IBAction func weekdayButtonsClicked(_ sender: UIButton) {
@@ -162,7 +147,6 @@ extension TeacherCreateClassroomViewController: TeacherCreateClassroomSelectAcad
 class TeacherCreateClassroomViewModel {
     var classroomName = ""
     var selectedAcademy: Academy?
-    var networkFailDelegate: NetworkAlertDelegate?
     var selectedWeekdays: [String : Bool] = [:]
     
     init() {
@@ -184,29 +168,14 @@ class TeacherCreateClassroomViewModel {
         return true
     }
     
-    func sendCreateClassroomRequest(success: @escaping EmptyClosure) {
-        let url = NetworkManager.assembleURL("academy", "classrooms")
-        let classroomBody = createClassroomBody()
-        let success: ResponseClosure = { data in
-            success()
-        }
-        let fail: FailClosure = {
-            self.networkFailDelegate?.networkFailAlert()
-        }
+    func createClassroom(success: @escaping ((Data?) -> Void)) {
+        let classroom = Classroom()
         
-        NetworkManager.post(url: url, data: classroomBody, success: success, fail: fail)
-    }
-    
-    func createClassroomBody() -> Parameters {
-        guard let selectedAcademy = selectedAcademy else {
-            fatalError("TeacherCreateClassroomViewModel.createClassroomBody() -> selected academy unwrap fail")
-        }
+        classroom.name = self.classroomName
+        classroom.academyId = self.selectedAcademy?.id
+        classroom.creatorId = PGSignedUser.id!
         
-        let formattedClassroomName = formattingClassroomName()
-        let body: Parameters = ["name" : formattedClassroomName,
-                                "academyId" : selectedAcademy.id!,
-                                "creatorId": SignedUser.id!]
-        return body
+        classroom.post(success: success)
     }
     
     func formattingClassroomName() -> String {
@@ -224,7 +193,7 @@ class TeacherCreateClassroomViewModel {
     }
     
     private func appendTeacherFullName(_ classroomName: inout String) {
-        classroomName += SignedUser.teacher.account.fullName
+        classroomName += PGSignedUser.teacher.account.fullName
         appendSeparator(&classroomName)
     }
     

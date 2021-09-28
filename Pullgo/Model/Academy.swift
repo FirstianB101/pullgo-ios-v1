@@ -24,6 +24,14 @@ class Academy: PGNetworkable {
         }
         return String(id)
     }
+    
+    init() {
+        super.init(url: PGURLs.academies)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
 }
 
 // MARK: - Network methods
@@ -68,17 +76,17 @@ extension Academy {
         PGNetwork.get(url: url, type: [Classroom].self, success: completion)
     }
     
-    public func accept(userType: UserType, userId: Int, completion: @escaping (() -> Void)) {
+    public func accept(userType: UserType, userId: Int, completion: @escaping ((Data?) -> Void)) {
         let url = PGURLs.academies.appendingURL(["\(academyId)", userType.toAcceptComponent()])
-        let param = userType.toParameter(userId: userId)
+        let parameter = userType.toParameter(userId: userId)
         
-        PGNetwork.post(url: url, parameter: param, completion: completion)
+        PGNetwork.post(url: url, parameter: parameter, success: completion)
     }
     
-    public func kick(userType: UserType, userId: Int, completion: @escaping (() -> Void)) {
+    public func kick(userType: UserType, userId: Int, completion: @escaping ((Data?) -> Void)) {
         let url = PGURLs.academies.appendingURL(["\(academyId)", userType.toKickComponent()])
-        let param = userType.toParameter(userId: userId)
+        let parameter = userType.toParameter(userId: userId)
         
-        PGNetwork.post(url: url, parameter: param, completion: completion)
+        PGNetwork.post(url: url, parameter: parameter, success: completion)
     }
 }

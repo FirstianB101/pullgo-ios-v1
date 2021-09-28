@@ -20,35 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let autoLoginEnable = UserDefaults.standard.bool(forKey: plistKeys.AutoLoginKey.rawValue)
         
         print(autoLoginEnable)
-        
-        if !autoLoginEnable { return }
-        else {
-            guard let userType = UserType(rawValue: UserDefaults.standard.integer(forKey: plistKeys.userTypeKey.rawValue)) else { return }
-            let userId = UserDefaults.standard.integer(forKey: plistKeys.userIdKey.rawValue)
-            
-            SignedUser.setUserInfo(id: userId, type: userType)
-            
-            let success: ResponseClosure = { data in
-                var teacher: Teacher?
-                var student: Student?
-                
-                if userType == .teacher {
-                    teacher = try! data?.toObject(type: Teacher.self)
-                    SignedUser.teacher = teacher
-                    self.presentTeacherView()
-                } else if userType == .student {
-                    student = try! data?.toObject(type: Student.self)
-                    SignedUser.student = student
-                    self.presentStudentView()
-                }
-            }
-            
-            let fail: FailClosure = {
-                self.presentSignInView()
-            }
-            
-            SignedUser.requestSignIn(success: success, fail: fail)
-        }
     }
     
     private func presentTeacherView() {

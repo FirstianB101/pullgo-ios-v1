@@ -34,39 +34,32 @@ class PGNetworkable: Codable {
         case id
     }
     
-    required init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try? values.decode(Int.self, forKey: .id)
-    }
-    
     init(url: URL) {
         self.url = url
     }
     
-    func encode(to encoder: Encoder) throws {
-        var container = try encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(id, forKey: .id)
+    public func pagination(page: Int, size: Int = PGNetwork.pagingSize) {
+        self.url = self.url.pagination(page: page, size: size)
     }
         
-    public func get(success: @escaping ((Self) -> ()), fail: ((PGNetworkError) -> Void)? = nil) {
+    public func get<T: Decodable>(type: T.Type, success: @escaping ((T) -> ()), fail: ((PGNetworkError) -> Void)? = nil) {
         guard let id = self.id else {
             print("PGNetworkable::get() -> id is nil.")
             return
         }
         
-        PGNetwork.get(url: url.appendingURL([String(id)]), type: Self.self, success: success, fail: fail)
-    }
-//    func copy(_ object: T)
-    func post(success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
-        guard let id = self.id else {
-            print("PGNetworkable::post() -> id is nil.")
-            return
-        }
-        
-        PGNetwork.post(url: url.appendingURL([String(id)]), parameter: self, success: success, fail: fail)
+        PGNetwork.get(url: url.appendingURL([String(id)]), type: type, success: success, fail: fail)
     }
     
-    func patch(success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
+    public func post(success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
+//        guard let id = self.id else {
+//            print("PGNetworkable::post() -> id is nil.")
+//            return
+//        }
+        PGNetwork.post(url: url, parameter: self, success: success, fail: fail)
+    }
+    
+    public func patch(success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
         guard let id = self.id else {
             print("PGNetworkable::patch() -> id is nil.")
             return
@@ -75,7 +68,7 @@ class PGNetworkable: Codable {
         PGNetwork.patch(url: url.appendingURL([String(id)]), parameter: self, success: success, fail: fail)
     }
     
-    func delete(success: (() -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
+    public func delete(success: (() -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
         guard let id = self.id else {
             print("PGNetworkable::delete() -> id is nil.")
             return

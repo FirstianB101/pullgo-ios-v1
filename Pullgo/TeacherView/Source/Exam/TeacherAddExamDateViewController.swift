@@ -47,22 +47,19 @@ class TeacherAddExamDateViewController: UIViewController {
     }
     
     @IBAction func createLesson(_ sender: PGButton) {
-        let url = NetworkManager.assembleURL("exams")
         let alert = PGAlertPresentor(presentor: self)
         
-        let success: ResponseClosure = { _ in
+        let success: (Data?) -> Void = { _ in
             let okay = UIAlertAction(title: "예", style: .default) { _ in
-                
+                // 시험 생성 VC로 이동
             }
-            let cancel = UIAlertAction(title: "아니오", style: .cancel, handler: nil)
-            alert.present(title: createdExam.name, context: "시험이 생성되었습니다.\n문제를 바로 출제하시겠어요?", actions: [cancel, okay])
+            let cancel = UIAlertAction(title: "아니오", style: .cancel) { _ in
+                // 시험 목록으로 이동
+            }
+            alert.present(title: createdExam.exam.name, context: "시험이 생성되었습니다.\n문제를 바로 출제하시겠어요?", actions: [cancel, okay])
         }
         
-        let fail: FailClosure = {
-            alert.presentNetworkError()
-        }
-        
-        NetworkManager.post(url: url, data: createdExam, success: success, fail: fail, complete: nil)
+        createdExam.exam.post(success: success)
     }
 }
 
@@ -74,10 +71,10 @@ extension TeacherAddExamDateViewController: DatePickerViewDelegate {
         let subtitle = time.toString(format: "HH시 mm분")
         
         if sender == selectBeginDateButton {
-            createdExam.beginDateTime = mergedDate
+            createdExam.exam.beginDateTime = mergedDate
             selectButtonSelected(sender, title: title, subtitle: subtitle)
         } else if sender == selectEndDateButton {
-            createdExam.endDateTime = mergedDate
+            createdExam.exam.endDateTime = mergedDate
             selectButtonSelected(sender, title: title, subtitle: subtitle)
         }
     }

@@ -38,6 +38,14 @@ class Classroom: PGNetworkable {
     var students = [Student]()
     var exams = [Exam]()
     
+    init() {
+        super.init(url: PGURLs.classrooms)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
+    
     static func == (lhs: Classroom, rhs: Classroom) -> Bool {
         return (
             rhs.id == lhs.id &&
@@ -116,17 +124,17 @@ extension Classroom {
         PGNetwork.get(url: url, type: [Exam].self, success: completion)
     }
     
-    public func accept(userType: UserType, userId: Int, completion: @escaping (() -> Void)) {
+    public func accept(userType: UserType, userId: Int, completion: @escaping ((Data?) -> Void)) {
         let url = PGURLs.classrooms.appendingURL([self.classroomId, userType.toAcceptComponent()])
         let parameter = userType.toParameter(userId: userId)
         
-        PGNetwork.post(url: url, parameter: parameter, completion: completion)
+        PGNetwork.post(url: url, parameter: parameter, success: completion)
     }
     
-    public func kick(userType: UserType, userId: Int, completion: @escaping (() -> Void)) {
+    public func kick(userType: UserType, userId: Int, completion: @escaping ((Data?) -> Void)) {
         let url = PGURLs.classrooms.appendingURL([self.classroomId, userType.toKickComponent()])
         let parameter = userType.toParameter(userId: userId)
         
-        PGNetwork.post(url: url, parameter: parameter, completion: completion)
+        PGNetwork.post(url: url, parameter: parameter, success: completion)
     }
 }

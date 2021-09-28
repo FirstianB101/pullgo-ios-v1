@@ -12,7 +12,7 @@ protocol TeacherCreateLessonDelegate: AnyObject {
     func updateSelectedClassroom(selected: Classroom)
 }
 
-class TeacherCreateLessonViewController: UIViewController, Styler {
+class TeacherCreateLessonViewController: UIViewController {
     
     let viewModel = TeacherCreateLessonViewModel()
     @IBOutlet weak var lessonNameField: PGTextField!
@@ -24,35 +24,37 @@ class TeacherCreateLessonViewController: UIViewController, Styler {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.networkAlertDelegate = self
-        setFieldUI()
+        
         setButtonUI()
-        self.setDismissKeyboardEnable()
+        self.setKeyboardDismissWatcher()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         let pvc = self.presentingViewController! as! TeacherCalendarSelectViewController
-        guard let date = viewModel.selectedDate else { return }
-        pvc.delegate?.requestLesson(of: date) {
-            pvc.reloadTableView()
-        }
-    }
-    
-    func setFieldUI() {
-        setTextFieldBorderUnderline(field: lessonNameField)
+        
+        pvc.reloadTableView()
     }
     
     func setButtonUI() {
-        setViewCornerRadius(view: classroomSelectButton, radius: 15)
-        setViewShadow(view: classroomSelectButton)
-        
+        classroomSelectButton.setViewCornerRadiusAndShadow(radius: 15)
         setButtonLabelDefault()
     }
     
     private func setButtonLabelDefault() {
         setSelectButtonLabelToDefault()
         setScheduleButtonLabelToDefault()
+    }
+    
+    private func setSelectButtonLabelToDefault() {
+        classroomSelectButton.setTitle("반을 선택해주세요.", for: .normal)
+        classroomNameLabel.text = ""
+        classroomInfoLabel.text = ""
+    }
+    
+    private func setScheduleButtonLabelToDefault() {
+        scheduleSelectButton.setState(for: .deselect)
+        scheduleSelectButton.setTitle("수업 시간을 설정해주세요.", for: .normal)
     }
     
     @IBAction func selectClassroomButtonClicked(_ sender: UIButton) {
@@ -79,15 +81,15 @@ class TeacherCreateLessonViewController: UIViewController, Styler {
         } else if viewModel.lessonSchedule == nil {
             scheduleSelectButton.vibrate()
         } else {
-            postLessonWithPresentAlert()
+            createLesson()
         }
     }
     
-    func postLessonWithPresentAlert() {
+    func createLesson() {
         let alert = PGAlertPresentor(presentor: self)
         let cancel = alert.cancel
         let apply = UIAlertAction(title: "확인", style: .default, handler: { action in
-            self.viewModel.postLesson() {
+            self.viewModel.createLesson() {
                 alert.present(title: "알림", context: "수업이 생성되었습니다!") { _ in
                     self.dismiss(animated: true)
                 }
@@ -131,11 +133,6 @@ extension TeacherCreateLessonViewController: DatePickerViewDelegate, TeacherCrea
         viewModel.lessonSchedule
     }
     
-    private func setScheduleButtonLabelToDefault() {
-        scheduleSelectButton.setState(for: .deselect)
-        scheduleSelectButton.setTitle("수업 시간을 설정해주세요.", for: .normal)
-    }
-    
     func updateSelectedClassroom(selected: Classroom) {
         viewModel.selectedClassroom = selected
         setButtonColorSelected(button: classroomSelectButton)
@@ -147,12 +144,6 @@ extension TeacherCreateLessonViewController: DatePickerViewDelegate, TeacherCrea
             return
         }
         setButtonLabelToClassroomInfo(classroom: selectedClassroom)
-    }
-    
-    private func setSelectButtonLabelToDefault() {
-        classroomSelectButton.setTitle("반을 선택해주세요.", for: .normal)
-        classroomNameLabel.text = ""
-        classroomInfoLabel.text = ""
     }
     
     private func setButtonLabelToClassroomInfo(classroom: Classroom) {
@@ -167,19 +158,11 @@ extension TeacherCreateLessonViewController: DatePickerViewDelegate, TeacherCrea
     }
 }
 
-extension TeacherCreateLessonViewController: NetworkAlertDelegate {
-    func networkFailAlert() {
-        let alert = PGAlertPresentor(presentor: self)
-        alert.presentNetworkError()
-    }
-}
-
 class TeacherCreateLessonViewModel {
     var selectedDate: Date?
     var selectedClassroom: Classroom?
     var lessonSchedule: Schedule?
     var lessonName: String = ""
-    var networkAlertDelegate: NetworkAlertDelegate?
     
     func getDateOfSchedule() -> String {
         guard let schedule = lessonSchedule else { return "" }
@@ -200,14 +183,13 @@ class TeacherCreateLessonViewModel {
         return time.split(separator: ":")
     }
     
-    func postLesson(complete: @escaping EmptyClosure) {
-        let url: URL = NetworkManager.assembleURL("academy", "classroom", "lessons")
-        let lesson: Lesson = Lesson(id: nil, classroomId: selectedClassroom!.id!, name: lessonName, schedule: lessonSchedule!)
+    func createLesson(complete: @escaping (() -> Void)) {
+        let lesson = Lesson()
         
-        let fail: FailClosure = {
-            self.networkAlertDelegate?.networkFailAlert()
-        }
+        lesson.name = self.lessonName
+        lesson.classroomId = self.selectedClassroom?.id
+        lesson.schedule = self.lessonSchedule
         
-        NetworkManager.post(url: url, data: lesson, success: nil, fail: fail, complete: complete)
+        lesson.post(success: { _ in complete() })
     }
 }

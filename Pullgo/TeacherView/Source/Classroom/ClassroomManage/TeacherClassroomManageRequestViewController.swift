@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TeacherClassroomManageRequestViewController: UIViewController, TeacherClassroomManageTopBar, NetworkAlertDelegate {
+class TeacherClassroomManageRequestViewController: UIViewController, TeacherClassroomManageTopBar {
     
     @IBOutlet weak var requestCollectionView: UICollectionView!
     @IBOutlet weak var userTypeSegment: UISegmentedControl!
@@ -19,7 +19,7 @@ class TeacherClassroomManageRequestViewController: UIViewController, TeacherClas
         setSegmentUI()
         setPromptNameBySelectedClassroom()
         setTitleByTabBarMenu()
-        viewModel.networkAlertDelegate = self
+        requestCollectionView.setCollectionViewBackgroundColor()
         viewModel.updateRequest() {
             self.requestCollectionView.reloadData()
         }
@@ -48,9 +48,9 @@ class TeacherClassroomManageRequestViewController: UIViewController, TeacherClas
     }
 }
 
-extension TeacherClassroomManageRequestViewController: UICollectionViewDataSource, Styler {
+extension TeacherClassroomManageRequestViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let count = viewModel.userType == .student ? viewModel.requestStudents.count : viewModel.requestTeachers.count
+        let count = viewModel.userType == .student ? viewModel.appliedStudents.count : viewModel.appliedTeachers.count
         
         return count
     }
@@ -67,7 +67,7 @@ extension TeacherClassroomManageRequestViewController: UICollectionViewDataSourc
         }
         
         cell.setCellUI()
-        setViewCornerRadius(view: cell.applyRequestButton, radius: 7)
+        cell.applyRequestButton.setViewCornerRadiusAndShadow(radius: 7)
         
         return cell
     }
@@ -95,42 +95,43 @@ class TeacherClassroomManageRequestCell: UICollectionViewCell {
 }
 
 class TeacherClassroomManageRequestViewModel {
-    var requestStudents = [Student]()
-    var requestTeachers = [Teacher]()
-    var networkAlertDelegate: NetworkAlertDelegate?
+    var appliedStudents = [Student]()
+    var appliedTeachers = [Teacher]()
     var userType: UserType = .student
     
-    func updateRequest(complete: EmptyClosure? = nil) {
+    var page: Int = 0
+    
+    func updateRequest(complete: @escaping (() -> Void)) {
         updateRequestTeachers(complete: complete)
         updateRequestStudents(complete: complete)
     }
     
-    func updateRequestTeachers(complete: EmptyClosure? = nil) {
-        TeacherClassroomManageViewModel.selectedClassroom.getRequestTeachers() {
-            self.requestTeachers = TeacherClassroomManageViewModel.selectedClassroom.requestTeachers
-            complete?()
+    func updateRequestTeachers(complete: @escaping (() -> Void)) {
+        TeacherClassroomManageViewModel.selectedClassroom.getAppliedTeachers(page: self.page) { teachers in
+            self.appliedTeachers = teachers
+            complete()
         }
     }
     
-    func updateRequestStudents(complete: EmptyClosure? = nil) {
-        TeacherClassroomManageViewModel.selectedClassroom.getRequestStudents() {
-            self.requestStudents = TeacherClassroomManageViewModel.selectedClassroom.requestStudents
-            complete?()
+    func updateRequestStudents(complete:  @escaping (() -> Void)) {
+        TeacherClassroomManageViewModel.selectedClassroom.getAppliedStudents(page: self.page) { students in
+            self.appliedStudents = students
+            complete()
         }
     }
     
     func getStudentName(at index: Int) -> String {
-        let student = self.requestStudents[index]
+        let student = self.appliedStudents[index]
         return student.account.fullName + " 학생"
     }
     
     func getSchoolInfo(at index: Int) -> String {
-        let student = self.requestStudents[index]
+        let student = self.appliedStudents[index]
         return student.schoolName + " " + "\(String(student.schoolYear))학년"
     }
     
     func getTeacherName(at index: Int) -> String {
-        let teacher = self.requestTeachers[index]
+        let teacher = self.appliedTeachers[index]
         return teacher.account.fullName + " 선생님"
     }
 }

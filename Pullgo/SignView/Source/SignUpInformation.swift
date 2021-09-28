@@ -21,10 +21,10 @@ class SignUpInformation {
         set {
             _userType = newValue
             if newValue == .student {
-                student = Student(url: PGURLs.students)
+                student = Student()
                 teacher = nil
             } else {
-                teacher = Teacher(url: PGURLs.teachers)
+                teacher = Teacher()
                 student = nil
             }
             account = Account()

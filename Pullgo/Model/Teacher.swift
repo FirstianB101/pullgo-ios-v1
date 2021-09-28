@@ -11,4 +11,16 @@ class Teacher: PGNetworkable {
     
     var token: String!
     var account: Account!
+    
+    enum CodingKeys: CodingKey {
+        case account
+    }
+    
+    init() {
+        super.init(url: PGURLs.teachers)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
 }
