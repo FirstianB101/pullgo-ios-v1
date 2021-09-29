@@ -19,12 +19,45 @@ class Exam: PGNetworkable {
     var cancelled: Bool!
     var finished: Bool!
     
+    enum CodingKeys: CodingKey {
+        case classroomId, creatorId, name, beginDateTime, endDateTime,
+             timeLimit, passScore, cancelled, finished
+    }
+    
     init() {
         super.init(url: PGURLs.exams)
     }
     
     required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.classroomId    = try? container.decode(Int.self, forKey: .classroomId)
+        self.creatorId      = try? container.decode(Int.self, forKey: .creatorId)
+        self.name           = try? container.decode(String.self, forKey: .name)
+        self.beginDateTime  = try? container.decode(String.self, forKey: .beginDateTime)
+        self.endDateTime    = try? container.decode(String.self, forKey: .endDateTime)
+        self.timeLimit      = try? container.decode(String.self, forKey: .timeLimit)
+        self.passScore      = try? container.decode(Int.self, forKey: .passScore)
+        self.cancelled      = try? container.decode(Bool.self, forKey: .cancelled)
+        self.finished       = try? container.decode(Bool.self, forKey: .finished)
+        
         try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        var container = try encoder.container(keyedBy: CodingKeys.self)
+        
+        try? container.encode(self.classroomId, forKey: .classroomId)
+        try? container.encode(self.creatorId, forKey: .creatorId)
+        try? container.encode(self.name, forKey: .name)
+        try? container.encode(self.beginDateTime, forKey: .beginDateTime)
+        try? container.encode(self.endDateTime, forKey: .endDateTime)
+        try? container.encode(self.timeLimit, forKey: .timeLimit)
+        try? container.encode(self.passScore, forKey: .passScore)
+        try? container.encode(self.cancelled, forKey: .cancelled)
+        try? container.encode(self.finished, forKey: .finished)
+        
+        try super.encode(to: encoder)
     }
     
     private var examId: String {

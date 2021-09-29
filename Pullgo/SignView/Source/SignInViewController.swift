@@ -74,9 +74,6 @@ extension SignInViewController {
         
         do {
             guard let userInfo = try data?.toObject(type: _PGSignedUser.self) else { return }
-            print(userInfo.student)
-            print(userInfo.teacher)
-            print(userInfo.token)
             
             viewModel.setPGSignedUser(userInfo: userInfo)
             viewModel.autoLoginProcess()

@@ -31,7 +31,8 @@ class PGAlertPresentor {
         
         let alert = getAlert(title: title, context: context)
         
-        for action in actions {
+        for (index, action) in actions.enumerated() {
+            action.accessibilityIdentifier = "\(index)"
             alert.addAction(action)
         }
         self.view.present(alert, animated: true, completion: nil)
@@ -50,6 +51,8 @@ class PGAlertPresentor {
     }
     
     private func getAlert(title: String, context: String) -> UIAlertController {
-        return UIAlertController(title: title, message: context, preferredStyle: .alert)
+        let alert =  UIAlertController(title: title, message: context, preferredStyle: .alert)
+        alert.view.accessibilityIdentifier = "PGAlert"
+        return alert
     }
 }

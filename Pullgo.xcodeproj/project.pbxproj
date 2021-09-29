@@ -15,6 +15,9 @@
 		A5191496268DCC1500620A66 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5191495268DCC1500620A66 /* Extension.swift */; };
 		A51D238B26FDBBE400466C05 /* PGUnregisteredNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51D238A26FDBBE400466C05 /* PGUnregisteredNotification.swift */; };
 		A520AAD626EE3BCB0099CD94 /* PGSelectionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A520AAD526EE3BCB0099CD94 /* PGSelectionTab.swift */; };
+		A52904512704406000B9344C /* PullgoUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A591BAFA270435A00089F28D /* PullgoUITest.swift */; };
+		A5290452270444CD00B9344C /* TeacherSignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568CCB226FB3B8B00B96DF0 /* TeacherSignUpTest.swift */; };
+		A52904542704462E00B9344C /* CheckCreatedAccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52904532704462E00B9344C /* CheckCreatedAccountTest.swift */; };
 		A5293762269ACCCD00B210C2 /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5293761269ACCCD00B210C2 /* Classroom.swift */; };
 		A5293764269ACCD700B210C2 /* Academy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5293763269ACCD700B210C2 /* Academy.swift */; };
 		A5293766269ACCE200B210C2 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5293765269ACCE200B210C2 /* Lesson.swift */; };
@@ -37,7 +40,6 @@
 		A532DB2C26889ACC00076260 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A532DB2B26889ACC00076260 /* Assets.xcassets */; };
 		A532DB2F26889ACC00076260 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A532DB2D26889ACC00076260 /* LaunchScreen.storyboard */; };
 		A532DB3A26889ACC00076260 /* PullgoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DB3926889ACC00076260 /* PullgoTests.swift */; };
-		A532DB4526889ACC00076260 /* PullgoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DB4426889ACC00076260 /* PullgoUITests.swift */; };
 		A532DB5526889BD700076260 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A532DB5426889BD700076260 /* Alamofire */; };
 		A532DDAA269F295C007C9A34 /* TeacherCalendarSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DDA9269F295C007C9A34 /* TeacherCalendarSelectViewController.swift */; };
 		A535E99926F731E200C6F1D8 /* PGNetworkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A535E99826F731E200C6F1D8 /* PGNetworkable.swift */; };
@@ -56,8 +58,8 @@
 		A57FE01E268F443600B1E609 /* InputNamePhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE01D268F443600B1E609 /* InputNamePhoneViewController.swift */; };
 		A58E7A0D269758CC005FFC6F /* Teacher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58E7A0C269758CC005FFC6F /* Teacher.storyboard */; };
 		A58E7A11269758F6005FFC6F /* TeacherCalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E7A10269758F6005FFC6F /* TeacherCalenderViewController.swift */; };
-		A58E7A14269759F5005FFC6F /* TeacherUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E7A13269759F5005FFC6F /* TeacherUITest.swift */; };
 		A58E7A1526975B0D005FFC6F /* TeacherUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E7A13269759F5005FFC6F /* TeacherUITest.swift */; };
+		A591BAFB270435A00089F28D /* PullgoUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A591BAFA270435A00089F28D /* PullgoUITest.swift */; };
 		A5B1A59D26E2055500E5D8B2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A5B1A59C26E2055500E5D8B2 /* SnapKit */; };
 		A5B1A59F26E205A300E5D8B2 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B1A59E26E205A300E5D8B2 /* DatePickerViewController.swift */; };
 		A5B469AC2688DA8A00C62F9C /* Presentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469AB2688DA8A00C62F9C /* Presentor.swift */; };
@@ -114,6 +116,7 @@
 		A5191495268DCC1500620A66 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		A51D238A26FDBBE400466C05 /* PGUnregisteredNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGUnregisteredNotification.swift; sourceTree = "<group>"; };
 		A520AAD526EE3BCB0099CD94 /* PGSelectionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGSelectionTab.swift; sourceTree = "<group>"; };
+		A52904532704462E00B9344C /* CheckCreatedAccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCreatedAccountTest.swift; sourceTree = "<group>"; };
 		A5293761269ACCCD00B210C2 /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
 		A5293763269ACCD700B210C2 /* Academy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Academy.swift; sourceTree = "<group>"; };
 		A5293765269ACCE200B210C2 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
@@ -135,7 +138,6 @@
 		A532DB3926889ACC00076260 /* PullgoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullgoTests.swift; sourceTree = "<group>"; };
 		A532DB3B26889ACC00076260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A532DB4026889ACC00076260 /* PullgoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PullgoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A532DB4426889ACC00076260 /* PullgoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullgoUITests.swift; sourceTree = "<group>"; };
 		A532DB4626889ACC00076260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A532DDA9269F295C007C9A34 /* TeacherCalendarSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCalendarSelectViewController.swift; sourceTree = "<group>"; };
 		A535E99826F731E200C6F1D8 /* PGNetworkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGNetworkable.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		A58E7A0C269758CC005FFC6F /* Teacher.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Teacher.storyboard; sourceTree = "<group>"; };
 		A58E7A10269758F6005FFC6F /* TeacherCalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCalenderViewController.swift; sourceTree = "<group>"; };
 		A58E7A13269759F5005FFC6F /* TeacherUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherUITest.swift; sourceTree = "<group>"; };
+		A591BAFA270435A00089F28D /* PullgoUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullgoUITest.swift; sourceTree = "<group>"; };
 		A5B1A59E26E205A300E5D8B2 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatePickerViewController.swift; path = Pullgo/TeacherView/Source/DatePickerView/DatePickerViewController.swift; sourceTree = SOURCE_ROOT; };
 		A5B469AB2688DA8A00C62F9C /* Presentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentor.swift; sourceTree = "<group>"; };
 		A5B469AE2688DF7200C62F9C /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
@@ -232,6 +235,7 @@
 			children = (
 				A55D3FBA26972651009DC6B7 /* FindAccountTest.swift */,
 				A568CCB226FB3B8B00B96DF0 /* TeacherSignUpTest.swift */,
+				A52904532704462E00B9344C /* CheckCreatedAccountTest.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -304,8 +308,8 @@
 		A532DB4326889ACC00076260 /* PullgoUITests */ = {
 			isa = PBXGroup;
 			children = (
-				A532DB4426889ACC00076260 /* PullgoUITests.swift */,
 				A532DB4626889ACC00076260 /* Info.plist */,
+				A591BAFA270435A00089F28D /* PullgoUITest.swift */,
 			);
 			path = PullgoUITests;
 			sourceTree = "<group>";
@@ -743,9 +747,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A58E7A14269759F5005FFC6F /* TeacherUITest.swift in Sources */,
 				A532DB3A26889ACC00076260 /* PullgoTests.swift in Sources */,
 				A568CCB326FB3B8B00B96DF0 /* TeacherSignUpTest.swift in Sources */,
+				A52904512704406000B9344C /* PullgoUITest.swift in Sources */,
+				A52904542704462E00B9344C /* CheckCreatedAccountTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,9 +758,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5290452270444CD00B9344C /* TeacherSignUpTest.swift in Sources */,
 				A58E7A1526975B0D005FFC6F /* TeacherUITest.swift in Sources */,
 				A55D3FBB26972651009DC6B7 /* FindAccountTest.swift in Sources */,
-				A532DB4526889ACC00076260 /* PullgoUITests.swift in Sources */,
+				A591BAFB270435A00089F28D /* PullgoUITest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -917,6 +923,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GTB6BR222W;
+				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Pullgo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -936,6 +943,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GTB6BR222W;
+				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Pullgo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -998,6 +1006,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GTB6BR222W;
+				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = PullgoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1018,6 +1027,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GTB6BR222W;
+				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = PullgoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

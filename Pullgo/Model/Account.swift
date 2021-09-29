@@ -7,25 +7,75 @@
 
 import Foundation
 
-class Account: Codable {
+struct Account: Codable {
     var username: String!
     var password: String?
     var fullName: String!
     var phone: String!
     var role: String?
+    
+    enum CodingKeys: CodingKey {
+        case username
+        case password
+        case fullName
+        case phone
+        case role
+    }
+    
+    init() {
+        
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.username = try? container.decode(String.self, forKey: .username)
+        self.password = try? container.decode(String.self, forKey: .password)
+        self.fullName = try? container.decode(String.self, forKey: .fullName)
+        self.phone = try? container.decode(String.self, forKey: .phone)
+        self.role = try? container.decode(String.self, forKey: .role)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = try encoder.container(keyedBy: CodingKeys.self)
+        
+        try? container.encode(username, forKey: .username)
+        try? container.encode(password, forKey: .password)
+        try? container.encode(fullName, forKey: .fullName)
+        try? container.encode(phone, forKey: .phone)
+        try? container.encode(role, forKey: .role)
+    }
 }
 
 let PGSignedUser = _PGSignedUser.default
 class _PGSignedUser: Codable {
     public static let `default` = _PGSignedUser()
     
-    var token: String!
+    var token: String?
     var student: Student!
     var teacher: Teacher!
     var selectedAcademy: Academy!
     
     enum CodingKeys: CodingKey {
         case token, student, teacher
+    }
+    
+    init() {
+        
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.token = try? container.decode(String.self, forKey: .token)
+        self.student = try? container.decode(Student.self, forKey: .student)
+        self.teacher = try? container.decode(Teacher.self, forKey: .teacher)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try? container.encode(token, forKey: .token)
+        try? container.encode(student, forKey: .student)
+        try? container.encode(teacher, forKey: .teacher)
     }
     
     var userType: UserType!

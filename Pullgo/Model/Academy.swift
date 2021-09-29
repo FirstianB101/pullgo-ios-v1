@@ -30,7 +30,25 @@ class Academy: PGNetworkable {
     }
     
     required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.name       = try? container.decode(String.self, forKey: .name)
+        self.phone      = try? container.decode(String.self, forKey: .phone)
+        self.address    = try? container.decode(String.self, forKey: .address)
+        self.ownerId    = try? container.decode(Int.self, forKey: .ownerId)
+        
         try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        var container = try encoder.container(keyedBy: CodingKeys.self)
+        
+        try? container.encode(self.name, forKey: .name)
+        try? container.encode(self.phone, forKey: .phone)
+        try? container.encode(self.address, forKey: .address)
+        try? container.encode(self.ownerId, forKey: .ownerId)
+        
+        try super.encode(to: encoder)
     }
 }
 

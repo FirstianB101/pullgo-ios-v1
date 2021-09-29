@@ -1,3 +1,4 @@
+
 //
 //  TeacherUITest.swift
 //  PullgoTests
@@ -6,6 +7,7 @@
 //
 
 import XCTest
+@testable import Pullgo
 
 class TeacherUITest: XCTestCase {
 
@@ -43,4 +45,5 @@ class TeacherUITest: XCTestCase {
         app.buttons["signIn"].tap()
                 
     }
+    
 }

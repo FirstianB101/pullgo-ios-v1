@@ -15,7 +15,7 @@ class Lesson: PGNetworkable {
     var schedule: Schedule!
     
     enum CodingKeys: CodingKey {
-        case id, classroomId, name, schedule
+        case academyId, classroomId, name, schedule
     }
     
     init() {
@@ -23,7 +23,25 @@ class Lesson: PGNetworkable {
     }
     
     required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.classroomId    = try? container.decode(Int.self, forKey: .name)
+        self.academyId      = try? container.decode(Int.self, forKey: .academyId)
+        self.name           = try? container.decode(String.self, forKey: .name)
+        self.schedule       = try? container.decode(Schedule.self, forKey: .schedule)
+        
         try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        var container = try encoder.container(keyedBy: CodingKeys.self)
+        
+        try? container.encode(self.classroomId, forKey: .name)
+        try? container.encode(self.academyId, forKey: .academyId)
+        try? container.encode(self.name, forKey: .name)
+        try? container.encode(self.schedule, forKey: .schedule)
+        
+        try super.encode(to: encoder)
     }
 }
 

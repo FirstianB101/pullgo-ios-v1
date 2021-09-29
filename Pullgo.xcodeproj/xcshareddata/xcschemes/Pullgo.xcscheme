@@ -19,6 +19,34 @@
                ReferencedContainer = "container:Pullgo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A532DB3F26889ACC00076260"
+               BuildableName = "PullgoUITests.xctest"
+               BlueprintName = "PullgoUITests"
+               ReferencedContainer = "container:Pullgo.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A532DB3426889ACC00076260"
+               BuildableName = "PullgoTests.xctest"
+               BlueprintName = "PullgoTests"
+               ReferencedContainer = "container:Pullgo.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

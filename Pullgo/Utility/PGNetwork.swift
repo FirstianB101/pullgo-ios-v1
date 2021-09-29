@@ -20,11 +20,11 @@ class _PGNetwork {
     private let headers: HTTPHeaders = [.contentType("application/json")]
     private var headerWithToken: HTTPHeaders? {
         if let token = PGSignedUser.token {
-            var header = headers
-            header.add(.authorization(bearerToken: token))
-            return header
+            var headerWithToken = headers
+            headerWithToken.add(.authorization(bearerToken: token))
+            return headerWithToken
         }
-        return nil
+        return headers
     }
     
     public let pagingSize: Int = 20
@@ -64,15 +64,26 @@ class _PGNetwork {
         }
     }
     
-    public func post(url: URL, parameter: Encodable, success: ((Data?) -> Void)? = nil, fail: ((AFError) -> Void)? = nil) {
-        guard let param = try? parameter.toParameter() else { return }
-        
-        self.post(url: url, parameter: param, success: success, fail: fail)
+    public func post(url: URL, parameter: Parameter, success: ((Data?) -> Void)? = nil, fail: ((AFError) -> Void)? = nil) {
+        AF.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: self.headerWithToken).response { response in
+            switch response.result {
+            case .success(let d):
+                success?(d)
+            case .failure(let e):
+                if let failClosure = fail {
+                    failClosure(e)
+                } else if e.responseCode == 401 {
+                    self.presentUnauthorizedAlert()
+                } else {
+                    self.presentNetworkAlert()
+                }
+            }
+        }
     }
     
-    public func post(url: URL, parameter: Parameters, success: ((Data?) -> Void)? = nil, fail: ((AFError) -> Void)? = nil) {
+    public func post<T: Encodable>(url: URL, parameter: T, success: ((Data?) -> Void)? = nil, fail: ((AFError) -> Void)? = nil) {
         
-        AF.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: self.headerWithToken).response { response in
+        AF.request(url, method: .post, parameters: parameter, encoder: JSONParameterEncoder.default, headers: self.headerWithToken).response { response in
             switch response.result {
             case .success(let d):
                 success?(d)
@@ -143,17 +154,15 @@ class _PGNetwork {
 }
 
 extension Data {
-    public func toObject<T: Decodable>(type: T.Type) throws -> T {
-        let decoder = JSONDecoder()
-        var decodedData: T
+    func toObject<T: Decodable>(_ decoder: JSONDecoder = JSONDecoder(), type: T.Type) throws -> T {
+        print(String(data: self, encoding: .utf8))
         
-        do {
-            decodedData = try decoder.decode(type, from: self)
-        } catch {
+        guard let decoded = try? decoder.decode(type, from: self) else {
+            print("Decode Object Error!")
             throw PGError.DecodeError
         }
         
-        return decodedData
+        return decoded
     }
 }
 

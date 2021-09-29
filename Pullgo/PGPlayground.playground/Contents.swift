@@ -1,3 +1,3 @@
+import Foundation
 import Alamofire
 
-let url = PGURLs.lessons
