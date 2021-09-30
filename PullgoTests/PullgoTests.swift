@@ -18,6 +18,12 @@ class PullgoTests: XCTestCase {
         print("###############################")
     }
     
+    func testURL() throws {
+        let string = "String".appending("asd")
+        
+        XCTAssertEqual(string, "Stringasd")
+    }
+    
     func testExample() throws {
         let url = PGURLs.teachers
         

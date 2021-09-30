@@ -41,22 +41,27 @@ class _PGNetwork {
     }
     
     public func get<T: Decodable>(url: URL, type: T.Type, success: @escaping ((T) -> ()), fail: ((AFError) -> Void)? = nil) {
+        print(url)
+        
         AF.request(url, method: .get, headers: self.headerWithToken).response { response in
             switch response.result {
             case .success(let d):
-                do {
-                    if let receivedData = d {
-                        let receivedObject = try receivedData.toObject(type: type)
-                        success(receivedObject)
+                d?.log()
+                
+                self.processByStatusCode(code: response.response?.statusCode) {
+                    do {
+                        if let receivedData = d {
+                            let receivedObject = try receivedData.toObject(type: type)
+                            success(receivedObject)
+                        }
                     }
-                } catch {
-                    fatalError("JSON Decode Error -> \(error.localizedDescription)")
+                    catch {
+                        fatalError("JSON Decode Error -> \(error.localizedDescription)")
+                    }
                 }
             case .failure(let e):
                 if let failClosure = fail {
                     failClosure(e)
-                } else if e.responseCode == 401 {
-                    self.presentUnauthorizedAlert()
                 } else {
                     self.presentNetworkAlert()
                 }
@@ -65,15 +70,19 @@ class _PGNetwork {
     }
     
     public func post(url: URL, parameter: Parameter, success: ((Data?) -> Void)? = nil, fail: ((AFError) -> Void)? = nil) {
+        print(url)
+        
         AF.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: self.headerWithToken).response { response in
             switch response.result {
             case .success(let d):
-                success?(d)
+                d?.log()
+                
+                self.processByStatusCode(code: response.response?.statusCode) {
+                    success?(d)
+                }
             case .failure(let e):
                 if let failClosure = fail {
                     failClosure(e)
-                } else if e.responseCode == 401 {
-                    self.presentUnauthorizedAlert()
                 } else {
                     self.presentNetworkAlert()
                 }
@@ -82,16 +91,18 @@ class _PGNetwork {
     }
     
     public func post<T: Encodable>(url: URL, parameter: T, success: ((Data?) -> Void)? = nil, fail: ((AFError) -> Void)? = nil) {
+        print(url)
         
         AF.request(url, method: .post, parameters: parameter, encoder: JSONParameterEncoder.default, headers: self.headerWithToken).response { response in
             switch response.result {
             case .success(let d):
-                success?(d)
+                d?.log()
+                self.processByStatusCode(code: response.response?.statusCode) {
+                    success?(d)
+                }
             case .failure(let e):
                 if let failClosure = fail {
                     failClosure(e)
-                } else if e.responseCode == 401 {
-                    self.presentUnauthorizedAlert()
                 } else {
                     self.presentNetworkAlert()
                 }
@@ -102,15 +113,18 @@ class _PGNetwork {
     public func patch(url: URL, parameter: Encodable, success: ((Data?) -> Void)? = nil, fail: ((AFError) -> Void)? = nil) {
         guard let param = try? parameter.toParameter() else { return }
         
+        print(url)
         AF.request(url, method: .patch, parameters: param, encoding: JSONEncoding.default, headers: self.headerWithToken).response { response in
             switch response.result {
             case .success(let d):
-                success?(d)
+                d?.log()
+                
+                self.processByStatusCode(code: response.response?.statusCode) {
+                    success?(d)
+                }
             case .failure(let e):
                 if let failClosure = fail {
                     failClosure(e)
-                } else if e.responseCode == 401 {
-                    self.presentUnauthorizedAlert()
                 } else {
                     self.presentNetworkAlert()
                 }
@@ -118,16 +132,20 @@ class _PGNetwork {
         }
     }
     
-    public func delete(url: URL, success: (() -> Void)? = nil, fail: ((AFError) -> Void)? = nil) {
+    public func delete(url: URL, success: ((Data?) -> Void)? = nil, fail: ((AFError) -> Void)? = nil) {
+        print(url)
+        
         AF.request(url, method: .delete, headers: self.headerWithToken).response { response in
             switch response.result {
-            case .success(_):
-                success?()
+            case .success(let d):
+                d?.log()
+                
+                self.processByStatusCode(code: response.response?.statusCode) {
+                    success?(d)
+                }
             case .failure(let e):
                 if let failClosure = fail {
                     failClosure(e)
-                } else if e.responseCode == 401 {
-                    self.presentUnauthorizedAlert()
                 } else {
                     self.presentNetworkAlert()
                 }
@@ -136,27 +154,86 @@ class _PGNetwork {
     }
     
     // MARK: - Private Methods
-    private func presentNetworkAlert() {
-        guard let topViewController = UIApplication.shared.topViewController else { return }
+    private enum ErrorStatusCode: Int {
+        case badRequest = 400
+        case unauthorized = 401
+        case forbidden = 403
+        case notFound = 404
+        case conflict = 409
+    }
+    
+    private func processByStatusCode(code: Int?, success: (() -> Void)? = nil) {
+        guard let statusCode = code else {
+            self.presentUnknownErrorAlert()
+            return
+        }
         
-        let alert = PGAlertPresentor(presentor: topViewController)
+        if (200 ..< 300).contains(statusCode) {
+            // 요청 및 수신 성공
+            success?()
+        } else if (400 ..< 500).contains(statusCode) {
+            // 요청 오류
+            guard let status = ErrorStatusCode(rawValue: statusCode) else {
+                self.presentUnknownErrorAlert()
+                return
+            }
+            self.handleRequestError(status: status)
+        } else if (500 ..< 600).contains(statusCode) {
+            // 서버 오류
+            self.presentNetworkAlert()
+        }
+    }
+    
+    private func handleRequestError(status: ErrorStatusCode) {
+        let alert = PGAlertPresentor()
+        var message = ""
+        
+        // 테스트용 코드
+        switch status {
+        case .badRequest:
+            message = "400 Bad Request"
+        case .conflict:
+            message = "409 Conflict"
+        case .forbidden:
+            message = "403 Forbidden"
+        case .notFound:
+            message = "404 Not Found"
+        case .unauthorized:
+            message = "401 Unauthorized"
+        }
+        
+        alert.present(title: "오류", context: message)
+    }
+    
+    private func presentNetworkAlert() {
+        let alert = PGAlertPresentor()
         alert.presentNetworkError()
     }
     
     private func presentUnauthorizedAlert() {
-        guard let topViewController = UIApplication.shared.topViewController else { return }
-        
-        let alert = PGAlertPresentor(presentor: topViewController)
+        let alert = PGAlertPresentor()
         alert.present(title: "알림", context: "로그인 정보가 만료되었습니다. 다시 로그인 후 풀고를 이용해주세요!") { handler in
             // 로그인 화면으로 돌아가기
         }
     }
+    
+    private func presentUnknownErrorAlert() {
+        let alert = PGAlertPresentor()
+        alert.present(title: "오류", context: .unknownError)
+    }
 }
 
 extension Data {
-    func toObject<T: Decodable>(_ decoder: JSONDecoder = JSONDecoder(), type: T.Type) throws -> T {
-        print(String(data: self, encoding: .utf8))
+    func log() {
+        guard let description = String(data: self, encoding: .utf8) else {
+            print("Data is nil.")
+            return
+        }
         
+        print("\n" + description + "\n")
+    }
+    
+    func toObject<T: Decodable>(_ decoder: JSONDecoder = JSONDecoder(), type: T.Type) throws -> T {        
         guard let decoded = try? decoder.decode(type, from: self) else {
             print("Decode Object Error!")
             throw PGError.DecodeError
@@ -202,16 +279,14 @@ extension URL {
             return PGNetwork.baseURI
         }
         
-        for item in items {
-            components.queryItems?.append(item)
-        }
+        var defaultItems = components.queryItems ?? []
         
-        do {
-            return try components.asURL()
-        } catch {
-            print(error.localizedDescription)
-            return PGNetwork.baseURI
+        for item in items {
+            defaultItems.append(item)
         }
+        components.queryItems = defaultItems
+        
+        return components.url!
     }
     
     public func pagination(page: Int, size: Int = 20) -> URL {
@@ -223,18 +298,17 @@ extension URL {
 
 extension UIApplication {
     public var topViewController: UIViewController? {
-        var rootViewController = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController
+        let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
 
-        if let navigationController = rootViewController as? UINavigationController {
-            rootViewController = navigationController.viewControllers.first
-        } else if let tabBarController = rootViewController as? UITabBarController {
-            rootViewController = tabBarController.selectedViewController
+        if var topController = keyWindow?.rootViewController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
+            
+            return topController
         }
         
-        if rootViewController?.presentedViewController != nil {
-            rootViewController = rootViewController?.presentedViewController
-        }
-        
-        return rootViewController
+        return nil
     }
 }
+

@@ -8,10 +8,15 @@
 import UIKit
 
 class PGAlertPresentor {
-    let view: UIViewController
+    let view: UIViewController?
     
-    init(presentor: UIViewController) {
-        self.view = presentor
+    init(presentor: UIViewController? = nil) {
+        if presentor == nil {
+            let topViewController = UIApplication.shared.topViewController
+            self.view = topViewController
+        } else {
+            self.view = presentor!
+        }
     }
     
     var cancel: UIAlertAction {
@@ -23,7 +28,7 @@ class PGAlertPresentor {
         let action = UIAlertAction(title: "확인", style: .default, handler: handler)
         
         alert.addAction(action)
-        self.view.present(alert, animated: true, completion: nil)
+        self.view?.present(alert, animated: true, completion: nil)
     }
     
     func present(title: String, context: String, actions: [UIAlertAction]) {
@@ -35,7 +40,7 @@ class PGAlertPresentor {
             action.accessibilityIdentifier = "\(index)"
             alert.addAction(action)
         }
-        self.view.present(alert, animated: true, completion: nil)
+        self.view?.present(alert, animated: true, completion: nil)
     }
     
     func present(title: String, context: Message, handler: ((UIAlertAction) -> Void)? = nil) {

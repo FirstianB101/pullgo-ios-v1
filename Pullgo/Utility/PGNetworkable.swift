@@ -78,7 +78,7 @@ class PGNetworkable: Codable {
         PGNetwork.patch(url: url.appendingURL([String(id)]), parameter: self, success: success, fail: fail)
     }
     
-    public func delete(success: (() -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
+    public func delete(success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
         guard let id = self.id else {
             print("PGNetworkable::delete() -> id is nil.")
             return

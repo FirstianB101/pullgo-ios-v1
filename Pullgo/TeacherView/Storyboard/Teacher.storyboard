@@ -11,6 +11,102 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--학원 가입 요청-->
+        <scene sceneID="yad-dp-ZxE">
+            <objects>
+                <viewController storyboardIdentifier="TeacherAcademyJoinRequestViewController" id="YUl-jH-eb6" customClass="TeacherAcademyJoinRequestViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kdc-e1-kTb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="123" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I18-xg-tgx">
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="학원 이름으로 검색해주세요." id="OWJ-vw-NGu">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="Q4e-Pi-81w">
+                                    <rect key="frame" x="0.0" y="747.6363639831543" width="414" height="128"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeacherAcademyJoinRequest" rowHeight="123" id="REt-yO-Mz9" customClass="AcademyTableViewCell" customModule="Pullgo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="68.5" width="414" height="123"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="REt-yO-Mz9" id="TvR-v7-Q00">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="123"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ZVM-aK-kdA">
+                                                    <rect key="frame" x="30" y="17.5" width="354" height="88.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학원 주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NmM-Uh-hSy">
+                                                            <rect key="frame" x="0.0" y="0.0" width="354" height="21.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학원 전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMw-iy-XBn">
+                                                            <rect key="frame" x="0.0" y="33.5" width="354" height="21.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" name="AccentColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학원 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cd3-8a-tVj">
+                                                            <rect key="frame" x="0.0" y="67" width="354" height="21.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="cd3-8a-tVj" secondAttribute="trailing" id="DVh-00-tpg"/>
+                                                        <constraint firstItem="NmM-Uh-hSy" firstAttribute="leading" secondItem="ZVM-aK-kdA" secondAttribute="leading" id="FWx-tX-Ihk"/>
+                                                        <constraint firstItem="cd3-8a-tVj" firstAttribute="leading" secondItem="ZVM-aK-kdA" secondAttribute="leading" id="Z0g-he-BWl"/>
+                                                        <constraint firstItem="kMw-iy-XBn" firstAttribute="leading" secondItem="ZVM-aK-kdA" secondAttribute="leading" id="jVv-mQ-XS6"/>
+                                                        <constraint firstAttribute="trailing" secondItem="NmM-Uh-hSy" secondAttribute="trailing" id="pwo-dO-dN9"/>
+                                                        <constraint firstAttribute="trailing" secondItem="kMw-iy-XBn" secondAttribute="trailing" id="qjI-I3-MmK"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZVM-aK-kdA" firstAttribute="centerY" secondItem="TvR-v7-Q00" secondAttribute="centerY" id="HeV-hC-Xd1"/>
+                                                <constraint firstItem="ZVM-aK-kdA" firstAttribute="leading" secondItem="TvR-v7-Q00" secondAttribute="leadingMargin" constant="10" id="f3B-ul-c8d"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZVM-aK-kdA" secondAttribute="trailing" constant="10" id="iMs-tR-9SM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="academyAddress" destination="NmM-Uh-hSy" id="5si-rO-kmc"/>
+                                            <outlet property="academyName" destination="cd3-8a-tVj" id="NPb-w1-vWW"/>
+                                            <outlet property="academyPhone" destination="kMw-iy-XBn" id="Aax-ql-NB9"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Sl5-Pm-1EO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Sl5-Pm-1EO" firstAttribute="bottom" secondItem="I18-xg-tgx" secondAttribute="bottom" id="F8g-2a-qSQ"/>
+                            <constraint firstItem="I18-xg-tgx" firstAttribute="top" secondItem="Sl5-Pm-1EO" secondAttribute="top" id="Quf-HR-S4U"/>
+                            <constraint firstItem="I18-xg-tgx" firstAttribute="leading" secondItem="Sl5-Pm-1EO" secondAttribute="leading" id="SdE-Xv-dXu"/>
+                            <constraint firstItem="Sl5-Pm-1EO" firstAttribute="trailing" secondItem="I18-xg-tgx" secondAttribute="trailing" id="qND-1h-U37"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="학원 가입 요청" id="i7r-Sw-wYx"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="academyTableView" destination="I18-xg-tgx" id="nAH-kn-hln"/>
+                        <outlet property="searchBar" destination="OWJ-vw-NGu" id="YgZ-RE-h95"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lyV-wK-EBD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2349.275362318841" y="140.625"/>
+        </scene>
         <!--Teacher Menu View Controller-->
         <scene sceneID="ui0-9i-uyz">
             <objects>
@@ -46,9 +142,12 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBj-EG-gNx">
-                                <rect key="frame" x="308" y="177" width="86" height="30"/>
+                                <rect key="frame" x="312" y="177" width="82" height="30"/>
                                 <color key="tintColor" name="AccentColor"/>
-                                <state key="normal" title="다른 학원 선택"/>
+                                <state key="normal" title="학원 가입하기"/>
+                                <connections>
+                                    <segue destination="YUl-jH-eb6" kind="presentation" id="gjf-66-0gp"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Z16-g9-vMf">
                                 <rect key="frame" x="15" y="236" width="384" height="580"/>
@@ -93,10 +192,6 @@
                                     <action selector="logoutClicked:" destination="ecK-Lf-5J3" eventType="touchUpInside" id="GP7-N7-tBV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9T-QS-hqo">
-                                <rect key="frame" x="20" y="836" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BOD-fF-wv3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -110,12 +205,10 @@
                             <constraint firstItem="5sN-7r-hyf" firstAttribute="leading" secondItem="3Za-H8-FnV" secondAttribute="leadingMargin" id="JjD-Ra-PDX"/>
                             <constraint firstItem="CSy-pV-vVe" firstAttribute="leading" secondItem="BOD-fF-wv3" secondAttribute="leading" constant="15" id="Ljn-Tf-ZYI"/>
                             <constraint firstItem="QBj-EG-gNx" firstAttribute="top" secondItem="jZb-PO-oKA" secondAttribute="top" id="Nhj-sx-SBe"/>
-                            <constraint firstItem="H9T-QS-hqo" firstAttribute="leading" secondItem="BOD-fF-wv3" secondAttribute="leading" constant="20" id="O12-I1-IyN"/>
                             <constraint firstAttribute="bottom" secondItem="3Ce-Gx-j0D" secondAttribute="bottom" constant="30" id="Qae-PA-K3j"/>
                             <constraint firstItem="0ir-MP-gFK" firstAttribute="top" secondItem="jZb-PO-oKA" secondAttribute="bottom" constant="13" id="SNo-Zs-3zC"/>
                             <constraint firstItem="QBj-EG-gNx" firstAttribute="bottom" secondItem="jZb-PO-oKA" secondAttribute="bottom" id="ToX-TQ-6a6"/>
                             <constraint firstItem="Z16-g9-vMf" firstAttribute="top" secondItem="0ir-MP-gFK" secondAttribute="bottom" constant="15" id="YL6-5T-ZHi"/>
-                            <constraint firstAttribute="bottom" secondItem="H9T-QS-hqo" secondAttribute="bottom" constant="30" id="esV-EP-CpK"/>
                             <constraint firstItem="0ir-MP-gFK" firstAttribute="trailing" secondItem="5sN-7r-hyf" secondAttribute="trailing" id="gkI-ax-CwT"/>
                             <constraint firstItem="Z16-g9-vMf" firstAttribute="leading" secondItem="BOD-fF-wv3" secondAttribute="leading" constant="15" id="jTS-7d-4dC"/>
                             <constraint firstItem="jZb-PO-oKA" firstAttribute="leading" secondItem="5sN-7r-hyf" secondAttribute="leading" id="l6m-wb-AeT"/>
@@ -182,7 +275,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*** 학원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad1-pv-nVo">
-                                                    <rect key="frame" x="20" y="34" width="306" height="25.5"/>
+                                                    <rect key="frame" x="20" y="33.5" width="306" height="26"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1354,6 +1447,27 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="VGZ-av-We2">
+                                <rect key="frame" x="30" y="388.5" width="354" height="119"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가입된 학원이 없습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJf-fa-QUq">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UrG-6n-iO4">
+                                        <rect key="frame" x="0.0" y="86" width="354" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="학원 가입하기">
+                                            <color key="titleColor" name="AccentColor"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="YUl-jH-eb6" kind="presentation" id="N9E-JK-2L3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="txY-yp-AT2" customClass="FSCalendar">
                                 <rect key="frame" x="10" y="98" width="394" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1374,17 +1488,21 @@
                         <viewLayoutGuide key="safeArea" id="6S2-qK-vl5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="VGZ-av-We2" firstAttribute="leading" secondItem="6S2-qK-vl5" secondAttribute="leading" constant="30" id="Dh8-1r-oBT"/>
                             <constraint firstItem="hAx-0t-550" firstAttribute="leading" secondItem="6S2-qK-vl5" secondAttribute="leading" id="Eci-sc-5OI"/>
                             <constraint firstItem="hAx-0t-550" firstAttribute="top" secondItem="6S2-qK-vl5" secondAttribute="top" id="Fpa-Ej-0gj"/>
                             <constraint firstItem="txY-yp-AT2" firstAttribute="bottom" secondItem="6S2-qK-vl5" secondAttribute="bottom" constant="10" id="H5Z-en-sHM"/>
                             <constraint firstItem="txY-yp-AT2" firstAttribute="leading" secondItem="6S2-qK-vl5" secondAttribute="leading" constant="10" id="VRj-Qr-H4S"/>
                             <constraint firstItem="txY-yp-AT2" firstAttribute="top" secondItem="hAx-0t-550" secondAttribute="bottom" constant="10" id="Ywb-3o-3dz"/>
+                            <constraint firstItem="6S2-qK-vl5" firstAttribute="trailing" secondItem="VGZ-av-We2" secondAttribute="trailing" constant="30" id="Zsm-zE-eNt"/>
                             <constraint firstItem="txY-yp-AT2" firstAttribute="trailing" secondItem="6S2-qK-vl5" secondAttribute="trailing" constant="-10" id="aur-oq-6xa"/>
                             <constraint firstAttribute="trailing" secondItem="hAx-0t-550" secondAttribute="trailing" id="gRt-qU-TO4"/>
+                            <constraint firstItem="VGZ-av-We2" firstAttribute="centerY" secondItem="o6E-MB-9Ng" secondAttribute="centerY" id="yLz-hB-Gl1"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="calendar" destination="txY-yp-AT2" id="wpW-I3-3I7"/>
+                        <outlet property="noAcademyStack" destination="VGZ-av-We2" id="lyU-cc-Bh7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Njj-EI-EwE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1400,7 +1518,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4RT-VO-L2U">
-                                <rect key="frame" x="0.0" y="44" width="414" height="54"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem title="반 가입 요청" id="CN7-wa-kxc">
@@ -1415,17 +1533,25 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4Rw-gN-wfm">
-                                <rect key="frame" x="0.0" y="142" width="414" height="720"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" name="AccentColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="반 혹은 선생님 이름을 입력해주세요" id="CDK-h9-adj">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits" textContentType="name"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="I7Z-En-FPN" id="oQo-Mi-Ggn"/>
+                                    </connections>
+                                </searchBar>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="pPi-4n-Eau">
-                                    <rect key="frame" x="0.0" y="172.00000034679067" width="414" height="44"/>
+                                    <rect key="frame" x="0.0" y="853.6363639831543" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TeacherClassroomCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeacherClassroomCell" rowHeight="123" id="Ham-xM-eJA" customClass="TeacherClassroomCell" customModule="Pullgo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="123"/>
+                                        <rect key="frame" x="0.0" y="68.5" width="414" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ham-xM-eJA" id="Ro5-Rh-uNq">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="123"/>
@@ -1482,14 +1608,6 @@
                                     <outlet property="delegate" destination="I7Z-En-FPN" id="WU6-et-wbk"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" text="" placeholder="반 혹은 선생님 이름을 입력해주세요" id="CDK-h9-adj">
-                                <rect key="frame" x="9" y="98" width="394" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits" textContentType="name"/>
-                                <connections>
-                                    <outlet property="delegate" destination="I7Z-En-FPN" id="oQo-Mi-Ggn"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bh4-Hn-CXs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1497,11 +1615,11 @@
                             <constraint firstItem="Bh4-Hn-CXs" firstAttribute="trailing" secondItem="4RT-VO-L2U" secondAttribute="trailing" id="57e-Vt-DVK"/>
                             <constraint firstItem="Bh4-Hn-CXs" firstAttribute="bottom" secondItem="4Rw-gN-wfm" secondAttribute="bottom" id="5LL-Vs-gcp"/>
                             <constraint firstItem="4RT-VO-L2U" firstAttribute="top" secondItem="Bh4-Hn-CXs" secondAttribute="top" id="8qw-Cc-ZdU"/>
-                            <constraint firstItem="4Rw-gN-wfm" firstAttribute="top" secondItem="CDK-h9-adj" secondAttribute="bottom" id="9ci-H5-dgf"/>
+                            <constraint firstItem="4Rw-gN-wfm" firstAttribute="top" secondItem="4RT-VO-L2U" secondAttribute="bottom" id="ONM-4M-DfG"/>
                             <constraint firstItem="4RT-VO-L2U" firstAttribute="leading" secondItem="yca-y1-qBO" secondAttribute="leading" id="WlT-Vi-dXj"/>
-                            <constraint firstItem="CDK-h9-adj" firstAttribute="top" secondItem="4RT-VO-L2U" secondAttribute="bottom" id="bUQ-VP-ix9"/>
                             <constraint firstItem="Bh4-Hn-CXs" firstAttribute="trailing" secondItem="4Rw-gN-wfm" secondAttribute="trailing" id="jf6-8x-gMu"/>
                             <constraint firstItem="4Rw-gN-wfm" firstAttribute="leading" secondItem="Bh4-Hn-CXs" secondAttribute="leading" id="n3E-nV-eAV"/>
+                            <constraint firstItem="4Rw-gN-wfm" firstAttribute="bottom" secondItem="Bh4-Hn-CXs" secondAttribute="bottom" id="yNj-fi-bih"/>
                         </constraints>
                     </view>
                     <connections>
@@ -2207,6 +2325,9 @@
             <point key="canvasLocation" x="3162" y="-249"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="N9E-JK-2L3"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="arrow.right.square.fill" catalog="system" width="128" height="114"/>

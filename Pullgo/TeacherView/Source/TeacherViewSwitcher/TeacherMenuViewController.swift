@@ -73,7 +73,7 @@ extension TeacherMenuViewController: UITableViewDataSource {
 
 class TeacherMenuViewModel {
     let fullName: String = PGSignedUser.teacher.account.fullName
-    let academyName: String = PGSignedUser.selectedAcademy.name ?? ""
+    let academyName: String = PGSignedUser.selectedAcademy?.name ?? ""
     var menus: [String] = []
     
     init() {

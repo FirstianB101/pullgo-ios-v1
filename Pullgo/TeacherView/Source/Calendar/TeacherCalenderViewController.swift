@@ -13,6 +13,7 @@ import SnapKit
 class TeacherCalendarViewController: UIViewController {
     
     @IBOutlet weak var calendar: FSCalendar!
+    @IBOutlet weak var noAcademyStack: UIStackView!
     let viewModel = TeacherCalendarViewModel()
     
     override func viewDidLoad() {
@@ -31,17 +32,7 @@ class TeacherCalendarViewController: UIViewController {
     
     private func presentNoAcademy() {
         self.calendar.isHidden = true
-        
-        let noti = PGUnregisteredNotification()
-        noti.setText("가입된 학원이 없습니다.")
-        noti.setAction("학원 가입하기", target: self, selector: #selector(joinAcademy))
-        self.view.addSubview(noti)
-        
-        noti.snp.makeConstraints { make in
-            make.leading.equalTo(self.view).offset(30)
-            make.trailing.equalTo(self.view).offset(30)
-            make.centerY.equalTo(self.view)
-        }
+        self.noAcademyStack.isHidden = false
     }
     
     @objc private func joinAcademy() {
@@ -69,6 +60,8 @@ class TeacherCalendarViewController: UIViewController {
 extension TeacherCalendarViewController {
     
     func setCalendarUI() {
+        self.noAcademyStack.isHidden = true
+        self.calendar.isHidden = false
         calendar.locale = .current
         setCalendarHeaderUI()
     }

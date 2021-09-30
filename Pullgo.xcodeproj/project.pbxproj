@@ -47,6 +47,7 @@
 		A55D3FB92697261D009DC6B7 /* FindAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55D3FB82697261D009DC6B7 /* FindAccountViewController.swift */; };
 		A55D3FBB26972651009DC6B7 /* FindAccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55D3FBA26972651009DC6B7 /* FindAccountTest.swift */; };
 		A568CCB326FB3B8B00B96DF0 /* TeacherSignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568CCB226FB3B8B00B96DF0 /* TeacherSignUpTest.swift */; };
+		A573203C2705A4A200951638 /* TeacherAcademyJoinRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A573203B2705A4A200951638 /* TeacherAcademyJoinRequestViewController.swift */; };
 		A5780AAE26AC4A6D007F6A88 /* TeacherClassroomManageExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5780AAD26AC4A6D007F6A88 /* TeacherClassroomManageExamViewController.swift */; };
 		A5780AB026AC4A7D007F6A88 /* TeacherClassroomManageRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5780AAF26AC4A7D007F6A88 /* TeacherClassroomManageRequestViewController.swift */; };
 		A5780AB226AC4A7E007F6A88 /* TeacherClassroomManageStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5780AB126AC4A7E007F6A88 /* TeacherClassroomManageStudentViewController.swift */; };
@@ -145,6 +146,7 @@
 		A55D3FB82697261D009DC6B7 /* FindAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccountViewController.swift; sourceTree = "<group>"; };
 		A55D3FBA26972651009DC6B7 /* FindAccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccountTest.swift; sourceTree = "<group>"; };
 		A568CCB226FB3B8B00B96DF0 /* TeacherSignUpTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSignUpTest.swift; sourceTree = "<group>"; };
+		A573203B2705A4A200951638 /* TeacherAcademyJoinRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherAcademyJoinRequestViewController.swift; sourceTree = "<group>"; };
 		A5780AAD26AC4A6D007F6A88 /* TeacherClassroomManageExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassroomManageExamViewController.swift; sourceTree = "<group>"; };
 		A5780AAF26AC4A7D007F6A88 /* TeacherClassroomManageRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassroomManageRequestViewController.swift; sourceTree = "<group>"; };
 		A5780AB126AC4A7E007F6A88 /* TeacherClassroomManageStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassroomManageStudentViewController.swift; sourceTree = "<group>"; };
@@ -515,6 +517,7 @@
 			children = (
 				A5FB031126A0574C007FCDB7 /* TeacherViewSwitcher.swift */,
 				A5FB031426A05C2D007FCDB7 /* TeacherMenuViewController.swift */,
+				A573203B2705A4A200951638 /* TeacherAcademyJoinRequestViewController.swift */,
 			);
 			path = TeacherViewSwitcher;
 			sourceTree = "<group>";
@@ -699,6 +702,7 @@
 				A5293768269ACCE700B210C2 /* Exam.swift in Sources */,
 				A5780AB226AC4A7E007F6A88 /* TeacherClassroomManageStudentViewController.swift in Sources */,
 				A5B469AC2688DA8A00C62F9C /* Presentor.swift in Sources */,
+				A573203C2705A4A200951638 /* TeacherAcademyJoinRequestViewController.swift in Sources */,
 				A57FE01C268F401300B1E609 /* SignUpInformation.swift in Sources */,
 				A520AAD626EE3BCB0099CD94 /* PGSelectionTab.swift in Sources */,
 				A53EA48226A5402F00AFF799 /* TeacherLessonDetailViewController.swift in Sources */,

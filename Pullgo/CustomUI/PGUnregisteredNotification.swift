@@ -22,7 +22,7 @@ class PGUnregisteredNotification: UIView {
     }
     
     init() {
-        super.init(frame: .zero)
+        super.init(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
         
         self.stack.axis = .vertical
         stack.addSubview(notificationLabel)
