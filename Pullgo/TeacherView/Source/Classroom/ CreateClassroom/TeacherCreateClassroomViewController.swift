@@ -47,6 +47,7 @@ class TeacherCreateClassroomViewController: UIViewController {
     
     func setButtonUI() {
         academySelectButton.setViewCornerRadiusAndShadow(radius: 25)
+        setWeekdayButtonCircle()
     }
     
     func setWeekdayButtonCircle() {

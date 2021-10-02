@@ -75,7 +75,6 @@
                                 </state>
                                 <connections>
                                     <action selector="autoLoginButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mvi-6f-FXI"/>
-                                    <action selector="autoSignInClickedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zHj-QT-7Yl"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="EyY-A3-lU9">

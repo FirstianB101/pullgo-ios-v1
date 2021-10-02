@@ -153,6 +153,29 @@ class _PGNetwork {
         }
     }
     
+    public func signIn(url: URL, parameter: Parameter, success: @escaping ((Data?) -> Void)) {
+        print(url)
+        
+        AF.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: self.headers).response { response in
+            switch response.result {
+            case .success(let d):
+                d?.log()
+                let code = response.response?.statusCode
+                
+                if code == 401 {
+                    let alert = PGAlertPresentor()
+                    alert.present(title: "알림", context: "아이디 혹은 비밀번호가 일치하지 않습니다.")
+                } else {
+                    self.processByStatusCode(code: code) {
+                        success(d)
+                    }
+                }
+            case .failure(_):
+                self.presentNetworkAlert()
+            }
+        }
+    }
+    
     // MARK: - Private Methods
     private enum ErrorStatusCode: Int {
         case badRequest = 400

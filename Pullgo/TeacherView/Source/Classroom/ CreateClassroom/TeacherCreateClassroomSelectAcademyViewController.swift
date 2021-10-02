@@ -14,6 +14,7 @@ class TeacherCreateClassroomSelectAcademyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        academyCollectionView.setCollectionViewBackgroundColor()
         
         viewModel.getAcademies {
             self.academyCollectionView.reloadData()
@@ -33,7 +34,7 @@ extension TeacherCreateClassroomSelectAcademyViewController: UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding: CGFloat = 10
         let width = collectionView.bounds.width - padding * 2
-        let height: CGFloat = 68
+        let height: CGFloat = 70 - padding
         
         return CGSize(width: width, height: height)
     }

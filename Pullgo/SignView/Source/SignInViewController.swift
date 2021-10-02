@@ -56,21 +56,15 @@ extension SignInViewController {
         if !self.checkAllFieldValid(fields: [usernameField, passwordField]) { return }
         
         viewModel.setInputs(username: usernameField.text!, password: passwordField.text!, userType: userType)
-        viewModel.signInProcess(fail: self.signInFail, completion: self.signInSuccess)
+        viewModel.signInProcess(fail: self.networkFail, completion: self.requestSignIn)
     }
     
-    private func signInFail(error: PGNetworkError) {
-        var message: Message = .networkError
-        
-        if error.responseCode == 401 {
-            message = .signInFail
-        }
-        
+    private func networkFail(error: PGNetworkError) {
         let presentor = PGAlertPresentor(presentor: self)
-        presentor.present(title: "알림", context: message)
+        presentor.present(title: "알림", context: .networkError)
     }
     
-    private func signInSuccess(data: Data?) {
+    private func requestSignIn(data: Data?) {
         
         do {
             guard let userInfo = try data?.toObject(type: _PGSignedUser.self) else { return }
@@ -89,6 +83,8 @@ extension SignInViewController {
             presentor.present(title: "오류", context: .unknownError)
         }
     }
+    
+    
     
     @IBAction func autoLoginButtonClicked(_ sender: UIButton) {
         viewModel.toggleAutoLoginStatus()

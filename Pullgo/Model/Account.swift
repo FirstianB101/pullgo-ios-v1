@@ -101,7 +101,7 @@ class _PGSignedUser: Codable {
         let url = PGURLs.token
         let parameter: Parameter = ["username" : username, "password" : password]
         
-        PGNetwork.post(url: url, parameter: parameter, success: success, fail: fail)
+        PGNetwork.signIn(url: url, parameter: parameter, success: success)
     }
     
     // MARK: - Logout Method
