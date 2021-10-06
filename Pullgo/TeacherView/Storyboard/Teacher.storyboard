@@ -983,7 +983,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y3I-PF-nTE">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="06C-fk-610">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="06C-fk-610">
                                     <size key="itemSize" width="390" height="138"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1333,7 +1333,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V1G-AH-RaO">
                                 <rect key="frame" x="0.0" y="126" width="414" height="687"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="P6b-Py-A8R">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P6b-Py-A8R">
                                     <size key="itemSize" width="123" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1807,25 +1807,135 @@
                                             <imageReference key="image" image="line.horizontal.3" catalog="system"/>
                                             <color key="tintColor" name="AccentColor"/>
                                             <connections>
-                                                <action selector="showSideMenu:" destination="AUu-iA-tOI" id="bn6-GT-iUx"/>
+                                                <action selector="showSideMenu:" destination="LJw-OW-iOd" id="e3i-j6-Npv"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5eJ-9i-nub" customClass="ButtonBarView" customModule="XLPagerTabStrip">
+                                <rect key="frame" x="0.0" y="88" width="414" height="48"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="hGZ-VU-2iT"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9Ac-gI-XBz">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLs-Gu-jl9">
+                                <rect key="frame" x="0.0" y="136" width="414" height="726"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KCF-nw-Hhz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="5eJ-9i-nub" firstAttribute="top" secondItem="x0d-5s-U8A" secondAttribute="bottom" id="9yv-2t-H1P"/>
+                            <constraint firstItem="KCF-nw-Hhz" firstAttribute="bottom" secondItem="HLs-Gu-jl9" secondAttribute="bottom" id="Bve-Sa-PJD"/>
                             <constraint firstItem="x0d-5s-U8A" firstAttribute="top" secondItem="KCF-nw-Hhz" secondAttribute="top" id="COV-xO-hpF"/>
                             <constraint firstAttribute="trailing" secondItem="x0d-5s-U8A" secondAttribute="trailing" id="Fyk-LY-egc"/>
+                            <constraint firstItem="5eJ-9i-nub" firstAttribute="leading" secondItem="dBY-Av-lcE" secondAttribute="leading" id="gtr-aJ-xgU"/>
+                            <constraint firstItem="HLs-Gu-jl9" firstAttribute="leading" secondItem="KCF-nw-Hhz" secondAttribute="leading" id="hUp-DB-Spb"/>
+                            <constraint firstItem="5eJ-9i-nub" firstAttribute="trailing" secondItem="KCF-nw-Hhz" secondAttribute="trailing" id="i6f-uk-sTk"/>
+                            <constraint firstItem="KCF-nw-Hhz" firstAttribute="trailing" secondItem="HLs-Gu-jl9" secondAttribute="trailing" id="oBp-3v-w5B"/>
+                            <constraint firstItem="HLs-Gu-jl9" firstAttribute="top" secondItem="5eJ-9i-nub" secondAttribute="bottom" id="x6x-hV-4G0"/>
                             <constraint firstItem="x0d-5s-U8A" firstAttribute="leading" secondItem="KCF-nw-Hhz" secondAttribute="leading" id="xRH-zy-zMr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="buttonBarView" destination="5eJ-9i-nub" id="9LY-P8-Bel"/>
+                        <outlet property="containerView" destination="HLs-Gu-jl9" id="H5N-Hw-hW3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O78-Bq-0je" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162" y="1505"/>
+            <point key="canvasLocation" x="160.86956521739131" y="1504.6875"/>
+        </scene>
+        <!--Academy Accept Teacher View Controller-->
+        <scene sceneID="k3V-r9-uyF">
+            <objects>
+                <collectionViewController storyboardIdentifier="AcademyAcceptTeacherViewController" id="Qcz-XB-LYI" customClass="AcademyAcceptTeacherViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Fly-Mg-gzP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UCj-4G-Vhy">
+                            <size key="itemSize" width="363" height="106"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AcademyAcceptTeacherCell" id="khK-6x-eDt" customClass="AcademyAcceptTeacherCell" customModule="Pullgo" customModuleProvider="target">
+                                <rect key="frame" x="25.5" y="10" width="363" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="d3p-62-j5T">
+                                    <rect key="frame" x="0.0" y="0.0" width="363" height="106"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*** 선생님" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chb-Vs-Njw">
+                                            <rect key="frame" x="20" y="40" width="323" height="26.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="87j-fB-dJc">
+                                            <rect key="frame" x="226" y="66" width="102" height="30"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfa-jY-GRq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                    <state key="normal" title="거절">
+                                                        <color key="titleColor" systemColor="systemRedColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="rejectClicked:" destination="khK-6x-eDt" eventType="touchUpInside" id="P7v-on-src"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jN-6D-iB4">
+                                                    <rect key="frame" x="52" y="0.0" width="50" height="30"/>
+                                                    <color key="backgroundColor" name="LightAccent"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="55Q-De-fS8"/>
+                                                    </constraints>
+                                                    <state key="normal" title="승인">
+                                                        <color key="titleColor" name="AccentColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="acceptClicked:" destination="khK-6x-eDt" eventType="touchUpInside" id="DxO-3N-1Mp"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="87j-fB-dJc" secondAttribute="trailing" constant="35" id="1Ah-na-Twp"/>
+                                        <constraint firstAttribute="trailing" secondItem="chb-Vs-Njw" secondAttribute="trailing" constant="20" id="TPR-73-SRl"/>
+                                        <constraint firstItem="chb-Vs-Njw" firstAttribute="centerY" secondItem="d3p-62-j5T" secondAttribute="centerY" id="dTf-Zo-dXv"/>
+                                        <constraint firstItem="chb-Vs-Njw" firstAttribute="leading" secondItem="d3p-62-j5T" secondAttribute="leading" constant="20" id="fMS-aL-pYW"/>
+                                        <constraint firstAttribute="bottom" secondItem="87j-fB-dJc" secondAttribute="bottom" constant="10" id="qUQ-p6-sGr"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="363" height="106"/>
+                                <connections>
+                                    <outlet property="acceptButton" destination="8jN-6D-iB4" id="Tbj-nh-B7a"/>
+                                    <outlet property="rejectButton" destination="xfa-jY-GRq" id="7hS-DU-GfQ"/>
+                                    <outlet property="teacherNameLabel" destination="chb-Vs-Njw" id="qoP-at-jsO"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="Qcz-XB-LYI" id="uJ3-lx-dv8"/>
+                            <outlet property="delegate" destination="Qcz-XB-LYI" id="xYu-rT-YTR"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="czR-Rf-FBM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="989.85507246376824" y="1511.3839285714284"/>
         </scene>
         <!--Teacher Input New Info View Controller-->
         <scene sceneID="PS6-yt-uf7">
@@ -2779,6 +2889,103 @@
             </objects>
             <point key="canvasLocation" x="3162" y="-249"/>
         </scene>
+        <!--Academy Accept Student View Controller-->
+        <scene sceneID="hd1-y1-5lY">
+            <objects>
+                <collectionViewController storyboardIdentifier="AcademyAcceptStudentViewController" id="v0P-3U-Jt9" customClass="AcademyAcceptStudentViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="9N9-2P-OQl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WNW-KE-x5Y">
+                            <size key="itemSize" width="381" height="132"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="AcademyAcceptStudentCell" id="czN-xO-eQq" customClass="AcademyAcceptStudentCell" customModule="Pullgo" customModuleProvider="target">
+                                <rect key="frame" x="16.5" y="0.0" width="381" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Lro-nD-lwo">
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="132"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="Scp-Tn-kga">
+                                            <rect key="frame" x="20" y="29.5" width="341" height="73"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="**학교 *학년" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eof-w7-Cey">
+                                                    <rect key="frame" x="0.0" y="0.0" width="341" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*** 학생" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKm-Cd-yJO">
+                                                    <rect key="frame" x="0.0" y="46.5" width="341" height="26.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="SWN-vF-CiB">
+                                            <rect key="frame" x="244" y="92" width="102" height="30"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUL-Jp-4SK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                    <state key="normal" title="거절">
+                                                        <color key="titleColor" systemColor="systemRedColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="rejectClicked:" destination="czN-xO-eQq" eventType="touchUpInside" id="wrj-yb-hcD"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSq-Y8-MSe">
+                                                    <rect key="frame" x="52" y="0.0" width="50" height="30"/>
+                                                    <color key="backgroundColor" name="LightAccent"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="GAW-rC-Rea"/>
+                                                    </constraints>
+                                                    <state key="normal" title="승인">
+                                                        <color key="titleColor" name="AccentColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="acceptClicked:" destination="czN-xO-eQq" eventType="touchUpInside" id="l14-iw-XZx"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="WrO-rE-d7S"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Scp-Tn-kga" firstAttribute="centerY" secondItem="Lro-nD-lwo" secondAttribute="centerY" id="0Qo-Gn-0PS"/>
+                                        <constraint firstAttribute="trailing" secondItem="Scp-Tn-kga" secondAttribute="trailing" constant="20" id="4iS-Gh-0xa"/>
+                                        <constraint firstAttribute="bottom" secondItem="SWN-vF-CiB" secondAttribute="bottom" constant="10" id="635-AD-syk"/>
+                                        <constraint firstItem="Scp-Tn-kga" firstAttribute="leading" secondItem="Lro-nD-lwo" secondAttribute="leading" constant="20" id="RWM-H5-lAv"/>
+                                        <constraint firstAttribute="trailing" secondItem="SWN-vF-CiB" secondAttribute="trailing" constant="35" id="v1T-DL-ONQ"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="381" height="132"/>
+                                <connections>
+                                    <outlet property="acceptButton" destination="TSq-Y8-MSe" id="C3i-fi-dIp"/>
+                                    <outlet property="rejectButton" destination="KUL-Jp-4SK" id="ye3-C6-caW"/>
+                                    <outlet property="studentNameLabel" destination="KKm-Cd-yJO" id="Cxg-it-BzA"/>
+                                    <outlet property="studentSchoolInfoLabel" destination="Eof-w7-Cey" id="9CB-jP-57N"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="v0P-3U-Jt9" id="wv8-sU-SmV"/>
+                            <outlet property="delegate" destination="v0P-3U-Jt9" id="Djc-CS-uX0"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jh4-FX-P5c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1600.0000000000002" y="1510.7142857142856"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="N9E-JK-2L3"/>
@@ -2811,6 +3018,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

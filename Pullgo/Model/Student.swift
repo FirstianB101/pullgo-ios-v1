@@ -49,4 +49,8 @@ class Student: PGNetworkable {
         
         try super.encode(to: encoder)
     }
+    
+    public func getSchoolInfo() -> String {
+        return schoolName + " " + String(schoolYear) + "학년"
+    }
 }

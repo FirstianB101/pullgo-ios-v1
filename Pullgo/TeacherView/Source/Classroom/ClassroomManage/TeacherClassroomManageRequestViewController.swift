@@ -71,7 +71,7 @@ extension TeacherClassroomManageRequestViewController: UICollectionViewDataSourc
 extension TeacherClassroomManageRequestViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: view.bounds.width - 40, height: 128)
+        return CGSize(width: view.bounds.width - 20, height: 128)
     }
 }
 

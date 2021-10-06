@@ -1,0 +1,6 @@
+framework module Pods_Pullgo_PullgoTests {
+  umbrella header "Pods-Pullgo-PullgoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
