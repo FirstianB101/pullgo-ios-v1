@@ -28,5 +28,6 @@ public class PGButton: UIButton {
         self.setViewCornerRadiusAndShadow()
         self.backgroundColor = UIColor(named: "AccentColor")!
         self.tintColor = .white
+        self.titleLabel?.font = UIFont.systemFont(ofSize: 18)
     }
 }

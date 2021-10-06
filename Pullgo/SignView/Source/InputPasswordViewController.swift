@@ -132,7 +132,8 @@ enum SignUpPasswordStatus: String, SignUpStatus {
     }
 }
 
-enum SignUpPasswordCheck: String {
+enum SignUpPasswordCheck: String, SignUpStatus {
+    
     case correct = "비밀번호가 일치해요 :)"
     case incorrect = "비밀번호가 일치하지 않아요."
     case noInput = ""
@@ -150,5 +151,9 @@ enum SignUpPasswordCheck: String {
         if check.isEmpty { return .noInput }
         else if origin == check { return .correct }
         else { return .incorrect }
+    }
+    
+    static func getStatus(of input: String) -> SignUpPasswordCheck {
+        return .noInput
     }
 }

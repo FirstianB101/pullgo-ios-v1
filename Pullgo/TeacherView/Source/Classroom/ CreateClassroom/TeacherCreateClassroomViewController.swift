@@ -172,7 +172,7 @@ class TeacherCreateClassroomViewModel {
     func createClassroom(success: @escaping ((Data?) -> Void)) {
         let classroom = Classroom()
         
-        classroom.name = self.classroomName
+        classroom.name = self.formattingClassroomName()
         classroom.academyId = self.selectedAcademy?.id
         classroom.creatorId = PGSignedUser.id!
         

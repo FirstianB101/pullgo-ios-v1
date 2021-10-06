@@ -22,8 +22,15 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // **** TEST ****
+        self.usernameField.text = "swift"
+        self.passwordField.text = "12345678"
+        // **** TEST ****
+        self.userTypeSegment.selectedSegmentIndex = 1
+        
         setTextFieldUI()
         self.setKeyboardDismissWatcher()
+        
     }
     
     private func setTextFieldUI() {

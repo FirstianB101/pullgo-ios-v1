@@ -69,13 +69,9 @@ class PGNetworkable: Codable {
         PGNetwork.post(url: url, parameter: self, success: success, fail: fail)
     }
     
+    /// Should override in inherit class
     public func patch(success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
-        guard let id = self.id else {
-            print("PGNetworkable::patch() -> id is nil.")
-            return
-        }
-        
-        PGNetwork.patch(url: url.appendingURL([String(id)]), parameter: self, success: success, fail: fail)
+        print("Should override in inherit class")
     }
     
     public func delete(success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {

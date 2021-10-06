@@ -9,16 +9,12 @@ import UIKit
 
 class TeacherClassroomManageStudentViewController: UIViewController, TeacherClassroomManageTopBar {
     
-    func setPromptNameBySelectedClassroom() {
-        self.navigationController?.navigationBar.topItem?.prompt = TeacherClassroomManageViewModel.selectedClassroom.parse.classroomName
-    }
-    
-    func setTitleByTabBarMenu() {
-        self.navigationController?.navigationBar.topItem?.title = "학생 관리"
-    }
-
     let viewModel = TeacherClassroomManageStudentViewModel()
     @IBOutlet weak var studentTableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -30,8 +26,27 @@ class TeacherClassroomManageStudentViewController: UIViewController, TeacherClas
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func setPromptNameBySelectedClassroom() {
+        self.navigationController?.navigationBar.topItem?.prompt = TeacherClassroomManageViewModel.selectedClassroom.parse.classroomName
+    }
+    
+    func setTitleByTabBarMenu() {
+        self.navigationController?.navigationBar.topItem?.title = "학생 관리"
+    }
+    
+    @IBAction func kickStudent(_ sender: UIButton) {
+        if viewModel.students.isEmpty {
+            let alert = PGAlertPresentor(presentor: self)
+            alert.present(title: "알림", context: "내보낼 학생이 없습니다.")
+            return
+        }
+        
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "TeacherClassroomKickTeacherViewController") as? TeacherClassroomKickTeacherViewController else { return }
+        
+        // student 넘겨주기
+        vc.viewModel.setStudents(self.viewModel.students)
+        
+        navigationController?.pushViewController(vc, animated: false)
     }
 }
 
@@ -51,10 +66,10 @@ extension TeacherClassroomManageStudentViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TeacherClassroomManageStudentCell", for: indexPath) as! TeacherClassroomManageStudentCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TeacherClassroomManageStudentCell") as? TeacherClassroomManageStudentCell else { return UITableViewCell() }
         
-        cell.schoolInfoLabel.text = viewModel.getSchoolInfo(at: indexPath.item)
-        cell.studentNameLabel.text = viewModel.getStudentName(at: indexPath.item)
+        cell.schoolInfoLabel.text = viewModel.getSchoolInfo(at: indexPath.row)
+        cell.studentNameLabel.text = viewModel.getStudentName(at: indexPath.row)
         
         return cell
     }

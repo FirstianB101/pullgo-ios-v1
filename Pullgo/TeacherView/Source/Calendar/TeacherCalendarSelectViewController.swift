@@ -26,7 +26,7 @@ class TeacherCalendarSelectViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        viewModel.getLessons()
+        reloadTableView()
         setTableViewUI()
     }
     

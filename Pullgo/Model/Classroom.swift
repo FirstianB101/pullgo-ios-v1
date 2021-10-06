@@ -144,7 +144,7 @@ extension Classroom {
         PGNetwork.post(url: url, parameter: parameter, success: completion)
     }
     
-    public func kick(userType: UserType, userId: Int, completion: @escaping ((Data?) -> Void)) {
+    public func kick(userType: UserType, userId: Int, completion: ((Data?) -> Void)? = nil) {
         let url = PGURLs.classrooms.appendingURL([self.classroomId, userType.toKickComponent()])
         let parameter = userType.toParameter(userId: userId)
         

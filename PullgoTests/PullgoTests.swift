@@ -7,6 +7,7 @@
 
 import XCTest
 import Foundation
+import RxSwift
 import Alamofire
 @testable import Pullgo
 
@@ -25,28 +26,34 @@ class PullgoTests: XCTestCase {
     }
     
     func testExample() throws {
-        let url = PGURLs.teachers
-        
-        var data: Data?
-        
-        let promise = XCTestExpectation(description: "GET teachers success")
-        AF.request(url).response { response in
-            switch response.result {
-            case .success(let d):
-                data = d
-                promise.fulfill()
-            case .failure(_):
-                print("error")
-            }
+        var urls = [URL]()
+        for i in 1...4 {
+            urls.append(PGURLs.teachers.appendingURL(["\(i)"]))
         }
+        print(urls)
+        
+        let disposeBag = DisposeBag()
+        let promise = XCTestExpectation(description: "Success")
+        
+        Observable.from(urls)
+            .subscribe(onNext: { url in
+                AF.request(url).response { response in
+                    switch response.result {
+                    case .success(let d):
+                        print("log: ")
+                        d?.log()
+                        promise.fulfill()
+                    case .failure(_):
+                        print("fail")
+                    }
+                }
+            }, onCompleted: {
+                print("complete")
+            }, onDisposed: {
+                print("dispose")
+            })
+            .disposed(by: disposeBag)
+        
         wait(for: [promise], timeout: 10)
-        
-        guard let received = data else { return }
-        print(String(data: received, encoding: .utf8))
-        
-        let decoder = JSONDecoder()
-        let teachers = try! decoder.decode([Teacher].self, from: received)
-        
-        print(teachers)
     }
 }

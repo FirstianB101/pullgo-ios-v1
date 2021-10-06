@@ -40,7 +40,7 @@ class _PGNetwork {
         return url.appendingURL(urls)
     }
     
-    public func get<T: Decodable>(url: URL, type: T.Type, success: @escaping ((T) -> ()), fail: ((AFError) -> Void)? = nil) {
+    public func get<T: Decodable>(url: URL, type: T.Type, success: @escaping ((T) -> ()), fail: ((PGNetworkError) -> Void)? = nil) {
         print(url)
         
         AF.request(url, method: .get, headers: self.headerWithToken).response { response in
@@ -69,7 +69,7 @@ class _PGNetwork {
         }
     }
     
-    public func post(url: URL, parameter: Parameter, success: ((Data?) -> Void)? = nil, fail: ((AFError) -> Void)? = nil) {
+    public func post(url: URL, parameter: Parameter, success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
         print(url)
         
         AF.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: self.headerWithToken).response { response in
@@ -90,7 +90,7 @@ class _PGNetwork {
         }
     }
     
-    public func post<T: Encodable>(url: URL, parameter: T, success: ((Data?) -> Void)? = nil, fail: ((AFError) -> Void)? = nil) {
+    public func post<T: Encodable>(url: URL, parameter: T, success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
         print(url)
         
         AF.request(url, method: .post, parameters: parameter, encoder: JSONParameterEncoder.default, headers: self.headerWithToken).response { response in
@@ -110,11 +110,10 @@ class _PGNetwork {
         }
     }
     
-    public func patch(url: URL, parameter: Encodable, success: ((Data?) -> Void)? = nil, fail: ((AFError) -> Void)? = nil) {
-        guard let param = try? parameter.toParameter() else { return }
-        
+    public func patch(url: URL, parameter: Parameter, success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
         print(url)
-        AF.request(url, method: .patch, parameters: param, encoding: JSONEncoding.default, headers: self.headerWithToken).response { response in
+        
+        AF.request(url, method: .patch, parameters: parameter, encoding: JSONEncoding.default, headers: self.headerWithToken).response { response in
             switch response.result {
             case .success(let d):
                 d?.log()
@@ -132,7 +131,7 @@ class _PGNetwork {
         }
     }
     
-    public func delete(url: URL, success: ((Data?) -> Void)? = nil, fail: ((AFError) -> Void)? = nil) {
+    public func delete(url: URL, success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
         print(url)
         
         AF.request(url, method: .delete, headers: self.headerWithToken).response { response in

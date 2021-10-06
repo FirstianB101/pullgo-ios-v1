@@ -41,11 +41,6 @@ class TeacherClassroomManageRequestViewController: UIViewController, TeacherClas
         viewModel.userType = UserType.toUserType(index: sender.selectedSegmentIndex)!
         self.requestCollectionView.reloadData()
     }
-    
-    func networkFailAlert() {
-        let alert = PGAlertPresentor(presentor: self)
-        alert.presentNetworkError()
-    }
 }
 
 extension TeacherClassroomManageRequestViewController: UICollectionViewDataSource {

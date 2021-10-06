@@ -36,4 +36,22 @@ class Teacher: PGNetworkable {
         
         try super.encode(to: encoder)
     }
+    
+    public override func patch(success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
+        guard let id = self.id else {
+            print("Teacher::patch() -> id is nil.")
+            return
+        }
+        let url = PGURLs.teachers.appendingURL([String(id)])
+        
+        guard let accountParameter = try? account.toParameter() else {
+            print("Teacher::patch() -> convert account to parameter fail.")
+            return
+        }
+        
+        let account: Parameter = ["account" : accountParameter]
+        
+        print(account)
+        PGNetwork.patch(url: url, parameter: account, success: success, fail: fail)
+    }
 }

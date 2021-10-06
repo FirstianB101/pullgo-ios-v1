@@ -43,6 +43,8 @@
 		A532DB5526889BD700076260 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A532DB5426889BD700076260 /* Alamofire */; };
 		A532DDAA269F295C007C9A34 /* TeacherCalendarSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DDA9269F295C007C9A34 /* TeacherCalendarSelectViewController.swift */; };
 		A535E99926F731E200C6F1D8 /* PGNetworkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A535E99826F731E200C6F1D8 /* PGNetworkable.swift */; };
+		A535FD352708D84F009C4D9D /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A535FD342708D84F009C4D9D /* RxCocoa */; };
+		A535FD372708D84F009C4D9D /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A535FD362708D84F009C4D9D /* RxSwift */; };
 		A53EA48226A5402F00AFF799 /* TeacherLessonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53EA48126A5402F00AFF799 /* TeacherLessonDetailViewController.swift */; };
 		A55D3FB92697261D009DC6B7 /* FindAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55D3FB82697261D009DC6B7 /* FindAccountViewController.swift */; };
 		A55D3FBB26972651009DC6B7 /* FindAccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55D3FBA26972651009DC6B7 /* FindAccountTest.swift */; };
@@ -57,10 +59,14 @@
 		A57FE01A268F256B00B1E609 /* SignUpStatusProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE019268F256B00B1E609 /* SignUpStatusProtocol.swift */; };
 		A57FE01C268F401300B1E609 /* SignUpInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE01B268F401300B1E609 /* SignUpInformation.swift */; };
 		A57FE01E268F443600B1E609 /* InputNamePhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE01D268F443600B1E609 /* InputNamePhoneViewController.swift */; };
+		A580B1F92709861600377D72 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A580B1F82709861600377D72 /* RxCocoa */; };
+		A580B1FB2709861600377D72 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A580B1FA2709861600377D72 /* RxSwift */; };
 		A58E7A0D269758CC005FFC6F /* Teacher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58E7A0C269758CC005FFC6F /* Teacher.storyboard */; };
 		A58E7A11269758F6005FFC6F /* TeacherCalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E7A10269758F6005FFC6F /* TeacherCalenderViewController.swift */; };
 		A58E7A1526975B0D005FFC6F /* TeacherUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E7A13269759F5005FFC6F /* TeacherUITest.swift */; };
 		A591BAFB270435A00089F28D /* PullgoUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A591BAFA270435A00089F28D /* PullgoUITest.swift */; };
+		A5A8EF61270C2BA60036389D /* TeacherChangeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A8EF60270C2BA60036389D /* TeacherChangeInfoViewController.swift */; };
+		A5A8EF63270C34230036389D /* TeacherInputNewInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A8EF62270C34230036389D /* TeacherInputNewInfoViewController.swift */; };
 		A5B1A59D26E2055500E5D8B2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A5B1A59C26E2055500E5D8B2 /* SnapKit */; };
 		A5B1A59F26E205A300E5D8B2 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B1A59E26E205A300E5D8B2 /* DatePickerViewController.swift */; };
 		A5B469AC2688DA8A00C62F9C /* Presentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B469AB2688DA8A00C62F9C /* Presentor.swift */; };
@@ -76,6 +82,8 @@
 		A5C95ECC2691874000F19A55 /* InputDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C95ECB2691874000F19A55 /* InputDetailViewController.swift */; };
 		A5CFCCAA26DE26E70069F536 /* PGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CFCCA926DE26E70069F536 /* PGButton.swift */; };
 		A5CFCCAC26DE29240069F536 /* PGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CFCCAB26DE29240069F536 /* PGTextField.swift */; };
+		A5D0341027096AA800732C9D /* TeacherClassroomKickTeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D0340F27096AA800732C9D /* TeacherClassroomKickTeacherViewController.swift */; };
+		A5D1F7BB270DC03D00453A7C /* TeacherApplyAcademyJoinRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D1F7BA270DC03D00453A7C /* TeacherApplyAcademyJoinRequestViewController.swift */; };
 		A5E7C0ED26C66CC10083001C /* StudentCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7C0EC26C66CC10083001C /* StudentCalendarViewController.swift */; };
 		A5EC2ADB2697E4F400D310E0 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = A5EC2ADA2697E4F400D310E0 /* FSCalendar */; };
 		A5EC2ADE2697E9A400D310E0 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = A5EC2ADD2697E9A400D310E0 /* SideMenu */; };
@@ -162,6 +170,8 @@
 		A58E7A10269758F6005FFC6F /* TeacherCalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCalenderViewController.swift; sourceTree = "<group>"; };
 		A58E7A13269759F5005FFC6F /* TeacherUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherUITest.swift; sourceTree = "<group>"; };
 		A591BAFA270435A00089F28D /* PullgoUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullgoUITest.swift; sourceTree = "<group>"; };
+		A5A8EF60270C2BA60036389D /* TeacherChangeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherChangeInfoViewController.swift; sourceTree = "<group>"; };
+		A5A8EF62270C34230036389D /* TeacherInputNewInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherInputNewInfoViewController.swift; sourceTree = "<group>"; };
 		A5B1A59E26E205A300E5D8B2 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatePickerViewController.swift; path = Pullgo/TeacherView/Source/DatePickerView/DatePickerViewController.swift; sourceTree = SOURCE_ROOT; };
 		A5B469AB2688DA8A00C62F9C /* Presentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentor.swift; sourceTree = "<group>"; };
 		A5B469AE2688DF7200C62F9C /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
@@ -176,6 +186,8 @@
 		A5C95ECB2691874000F19A55 /* InputDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDetailViewController.swift; sourceTree = "<group>"; };
 		A5CFCCA926DE26E70069F536 /* PGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGButton.swift; sourceTree = "<group>"; };
 		A5CFCCAB26DE29240069F536 /* PGTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGTextField.swift; sourceTree = "<group>"; };
+		A5D0340F27096AA800732C9D /* TeacherClassroomKickTeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassroomKickTeacherViewController.swift; sourceTree = "<group>"; };
+		A5D1F7BA270DC03D00453A7C /* TeacherApplyAcademyJoinRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherApplyAcademyJoinRequestViewController.swift; sourceTree = "<group>"; };
 		A5E7C0EC26C66CC10083001C /* StudentCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCalendarViewController.swift; sourceTree = "<group>"; };
 		A5EDB212268D8A960085CCAE /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		A5EDB214268D931B0085CCAE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -195,8 +207,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A535FD372708D84F009C4D9D /* RxSwift in Frameworks */,
 				A532DB5526889BD700076260 /* Alamofire in Frameworks */,
 				A5B1A59D26E2055500E5D8B2 /* SnapKit in Frameworks */,
+				A535FD352708D84F009C4D9D /* RxCocoa in Frameworks */,
 				A5EC2ADE2697E9A400D310E0 /* SideMenu in Frameworks */,
 				A5EC2ADB2697E4F400D310E0 /* FSCalendar in Frameworks */,
 			);
@@ -218,6 +232,8 @@
 			files = (
 				A5293775269ADB0100B210C2 /* Alamofire in Frameworks */,
 				A5293779269ADB0100B210C2 /* SideMenu in Frameworks */,
+				A580B1FB2709861600377D72 /* RxSwift in Frameworks */,
+				A580B1F92709861600377D72 /* RxCocoa in Frameworks */,
 				A5293777269ADB0100B210C2 /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +377,7 @@
 				A5780AB126AC4A7E007F6A88 /* TeacherClassroomManageStudentViewController.swift */,
 				A5780AAD26AC4A6D007F6A88 /* TeacherClassroomManageExamViewController.swift */,
 				A5B5CDC2270700B700AC9F7F /* TeacherClassroomDetailStudentViewController.swift */,
+				A5D0340F27096AA800732C9D /* TeacherClassroomKickTeacherViewController.swift */,
 			);
 			path = ClassroomManage;
 			sourceTree = "<group>";
@@ -387,6 +404,8 @@
 		A58E7A0F269758DD005FFC6F /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A5D1F7B9270DC02A00453A7C /* ApplyAcademy */,
+				A5A8EF5F270C2B850036389D /* ChangeInfo */,
 				A5F5E65C26BC2D450004BA35 /* Exam */,
 				A5EFD39326A16B27001637FB /* Classroom */,
 				A5EFD39226A16B13001637FB /* Calendar */,
@@ -401,6 +420,15 @@
 				A58E7A13269759F5005FFC6F /* TeacherUITest.swift */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		A5A8EF5F270C2B850036389D /* ChangeInfo */ = {
+			isa = PBXGroup;
+			children = (
+				A5A8EF60270C2BA60036389D /* TeacherChangeInfoViewController.swift */,
+				A5A8EF62270C34230036389D /* TeacherInputNewInfoViewController.swift */,
+			);
+			path = ChangeInfo;
 			sourceTree = "<group>";
 		};
 		A5B469AA2688DA6700C62F9C /* Utility */ = {
@@ -465,6 +493,14 @@
 				A51D238A26FDBBE400466C05 /* PGUnregisteredNotification.swift */,
 			);
 			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		A5D1F7B9270DC02A00453A7C /* ApplyAcademy */ = {
+			isa = PBXGroup;
+			children = (
+				A5D1F7BA270DC03D00453A7C /* TeacherApplyAcademyJoinRequestViewController.swift */,
+			);
+			path = ApplyAcademy;
 			sourceTree = "<group>";
 		};
 		A5E7C0EA26C66CA40083001C /* Storyboard */ = {
@@ -554,6 +590,8 @@
 				A5EC2ADA2697E4F400D310E0 /* FSCalendar */,
 				A5EC2ADD2697E9A400D310E0 /* SideMenu */,
 				A5B1A59C26E2055500E5D8B2 /* SnapKit */,
+				A535FD342708D84F009C4D9D /* RxCocoa */,
+				A535FD362708D84F009C4D9D /* RxSwift */,
 			);
 			productName = Pullgo;
 			productReference = A532DB1F26889ACB00076260 /* Pullgo.app */;
@@ -600,6 +638,8 @@
 				A5293774269ADB0100B210C2 /* Alamofire */,
 				A5293776269ADB0100B210C2 /* FSCalendar */,
 				A5293778269ADB0100B210C2 /* SideMenu */,
+				A580B1F82709861600377D72 /* RxCocoa */,
+				A580B1FA2709861600377D72 /* RxSwift */,
 			);
 			productName = PullgoUITests;
 			productReference = A532DB4026889ACC00076260 /* PullgoUITests.xctest */;
@@ -642,6 +682,7 @@
 				A5EC2AD92697E4F400D310E0 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				A5EC2ADC2697E9A400D310E0 /* XCRemoteSwiftPackageReference "SideMenu" */,
 				A5B1A59B26E2055500E5D8B2 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				A535FD332708D84F009C4D9D /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = A532DB2026889ACB00076260 /* Products */;
 			projectDirPath = "";
@@ -692,6 +733,7 @@
 				A5191496268DCC1500620A66 /* Extension.swift in Sources */,
 				A5BB71B126A689C500131C9D /* TeacherClassroomDetailSegue.swift in Sources */,
 				A5B1A59F26E205A300E5D8B2 /* DatePickerViewController.swift in Sources */,
+				A5D1F7BB270DC03D00453A7C /* TeacherApplyAcademyJoinRequestViewController.swift in Sources */,
 				A5F7F1A626A303F600487BF7 /* TeacherRequestClassroomJoinViewController.swift in Sources */,
 				A532DB2726889ACB00076260 /* SignInViewController.swift in Sources */,
 				A5B469AF2688DF7200C62F9C /* UserType.swift in Sources */,
@@ -719,12 +761,15 @@
 				A5CFCCAC26DE29240069F536 /* PGTextField.swift in Sources */,
 				A5293762269ACCCD00B210C2 /* Classroom.swift in Sources */,
 				A5B4CD602689942200FA2967 /* PGNetwork.swift in Sources */,
+				A5D0341027096AA800732C9D /* TeacherClassroomKickTeacherViewController.swift in Sources */,
 				A5EDB217268D93A90085CCAE /* Style.swift in Sources */,
 				A5780AB426AC4A7F007F6A88 /* TeacherClassroomManageInfoViewController.swift in Sources */,
+				A5A8EF63270C34230036389D /* TeacherInputNewInfoViewController.swift in Sources */,
 				A5C95ECC2691874000F19A55 /* InputDetailViewController.swift in Sources */,
 				A505A8EE26B44F0F007954A4 /* TeacherCreateClassroomSelectAcademyViewController.swift in Sources */,
 				A5F5E65E26BC2D520004BA35 /* TeacherAddExamViewController.swift in Sources */,
 				A5EDB215268D931B0085CCAE /* SignUpViewController.swift in Sources */,
+				A5A8EF61270C2BA60036389D /* TeacherChangeInfoViewController.swift in Sources */,
 				A508196726E748320094A50C /* Animation.swift in Sources */,
 				A57FE018268F220700B1E609 /* InputPasswordViewController.swift in Sources */,
 				A51D238B26FDBBE400466C05 /* PGUnregisteredNotification.swift in Sources */,
@@ -1100,6 +1145,14 @@
 				minimumVersion = 5.4.3;
 			};
 		};
+		A535FD332708D84F009C4D9D /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.2.0;
+			};
+		};
 		A5B1A59B26E2055500E5D8B2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1169,6 +1222,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A532DB5326889BD700076260 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		A535FD342708D84F009C4D9D /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A535FD332708D84F009C4D9D /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		A535FD362708D84F009C4D9D /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A535FD332708D84F009C4D9D /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		A580B1F82709861600377D72 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A535FD332708D84F009C4D9D /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		A580B1FA2709861600377D72 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A535FD332708D84F009C4D9D /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 		A5B1A59C26E2055500E5D8B2 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
