@@ -20,6 +20,9 @@ class InputDetailViewController: UIViewController {
         super.viewDidLoad()
 
         self.setKeyboardDismissWatcher()
+        
+        // UITEST
+        self.schoolYearSegment.accessibilityIdentifier = "inputSchoolYear"
     }
     
     @IBAction func signUpButtonClicked(sender: UIButton) {
@@ -45,7 +48,7 @@ class InputDetailViewController: UIViewController {
         
         let cancel = alert.cancel
         let okay = UIAlertAction(title: "회원가입", style: .default, handler: { _ in
-            self.sendTeacherPostRequest()
+            self.sendStudentPostRequest()
         })
         
         alert.present(title: "알림", context: context, actions: [cancel, okay])
@@ -60,7 +63,7 @@ class InputDetailViewController: UIViewController {
         viewModel.schoolYear = schoolYearSegment.selectedSegmentIndex + 1
     }
     
-    func sendTeacherPostRequest() {
+    func sendStudentPostRequest() {
         
         viewModel.postRequest(success: { data in
             let alert = PGAlertPresentor(presentor: self)
@@ -108,6 +111,7 @@ class InputDetailViewModel {
     }
     
     func postRequest(success: @escaping ((Data?) -> Void)) {
+        SignUpInformation.shared.mergeAccount()
         SignUpInformation.shared.student?.post(success: success)
     }
 }

@@ -33,7 +33,6 @@
 		A5293777269ADB0100B210C2 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = A5293776269ADB0100B210C2 /* FSCalendar */; };
 		A5293779269ADB0100B210C2 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = A5293778269ADB0100B210C2 /* SideMenu */; };
 		A529377B269AE4CA00B210C2 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A529377A269AE4CA00B210C2 /* Messages.swift */; };
-		A529DB4726C649A6006CD0E7 /* Student.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A529DB4626C649A6006CD0E7 /* Student.storyboard */; };
 		A52F8BAA26BD32F9005AA7DC /* TeacherSelectExamDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F8BA926BD32F9005AA7DC /* TeacherSelectExamDateViewController.swift */; };
 		A532DB2326889ACB00076260 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DB2226889ACB00076260 /* AppDelegate.swift */; };
 		A532DB2526889ACB00076260 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DB2426889ACB00076260 /* SceneDelegate.swift */; };
@@ -89,6 +88,8 @@
 		A5CFCCAC26DE29240069F536 /* PGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CFCCAB26DE29240069F536 /* PGTextField.swift */; };
 		A5D0341027096AA800732C9D /* TeacherClassroomKickTeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D0340F27096AA800732C9D /* TeacherClassroomKickTeacherViewController.swift */; };
 		A5D1F7BB270DC03D00453A7C /* TeacherApplyAcademyJoinRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D1F7BA270DC03D00453A7C /* TeacherApplyAcademyJoinRequestViewController.swift */; };
+		A5DF4A67270F371F004E389B /* StudentSignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF4A66270F3623004E389B /* StudentSignUpTest.swift */; };
+		A5DF4A68270F3720004E389B /* StudentSignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF4A66270F3623004E389B /* StudentSignUpTest.swift */; };
 		A5E7C0ED26C66CC10083001C /* StudentCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7C0EC26C66CC10083001C /* StudentCalendarViewController.swift */; };
 		A5EC2ADB2697E4F400D310E0 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = A5EC2ADA2697E4F400D310E0 /* FSCalendar */; };
 		A5EC2ADE2697E9A400D310E0 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = A5EC2ADD2697E9A400D310E0 /* SideMenu */; };
@@ -147,7 +148,6 @@
 		A5293769269ACCED00B210C2 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		A529376B269AD62A00B210C2 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		A529377A269AE4CA00B210C2 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
-		A529DB4626C649A6006CD0E7 /* Student.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Student.storyboard; sourceTree = "<group>"; };
 		A52F8BA926BD32F9005AA7DC /* TeacherSelectExamDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSelectExamDateViewController.swift; sourceTree = "<group>"; };
 		A532DB1F26889ACB00076260 /* Pullgo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pullgo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A532DB2226889ACB00076260 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +204,7 @@
 		A5CFCCAB26DE29240069F536 /* PGTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGTextField.swift; sourceTree = "<group>"; };
 		A5D0340F27096AA800732C9D /* TeacherClassroomKickTeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassroomKickTeacherViewController.swift; sourceTree = "<group>"; };
 		A5D1F7BA270DC03D00453A7C /* TeacherApplyAcademyJoinRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherApplyAcademyJoinRequestViewController.swift; sourceTree = "<group>"; };
+		A5DF4A66270F3623004E389B /* StudentSignUpTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSignUpTest.swift; sourceTree = "<group>"; };
 		A5E7C0EC26C66CC10083001C /* StudentCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCalendarViewController.swift; sourceTree = "<group>"; };
 		A5EDB212268D8A960085CCAE /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		A5EDB214268D931B0085CCAE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -289,6 +290,7 @@
 			children = (
 				A55D3FBA26972651009DC6B7 /* FindAccountTest.swift */,
 				A568CCB226FB3B8B00B96DF0 /* TeacherSignUpTest.swift */,
+				A5DF4A66270F3623004E389B /* StudentSignUpTest.swift */,
 				A52904532704462E00B9344C /* CheckCreatedAccountTest.swift */,
 			);
 			path = Test;
@@ -547,7 +549,6 @@
 		A5E7C0EA26C66CA40083001C /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				A529DB4626C649A6006CD0E7 /* Student.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -747,7 +748,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A529DB4726C649A6006CD0E7 /* Student.storyboard in Resources */,
 				A532DB2F26889ACC00076260 /* LaunchScreen.storyboard in Resources */,
 				A5B4CD5C26898E9800FA2967 /* thumbs-up.png in Resources */,
 				A58E7A0D269758CC005FFC6F /* Teacher.storyboard in Resources */,
@@ -971,6 +971,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A532DB3A26889ACC00076260 /* PullgoTests.swift in Sources */,
+				A5DF4A67270F371F004E389B /* StudentSignUpTest.swift in Sources */,
 				A568CCB326FB3B8B00B96DF0 /* TeacherSignUpTest.swift in Sources */,
 				A52904512704406000B9344C /* PullgoUITest.swift in Sources */,
 				A52904542704462E00B9344C /* CheckCreatedAccountTest.swift in Sources */,
@@ -982,6 +983,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5290452270444CD00B9344C /* TeacherSignUpTest.swift in Sources */,
+				A5DF4A68270F3720004E389B /* StudentSignUpTest.swift in Sources */,
 				A58E7A1526975B0D005FFC6F /* TeacherUITest.swift in Sources */,
 				A55D3FBB26972651009DC6B7 /* FindAccountTest.swift in Sources */,
 				A591BAFB270435A00089F28D /* PullgoUITest.swift in Sources */,

@@ -148,19 +148,20 @@ class InputNamePhoneViewController: UIViewController {
     }
     
     func decideNextAct() {
+        viewModel.setPhoneNumberOfSignUpInfo()
         if viewModel.userType == .student {
             let vc = storyboard?.instantiateViewController(withIdentifier: "InputDetailViewController") as! InputDetailViewController
             self.navigationItem.backButtonTitle = "전화번호 입력"
             navigationController?.pushViewController(vc, animated: true)
         } else {
-            viewModel.setPhoneNumberOfSignUpInfo()
-            SignUpInformation.shared.mergeAccount()
             sendTeacherPostRequest()
         }
     }
     
     func sendTeacherPostRequest() {
         guard let teacher = SignUpInformation.shared.teacher else { return }
+        
+        SignUpInformation.shared.mergeAccount()
         
         teacher.post(success: { _ in
             let presentor = PGAlertPresentor(presentor: self)
