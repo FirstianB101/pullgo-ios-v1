@@ -47,6 +47,9 @@ class AcademyAcceptTeacherViewController: UICollectionViewController, IndicatorI
         cell.accept = { [unowned self] in
             self.acceptClicked(at: indexPath.item)
         }
+        cell.reject = { [unowned self] in
+            self.rejectClicked(at: indexPath.item)
+        }
         cell.setCellUI()
         
         return cell
@@ -72,7 +75,7 @@ class AcademyAcceptTeacherViewController: UICollectionViewController, IndicatorI
         let alert = PGAlertPresentor(presentor: self)
         let teacherName = self.viewModel.getTeacherName(at: index)
         
-        let reject = UIAlertAction(title: "거절", style: .destructive) { [weak self] _ in
+        let reject = UIAlertAction(title: "거절", style: .default) { [weak self] _ in
             self?.viewModel.reject(at: index) {
                 alert.present(title: "알림", context: "\(teacherName)의 요청이 거절되었어요.")
                 self?.reload()
@@ -80,7 +83,7 @@ class AcademyAcceptTeacherViewController: UICollectionViewController, IndicatorI
         }
         
         alert.present(title: "알림",
-                      context: "\(teacherName)의 요청이 거절되었어요.",
+                      context: "\(teacherName)의 요청을 거절할까요?",
                       actions: [alert.cancel, reject])
     }
 }
@@ -143,5 +146,10 @@ class AcademyAcceptTeacherViewModel {
         let selectedTeacher = teachers[index]
         let url = PGURLs.teachers.appendingURL([String(selectedTeacher.id!), "remove-applied-academy"])
         
+        let body: Parameter = ["academyId" : PGSignedUser.selectedAcademy.id!]
+        
+        PGNetwork.post(url: url, parameter: body, success: { _ in
+            completion()
+        })
     }
 }
