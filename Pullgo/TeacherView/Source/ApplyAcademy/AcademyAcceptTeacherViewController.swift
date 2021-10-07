@@ -67,6 +67,22 @@ class AcademyAcceptTeacherViewController: UICollectionViewController, IndicatorI
                       context: "\(teacherName)의 가입을 승인할까요?",
                       actions: [alert.cancel, okay])
     }
+    
+    private func rejectClicked(at index: Int) {
+        let alert = PGAlertPresentor(presentor: self)
+        let teacherName = self.viewModel.getTeacherName(at: index)
+        
+        let reject = UIAlertAction(title: "거절", style: .destructive) { [weak self] _ in
+            self?.viewModel.reject(at: index) {
+                alert.present(title: "알림", context: "\(teacherName)의 요청이 거절되었어요.")
+                self?.reload()
+            }
+        }
+        
+        alert.present(title: "알림",
+                      context: "\(teacherName)의 요청이 거절되었어요.",
+                      actions: [alert.cancel, reject])
+    }
 }
 
 extension AcademyAcceptTeacherViewController: UICollectionViewDelegateFlowLayout {
@@ -125,9 +141,7 @@ class AcademyAcceptTeacherViewModel {
     
     public func reject(at index: Int, completion: @escaping (() -> Void)) {
         let selectedTeacher = teachers[index]
+        let url = PGURLs.teachers.appendingURL([String(selectedTeacher.id!), "remove-applied-academy"])
         
-//        PGSignedUser.selectedAcademy.accept(userType: .teacher, userId: selectedTeacher.id!) { _ in
-//            completion()
-//        }
     }
 }

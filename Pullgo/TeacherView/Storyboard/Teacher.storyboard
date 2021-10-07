@@ -1828,14 +1828,14 @@
                                 <cells/>
                             </collectionView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLs-Gu-jl9">
-                                <rect key="frame" x="0.0" y="136" width="414" height="726"/>
+                                <rect key="frame" x="0.0" y="136" width="414" height="760"/>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KCF-nw-Hhz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5eJ-9i-nub" firstAttribute="top" secondItem="x0d-5s-U8A" secondAttribute="bottom" id="9yv-2t-H1P"/>
-                            <constraint firstItem="KCF-nw-Hhz" firstAttribute="bottom" secondItem="HLs-Gu-jl9" secondAttribute="bottom" id="Bve-Sa-PJD"/>
+                            <constraint firstAttribute="bottom" secondItem="HLs-Gu-jl9" secondAttribute="bottom" id="Bve-Sa-PJD"/>
                             <constraint firstItem="x0d-5s-U8A" firstAttribute="top" secondItem="KCF-nw-Hhz" secondAttribute="top" id="COV-xO-hpF"/>
                             <constraint firstAttribute="trailing" secondItem="x0d-5s-U8A" secondAttribute="trailing" id="Fyk-LY-egc"/>
                             <constraint firstItem="5eJ-9i-nub" firstAttribute="leading" secondItem="dBY-Av-lcE" secondAttribute="leading" id="gtr-aJ-xgU"/>
