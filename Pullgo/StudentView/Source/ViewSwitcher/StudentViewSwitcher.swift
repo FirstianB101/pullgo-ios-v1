@@ -1,39 +1,35 @@
 //
-//  TeacherViewSwitcher.swift
+//  StudentViewSwitcher.swift
 //  Pullgo
 //
-//  Created by 김세영 on 2021/07/15.
+//  Created by 김세영 on 2021/10/09.
 //
 
-import Foundation
 import UIKit
 import SideMenu
 
-enum TeacherMenu: String, CaseIterable {
+enum StudentMenu: String, CaseIterable {
     case calendarView = "수업 일정"
-    case classroomManage = "반 관리"
-    case requestClassroomJoin = "반 가입 요청"
+    case examList = "시험 목록"
+    case examHistory = "오답노트"
+    case classroomJoinRequest = "반 가입 요청"
     case changeInfo = "회원정보 수정"
-    case applyAcademyJoinRequest = "학원 가입 승인"
     case manageSendRequest = "보낸 요청 관리"
-    case academyManage = "학원 관리"
     
-    static func value(at index: Int) -> TeacherMenu {
+    static func value(at index: Int) -> StudentMenu {
         switch index {
         case 0:
             return .calendarView
         case 1:
-            return .classroomManage
+            return .examList
         case 2:
-            return .requestClassroomJoin
+            return .examHistory
         case 3:
-            return .changeInfo
+            return .classroomJoinRequest
         case 4:
-            return .applyAcademyJoinRequest
+            return .changeInfo
         case 5:
             return .manageSendRequest
-        case 6:
-            return .academyManage
         default:
             return .calendarView
         }
@@ -42,28 +38,27 @@ enum TeacherMenu: String, CaseIterable {
     func identifierOfViewContoller() -> String {
         switch self {
         case .calendarView:
-            return "TeacherCalendarViewController"
-        case .classroomManage:
-            return "TeacherClassroomManageViewController"
-        case .requestClassroomJoin:
-            return "TeacherRequestClassroomJoinViewController"
+            return "StudentCalendarViewController"
+        case .examList:
+            return "StudentExamListViewController"
+        case .examHistory:
+            return "StudentExamHistoryViewController"
+        case .classroomJoinRequest:
+            return "StudentClassroomJoinRequestViewController"
         case .changeInfo:
-            return "TeacherChangeInfoViewController"
-        case .applyAcademyJoinRequest:
-            return "TeacherApplyAcademyJoinRequestViewController"
+            return "StudentChangeInfoViewController"
         case .manageSendRequest:
-            return "TeacherManageSendRequestViewController"
-        case .academyManage:
-            return "TeacherAcademyManageViewController"
+            return "StudentManageSendRequestViewController"
         }
     }
 }
 
-class TeacherViewSwitcher {
-    static func switchView(_ presentor: UIViewController, presenting: TeacherMenu) {
-        let storyboard = UIStoryboard(name: "Teacher", bundle: nil)
+class StudentViewSwitcher {
+    static func switchView(_ presentor: UIViewController, presenting: StudentMenu) {
+        let storyboard = UIStoryboard(name: "Student", bundle: nil)
         guard let pvc = presentor.presentingViewController else { return }
         let vc = storyboard.instantiateViewController(withIdentifier: presenting.identifierOfViewContoller())
+        
         
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .fullScreen
@@ -76,8 +71,8 @@ class TeacherViewSwitcher {
     /// Called when menu button clicked
     /// rootViewController: always self
     static func showSideMenu(_ rootViewController: UIViewController) {
-        let storyboard = UIStoryboard(name: "Teacher", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "TeacherMenuViewController") as! TeacherMenuViewController
+        let storyboard = UIStoryboard(name: "Student", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "StudentSideMenuViewController") as! TeacherMenuViewController
         let menu = SideMenuNavigationController(rootViewController: vc)
         
         menu.presentationStyle = CustomSideMenuStyle()

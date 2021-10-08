@@ -24,6 +24,7 @@ class TeacherCalendarViewController: UIViewController {
                 self.presentNoAcademy()
             } else {
                 PGSignedUser.selectedAcademy = academies[0]
+                
                 self.setCalendarUI()
                 self.initializeCalendar()
             }

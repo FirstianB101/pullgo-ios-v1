@@ -73,14 +73,29 @@ extension TeacherMenuViewController: UITableViewDataSource {
 
 class TeacherMenuViewModel {
     let fullName: String = PGSignedUser.teacher.account.fullName
-    let academyName: String = PGSignedUser.selectedAcademy?.name ?? ""
+    let academyName: String = PGSignedUser.selectedAcademy?.name ?? "가입된 학원이 없습니다."
     var menus: [String] = []
     
     init() {
+        if PGSignedUser.selectedAcademy == nil {
+            menus.append(TeacherMenu.changeInfo.rawValue)
+            return
+        }
+        
         for menu in TeacherMenu.allCases {
-            // Conditions have to be added
             menus.append(menu.rawValue)
         }
+        
+        if !isAcademyOwner() {
+            menus.removeLast()
+        }
+    }
+    
+    private func isAcademyOwner() -> Bool {
+        if let selectedAcademy = PGSignedUser.selectedAcademy {
+            return selectedAcademy.ownerId == PGSignedUser.id
+        }
+        return false
     }
     
     func removeAutoLoginInfo() {

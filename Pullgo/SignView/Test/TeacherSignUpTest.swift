@@ -52,7 +52,7 @@ class TeacherSignUpTest: XCTestCase {
             var phone: String = "01075230867"
         }
         
-        let account = PGTestAccount(username: "XCUITestCase\(id)", password: "12345678", fullName: "TC\(id)")
+        let account = PGTestAccount(username: "xcuitestcase\(id)", password: "12345678", fullName: "TC\(id)")
         
         // 회원가입 -> 선생님으로 로그인
         tapButton("signUpButton")

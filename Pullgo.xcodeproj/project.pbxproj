@@ -47,6 +47,15 @@
 		A535FD352708D84F009C4D9D /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A535FD342708D84F009C4D9D /* RxCocoa */; };
 		A535FD372708D84F009C4D9D /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A535FD362708D84F009C4D9D /* RxSwift */; };
 		A53EA48226A5402F00AFF799 /* TeacherLessonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53EA48126A5402F00AFF799 /* TeacherLessonDetailViewController.swift */; };
+		A554549727109E3700CCC987 /* StudentViewSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A554549627109E3700CCC987 /* StudentViewSwitcher.swift */; };
+		A554549F2710A05B00CCC987 /* StudentExamListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A554549E2710A05B00CCC987 /* StudentExamListViewController.swift */; };
+		A55454A12710A07800CCC987 /* StudentExamHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55454A02710A07800CCC987 /* StudentExamHistoryViewController.swift */; };
+		A55454A32710A08900CCC987 /* StudentClassroomJoinRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55454A22710A08900CCC987 /* StudentClassroomJoinRequestViewController.swift */; };
+		A55454A52710A09200CCC987 /* StudentChangeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55454A42710A09200CCC987 /* StudentChangeInfoViewController.swift */; };
+		A55454A72710A0A200CCC987 /* StudentManageSendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55454A62710A0A200CCC987 /* StudentManageSendRequestViewController.swift */; };
+		A55454A92710A11300CCC987 /* StudentSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55454A82710A11300CCC987 /* StudentSideMenuViewController.swift */; };
+		A55454AE2710AB0D00CCC987 /* Student.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A55454AD2710AB0D00CCC987 /* Student.storyboard */; };
+		A55454B02710B23500CCC987 /* StudentAcademyJoinRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55454AF2710B23500CCC987 /* StudentAcademyJoinRequestViewController.swift */; };
 		A55D3FB92697261D009DC6B7 /* FindAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55D3FB82697261D009DC6B7 /* FindAccountViewController.swift */; };
 		A55D3FBB26972651009DC6B7 /* FindAccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55D3FBA26972651009DC6B7 /* FindAccountTest.swift */; };
 		A568CCB326FB3B8B00B96DF0 /* TeacherSignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568CCB226FB3B8B00B96DF0 /* TeacherSignUpTest.swift */; };
@@ -65,6 +74,7 @@
 		A57FE01E268F443600B1E609 /* InputNamePhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57FE01D268F443600B1E609 /* InputNamePhoneViewController.swift */; };
 		A580B1F92709861600377D72 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A580B1F82709861600377D72 /* RxCocoa */; };
 		A580B1FB2709861600377D72 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A580B1FA2709861600377D72 /* RxSwift */; };
+		A584BA22271069410038EAE7 /* TeacherManageSendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A584BA21271069410038EAE7 /* TeacherManageSendRequestViewController.swift */; };
 		A58E7A0D269758CC005FFC6F /* Teacher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58E7A0C269758CC005FFC6F /* Teacher.storyboard */; };
 		A58E7A11269758F6005FFC6F /* TeacherCalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E7A10269758F6005FFC6F /* TeacherCalenderViewController.swift */; };
 		A58E7A1526975B0D005FFC6F /* TeacherUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E7A13269759F5005FFC6F /* TeacherUITest.swift */; };
@@ -165,6 +175,15 @@
 		A532DDA9269F295C007C9A34 /* TeacherCalendarSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCalendarSelectViewController.swift; sourceTree = "<group>"; };
 		A535E99826F731E200C6F1D8 /* PGNetworkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGNetworkable.swift; sourceTree = "<group>"; };
 		A53EA48126A5402F00AFF799 /* TeacherLessonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherLessonDetailViewController.swift; sourceTree = "<group>"; };
+		A554549627109E3700CCC987 /* StudentViewSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewSwitcher.swift; sourceTree = "<group>"; };
+		A554549E2710A05B00CCC987 /* StudentExamListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentExamListViewController.swift; sourceTree = "<group>"; };
+		A55454A02710A07800CCC987 /* StudentExamHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentExamHistoryViewController.swift; sourceTree = "<group>"; };
+		A55454A22710A08900CCC987 /* StudentClassroomJoinRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClassroomJoinRequestViewController.swift; sourceTree = "<group>"; };
+		A55454A42710A09200CCC987 /* StudentChangeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentChangeInfoViewController.swift; sourceTree = "<group>"; };
+		A55454A62710A0A200CCC987 /* StudentManageSendRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentManageSendRequestViewController.swift; sourceTree = "<group>"; };
+		A55454A82710A11300CCC987 /* StudentSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSideMenuViewController.swift; sourceTree = "<group>"; };
+		A55454AD2710AB0D00CCC987 /* Student.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Student.storyboard; sourceTree = "<group>"; };
+		A55454AF2710B23500CCC987 /* StudentAcademyJoinRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAcademyJoinRequestViewController.swift; sourceTree = "<group>"; };
 		A55D3FB82697261D009DC6B7 /* FindAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccountViewController.swift; sourceTree = "<group>"; };
 		A55D3FBA26972651009DC6B7 /* FindAccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccountTest.swift; sourceTree = "<group>"; };
 		A568CCB226FB3B8B00B96DF0 /* TeacherSignUpTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSignUpTest.swift; sourceTree = "<group>"; };
@@ -182,6 +201,7 @@
 		A57FE01B268F401300B1E609 /* SignUpInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInformation.swift; sourceTree = "<group>"; };
 		A57FE01D268F443600B1E609 /* InputNamePhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNamePhoneViewController.swift; sourceTree = "<group>"; };
 		A58480B727037F8900C7DDA5 /* PGPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = PGPlayground.playground; path = Pullgo/PGPlayground.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		A584BA21271069410038EAE7 /* TeacherManageSendRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherManageSendRequestViewController.swift; sourceTree = "<group>"; };
 		A58E7A0C269758CC005FFC6F /* Teacher.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Teacher.storyboard; sourceTree = "<group>"; };
 		A58E7A10269758F6005FFC6F /* TeacherCalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCalenderViewController.swift; sourceTree = "<group>"; };
 		A58E7A13269759F5005FFC6F /* TeacherUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherUITest.swift; sourceTree = "<group>"; };
@@ -309,8 +329,9 @@
 		A529DB4526C64329006CD0E7 /* StudentView */ = {
 			isa = PBXGroup;
 			children = (
-				A5E7C0EB26C66CB10083001C /* Calendar */,
-				A5E7C0EA26C66CA40083001C /* Storyboard */,
+				A55454AA2710AAA400CCC987 /* Storyboard */,
+				A554549527109E0800CCC987 /* Test */,
+				A554549427109DF300CCC987 /* Source */,
 			);
 			path = StudentView;
 			sourceTree = "<group>";
@@ -408,6 +429,85 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		A554549327109DDE00CCC987 /* ViewSwitcher */ = {
+			isa = PBXGroup;
+			children = (
+				A554549627109E3700CCC987 /* StudentViewSwitcher.swift */,
+				A55454A82710A11300CCC987 /* StudentSideMenuViewController.swift */,
+				A55454AF2710B23500CCC987 /* StudentAcademyJoinRequestViewController.swift */,
+			);
+			path = ViewSwitcher;
+			sourceTree = "<group>";
+		};
+		A554549427109DF300CCC987 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				A5E7C0EB26C66CB10083001C /* Calendar */,
+				A554549D2710A01800CCC987 /* ExamList */,
+				A554549C2710A01400CCC987 /* ExamHistory */,
+				A554549A2710A00900CCC987 /* ClassroomJoinRequest */,
+				A55454992710A00800CCC987 /* ChangeInfo */,
+				A55454982710A00600CCC987 /* ManageSendRequest */,
+				A554549327109DDE00CCC987 /* ViewSwitcher */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		A554549527109E0800CCC987 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		A55454982710A00600CCC987 /* ManageSendRequest */ = {
+			isa = PBXGroup;
+			children = (
+				A55454A62710A0A200CCC987 /* StudentManageSendRequestViewController.swift */,
+			);
+			path = ManageSendRequest;
+			sourceTree = "<group>";
+		};
+		A55454992710A00800CCC987 /* ChangeInfo */ = {
+			isa = PBXGroup;
+			children = (
+				A55454A42710A09200CCC987 /* StudentChangeInfoViewController.swift */,
+			);
+			path = ChangeInfo;
+			sourceTree = "<group>";
+		};
+		A554549A2710A00900CCC987 /* ClassroomJoinRequest */ = {
+			isa = PBXGroup;
+			children = (
+				A55454A22710A08900CCC987 /* StudentClassroomJoinRequestViewController.swift */,
+			);
+			path = ClassroomJoinRequest;
+			sourceTree = "<group>";
+		};
+		A554549C2710A01400CCC987 /* ExamHistory */ = {
+			isa = PBXGroup;
+			children = (
+				A55454A02710A07800CCC987 /* StudentExamHistoryViewController.swift */,
+			);
+			path = ExamHistory;
+			sourceTree = "<group>";
+		};
+		A554549D2710A01800CCC987 /* ExamList */ = {
+			isa = PBXGroup;
+			children = (
+				A554549E2710A05B00CCC987 /* StudentExamListViewController.swift */,
+			);
+			path = ExamList;
+			sourceTree = "<group>";
+		};
+		A55454AA2710AAA400CCC987 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				A55454AD2710AB0D00CCC987 /* Student.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		A5780AAC26AC491E007F6A88 /* ClassroomManage */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,6 +520,14 @@
 				A5D0340F27096AA800732C9D /* TeacherClassroomKickTeacherViewController.swift */,
 			);
 			path = ClassroomManage;
+			sourceTree = "<group>";
+		};
+		A584BA202710692F0038EAE7 /* ManageRequest */ = {
+			isa = PBXGroup;
+			children = (
+				A584BA21271069410038EAE7 /* TeacherManageSendRequestViewController.swift */,
+			);
+			path = ManageRequest;
 			sourceTree = "<group>";
 		};
 		A58E7A0B269758AF005FFC6F /* TeacherView */ = {
@@ -444,6 +552,7 @@
 		A58E7A0F269758DD005FFC6F /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A584BA202710692F0038EAE7 /* ManageRequest */,
 				A5D1F7B9270DC02A00453A7C /* ApplyAcademy */,
 				A5A8EF5F270C2B850036389D /* ChangeInfo */,
 				A5F5E65C26BC2D450004BA35 /* Exam */,
@@ -544,13 +653,6 @@
 				A56FB383270DD74A001A5F21 /* AcademyAcceptTeacherViewController.swift */,
 			);
 			path = ApplyAcademy;
-			sourceTree = "<group>";
-		};
-		A5E7C0EA26C66CA40083001C /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		A5E7C0EB26C66CB10083001C /* Calendar */ = {
@@ -753,6 +855,7 @@
 				A58E7A0D269758CC005FFC6F /* Teacher.storyboard in Resources */,
 				A532DB2C26889ACC00076260 /* Assets.xcassets in Resources */,
 				A532DB2A26889ACB00076260 /* Main.storyboard in Resources */,
+				A55454AE2710AB0D00CCC987 /* Student.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -904,6 +1007,7 @@
 				A5D1F7BB270DC03D00453A7C /* TeacherApplyAcademyJoinRequestViewController.swift in Sources */,
 				A5F7F1A626A303F600487BF7 /* TeacherRequestClassroomJoinViewController.swift in Sources */,
 				A532DB2726889ACB00076260 /* SignInViewController.swift in Sources */,
+				A55454A52710A09200CCC987 /* StudentChangeInfoViewController.swift in Sources */,
 				A5B469AF2688DF7200C62F9C /* UserType.swift in Sources */,
 				A5FB031026A04071007FCDB7 /* TeacherCreateLessonViewController.swift in Sources */,
 				A5EFD39526A16B3E001637FB /* TeacherClassroomManageViewController.swift in Sources */,
@@ -913,16 +1017,19 @@
 				A5FB031526A05C2D007FCDB7 /* TeacherMenuViewController.swift in Sources */,
 				A56FB386270DD778001A5F21 /* AcademyAcceptStudentViewController.swift in Sources */,
 				A5F5E66126BC3E100004BA35 /* TeacherAddExamDateViewController.swift in Sources */,
+				A55454A12710A07800CCC987 /* StudentExamHistoryViewController.swift in Sources */,
 				A5293768269ACCE700B210C2 /* Exam.swift in Sources */,
 				A5780AB226AC4A7E007F6A88 /* TeacherClassroomManageStudentViewController.swift in Sources */,
 				A5B469AC2688DA8A00C62F9C /* Presentor.swift in Sources */,
 				A573203C2705A4A200951638 /* TeacherAcademyJoinRequestViewController.swift in Sources */,
 				A57FE01C268F401300B1E609 /* SignUpInformation.swift in Sources */,
+				A554549F2710A05B00CCC987 /* StudentExamListViewController.swift in Sources */,
 				A520AAD626EE3BCB0099CD94 /* PGSelectionTab.swift in Sources */,
 				A53EA48226A5402F00AFF799 /* TeacherLessonDetailViewController.swift in Sources */,
 				A532DB2326889ACB00076260 /* AppDelegate.swift in Sources */,
 				A57FE01A268F256B00B1E609 /* SignUpStatusProtocol.swift in Sources */,
 				A5EDB213268D8A960085CCAE /* Keyboard.swift in Sources */,
+				A55454A32710A08900CCC987 /* StudentClassroomJoinRequestViewController.swift in Sources */,
 				A5FB031826A09162007FCDB7 /* SideMenuPresentStyleExtension.swift in Sources */,
 				A5191494268DC27300620A66 /* InputUsernameViewController.swift in Sources */,
 				A5B5CDC3270700B700AC9F7F /* TeacherClassroomDetailStudentViewController.swift in Sources */,
@@ -933,12 +1040,14 @@
 				A5B4CD602689942200FA2967 /* PGNetwork.swift in Sources */,
 				A5D0341027096AA800732C9D /* TeacherClassroomKickTeacherViewController.swift in Sources */,
 				A5EDB217268D93A90085CCAE /* Style.swift in Sources */,
+				A584BA22271069410038EAE7 /* TeacherManageSendRequestViewController.swift in Sources */,
 				A5780AB426AC4A7F007F6A88 /* TeacherClassroomManageInfoViewController.swift in Sources */,
 				A5A8EF63270C34230036389D /* TeacherInputNewInfoViewController.swift in Sources */,
 				A5C95ECC2691874000F19A55 /* InputDetailViewController.swift in Sources */,
 				A505A8EE26B44F0F007954A4 /* TeacherCreateClassroomSelectAcademyViewController.swift in Sources */,
 				A5F5E65E26BC2D520004BA35 /* TeacherAddExamViewController.swift in Sources */,
 				A5EDB215268D931B0085CCAE /* SignUpViewController.swift in Sources */,
+				A55454B02710B23500CCC987 /* StudentAcademyJoinRequestViewController.swift in Sources */,
 				A5A8EF61270C2BA60036389D /* TeacherChangeInfoViewController.swift in Sources */,
 				A508196726E748320094A50C /* Animation.swift in Sources */,
 				A57FE018268F220700B1E609 /* InputPasswordViewController.swift in Sources */,
@@ -956,13 +1065,16 @@
 				A5E7C0ED26C66CC10083001C /* StudentCalendarViewController.swift in Sources */,
 				A52F8BAA26BD32F9005AA7DC /* TeacherSelectExamDateViewController.swift in Sources */,
 				A5B469B32688E9F600C62F9C /* Student.swift in Sources */,
+				A554549727109E3700CCC987 /* StudentViewSwitcher.swift in Sources */,
 				A5293764269ACCD700B210C2 /* Academy.swift in Sources */,
 				A5780AAE26AC4A6D007F6A88 /* TeacherClassroomManageExamViewController.swift in Sources */,
 				A532DDAA269F295C007C9A34 /* TeacherCalendarSelectViewController.swift in Sources */,
 				A55D3FB92697261D009DC6B7 /* FindAccountViewController.swift in Sources */,
 				A5CFCCAA26DE26E70069F536 /* PGButton.swift in Sources */,
 				A529376C269AD62A00B210C2 /* Schedule.swift in Sources */,
+				A55454A92710A11300CCC987 /* StudentSideMenuViewController.swift in Sources */,
 				A57F5CED2695F2BE00A603DD /* Account.swift in Sources */,
+				A55454A72710A0A200CCC987 /* StudentManageSendRequestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

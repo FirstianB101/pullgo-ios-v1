@@ -25,6 +25,9 @@ class SignInViewController: UIViewController {
         setTextFieldUI()
         self.setKeyboardDismissWatcher()
         
+        // ***** TEST *****
+        self.usernameField.text = "student11"
+        self.passwordField.text = "12345678"
     }
     
     private func setTextFieldUI() {

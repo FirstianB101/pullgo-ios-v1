@@ -576,8 +576,7 @@
                                                     <action selector="showSideMenu:" destination="7bP-d1-dG0" id="w8h-Bd-ZrZ"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem title="Item" style="plain" id="uzv-dP-TAD">
-                                                <imageReference key="image" image="line.horizontal.3" catalog="system"/>
+                                            <barButtonItem title="Item" image="line.horizontal.3" catalog="system" style="plain" id="uzv-dP-TAD">
                                                 <color key="tintColor" name="AccentColor"/>
                                                 <connections>
                                                     <action selector="showSideMenu:" destination="7bP-d1-dG0" id="IU9-Yz-lDW"/>
@@ -776,7 +775,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="lP1-7j-3MH">
                         <barButtonItem key="backBarButtonItem" title="학생 관리" id="bd1-gs-CSd"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="jej-ZE-KLZ">
+                        <barButtonItem key="rightBarButtonItem" id="jej-ZE-KLZ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="nYZ-xg-n2a">
                                 <rect key="frame" x="302" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1505,7 +1504,7 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="VGZ-av-We2">
-                                <rect key="frame" x="30" y="388.5" width="354" height="119"/>
+                                <rect key="frame" x="30" y="357" width="354" height="182"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가입된 학원이 없습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJf-fa-QUq">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="36"/>
@@ -1513,16 +1512,28 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UrG-6n-iO4">
-                                        <rect key="frame" x="0.0" y="86" width="354" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="학원 가입하기">
-                                            <color key="titleColor" name="AccentColor"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="YUl-jH-eb6" kind="presentation" id="N9E-JK-2L3"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="FDZ-bl-M9K">
+                                        <rect key="frame" x="0.0" y="86" width="354" height="96"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UrG-6n-iO4">
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="학원 가입하기">
+                                                    <color key="titleColor" name="AccentColor"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="YUl-jH-eb6" kind="presentation" id="N9E-JK-2L3"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYq-pF-Mk9">
+                                                <rect key="frame" x="0.0" y="63" width="354" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="학원 생성하기">
+                                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="txY-yp-AT2" customClass="FSCalendar">
@@ -1803,11 +1814,10 @@
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem title="학원 가입 승인" id="hM8-aP-2Si">
-                                        <barButtonItem key="leftBarButtonItem" id="bEe-sA-NEf">
-                                            <imageReference key="image" image="line.horizontal.3" catalog="system"/>
+                                        <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" style="plain" id="bEe-sA-NEf">
                                             <color key="tintColor" name="AccentColor"/>
                                             <connections>
-                                                <action selector="showSideMenu:" destination="LJw-OW-iOd" id="e3i-j6-Npv"/>
+                                                <action selector="showSideMenu:" destination="LJw-OW-iOd" id="nza-EE-4QG"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1854,6 +1864,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O78-Bq-0je" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="160.86956521739131" y="1504.6875"/>
+        </scene>
+        <!--Teacher Manage Send Request View Controller-->
+        <scene sceneID="g5s-bt-OLg">
+            <objects>
+                <viewController storyboardIdentifier="TeacherManageSendRequestViewController" id="oDI-2N-Yyo" customClass="TeacherManageSendRequestViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pH4-2p-yjs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPA-2J-wyS">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="보낸 요청 관리" id="PVJ-aC-Zyu">
+                                        <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" style="plain" id="1UG-xy-FUa">
+                                            <color key="tintColor" name="AccentColor"/>
+                                            <connections>
+                                                <action selector="showSideMenu:" destination="oDI-2N-Yyo" id="qm1-m9-dRv"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gqk-8x-k2k" customClass="ButtonBarView" customModule="XLPagerTabStrip">
+                                <rect key="frame" x="0.0" y="88" width="414" height="48"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="WkV-nh-BWd"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uAC-iJ-N6r">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HlE-i2-oew">
+                                <rect key="frame" x="0.0" y="136" width="414" height="760"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="O15-Mj-epF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NPA-2J-wyS" firstAttribute="leading" secondItem="O15-Mj-epF" secondAttribute="leading" id="9Vg-5o-sRC"/>
+                            <constraint firstItem="HlE-i2-oew" firstAttribute="bottom" secondItem="pH4-2p-yjs" secondAttribute="bottom" id="DKQ-Jg-ocY"/>
+                            <constraint firstItem="NPA-2J-wyS" firstAttribute="top" secondItem="O15-Mj-epF" secondAttribute="top" id="GCT-IQ-SiG"/>
+                            <constraint firstItem="HlE-i2-oew" firstAttribute="leading" secondItem="O15-Mj-epF" secondAttribute="leading" id="Pck-ug-oHw"/>
+                            <constraint firstItem="gqk-8x-k2k" firstAttribute="top" secondItem="NPA-2J-wyS" secondAttribute="bottom" id="YB5-zK-pwI"/>
+                            <constraint firstItem="O15-Mj-epF" firstAttribute="trailing" secondItem="HlE-i2-oew" secondAttribute="trailing" id="cPq-UN-kdE"/>
+                            <constraint firstItem="O15-Mj-epF" firstAttribute="trailing" secondItem="gqk-8x-k2k" secondAttribute="trailing" id="ftd-3E-Cba"/>
+                            <constraint firstItem="NPA-2J-wyS" firstAttribute="trailing" secondItem="O15-Mj-epF" secondAttribute="trailing" id="lac-eW-q4F"/>
+                            <constraint firstItem="gqk-8x-k2k" firstAttribute="leading" secondItem="O15-Mj-epF" secondAttribute="leading" id="vUI-XZ-rs6"/>
+                            <constraint firstItem="HlE-i2-oew" firstAttribute="top" secondItem="gqk-8x-k2k" secondAttribute="bottom" id="yVX-Zl-x1o"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buttonBarView" destination="gqk-8x-k2k" id="sRB-KP-XQ6"/>
+                        <outlet property="containerView" destination="HlE-i2-oew" id="GD1-hH-ssR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qPo-ss-6eN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="161" y="2210"/>
         </scene>
         <!--Academy Accept Teacher View Controller-->
         <scene sceneID="k3V-r9-uyF">
@@ -2988,7 +3062,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="N9E-JK-2L3"/>
+        <segue reference="gjf-66-0gp"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
