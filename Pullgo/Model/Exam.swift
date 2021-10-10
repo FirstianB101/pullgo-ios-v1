@@ -67,17 +67,17 @@ class Exam: PGNetworkable {
         return String(examId)
     }
     
-    func getBeginDateTime() -> String {
+    public func getBeginDateTime() -> String {
         let beginDate = beginDateTime.toISO8601
-        return beginDate.toString(format: "MM/dd HH:mm")
+        return beginDate.toString(format: "M/d HH:mm")
     }
     
-    func getEndDateTime() -> String {
+    public func getEndDateTime() -> String {
         let endDate = endDateTime.toISO8601
-        return endDate.toString(format: "MM/dd HH:mm")
+        return endDate.toString(format: "M/d HH:mm")
     }
     
-    func getTimeLimit() -> String {
+    public func getTimeLimit() -> String {
         let timeLimits = self.timeLimit.split(separator: "H")
         let hour = timeLimits[0].filter { $0.isNumber }
         var minute = "0"
@@ -87,6 +87,21 @@ class Exam: PGNetworkable {
         }
         
         return "\(hour)시간 \(minute)분"
+    }
+    
+    public func getAcademyAndClassroom(completion: @escaping ((Academy, Classroom) -> Void)) {
+        self.getClassroom { classroom in
+            classroom.getBelongedAcademy { academy in
+                completion(academy, classroom)
+            }
+        }
+    }
+    
+    private func getClassroom(completion: @escaping ((Classroom) -> Void)) {
+        let url = PGURLs.classrooms.appendingURL([String(self.classroomId)])
+        PGNetwork.get(url: url, type: Classroom.self) { classroom in
+            completion(classroom)
+        }
     }
 }
 

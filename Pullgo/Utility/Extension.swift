@@ -53,7 +53,7 @@ extension Date {
         self + Date.day
     }
     var firstDate: Date {
-        let day = Double(self.toString(format: "dd"))! - 2
+        let day = Double(self.toString(format: "dd"))! - 1
         
         return self - Date.day * day
     }

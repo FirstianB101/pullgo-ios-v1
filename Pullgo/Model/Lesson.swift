@@ -61,4 +61,11 @@ extension Lesson {
         
         PGNetwork.get(url: url, type: Academy.self, success: completion)
     }
+    
+    public func getTime() -> String {
+        let beginTime = schedule.beginTime.split(separator: ":")
+        let endTime = schedule.endTime.split(separator: ":")
+        
+        return (beginTime[0] + ":" + beginTime[1]) + " ~ " + (endTime[0] + ":" + endTime[1])
+    }
 }

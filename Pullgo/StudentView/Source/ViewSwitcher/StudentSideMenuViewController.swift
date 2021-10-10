@@ -20,6 +20,8 @@ class StudentSideMenuViewController: UIViewController {
         super.viewDidLoad()
         
         hideNavigationBar()
+        nameLabel.text = viewModel.getNameAndGreeting()
+        academyNameLabel.text = viewModel.getAcademyName()
     }
     
     private func hideNavigationBar() {
@@ -47,7 +49,7 @@ class StudentSideMenuViewController: UIViewController {
 extension StudentSideMenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        StudentViewSwitcher.switchView(self, presenting: .value(at: indexPath.row))
+        StudentViewSwitcher.switchView(self, presenting: .value(at: viewModel.getMenu(at: indexPath.row)))
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,7 +71,7 @@ class StudentSideMenuCell: UITableViewCell {
 
 class StudentSideMenuViewModel {
     private var name: String = PGSignedUser.student.account.fullName
-    private var academyName: String = PGSignedUser.selectedAcademy.name ?? "가입된 학원이 없습니다."
+    private var academyName: String = PGSignedUser.selectedAcademy?.name ?? "가입된 학원이 없습니다."
     private var menus: [String] = []
     
     init() {

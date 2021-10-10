@@ -6,6 +6,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,13 +17,108 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6N-a6-bnt">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="시험 목록" id="b3e-bz-ASn">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="tZ3-su-Mch">
+                                            <color key="tintColor" name="AccentColor"/>
+                                            <connections>
+                                                <action selector="showSideMenu:" destination="Y6W-OH-hqX" id="73e-EK-rls"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OjZ-Dz-TH4">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aaG-hF-qA8">
+                                    <size key="itemSize" width="390" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StudentExamListCell" id="GAB-wL-DW8" customClass="StudentExamListCell" customModule="Pullgo" customModuleProvider="target">
+                                        <rect key="frame" x="12" y="0.0" width="390" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="f57-Bc-nwU">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="DUL-3E-0zr">
+                                                    <rect key="frame" x="20" y="13.5" width="350" height="123"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A학원 ABC반" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oK-bl-3pg">
+                                                            <rect key="frame" x="0.0" y="0.0" width="350" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시험 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6C-wW-FZe">
+                                                            <rect key="frame" x="0.0" y="33" width="350" height="24"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제한 시간: H시간 m분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kc6-aa-GFC">
+                                                            <rect key="frame" x="0.0" y="72" width="350" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" name="AccentColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M/d HH:mm ~ M/d HH:mm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQ8-vh-Ua8">
+                                                            <rect key="frame" x="0.0" y="105" width="350" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DUL-3E-0zr" firstAttribute="leading" secondItem="f57-Bc-nwU" secondAttribute="leading" constant="20" id="G2Y-1c-UcY"/>
+                                                <constraint firstItem="DUL-3E-0zr" firstAttribute="centerY" secondItem="f57-Bc-nwU" secondAttribute="centerY" id="kPY-rA-yUu"/>
+                                                <constraint firstAttribute="trailing" secondItem="DUL-3E-0zr" secondAttribute="trailing" constant="20" id="wR4-l4-pjB"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="390" height="150"/>
+                                        <connections>
+                                            <outlet property="academyAndClassroomLabel" destination="2oK-bl-3pg" id="vQs-dg-jXH"/>
+                                            <outlet property="beginAndEndDateLabel" destination="IQ8-vh-Ua8" id="zXj-zq-g4M"/>
+                                            <outlet property="examNameLabel" destination="G6C-wW-FZe" id="EZv-OB-5Nt"/>
+                                            <outlet property="timeLimitLabel" destination="Kc6-aa-GFC" id="IEQ-Sk-yqJ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="BNG-ia-gry"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="ofJ-Q0-JRY"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OjZ-Dz-TH4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="BUN-Js-6Hq"/>
+                            <constraint firstItem="P6N-a6-bnt" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="E9W-uO-kT9"/>
+                            <constraint firstItem="OjZ-Dz-TH4" firstAttribute="top" secondItem="P6N-a6-bnt" secondAttribute="bottom" id="HFE-2v-SNQ"/>
+                            <constraint firstAttribute="bottom" secondItem="OjZ-Dz-TH4" secondAttribute="bottom" id="HlG-WM-y9G"/>
+                            <constraint firstItem="P6N-a6-bnt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="JPB-g3-faE"/>
+                            <constraint firstItem="P6N-a6-bnt" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="fTd-HX-aNe"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OjZ-Dz-TH4" secondAttribute="trailing" id="zQz-U4-kCY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="examList" destination="OjZ-Dz-TH4" id="cgN-Ft-r3z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="96" y="42"/>
+            <point key="canvasLocation" x="95.652173913043484" y="41.517857142857139"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="1mv-2M-cyh">
@@ -48,8 +144,29 @@
                     <view key="view" contentMode="scaleToFill" id="Zph-qW-hZo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JFP-5Y-yyt">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="오답노트" id="dnw-Dm-hRA">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="QQy-Ao-NDb">
+                                            <color key="tintColor" name="AccentColor"/>
+                                            <connections>
+                                                <action selector="showSideMenu:" destination="WNx-wm-WoF" id="R5b-WI-Vjb"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="i7M-8A-XGq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JFP-5Y-yyt" firstAttribute="trailing" secondItem="i7M-8A-XGq" secondAttribute="trailing" id="5yM-bE-zXz"/>
+                            <constraint firstItem="JFP-5Y-yyt" firstAttribute="leading" secondItem="i7M-8A-XGq" secondAttribute="leading" id="8eP-qM-DeH"/>
+                            <constraint firstItem="JFP-5Y-yyt" firstAttribute="top" secondItem="i7M-8A-XGq" secondAttribute="top" id="wi1-ud-ceq"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kS4-Dh-PV2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -63,9 +180,62 @@
                     <view key="view" contentMode="scaleToFill" id="StE-X2-dT4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8O6-WU-AQh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="수업 일정" id="3DT-Uj-EZE">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="Fp8-rj-DhO">
+                                            <color key="tintColor" name="AccentColor"/>
+                                            <connections>
+                                                <action selector="showSideMenu:" destination="G0l-AP-JAm" id="4NL-qh-V1K"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="calendar.badge.clock.rtl" catalog="system" id="0DW-Yt-9Z0">
+                                            <connections>
+                                                <action selector="gotoToday:" destination="G0l-AP-JAm" id="ob2-RH-glM"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqY-WV-7jN" customClass="FSCalendar">
+                                <rect key="frame" x="10" y="98" width="394" height="754"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="calendar"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
+                                        <color key="value" systemColor="systemOrangeColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
+                                        <color key="value" name="AccentColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsMultipleSelection" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsSelection" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="G0l-AP-JAm" id="1RP-PS-IPu"/>
+                                    <outlet property="delegate" destination="G0l-AP-JAm" id="dco-aB-5wX"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="WQi-b8-gd1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WQi-b8-gd1" firstAttribute="trailing" secondItem="jqY-WV-7jN" secondAttribute="trailing" constant="10" id="BKy-xA-oSo"/>
+                            <constraint firstItem="8O6-WU-AQh" firstAttribute="top" secondItem="WQi-b8-gd1" secondAttribute="top" id="BcI-Ca-bH4"/>
+                            <constraint firstItem="jqY-WV-7jN" firstAttribute="leading" secondItem="WQi-b8-gd1" secondAttribute="leading" constant="10" id="Niv-ey-GJ4"/>
+                            <constraint firstItem="WQi-b8-gd1" firstAttribute="bottom" secondItem="jqY-WV-7jN" secondAttribute="bottom" constant="10" id="XHi-E7-FPs"/>
+                            <constraint firstItem="WQi-b8-gd1" firstAttribute="trailing" secondItem="8O6-WU-AQh" secondAttribute="trailing" id="cPe-wC-02g"/>
+                            <constraint firstItem="jqY-WV-7jN" firstAttribute="top" secondItem="8O6-WU-AQh" secondAttribute="bottom" constant="10" id="fzQ-bf-BQE"/>
+                            <constraint firstItem="8O6-WU-AQh" firstAttribute="leading" secondItem="StE-X2-dT4" secondAttribute="leading" id="xUY-Ua-wSV"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="calendar" destination="jqY-WV-7jN" id="O0a-Hd-naa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pB9-oX-8UN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,8 +248,29 @@
                     <view key="view" contentMode="scaleToFill" id="Ccd-mw-rKp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uc9-8l-kGN">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="회원정보 수정" id="OBC-bq-esf">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="TIN-Dr-GhJ">
+                                            <color key="tintColor" name="AccentColor"/>
+                                            <connections>
+                                                <action selector="showSideMenu:" destination="txy-Wo-Z4M" id="mpv-YP-Xhb"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="MRn-fn-tPW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uc9-8l-kGN" firstAttribute="top" secondItem="MRn-fn-tPW" secondAttribute="top" id="C4b-5f-DfL"/>
+                            <constraint firstItem="uc9-8l-kGN" firstAttribute="trailing" secondItem="MRn-fn-tPW" secondAttribute="trailing" id="MQW-PA-cNl"/>
+                            <constraint firstItem="uc9-8l-kGN" firstAttribute="leading" secondItem="MRn-fn-tPW" secondAttribute="leading" id="m73-Uw-CLv"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ER-09-RwH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -93,8 +284,29 @@
                     <view key="view" contentMode="scaleToFill" id="xyr-YN-gvW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nI-BD-Vqd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="보낸 요청 관리" id="d1h-HQ-GxZ">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="P8y-bh-ZbH">
+                                            <color key="tintColor" name="AccentColor"/>
+                                            <connections>
+                                                <action selector="showSideMenu:" destination="axE-kD-IKG" id="SRa-Dt-d3E"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="sTK-Vk-ZSg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5nI-BD-Vqd" firstAttribute="top" secondItem="sTK-Vk-ZSg" secondAttribute="top" id="RkX-Cu-o0s"/>
+                            <constraint firstItem="5nI-BD-Vqd" firstAttribute="leading" secondItem="sTK-Vk-ZSg" secondAttribute="leading" id="XRn-o3-Myy"/>
+                            <constraint firstItem="5nI-BD-Vqd" firstAttribute="trailing" secondItem="sTK-Vk-ZSg" secondAttribute="trailing" id="kzc-8i-gf2"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rjI-rI-Y7N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -108,13 +320,118 @@
                     <view key="view" contentMode="scaleToFill" id="Sva-pG-DkZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mJ4-qv-7Lu">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="반 가입 요청" id="Ow3-sG-0h8">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="u1c-qg-qGy">
+                                            <color key="tintColor" name="AccentColor"/>
+                                            <connections>
+                                                <action selector="showSideMenu:" destination="eLc-3S-PM8" id="a4b-Ry-Gfe"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="9Ta-vN-d7w">
+                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="eLc-3S-PM8" id="v2r-tZ-8b3"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qhs-ir-6G5">
+                                <rect key="frame" x="0.0" y="139" width="414" height="723"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="rsJ-ha-oXX">
+                                    <rect key="frame" x="0.0" y="172.00000034679067" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TeacherClassroomCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ClassroomCell" rowHeight="123" id="kuQ-nt-USZ" customClass="ClassroomCell" customModule="Pullgo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="123"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kuQ-nt-USZ" id="aqo-gc-SbX">
+                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="123"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미적분 - 적분의 활용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cil-lG-Qhc">
+                                                    <rect key="frame" x="30" y="71" width="324.5" height="37"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월, 수, 금" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Il-0r-Wcs">
+                                                    <rect key="frame" x="30" y="45" width="324.5" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="hiO-Z8-2LQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*** 선생님" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ljg-5F-e8t">
+                                                    <rect key="frame" x="30" y="18" width="324.5" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="H5p-G3-1hj"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <color key="textColor" systemColor="systemIndigoColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3Il-0r-Wcs" firstAttribute="trailing" secondItem="cil-lG-Qhc" secondAttribute="trailing" id="HjY-wC-ccC"/>
+                                                <constraint firstItem="3Il-0r-Wcs" firstAttribute="top" secondItem="Ljg-5F-e8t" secondAttribute="bottom" constant="6" id="ISX-YG-QEE"/>
+                                                <constraint firstItem="3Il-0r-Wcs" firstAttribute="leading" secondItem="cil-lG-Qhc" secondAttribute="leading" id="Mmb-ez-F7i"/>
+                                                <constraint firstItem="Ljg-5F-e8t" firstAttribute="leading" secondItem="3Il-0r-Wcs" secondAttribute="leading" id="NaO-mi-OC1"/>
+                                                <constraint firstItem="Ljg-5F-e8t" firstAttribute="top" secondItem="aqo-gc-SbX" secondAttribute="topMargin" constant="7" id="UYd-y6-dvJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="cil-lG-Qhc" secondAttribute="bottom" constant="15" id="b3Y-Pd-Rhw"/>
+                                                <constraint firstItem="Ljg-5F-e8t" firstAttribute="trailing" secondItem="3Il-0r-Wcs" secondAttribute="trailing" id="lc2-b3-TuH"/>
+                                                <constraint firstItem="cil-lG-Qhc" firstAttribute="top" secondItem="3Il-0r-Wcs" secondAttribute="bottom" constant="5" id="o4M-8w-wpk"/>
+                                                <constraint firstAttribute="trailing" secondItem="cil-lG-Qhc" secondAttribute="trailing" constant="30" id="thP-ok-6rJ"/>
+                                                <constraint firstItem="cil-lG-Qhc" firstAttribute="leading" secondItem="aqo-gc-SbX" secondAttribute="leading" constant="30" id="uK5-px-QgA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="classroomNameLabel" destination="cil-lG-Qhc" id="n1J-NH-DaV"/>
+                                            <outlet property="teacherNameLabel" destination="Ljg-5F-e8t" id="wJM-Lg-lgc"/>
+                                            <outlet property="weekdayLabel" destination="3Il-0r-Wcs" id="c0h-IR-QHQ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="eLc-3S-PM8" id="q5t-d2-uTq"/>
+                                    <outlet property="delegate" destination="eLc-3S-PM8" id="2Az-Iu-ecO"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vvl-sm-Dip"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vvl-sm-Dip" firstAttribute="bottom" secondItem="Qhs-ir-6G5" secondAttribute="bottom" id="BEg-XO-3Kn"/>
+                            <constraint firstItem="mJ4-qv-7Lu" firstAttribute="trailing" secondItem="vvl-sm-Dip" secondAttribute="trailing" id="Cqv-CT-864"/>
+                            <constraint firstItem="vvl-sm-Dip" firstAttribute="trailing" secondItem="Qhs-ir-6G5" secondAttribute="trailing" id="G7S-6h-GrK"/>
+                            <constraint firstItem="Qhs-ir-6G5" firstAttribute="top" secondItem="9Ta-vN-d7w" secondAttribute="bottom" id="KWG-Oo-8hL"/>
+                            <constraint firstItem="mJ4-qv-7Lu" firstAttribute="top" secondItem="vvl-sm-Dip" secondAttribute="top" id="aia-yL-tjq"/>
+                            <constraint firstItem="Qhs-ir-6G5" firstAttribute="leading" secondItem="vvl-sm-Dip" secondAttribute="leading" id="dpU-Hs-zRv"/>
+                            <constraint firstItem="9Ta-vN-d7w" firstAttribute="top" secondItem="mJ4-qv-7Lu" secondAttribute="bottom" id="efY-uU-6XR"/>
+                            <constraint firstItem="mJ4-qv-7Lu" firstAttribute="leading" secondItem="vvl-sm-Dip" secondAttribute="leading" id="geX-Y4-BpG"/>
+                            <constraint firstAttribute="trailing" secondItem="9Ta-vN-d7w" secondAttribute="trailing" id="sg0-ti-Cpy"/>
+                            <constraint firstItem="9Ta-vN-d7w" firstAttribute="leading" secondItem="vvl-sm-Dip" secondAttribute="leading" id="xi5-aB-dEK"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Qhs-ir-6G5" id="WIi-v3-0Kt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Smn-DE-a1V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="104" y="1457"/>
+            <point key="canvasLocation" x="102.89855072463769" y="1456.4732142857142"/>
         </scene>
         <!--학원 가입 요청-->
         <scene sceneID="xJK-aZ-Cws">
@@ -131,6 +448,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="twj-tu-uBQ" id="Lge-qL-Ggi"/>
+                                    </connections>
                                 </searchBar>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="bPR-V1-4Gw">
                                     <rect key="frame" x="0.0" y="747.6363639831543" width="414" height="128"/>
@@ -138,7 +458,7 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeacherAcademyJoinRequest" rowHeight="123" id="mp1-hn-3sd" customClass="AcademyTableViewCell" customModule="Pullgo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AcademyTableViewCell" rowHeight="123" id="mp1-hn-3sd" customClass="AcademyTableViewCell" customModule="Pullgo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="68.5" width="414" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mp1-hn-3sd" id="g3I-kG-gsg">
@@ -190,6 +510,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="twj-tu-uBQ" id="WP8-Wg-uWi"/>
+                                    <outlet property="delegate" destination="twj-tu-uBQ" id="Zyq-RB-yll"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ke5-cz-Eqh"/>
@@ -258,7 +582,7 @@
                                 <rect key="frame" x="15" y="236" width="384" height="580"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="StudentSideMenuCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeacherMenuCell" id="9uQ-g3-iwm" customClass="StudentSideMenuCell" customModule="Pullgo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="StudentSideMenuCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudentSideMenuCell" id="9uQ-g3-iwm" customClass="StudentSideMenuCell" customModule="Pullgo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="384" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9uQ-g3-iwm" id="ddU-sR-ErR">
@@ -281,20 +605,20 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="30" maxY="0.0"/>
                                         <connections>
-                                            <outlet property="menuLabel" destination="aVR-An-oT3" id="i4U-nW-Nrq"/>
+                                            <outlet property="menuLabel" destination="aVR-An-oT3" id="HaD-5w-Kx9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="M5s-iR-i5b" id="XES-sb-pRi"/>
-                                    <outlet property="delegate" destination="M5s-iR-i5b" id="XDG-PN-xSl"/>
+                                    <outlet property="dataSource" destination="M5s-iR-i5b" id="3kv-JA-DZr"/>
+                                    <outlet property="delegate" destination="M5s-iR-i5b" id="RHd-TZ-Gcv"/>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPW-aS-sF2">
                                 <rect key="frame" x="332" y="836" width="52" height="30"/>
                                 <state key="normal" title="로그아웃"/>
                                 <connections>
-                                    <action selector="logoutClicked:" destination="M5s-iR-i5b" eventType="touchUpInside" id="N81-1S-gVY"/>
+                                    <action selector="logoutClicked:" destination="M5s-iR-i5b" eventType="touchUpInside" id="Mgo-KM-Yor"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -312,6 +636,7 @@
                             <constraint firstItem="Pgf-Xf-M1i" firstAttribute="top" secondItem="ovC-cv-gbM" secondAttribute="bottom" constant="13" id="K3o-tr-pyH"/>
                             <constraint firstItem="yRi-Jn-qhU" firstAttribute="trailing" secondItem="ovC-cv-gbM" secondAttribute="trailing" id="NgO-yA-Gwh"/>
                             <constraint firstItem="jv7-Sc-VA5" firstAttribute="trailing" secondItem="wPW-aS-sF2" secondAttribute="trailing" constant="30" id="RF3-ec-ZJL"/>
+                            <constraint firstItem="N52-um-FRr" firstAttribute="leading" secondItem="jv7-Sc-VA5" secondAttribute="leading" constant="15" id="blm-To-ewX"/>
                             <constraint firstItem="ovC-cv-gbM" firstAttribute="leading" secondItem="yJR-XX-1k7" secondAttribute="leadingMargin" id="btk-Xr-sZQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ovC-cv-gbM" secondAttribute="trailing" id="nco-lw-LLV"/>
                             <constraint firstItem="uJU-5v-mNe" firstAttribute="trailing" secondItem="ovC-cv-gbM" secondAttribute="trailing" id="oPG-qt-jYR"/>
@@ -325,21 +650,157 @@
                     <navigationItem key="navigationItem" id="wFX-g5-mNO"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="academyNameLabel" destination="Pgf-Xf-M1i" id="1uU-CG-Kuj"/>
-                        <outlet property="nameLabel" destination="xaC-No-OkJ" id="hFj-Jt-65o"/>
+                        <outlet property="academyNameLabel" destination="Pgf-Xf-M1i" id="gtE-V0-vcR"/>
+                        <outlet property="nameLabel" destination="xaC-No-OkJ" id="Vwd-Rx-eRf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cto-y1-kaf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1665" y="761"/>
         </scene>
+        <!--Student Calendar Select View Controller-->
+        <scene sceneID="5JI-Ea-uZO">
+            <objects>
+                <viewController storyboardIdentifier="StudentCalendarSelectViewController" id="ZpJ-4g-eUQ" customClass="StudentCalendarSelectViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BBO-QY-AOY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pwU-zc-6ep" userLabel="Handle">
+                                <rect key="frame" x="179" y="54" width="56" height="4"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="56" id="xUM-JZ-KKR"/>
+                                </constraints>
+                                <color key="progressTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="trackTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </progressView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kBw-MI-NL7">
+                                <rect key="frame" x="30" y="128" width="354" height="724"/>
+                                <color key="separatorColor" name="AccentColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="2q5-ja-Mq2">
+                                    <rect key="frame" x="0.0" y="159.00000034679067" width="354" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="LessonListCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LessonListCell" rowHeight="110" id="GPs-xl-cgX" customClass="LessonListCell" customModule="Pullgo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="354" height="110"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GPs-xl-cgX" id="M1U-vw-oIE">
+                                            <rect key="frame" x="0.0" y="0.0" width="354" height="110"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="RrT-dI-pfD">
+                                                    <rect key="frame" x="10" y="15" width="334" height="80"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A 학원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDn-Gj-0Bm">
+                                                            <rect key="frame" x="0.0" y="0.0" width="45" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" name="AccentColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HH:mm ~ HH:mm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dla-RQ-MeU">
+                                                            <rect key="frame" x="0.0" y="28" width="120.5" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알고리즘 월수금" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcU-gF-yGy">
+                                                            <rect key="frame" x="0.0" y="53" width="138" height="27"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="RrT-dI-pfD" firstAttribute="top" secondItem="M1U-vw-oIE" secondAttribute="top" constant="15" id="cwS-bg-MNp"/>
+                                                <constraint firstAttribute="trailing" secondItem="RrT-dI-pfD" secondAttribute="trailing" constant="10" id="ffO-II-9r8"/>
+                                                <constraint firstItem="RrT-dI-pfD" firstAttribute="leading" secondItem="M1U-vw-oIE" secondAttribute="leading" constant="10" id="grp-S3-iDO"/>
+                                                <constraint firstAttribute="bottom" secondItem="RrT-dI-pfD" secondAttribute="bottom" constant="15" id="kek-4k-Vgz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="academyLabel" destination="tDn-Gj-0Bm" id="PNi-sL-6A9"/>
+                                            <outlet property="lessonNameLabel" destination="NcU-gF-yGy" id="Mnh-WS-NkO"/>
+                                            <outlet property="timeLabel" destination="dla-RQ-MeU" id="ZWr-ky-j9Z"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZpJ-4g-eUQ" id="nLm-ES-61H"/>
+                                    <outlet property="delegate" destination="ZpJ-4g-eUQ" id="GMM-tS-4fE"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YYYY년 MM월 dd일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWV-Yp-qmd">
+                                <rect key="frame" x="0.0" y="78" width="414" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" systemColor="systemIndigoColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfZ-Ih-gLb">
+                                <rect key="frame" x="354" y="78" width="30" height="30"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <connections>
+                                    <action selector="panDown:" destination="ZpJ-4g-eUQ" eventType="touchUpInside" id="rVj-cY-jzg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1B2-sQ-nY6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="1B2-sQ-nY6" firstAttribute="bottom" secondItem="kBw-MI-NL7" secondAttribute="bottom" constant="10" id="0Cd-Ez-5XN"/>
+                            <constraint firstItem="ZfZ-Ih-gLb" firstAttribute="bottom" secondItem="HWV-Yp-qmd" secondAttribute="bottom" id="6aL-zE-M9f"/>
+                            <constraint firstItem="kBw-MI-NL7" firstAttribute="leading" secondItem="1B2-sQ-nY6" secondAttribute="leading" constant="30" id="7jE-DY-AW8"/>
+                            <constraint firstItem="HWV-Yp-qmd" firstAttribute="leading" secondItem="1B2-sQ-nY6" secondAttribute="leading" id="Jol-sh-2yW"/>
+                            <constraint firstItem="ZfZ-Ih-gLb" firstAttribute="top" secondItem="HWV-Yp-qmd" secondAttribute="top" id="Ov3-NM-hU3"/>
+                            <constraint firstItem="1B2-sQ-nY6" firstAttribute="trailing" secondItem="kBw-MI-NL7" secondAttribute="trailing" constant="30" id="THR-ac-U6g"/>
+                            <constraint firstItem="1B2-sQ-nY6" firstAttribute="trailing" secondItem="HWV-Yp-qmd" secondAttribute="trailing" id="Vic-s8-KqC"/>
+                            <constraint firstItem="1B2-sQ-nY6" firstAttribute="trailing" secondItem="ZfZ-Ih-gLb" secondAttribute="trailing" constant="30" id="X87-2c-eSF"/>
+                            <constraint firstItem="HWV-Yp-qmd" firstAttribute="top" secondItem="pwU-zc-6ep" secondAttribute="bottom" constant="20" id="pt7-ub-mBY"/>
+                            <constraint firstItem="pwU-zc-6ep" firstAttribute="top" secondItem="BBO-QY-AOY" secondAttribute="topMargin" constant="10" id="qR1-Da-k9x"/>
+                            <constraint firstItem="kBw-MI-NL7" firstAttribute="top" secondItem="HWV-Yp-qmd" secondAttribute="bottom" constant="20" id="tdu-aa-YQX"/>
+                            <constraint firstItem="pwU-zc-6ep" firstAttribute="centerX" secondItem="BBO-QY-AOY" secondAttribute="centerX" id="tgx-IV-AA2"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="UW8-F0-IW0" appends="YES" id="NI9-2R-ryt"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="Wfj-tA-o8g">
+                        <barButtonItem key="backBarButtonItem" title="뒤로" id="aqP-xQ-IID"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="lessonList" destination="kBw-MI-NL7" id="2gO-bx-b2X"/>
+                        <outlet property="selectedDateLabel" destination="HWV-Yp-qmd" id="tV5-x3-fHW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xxm-0J-OWI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="UW8-F0-IW0">
+                    <connections>
+                        <action selector="panSlide:" destination="ZpJ-4g-eUQ" id="FpU-4V-cDI"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="880" y="-681"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="calendar.badge.clock.rtl" catalog="system" width="128" height="108"/>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <namedColor name="AccentColor">
             <color red="0.55699998140335083" green="0.62400001287460327" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

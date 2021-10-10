@@ -16,23 +16,11 @@ enum StudentMenu: String, CaseIterable {
     case changeInfo = "회원정보 수정"
     case manageSendRequest = "보낸 요청 관리"
     
-    static func value(at index: Int) -> StudentMenu {
-        switch index {
-        case 0:
-            return .calendarView
-        case 1:
-            return .examList
-        case 2:
-            return .examHistory
-        case 3:
-            return .classroomJoinRequest
-        case 4:
-            return .changeInfo
-        case 5:
-            return .manageSendRequest
-        default:
-            return .calendarView
+    static func value(at name: String) -> StudentMenu {
+        if let menu = StudentMenu(rawValue: name) {
+            return menu
         }
+        return StudentMenu.calendarView
     }
     
     func identifierOfViewContoller() -> String {
@@ -72,7 +60,7 @@ class StudentViewSwitcher {
     /// rootViewController: always self
     static func showSideMenu(_ rootViewController: UIViewController) {
         let storyboard = UIStoryboard(name: "Student", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "StudentSideMenuViewController") as! TeacherMenuViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "StudentSideMenuViewController") as! StudentSideMenuViewController
         let menu = SideMenuNavigationController(rootViewController: vc)
         
         menu.presentationStyle = CustomSideMenuStyle()

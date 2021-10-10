@@ -146,12 +146,12 @@ class _PGSignedUser: Codable {
         PGNetwork.get(url: url, type: [Classroom].self) { completion($0) }
     }
     
-    public func getLessons(since: Date, until: Date, page: Int, completion: @escaping (([Lesson]) -> Void)) {
+    public func getLessons(since: Date, until: Date, page: Int = 0, completion: @escaping (([Lesson]) -> Void)) {
         let url = PGURLs.lessons
             .appendingQuery([URLQueryItem(name: self.userType.toUserTypeId(), value: userId),
                           URLQueryItem(name: "since", value: since.toString()),
                           URLQueryItem(name: "until", value: until.toString())])
-            .pagination(page: page)
+            .pagination(page: page, size: 100)
         
         PGNetwork.get(url: url, type: [Lesson].self) { completion($0) }
     }

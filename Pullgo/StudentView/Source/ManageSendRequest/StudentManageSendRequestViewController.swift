@@ -8,5 +8,8 @@
 import UIKit
 
 class StudentManageSendRequestViewController: UIViewController {
-
+    
+    @IBAction func showSideMenu(_ sender: UIBarButtonItem) {
+        StudentViewSwitcher.showSideMenu(self)
+    }
 }

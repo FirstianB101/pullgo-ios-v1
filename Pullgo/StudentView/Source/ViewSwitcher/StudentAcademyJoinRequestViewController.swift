@@ -29,9 +29,8 @@ extension StudentAcademyJoinRequestViewController: UISearchBarDelegate {
             
             if self.viewModel.getAcademies().isEmpty {
                 alert.present(title: "알림", context: "일치하는 학원이 없습니다.")
-            } else {
-                self.academyTableView.reloadData()
             }
+            self.academyTableView.reloadData()
         }
     }
 }

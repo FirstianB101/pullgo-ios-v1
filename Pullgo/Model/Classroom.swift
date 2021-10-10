@@ -131,6 +131,22 @@ extension Classroom {
         PGNetwork.get(url: url, type: [Student].self, success: completion)
     }
     
+    public func getCreator(completion: @escaping ((Teacher) -> Void)) {
+        let url = PGURLs.teachers.appendingURL([String(self.creatorId)])
+        
+        PGNetwork.get(url: url, type: Teacher.self) { teacher in
+            completion(teacher)
+        }
+    }
+    
+    public func getBelongedAcademy(completion: @escaping ((Academy) -> Void)) {
+        let url = PGURLs.academies.appendingURL([String(self.academyId)])
+        
+        PGNetwork.get(url: url, type: Academy.self) { academy in
+            completion(academy)
+        }
+    }
+    
     public func getExams(page: Int, completion: @escaping (([Exam]) -> Void)) {
         let url = PGURLs.exams.appendingQuery([self.classroomIdQuery])
         

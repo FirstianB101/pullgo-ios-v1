@@ -60,4 +60,17 @@ class PGAlertPresentor {
         alert.view.accessibilityIdentifier = "PGAlert"
         return alert
     }
+
 }
+
+class HalfSizePresentationController: UIPresentationController {
+    override var frameOfPresentedViewInContainerView: CGRect {
+        get {
+            guard let view = containerView else { return CGRect.zero }
+            let inset: CGFloat = 0
+            
+            return CGRect(x: inset, y: view.bounds.height * (1 / 3), width: view.bounds.width - (inset * 2), height: view.bounds.height * (2 / 3))
+        }
+    }
+}
+
