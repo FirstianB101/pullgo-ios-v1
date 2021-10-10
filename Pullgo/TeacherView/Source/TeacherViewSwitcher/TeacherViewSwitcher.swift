@@ -18,25 +18,11 @@ enum TeacherMenu: String, CaseIterable {
     case manageSendRequest = "보낸 요청 관리"
     case academyManage = "학원 관리"
     
-    static func value(at index: Int) -> TeacherMenu {
-        switch index {
-        case 0:
-            return .calendarView
-        case 1:
-            return .classroomManage
-        case 2:
-            return .requestClassroomJoin
-        case 3:
-            return .changeInfo
-        case 4:
-            return .applyAcademyJoinRequest
-        case 5:
-            return .manageSendRequest
-        case 6:
-            return .academyManage
-        default:
-            return .calendarView
+    static func value(at name: String) -> TeacherMenu {
+        if let menu = TeacherMenu(rawValue: name) {
+            return menu
         }
+        return TeacherMenu.calendarView
     }
     
     func identifierOfViewContoller() -> String {

@@ -48,12 +48,13 @@ class SignInViewController: UIViewController {
     }
     
     private func presentStudentView() {
-        let studentVC = StudentCalendarViewController()
+        let storyboard = UIStoryboard(name: "Student", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "StudentCalendarViewController") as! StudentCalendarViewController
         
-        studentVC.modalTransitionStyle = .crossDissolve
-        studentVC.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .fullScreen
         
-        self.present(studentVC, animated: true)
+        self.present(vc, animated: true)
     }
 }
 

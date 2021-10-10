@@ -48,7 +48,7 @@ extension TeacherClassroomManageViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TeacherClassroomCell") as! TeacherClassroomCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ClassroomCell") as! ClassroomCell
         let classroomNameParse = viewModel.classrooms[indexPath.row].parse
         
         cell.teacherNameLabel.text = classroomNameParse.teacherName
@@ -59,7 +59,7 @@ extension TeacherClassroomManageViewController: UITableViewDataSource {
     }
 }
 
-class TeacherClassroomCell: UITableViewCell {
+class ClassroomCell: UITableViewCell {
     @IBOutlet weak var weekdayLabel: UILabel!
     @IBOutlet weak var classroomNameLabel: UILabel!
     @IBOutlet weak var teacherNameLabel: UILabel!

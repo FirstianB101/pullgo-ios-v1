@@ -1,16 +1,15 @@
 //
-//  AcademyAcceptStudentViewController.swift
+//  ClassroomAcceptStudentViewController.swift
 //  Pullgo
 //
-//  Created by 김세영 on 2021/10/06.
+//  Created by 김세영 on 2021/10/11.
 //
-
 import UIKit
 import XLPagerTabStrip
 
-class AcademyAcceptStudentViewController: UICollectionViewController, IndicatorInfoProvider {
+class ClassroomAcceptStudentViewController: UICollectionViewController, IndicatorInfoProvider {
     
-    let viewModel = AcademyAcceptStudentViewModel()
+    let viewModel = ClassroomAcceptStudentViewModel()
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "학생")
@@ -59,7 +58,7 @@ class AcademyAcceptStudentViewController: UICollectionViewController, IndicatorI
         
         let okay = UIAlertAction(title: "승인", style: .default) { [weak self] _ in
             self?.viewModel.accept(at: index) {
-                alert.present(title: "알림", context: "\(studentName)의 학원 가입이 승인되었어요.")
+                alert.present(title: "알림", context: "\(studentName)의 반 가입이 승인되었어요.")
                 self?.reload()
             }
         }
@@ -70,7 +69,7 @@ class AcademyAcceptStudentViewController: UICollectionViewController, IndicatorI
     }
 }
 
-extension AcademyAcceptStudentViewController: UICollectionViewDelegateFlowLayout {
+extension ClassroomAcceptStudentViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height: CGFloat = 115
         let padding: CGFloat = 10
@@ -80,25 +79,7 @@ extension AcademyAcceptStudentViewController: UICollectionViewDelegateFlowLayout
     }
 }
 
-class AcceptStudentCell: UICollectionViewCell {
-    @IBOutlet weak var studentSchoolInfoLabel: UILabel!
-    @IBOutlet weak var studentNameLabel: UILabel!
-    @IBOutlet weak var rejectButton: UIButton!
-    @IBOutlet weak var acceptButton: UIButton!
-    
-    public var accept: (() -> ()) = { }
-    public var reject: (() -> ()) = { }
-    
-    @IBAction func acceptClicked(_ sender: UIButton) {
-        self.accept()
-    }
-    
-    @IBAction func rejectClicked(_ sender: UIButton) {
-        self.reject()
-    }
-}
-
-class AcademyAcceptStudentViewModel {
+class ClassroomAcceptStudentViewModel {
     private var students: [Student] = []
     private var page: Int = 0
     
@@ -115,7 +96,7 @@ class AcademyAcceptStudentViewModel {
     }
     
     public func getAppliedStudents(completion: @escaping (() -> Void)) {
-        PGSignedUser.selectedAcademy.getAppliedStudents(page: self.page) { students in
+        TeacherClassroomManageViewModel.selectedClassroom.getAppliedStudents(page: self.page) { students in
             self.students = students
             completion()
         }
@@ -124,16 +105,19 @@ class AcademyAcceptStudentViewModel {
     public func accept(at index: Int, completion: @escaping (() -> Void)) {
         let selectedStudent = students[index]
         
-        PGSignedUser.selectedAcademy.accept(userType: .student, userId: selectedStudent.id!) { _ in
+        TeacherClassroomManageViewModel.selectedClassroom.accept(userType: .student, userId: selectedStudent.id!) { _ in
             completion()
         }
     }
     
     public func reject(at index: Int, completion: @escaping (() -> Void)) {
         let selectedStudent = students[index]
+        let url = PGURLs.students.appendingURL([String(selectedStudent.id!), "remove-applied-classroom"])
         
-//        PGSignedUser.selectedAcademy.accept(userType: .teacher, userId: selectedTeacher.id!) { _ in
-//            completion()
-//        }
+        let body: Parameter = ["classroomId" : TeacherClassroomManageViewModel.selectedClassroom.id!]
+        
+        PGNetwork.post(url: url, parameter: body, success: { _ in
+            completion()
+        })
     }
 }

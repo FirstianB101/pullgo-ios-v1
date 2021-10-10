@@ -38,7 +38,7 @@ extension TeacherCreateLesson_SelectClassroomViewController: UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TeacherClassroomCell") as! TeacherClassroomCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ClassroomCell") as! ClassroomCell
         let classroomParse = viewModel.classrooms[indexPath.row].parse
         
         cell.teacherNameLabel.text = classroomParse.teacherName

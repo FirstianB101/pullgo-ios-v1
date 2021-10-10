@@ -145,12 +145,7 @@ class TeacherCalendarSelectViewModel {
     }
     
     func getLessonTime(at: Int) -> String {
-        guard let schedule = lessons[at].schedule else { return "" }
-        var message: String = cutSecondsInTime(time: schedule.beginTime)
-        message += " ~ "
-        message += cutSecondsInTime(time: schedule.endTime)
-        
-        return message
+        return self.lessons[at].getTime()
     }
     
     func getBelongAcademyName(at: Int, completion: @escaping ((String) -> Void)) {

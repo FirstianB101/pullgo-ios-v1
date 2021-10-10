@@ -54,7 +54,7 @@ class TeacherMenuViewController: UIViewController {
 extension TeacherMenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        TeacherViewSwitcher.switchView(self, presenting: TeacherMenu.value(at: indexPath.row))
+        TeacherViewSwitcher.switchView(self, presenting: TeacherMenu.value(at: viewModel.menus[indexPath.row]))
     }
 }
 
