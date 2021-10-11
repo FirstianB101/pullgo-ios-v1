@@ -47,6 +47,7 @@
 		A535FD352708D84F009C4D9D /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A535FD342708D84F009C4D9D /* RxCocoa */; };
 		A535FD372708D84F009C4D9D /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A535FD362708D84F009C4D9D /* RxSwift */; };
 		A53EA48226A5402F00AFF799 /* TeacherLessonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53EA48126A5402F00AFF799 /* TeacherLessonDetailViewController.swift */; };
+		A54A020127143700007E47BB /* StudentChangeInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54A020027143700007E47BB /* StudentChangeInfoTableViewController.swift */; };
 		A554549727109E3700CCC987 /* StudentViewSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A554549627109E3700CCC987 /* StudentViewSwitcher.swift */; };
 		A554549F2710A05B00CCC987 /* StudentExamListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A554549E2710A05B00CCC987 /* StudentExamListViewController.swift */; };
 		A55454A12710A07800CCC987 /* StudentExamHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55454A02710A07800CCC987 /* StudentExamHistoryViewController.swift */; };
@@ -179,6 +180,7 @@
 		A532DDA9269F295C007C9A34 /* TeacherCalendarSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCalendarSelectViewController.swift; sourceTree = "<group>"; };
 		A535E99826F731E200C6F1D8 /* PGNetworkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGNetworkable.swift; sourceTree = "<group>"; };
 		A53EA48126A5402F00AFF799 /* TeacherLessonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherLessonDetailViewController.swift; sourceTree = "<group>"; };
+		A54A020027143700007E47BB /* StudentChangeInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentChangeInfoTableViewController.swift; sourceTree = "<group>"; };
 		A554549627109E3700CCC987 /* StudentViewSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewSwitcher.swift; sourceTree = "<group>"; };
 		A554549E2710A05B00CCC987 /* StudentExamListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentExamListViewController.swift; sourceTree = "<group>"; };
 		A55454A02710A07800CCC987 /* StudentExamHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentExamHistoryViewController.swift; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				A55454A42710A09200CCC987 /* StudentChangeInfoViewController.swift */,
+				A54A020027143700007E47BB /* StudentChangeInfoTableViewController.swift */,
 			);
 			path = ChangeInfo;
 			sourceTree = "<group>";
@@ -1025,6 +1028,7 @@
 				A56FB384270DD74A001A5F21 /* AcademyAcceptTeacherViewController.swift in Sources */,
 				A5B1A59F26E205A300E5D8B2 /* DatePickerViewController.swift in Sources */,
 				A5D1F7BB270DC03D00453A7C /* TeacherApplyAcademyJoinRequestViewController.swift in Sources */,
+				A54A020127143700007E47BB /* StudentChangeInfoTableViewController.swift in Sources */,
 				A5F7F1A626A303F600487BF7 /* TeacherRequestClassroomJoinViewController.swift in Sources */,
 				A532DB2726889ACB00076260 /* SignInViewController.swift in Sources */,
 				A55454A52710A09200CCC987 /* StudentChangeInfoViewController.swift in Sources */,
