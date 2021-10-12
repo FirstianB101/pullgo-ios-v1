@@ -8,6 +8,8 @@
 import UIKit
 
 protocol SignUpStatus {
+    init()
+    
     func getColor() -> UIColor
     func getMessage() -> String
     static func getStatus(of input: String) -> Self

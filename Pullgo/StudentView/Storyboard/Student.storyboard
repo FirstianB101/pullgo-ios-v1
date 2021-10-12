@@ -368,6 +368,9 @@
                                                 <constraint firstItem="58h-Df-a0N" firstAttribute="centerY" secondItem="nwl-w2-GnU" secondAttribute="centerY" id="St8-iA-vjY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="XbS-qA-Ipf" kind="show" id="GK3-jI-3yM"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -484,6 +487,109 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1oa-PK-vJx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1679.7101449275362" y="2185.7142857142858"/>
+        </scene>
+        <!--비밀번호 수정-->
+        <scene sceneID="sCj-Ms-7ih">
+            <objects>
+                <viewController storyboardIdentifier="StudentChangePasswordViewController" id="XbS-qA-Ipf" customClass="StudentChangePasswordViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="un4-6L-RGi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="125" translatesAutoresizingMaskIntoConstraints="NO" id="B5z-0H-K6g">
+                                <rect key="frame" x="30" y="197" width="354" height="448"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="NqJ-cG-a7k">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="273"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kfF-fe-Ody">
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="114"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새로운 비밀번호를 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HV9-FL-FqM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Vwa-DA-F1k">
+                                                        <rect key="frame" x="0.0" y="44" width="354" height="70"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ksR-5g-Pxi" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="354" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                            </textField>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password state" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUI-dA-gSJ">
+                                                                <rect key="frame" x="0.0" y="54" width="354" height="16"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3eF-2O-heP">
+                                                <rect key="frame" x="0.0" y="159" width="354" height="114"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다시 한 번 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sa0-v6-Y2u">
+                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="sPQ-e0-Ia6">
+                                                        <rect key="frame" x="0.0" y="44" width="354" height="70"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w69-Cz-3KV" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="354" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                            </textField>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="check password state" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zHI-iV-9BK">
+                                                                <rect key="frame" x="0.0" y="54" width="354" height="16"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwC-8u-oko" customClass="PGButton" customModule="Pullgo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="398" width="354" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Qov-cu-8im"/>
+                                        </constraints>
+                                        <state key="normal" title="비밀번호 수정"/>
+                                        <connections>
+                                            <action selector="changePassword:" destination="XbS-qA-Ipf" eventType="touchUpInside" id="heh-Yi-J9z"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="24d-jw-2h7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="B5z-0H-K6g" firstAttribute="centerY" secondItem="un4-6L-RGi" secondAttribute="centerY" id="4eE-1M-ibS"/>
+                            <constraint firstItem="24d-jw-2h7" firstAttribute="trailing" secondItem="B5z-0H-K6g" secondAttribute="trailing" constant="30" id="X25-gj-akL"/>
+                            <constraint firstItem="B5z-0H-K6g" firstAttribute="leading" secondItem="24d-jw-2h7" secondAttribute="leading" constant="30" id="tbR-R5-hht"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="비밀번호 수정" id="CVn-69-GEI"/>
+                    <connections>
+                        <outlet property="checkPasswordField" destination="w69-Cz-3KV" id="tG9-Ao-iyw"/>
+                        <outlet property="checkPasswordStateLabel" destination="zHI-iV-9BK" id="oAr-sN-QjZ"/>
+                        <outlet property="passwordField" destination="ksR-5g-Pxi" id="qvE-jl-36C"/>
+                        <outlet property="passwordStateLabel" destination="LUI-dA-gSJ" id="vtI-HI-KqO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DDa-6o-EZk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2459" y="2186"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jON-sb-iwj">

@@ -43,6 +43,8 @@ class StudentChangeInfoTableViewController: UITableViewController {
     }
     
     @IBAction func done(_ sender: UIBarButtonItem) {
+        if !checkFieldsInputValid() { return }
+        
         let alert = PGAlertPresentor()
         let okay = UIAlertAction(title: "수정", style: .default) { [unowned self] _ in
             self.viewModel.patchUserInfo(newStudent: getNewStudent()) {
@@ -55,6 +57,19 @@ class StudentChangeInfoTableViewController: UITableViewController {
         alert.present(title: "회원정보 수정",
                       context: "입력하신 정보로 회원정보를 수정합니다.",
                       actions: [alert.cancel, okay])
+    }
+    
+    private func checkFieldsInputValid() -> Bool {
+        guard let phone = phoneField.text,
+              let parentPhone = parentPhoneField.text else { return false }
+        
+        if !phone.isPhoneValid || !parentPhone.isPhoneValid {
+            let alert = PGAlertPresentor()
+            alert.present(title: "알림", context: "전화번호 형식이 올바르지 않습니다.")
+            return false
+        }
+        
+        return true
     }
     
     private func getNewStudent() -> Student? {
