@@ -662,19 +662,132 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uxl-M8-Msy" customClass="ButtonBarView" customModule="XLPagerTabStrip">
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="vuj-Wq-S1x"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yM3-Nm-Ir8">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RT0-TL-kNT">
+                                <rect key="frame" x="0.0" y="132" width="414" height="764"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sTK-Vk-ZSg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="uxl-M8-Msy" firstAttribute="top" secondItem="5nI-BD-Vqd" secondAttribute="bottom" id="C8L-Pj-93v"/>
                             <constraint firstItem="5nI-BD-Vqd" firstAttribute="top" secondItem="sTK-Vk-ZSg" secondAttribute="top" id="RkX-Cu-o0s"/>
+                            <constraint firstItem="uxl-M8-Msy" firstAttribute="leading" secondItem="sTK-Vk-ZSg" secondAttribute="leading" id="Sbr-rt-pXx"/>
                             <constraint firstItem="5nI-BD-Vqd" firstAttribute="leading" secondItem="sTK-Vk-ZSg" secondAttribute="leading" id="XRn-o3-Myy"/>
+                            <constraint firstAttribute="baseline" secondItem="RT0-TL-kNT" secondAttribute="bottom" id="Xlc-e0-mdR"/>
                             <constraint firstItem="5nI-BD-Vqd" firstAttribute="trailing" secondItem="sTK-Vk-ZSg" secondAttribute="trailing" id="kzc-8i-gf2"/>
+                            <constraint firstItem="sTK-Vk-ZSg" firstAttribute="trailing" secondItem="RT0-TL-kNT" secondAttribute="trailing" id="mJt-HT-h7i"/>
+                            <constraint firstItem="RT0-TL-kNT" firstAttribute="leading" secondItem="sTK-Vk-ZSg" secondAttribute="leading" id="pK3-tO-rEJ"/>
+                            <constraint firstItem="sTK-Vk-ZSg" firstAttribute="trailing" secondItem="uxl-M8-Msy" secondAttribute="trailing" id="uQx-F3-GTw"/>
+                            <constraint firstItem="RT0-TL-kNT" firstAttribute="top" secondItem="uxl-M8-Msy" secondAttribute="bottom" id="vwA-o8-IUK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="buttonBarView" destination="uxl-M8-Msy" id="IC4-RU-37s"/>
+                        <outlet property="containerView" destination="RT0-TL-kNT" id="zHL-CL-Oh0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rjI-rI-Y7N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="103" y="2902"/>
+            <point key="canvasLocation" x="102.89855072463769" y="2901.5625"/>
+        </scene>
+        <!--Student Manage Send Request Academy View Controller-->
+        <scene sceneID="TIn-7P-2Y2">
+            <objects>
+                <collectionViewController storyboardIdentifier="StudentManageSendRequestAcademyViewController" id="err-AL-eeM" customClass="StudentManageSendRequestAcademyViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="FZw-c6-grC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ip4-Gc-Yah">
+                            <size key="itemSize" width="393" height="112"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ManageSendRequestCell" id="SYU-JH-Nm8" customClass="ManageSendRequestCell" customModule="Pullgo" customModuleProvider="target">
+                                <rect key="frame" x="10.5" y="10" width="393" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QC3-A4-scj">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="112"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6A9-cv-27o">
+                                            <rect key="frame" x="20" y="27" width="263" height="58.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Jc-nF-kWm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="263" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dY-Ox-Q4v">
+                                                    <rect key="frame" x="0.0" y="34.5" width="263" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBM-VV-Fdr">
+                                            <rect key="frame" x="303" y="38.5" width="70" height="35"/>
+                                            <color key="backgroundColor" red="1" green="0.93808521371400699" blue="0.96665603470642147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="JCg-DC-65v"/>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="bn6-iQ-DeQ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <state key="normal" title="요청 취소">
+                                                <color key="titleColor" systemColor="systemRedColor"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="cancelClicked:" destination="SYU-JH-Nm8" eventType="touchUpInside" id="kJJ-bE-Ups"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="vBM-VV-Fdr" secondAttribute="trailing" constant="20" id="6BL-G5-aSN"/>
+                                        <constraint firstItem="vBM-VV-Fdr" firstAttribute="centerY" secondItem="QC3-A4-scj" secondAttribute="centerY" id="PPY-nd-nmY"/>
+                                        <constraint firstItem="6A9-cv-27o" firstAttribute="leading" secondItem="QC3-A4-scj" secondAttribute="leading" constant="20" id="Vlc-Zf-KTe"/>
+                                        <constraint firstItem="vBM-VV-Fdr" firstAttribute="leading" secondItem="6A9-cv-27o" secondAttribute="trailing" constant="20" id="s6d-Sx-8q4"/>
+                                        <constraint firstItem="6A9-cv-27o" firstAttribute="centerY" secondItem="QC3-A4-scj" secondAttribute="centerY" id="tcu-Zs-I8f"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="393" height="112"/>
+                                <connections>
+                                    <outlet property="subtitle" destination="9Jc-nF-kWm" id="wCJ-zB-P1w"/>
+                                    <outlet property="title" destination="7dY-Ox-Q4v" id="mXb-Mg-Ql3"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="err-AL-eeM" id="aOM-Z4-ZQ3"/>
+                            <outlet property="delegate" destination="err-AL-eeM" id="SHG-ug-NjX"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2EW-om-dHZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="892.75362318840587" y="2901.5625"/>
         </scene>
         <!--Student Classroom Join Request View Controller-->
         <scene sceneID="kHH-16-Mmt">
@@ -1149,6 +1262,91 @@
             </objects>
             <point key="canvasLocation" x="880" y="-681"/>
         </scene>
+        <!--Student Manage Send Request Classroom View Controller-->
+        <scene sceneID="hVJ-wL-7S5">
+            <objects>
+                <collectionViewController storyboardIdentifier="StudentManageSendRequestClassroomViewController" id="c2Q-o4-pIN" customClass="StudentManageSendRequestClassroomViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="xeo-bd-k2K">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Dll-GS-xe6">
+                            <size key="itemSize" width="371" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ManageSendRequestCell" id="1C7-ea-9JP" customClass="ManageSendRequestCell" customModule="Pullgo" customModuleProvider="target">
+                                <rect key="frame" x="10.5" y="10" width="393" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ifi-N5-Rn3">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="112"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ex1-GJ-FFN">
+                                            <rect key="frame" x="20" y="27" width="263" height="58.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cE7-MZ-2lw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="263" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZk-rk-T5D">
+                                                    <rect key="frame" x="0.0" y="34.5" width="263" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scS-i4-sVf">
+                                            <rect key="frame" x="303" y="38.5" width="70" height="35"/>
+                                            <color key="backgroundColor" red="1" green="0.93808521369999998" blue="0.96665603470000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="1cD-NY-Kgm"/>
+                                                <constraint firstAttribute="height" constant="35" id="MkN-s6-Gv1"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <state key="normal" title="요청 취소">
+                                                <color key="titleColor" systemColor="systemRedColor"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="cancelClicked:" destination="1C7-ea-9JP" eventType="touchUpInside" id="f7D-Sv-ZTj"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Ex1-GJ-FFN" firstAttribute="centerY" secondItem="ifi-N5-Rn3" secondAttribute="centerY" id="9Xy-VD-izr"/>
+                                        <constraint firstItem="scS-i4-sVf" firstAttribute="centerY" secondItem="ifi-N5-Rn3" secondAttribute="centerY" id="Uiv-kV-ZMu"/>
+                                        <constraint firstAttribute="trailing" secondItem="scS-i4-sVf" secondAttribute="trailing" constant="20" id="ddA-Yb-kzE"/>
+                                        <constraint firstItem="Ex1-GJ-FFN" firstAttribute="leading" secondItem="ifi-N5-Rn3" secondAttribute="leading" constant="20" id="uii-cm-Q9E"/>
+                                        <constraint firstItem="scS-i4-sVf" firstAttribute="leading" secondItem="Ex1-GJ-FFN" secondAttribute="trailing" constant="20" id="vXd-nx-baD"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="393" height="112"/>
+                                <connections>
+                                    <outlet property="subtitle" destination="cE7-MZ-2lw" id="wmS-If-WdR"/>
+                                    <outlet property="title" destination="EZk-rk-T5D" id="3CH-5P-bml"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="c2Q-o4-pIN" id="dYb-Tm-a6p"/>
+                            <outlet property="delegate" destination="c2Q-o4-pIN" id="zNl-sq-v3G"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ypm-VA-jbT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1505.7971014492755" y="2901.5625"/>
+        </scene>
     </scenes>
     <resources>
         <image name="calendar.badge.clock.rtl" catalog="system" width="128" height="108"/>
@@ -1164,6 +1362,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
