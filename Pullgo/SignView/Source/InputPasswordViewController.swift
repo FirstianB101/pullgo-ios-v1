@@ -115,6 +115,10 @@ enum SignUpPasswordStatus: String, SignUpStatus {
     case tooLong = "너무 길어요."
     case noInput = ""
     
+    public init() {
+        self = .noInput
+    }
+    
     func getColor() -> UIColor {
         if self == .valid { return .systemGreen }
         else { return .systemPink }
@@ -137,6 +141,10 @@ enum SignUpPasswordCheck: String, SignUpStatus {
     case correct = "비밀번호가 일치해요 :)"
     case incorrect = "비밀번호가 일치하지 않아요."
     case noInput = ""
+    
+    public init() {
+        self = .noInput
+    }
     
     func getColor() -> UIColor {
         if self == .correct { return .systemGreen }

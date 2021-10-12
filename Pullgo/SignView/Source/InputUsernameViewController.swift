@@ -85,6 +85,10 @@ enum SignUpUsernameStatus: String, SignUpStatus {
     case invalidChar = "영어(필수), 숫자, -, _로만 만들어주세요."
     case noInput = ""
     
+    public init() {
+        self = .noInput
+    }
+    
     func getColor() -> UIColor {
         if self == .valid { return .systemGreen }
         else { return .systemPink }

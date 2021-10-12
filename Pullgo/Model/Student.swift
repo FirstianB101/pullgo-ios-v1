@@ -24,6 +24,7 @@ class Student: PGNetworkable {
     
     init() {
         super.init(url: PGURLs.students)
+        self.account = Account()
     }
     
     required init(from decoder: Decoder) throws {
@@ -48,6 +49,23 @@ class Student: PGNetworkable {
         try? container.encode(schoolYear, forKey: .schoolYear)
         
         try super.encode(to: encoder)
+    }
+    
+    override func patch(success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
+        guard let id = self.id else {
+            print("Student::patch() -> id is nil.")
+            return
+        }
+        
+        let url = PGURLs.students.appendingURL([String(id)])
+        
+        guard let studentParameter = try? self.toParameter() else {
+            print("Student::patch() -> convert account to parameter fail.")
+            return
+        }
+        print(studentParameter)
+        
+        PGNetwork.patch(url: url, parameter: studentParameter, success: success, fail: fail)
     }
     
     public func getSchoolInfo() -> String {
