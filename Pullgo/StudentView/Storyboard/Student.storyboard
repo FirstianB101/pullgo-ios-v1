@@ -263,34 +263,66 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lym-y0-iQe">
-                                <rect key="frame" x="184" y="433" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="dv2-2X-5u0" kind="show" id="RgK-yw-WSh"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="82" translatesAutoresizingMaskIntoConstraints="NO" id="esq-sq-7yU">
+                                <rect key="frame" x="30" y="253" width="354" height="390"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원 정보를 수정합니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cI-SC-cyL">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="72"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="kj7-VK-Hob">
+                                        <rect key="frame" x="0.0" y="154" width="354" height="104"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안전한 정보 수정을 위해  비밀번호를 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSX-mb-nZl">
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Yv-vB-Wio" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="70" width="354" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lym-y0-iQe" customClass="PGButton" customModule="Pullgo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="340" width="354" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="93H-4U-gfv"/>
+                                        </constraints>
+                                        <state key="normal" title="회원정보 수정"/>
+                                        <connections>
+                                            <action selector="presentChangeInfoClicked:" destination="txy-Wo-Z4M" eventType="touchUpInside" id="zNt-S8-OhO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MRn-fn-tPW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="esq-sq-7yU" firstAttribute="leading" secondItem="MRn-fn-tPW" secondAttribute="leading" constant="30" id="39D-2Q-uxA"/>
                             <constraint firstItem="uc9-8l-kGN" firstAttribute="top" secondItem="MRn-fn-tPW" secondAttribute="top" id="C4b-5f-DfL"/>
                             <constraint firstItem="uc9-8l-kGN" firstAttribute="trailing" secondItem="MRn-fn-tPW" secondAttribute="trailing" id="MQW-PA-cNl"/>
+                            <constraint firstItem="MRn-fn-tPW" firstAttribute="trailing" secondItem="esq-sq-7yU" secondAttribute="trailing" constant="30" id="Z2Y-lx-nqE"/>
+                            <constraint firstItem="esq-sq-7yU" firstAttribute="centerY" secondItem="Ccd-mw-rKp" secondAttribute="centerY" id="cCf-56-wS0"/>
                             <constraint firstItem="uc9-8l-kGN" firstAttribute="leading" secondItem="MRn-fn-tPW" secondAttribute="leading" id="m73-Uw-CLv"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ER-09-RwH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="104" y="2186"/>
+            <point key="canvasLocation" x="102.89855072463769" y="2185.7142857142858"/>
         </scene>
         <!--회원정보 수정-->
         <scene sceneID="6S2-HK-Pbk">
             <objects>
                 <tableViewController storyboardIdentifier="StudentChangeInfoTableViewController" id="tiD-JA-bg2" customClass="StudentChangeInfoTableViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="OUr-1X-xjh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
                             <tableViewSection headerTitle="계정" id="DSs-P9-zIS">
@@ -493,11 +525,11 @@
             <objects>
                 <viewController storyboardIdentifier="StudentChangePasswordViewController" id="XbS-qA-Ipf" customClass="StudentChangePasswordViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="un4-6L-RGi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="125" translatesAutoresizingMaskIntoConstraints="NO" id="B5z-0H-K6g">
-                                <rect key="frame" x="30" y="197" width="354" height="448"/>
+                                <rect key="frame" x="30" y="224" width="354" height="448"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="NqJ-cG-a7k">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="273"/>
@@ -594,10 +626,10 @@
         <!--Navigation Controller-->
         <scene sceneID="jON-sb-iwj">
             <objects>
-                <navigationController id="dv2-2X-5u0" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="StudentChangeInfoNavigationController" id="dv2-2X-5u0" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Sne-mQ-1Kn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vdR-o1-dLT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
