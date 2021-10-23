@@ -1071,6 +1071,322 @@
             </objects>
             <point key="canvasLocation" x="6152" y="-982"/>
         </scene>
+        <!--Teacher Manage Exam Tab View Controller-->
+        <scene sceneID="IQC-Hc-edU">
+            <objects>
+                <viewController storyboardIdentifier="TeacherManageExamTabViewController" id="c6J-21-gbK" customClass="TeacherManageExamTabViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0lp-Wh-O4S">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="px1-2X-J3c" customClass="ButtonBarView" customModule="XLPagerTabStrip">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="bIn-AL-ffw"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5QC-Zq-Qqh">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <scrollView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVb-uk-VUE">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0Sd-So-Y7q"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sVb-uk-VUE" firstAttribute="leading" secondItem="0Sd-So-Y7q" secondAttribute="leading" id="B0Z-Cq-yOd"/>
+                            <constraint firstItem="sVb-uk-VUE" firstAttribute="top" secondItem="px1-2X-J3c" secondAttribute="bottom" id="I2B-uU-Exu"/>
+                            <constraint firstItem="0Sd-So-Y7q" firstAttribute="trailing" secondItem="sVb-uk-VUE" secondAttribute="trailing" id="Vmq-Qr-qzz"/>
+                            <constraint firstItem="px1-2X-J3c" firstAttribute="leading" secondItem="0Sd-So-Y7q" secondAttribute="leading" id="lZL-gK-UNJ"/>
+                            <constraint firstItem="0Sd-So-Y7q" firstAttribute="trailing" secondItem="px1-2X-J3c" secondAttribute="trailing" id="mQJ-rw-UYl"/>
+                            <constraint firstItem="0Sd-So-Y7q" firstAttribute="bottom" secondItem="sVb-uk-VUE" secondAttribute="bottom" id="ouI-TU-rH0"/>
+                            <constraint firstItem="px1-2X-J3c" firstAttribute="top" secondItem="0Sd-So-Y7q" secondAttribute="top" id="vaW-OU-3js"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buttonBarView" destination="px1-2X-J3c" id="gmI-Lj-RSg"/>
+                        <outlet property="containerView" destination="sVb-uk-VUE" id="DMy-gQ-SZP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6cl-Jv-jBU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7016" y="-982"/>
+        </scene>
+        <!--Teacher Exam Edit View Controller-->
+        <scene sceneID="lMC-cO-Sge">
+            <objects>
+                <viewController storyboardIdentifier="TeacherExamEditViewController" id="cqP-NF-CUE" customClass="TeacherExamEditViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oBa-Hx-V3C">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gtv-fp-f0Y">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXd-TK-4jn">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="778"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="OYp-9z-bql">
+                                                <rect key="frame" x="30" y="70" width="354" height="658"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시험을 수정합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6MG-v1-2qM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="36"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="Ktj-Le-yIy">
+                                                        <rect key="frame" x="0.0" y="101" width="354" height="442"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="wfK-wp-dsg">
+                                                                <rect key="frame" x="0.0" y="0.0" width="354" height="65"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새로운 시험 이름을 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGV-9w-2DZ">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="18"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TEY-5K-WTR" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="31" width="354" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="NXI-uo-OQ2">
+                                                                <rect key="frame" x="0.0" y="100" width="354" height="65"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새로운 통과 점수를 입력해주세요. (선택)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jnv-lj-MA1">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="18"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J8e-EM-XLU" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="31" width="354" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="YpH-I6-cvn">
+                                                                <rect key="frame" x="0.0" y="200" width="354" height="34"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시작 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4p-Qr-gVE">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="56" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SKV-hG-uAL" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
+                                                                        <rect key="frame" x="69" y="0.0" width="285" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Fak-Wo-Hus">
+                                                                <rect key="frame" x="0.0" y="269" width="354" height="34"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="마감 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfD-26-Jf1">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="56" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QTa-bT-dck" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
+                                                                        <rect key="frame" x="69" y="0.0" width="285" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="vlM-b9-3Ef">
+                                                                <rect key="frame" x="0.0" y="338" width="354" height="34"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제한 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6B1-tO-syk">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="56" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZAH-bm-TQx" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
+                                                                        <rect key="frame" x="69" y="0.0" width="285" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnP-q8-DQy">
+                                                                <rect key="frame" x="0.0" y="407" width="354" height="35"/>
+                                                                <color key="backgroundColor" name="LightAccent"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="0Es-Hr-MG1"/>
+                                                                </constraints>
+                                                                <color key="tintColor" name="AccentColor"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="시험 문제 수정"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <integer key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFN-D2-Vv2" customClass="PGButton" customModule="Pullgo" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="608" width="354" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="wXt-G7-lyM"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="시험정보 수정">
+                                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="OYp-9z-bql" firstAttribute="top" secondItem="OXd-TK-4jn" secondAttribute="top" constant="70" id="9pt-bL-ArH"/>
+                                            <constraint firstItem="OYp-9z-bql" firstAttribute="leading" secondItem="OXd-TK-4jn" secondAttribute="leading" constant="30" id="ReM-Qx-zcR"/>
+                                            <constraint firstAttribute="bottom" secondItem="OYp-9z-bql" secondAttribute="bottom" constant="50" id="ccK-84-2ti"/>
+                                            <constraint firstAttribute="trailing" secondItem="OYp-9z-bql" secondAttribute="trailing" constant="30" id="vcA-Yg-s3d"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="OXd-TK-4jn" firstAttribute="width" secondItem="tzp-RS-GC6" secondAttribute="width" id="1Dh-fR-uSr"/>
+                                    <constraint firstItem="OXd-TK-4jn" firstAttribute="trailing" secondItem="Xho-dX-cCF" secondAttribute="trailing" id="8dw-jG-C1b"/>
+                                    <constraint firstItem="OXd-TK-4jn" firstAttribute="bottom" secondItem="Xho-dX-cCF" secondAttribute="bottom" id="F3f-45-k1e"/>
+                                    <constraint firstItem="OXd-TK-4jn" firstAttribute="top" secondItem="Xho-dX-cCF" secondAttribute="top" id="YgO-s8-767"/>
+                                    <constraint firstItem="OXd-TK-4jn" firstAttribute="leading" secondItem="Xho-dX-cCF" secondAttribute="leading" id="i3i-wM-Eat"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Xho-dX-cCF"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="tzp-RS-GC6"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="y6u-iW-CO6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Gtv-fp-f0Y" firstAttribute="leading" secondItem="y6u-iW-CO6" secondAttribute="leading" id="5SH-aK-pg1"/>
+                            <constraint firstItem="Gtv-fp-f0Y" firstAttribute="top" secondItem="y6u-iW-CO6" secondAttribute="top" id="SAm-n4-NoF"/>
+                            <constraint firstItem="y6u-iW-CO6" firstAttribute="trailing" secondItem="Gtv-fp-f0Y" secondAttribute="trailing" id="T3g-kX-Xmr"/>
+                            <constraint firstItem="y6u-iW-CO6" firstAttribute="bottom" secondItem="Gtv-fp-f0Y" secondAttribute="bottom" id="lW1-C8-Qo9"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uc5-WH-7vz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7728.985507246377" y="-982.36607142857133"/>
+        </scene>
+        <!--Teacher Remove Exam View Controller-->
+        <scene sceneID="gKB-IJ-Xg8">
+            <objects>
+                <viewController storyboardIdentifier="TeacherRemoveExamViewController" id="5xR-l9-NsT" customClass="TeacherRemoveExamViewController" customModule="Pullgo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bht-OA-X7b">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="WMR-eX-cuJ">
+                                <rect key="frame" x="30" y="172" width="354" height="552"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="V9Z-XT-kGu">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="222"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시험을 취소합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jby-ux-2lV">
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="36"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jz-QL-qJt">
+                                                <rect key="frame" x="0.0" y="86" width="354" height="36"/>
+                                                <string key="text">시험을 취소하면 지금까지 응시한 학생의 
+시험 기록이 사라지고, 되돌릴 수 없습니다.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" systemColor="systemRedColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuI-U2-9bL">
+                                                <rect key="frame" x="0.0" y="172" width="354" height="50"/>
+                                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="6PX-Vt-Obo"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="시험 취소">
+                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="BeX-uk-Cln">
+                                        <rect key="frame" x="0.0" y="312" width="354" height="240"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시험을 종료합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hb7-24-qFg">
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="36"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flW-xx-A6d">
+                                                <rect key="frame" x="0.0" y="86" width="354" height="54"/>
+                                                <string key="text">시험을 종료하면 지금까지  응시한 학생의 시험 기록만 유지되고, 
+응시하지 않은 학생들은 미응시로 처리됩니다.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8g8-HC-sN9">
+                                                <rect key="frame" x="0.0" y="190" width="354" height="50"/>
+                                                <color key="backgroundColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="4lZ-EJ-DAR"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="시험 종료">
+                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sxo-db-WFt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WMR-eX-cuJ" firstAttribute="leading" secondItem="sxo-db-WFt" secondAttribute="leading" constant="30" id="CKV-HP-vnk"/>
+                            <constraint firstItem="WMR-eX-cuJ" firstAttribute="centerY" secondItem="bht-OA-X7b" secondAttribute="centerY" id="Dkg-1T-bpo"/>
+                            <constraint firstItem="sxo-db-WFt" firstAttribute="trailing" secondItem="WMR-eX-cuJ" secondAttribute="trailing" constant="30" id="Ohw-ZB-IMk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qDw-CD-UXe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8340.579710144928" y="-982.36607142857133"/>
+        </scene>
         <!--시험 생성-->
         <scene sceneID="RDc-VM-bgy">
             <objects>
@@ -1214,7 +1530,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lP3-Ih-kJW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6853.6231884057979" y="-983.03571428571422"/>
+            <point key="canvasLocation" x="7016" y="-1666"/>
         </scene>
         <!--Teacher Add Exam Date View Controller-->
         <scene sceneID="gKm-F2-uhc">
@@ -1320,7 +1636,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rqe-cN-I5O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7567" y="-983"/>
+            <point key="canvasLocation" x="7729" y="-1666"/>
         </scene>
         <!--요청 관리-->
         <scene sceneID="sJs-OG-PFv">

@@ -87,6 +87,9 @@
 		A58E7A0D269758CC005FFC6F /* Teacher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58E7A0C269758CC005FFC6F /* Teacher.storyboard */; };
 		A58E7A11269758F6005FFC6F /* TeacherCalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E7A10269758F6005FFC6F /* TeacherCalenderViewController.swift */; };
 		A58E7A1526975B0D005FFC6F /* TeacherUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E7A13269759F5005FFC6F /* TeacherUITest.swift */; };
+		A59051F52723DB4D00439840 /* TeacherManageExamTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59051F42723DB4D00439840 /* TeacherManageExamTabViewController.swift */; };
+		A59051F72723DBAE00439840 /* TeacherExamEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59051F62723DBAE00439840 /* TeacherExamEditViewController.swift */; };
+		A59051F92723DBD100439840 /* TeacherRemoveExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59051F82723DBD100439840 /* TeacherRemoveExamViewController.swift */; };
 		A591BAFB270435A00089F28D /* PullgoUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A591BAFA270435A00089F28D /* PullgoUITest.swift */; };
 		A5A8EF61270C2BA60036389D /* TeacherChangeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A8EF60270C2BA60036389D /* TeacherChangeInfoViewController.swift */; };
 		A5A8EF63270C34230036389D /* TeacherInputNewInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A8EF62270C34230036389D /* TeacherInputNewInfoViewController.swift */; };
@@ -225,6 +228,9 @@
 		A58E7A0C269758CC005FFC6F /* Teacher.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Teacher.storyboard; sourceTree = "<group>"; };
 		A58E7A10269758F6005FFC6F /* TeacherCalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCalenderViewController.swift; sourceTree = "<group>"; };
 		A58E7A13269759F5005FFC6F /* TeacherUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherUITest.swift; sourceTree = "<group>"; };
+		A59051F42723DB4D00439840 /* TeacherManageExamTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherManageExamTabViewController.swift; sourceTree = "<group>"; };
+		A59051F62723DBAE00439840 /* TeacherExamEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherExamEditViewController.swift; sourceTree = "<group>"; };
+		A59051F82723DBD100439840 /* TeacherRemoveExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherRemoveExamViewController.swift; sourceTree = "<group>"; };
 		A591BAFA270435A00089F28D /* PullgoUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullgoUITest.swift; sourceTree = "<group>"; };
 		A5A8EF60270C2BA60036389D /* TeacherChangeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherChangeInfoViewController.swift; sourceTree = "<group>"; };
 		A5A8EF62270C34230036389D /* TeacherInputNewInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherInputNewInfoViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
@@ -545,6 +551,7 @@
 		A5780AAC26AC491E007F6A88 /* ClassroomManage */ = {
 			isa = PBXGroup;
 			children = (
+				A59051F32723DB3E00439840 /* ExamManage */,
 				A5EFD39426A16B3E001637FB /* TeacherClassroomManageViewController.swift */,
 				A5780AAF26AC4A7D007F6A88 /* TeacherClassroomManageRequestViewController.swift */,
 				A5780AB326AC4A7F007F6A88 /* TeacherClassroomManageInfoViewController.swift */,
@@ -607,6 +614,16 @@
 				A58E7A13269759F5005FFC6F /* TeacherUITest.swift */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		A59051F32723DB3E00439840 /* ExamManage */ = {
+			isa = PBXGroup;
+			children = (
+				A59051F42723DB4D00439840 /* TeacherManageExamTabViewController.swift */,
+				A59051F62723DBAE00439840 /* TeacherExamEditViewController.swift */,
+				A59051F82723DBD100439840 /* TeacherRemoveExamViewController.swift */,
+			);
+			path = ExamManage;
 			sourceTree = "<group>";
 		};
 		A5A8EF5F270C2B850036389D /* ChangeInfo */ = {
@@ -1059,6 +1076,7 @@
 				A529377B269AE4CA00B210C2 /* Messages.swift in Sources */,
 				A505A8EB26B3DF1E007954A4 /* TeacherCreateClassroomViewController.swift in Sources */,
 				A5FB031526A05C2D007FCDB7 /* TeacherMenuViewController.swift in Sources */,
+				A59051F92723DBD100439840 /* TeacherRemoveExamViewController.swift in Sources */,
 				A56FB386270DD778001A5F21 /* AcademyAcceptStudentViewController.swift in Sources */,
 				A5F5E66126BC3E100004BA35 /* TeacherAddExamDateViewController.swift in Sources */,
 				A55454A12710A07800CCC987 /* StudentExamHistoryViewController.swift in Sources */,
@@ -1089,6 +1107,7 @@
 				A5EDB217268D93A90085CCAE /* Style.swift in Sources */,
 				A584BA22271069410038EAE7 /* TeacherManageSendRequestViewController.swift in Sources */,
 				A569C795271175A400D280EB /* StudentCalendarSelectViewController.swift in Sources */,
+				A59051F52723DB4D00439840 /* TeacherManageExamTabViewController.swift in Sources */,
 				A5780AB426AC4A7F007F6A88 /* TeacherClassroomManageInfoViewController.swift in Sources */,
 				A55454B22710BF7D00CCC987 /* SharedUI.swift in Sources */,
 				A5A8EF63270C34230036389D /* TeacherInputNewInfoViewController.swift in Sources */,
@@ -1098,6 +1117,7 @@
 				A5EDB215268D931B0085CCAE /* SignUpViewController.swift in Sources */,
 				A55454B02710B23500CCC987 /* StudentAcademyJoinRequestViewController.swift in Sources */,
 				A5A8EF61270C2BA60036389D /* TeacherChangeInfoViewController.swift in Sources */,
+				A59051F72723DBAE00439840 /* TeacherExamEditViewController.swift in Sources */,
 				A508196726E748320094A50C /* Animation.swift in Sources */,
 				A57FE018268F220700B1E609 /* InputPasswordViewController.swift in Sources */,
 				A55A516A27135CFA00CE041E /* ClassroomAcceptTeacherViewController.swift in Sources */,

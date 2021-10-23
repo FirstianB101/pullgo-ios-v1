@@ -49,6 +49,15 @@ class TeacherClassroomManageExamViewController: UIViewController, TeacherClassro
 }
 
 extension TeacherClassroomManageExamViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedExam = viewModel.exams[indexPath.item]
+        
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "TeacherManageExamTabViewController") as? TeacherManageExamTabViewController else { return }
+        vc.viewModel.selectedExam = selectedExam
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height: CGFloat = 138
         let padding: CGFloat = 10
