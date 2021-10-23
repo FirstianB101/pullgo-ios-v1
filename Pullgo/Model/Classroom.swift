@@ -29,12 +29,6 @@ class Classroom: PGNetworkable {
     
     var academyBelong: Academy?
     
-    var requestTeachers = [Teacher]()
-    var requestStudents = [Student]()
-    var teachers = [Teacher]()
-    var students = [Student]()
-    var exams = [Exam]()
-    
     init() {
         super.init(url: PGURLs.classrooms)
     }
@@ -67,6 +61,16 @@ class Classroom: PGNetworkable {
             rhs.academyId == lhs.academyId
         )
     }
+    
+    public override func patch(success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
+        let url = PGURLs.classrooms
+            .appendingURL([self.classroomId])
+        
+        let classroom: Parameter = ["name" : self.name!]
+        print(classroom)
+        
+        PGNetwork.patch(url: url, parameter: classroom, success: success, fail: fail)
+    }
 
     var parse: ClassroomParse {
         var result: ClassroomParse = ("", "", "")
@@ -84,6 +88,19 @@ class Classroom: PGNetworkable {
         return result
     }
     
+    public func setInformation(classroomName: String, teacherName: String, weekdays: String) {
+        let weekday = weekdays.filter { str in
+            if let _ = Weekday.init(rawValue: String(str)) {
+                return true
+            }
+            return false
+        }
+        
+        let combine = "\(classroomName);\(teacherName);\(weekday)"
+        print(combine)
+        self.name = combine
+    }
+    
     private func parseWeekday(weekday: String.SubSequence) -> String {
         let weekdayArray = weekday.map { "\($0), " }.joined()
         
@@ -99,6 +116,7 @@ class Classroom: PGNetworkable {
 }
 
 extension Classroom {
+    
     private var classroomIdQuery: URLQueryItem {
         return URLQueryItem(name: "classroomId", value: self.classroomId)
     }

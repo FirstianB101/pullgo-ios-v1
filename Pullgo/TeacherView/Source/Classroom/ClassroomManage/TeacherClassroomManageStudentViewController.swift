@@ -52,9 +52,10 @@ class TeacherClassroomManageStudentViewController: UIViewController, TeacherClas
 
 extension TeacherClassroomManageStudentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "TeacherClassroomDetailStudentViewController") else { return }
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "TeacherClassroomDetailStudentViewController") as? TeacherClassroomDetailStudentViewController else { return }
         
         // student 넘겨주기
+        vc.viewModel.selectedStudent = viewModel.students[indexPath.row]
         
         self.navigationController?.pushViewController(vc, animated: true)
     }

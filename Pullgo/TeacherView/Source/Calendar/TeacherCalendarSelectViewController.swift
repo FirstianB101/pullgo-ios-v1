@@ -34,7 +34,7 @@ class TeacherCalendarSelectViewController: UIViewController {
         super.viewWillDisappear(true)
         
         let pvc = self.presentingViewController! as! TeacherCalendarViewController
-        pvc.calendar.reloadData()
+        pvc.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

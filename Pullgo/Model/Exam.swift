@@ -16,8 +16,8 @@ class Exam: PGNetworkable {
     var endDateTime: String!
     var timeLimit: String!
     var passScore: Int!
-    var cancelled: Bool!
-    var finished: Bool!
+    var cancelled: Bool?
+    var finished: Bool?
     
     enum CodingKeys: CodingKey {
         case classroomId, creatorId, name, beginDateTime, endDateTime,

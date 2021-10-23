@@ -38,13 +38,14 @@ class InputUsernameViewController: UIViewController {
     }
     
     @IBAction func duplicateCheckButtonClicked(sender: UIButton) {
-        if !viewModel.isUnique() {
-            let alert = PGAlertPresentor(presentor: self)
-            alert.present(title: "경고", context: "이미 존재하는 아이디입니다.")
-            return
-        }
+        guard let username = usernameTextField.text else { return }
+        let alert = PGAlertPresentor()
         
-        nextButton.slowAppear()
+        viewModel.isUnique(username: username, valid: { [weak self] in
+            self?.nextButton.slowAppear()
+        }, invalid: {
+            alert.present(title: "알림", context: "이미 존재하는 아이디입니다.")
+        })
     }
     
     @IBAction func nextButtonClicked(sender: UIButton) {
@@ -72,9 +73,11 @@ class InputUsernameViewModel {
         }
     }
     
-    func isUnique() -> Bool {
-        // Server API not Exist
-        return true
+    func isUnique(username: String, valid: @escaping (() -> Void), invalid: @escaping (() -> Void)) {
+        let userType = SignUpInformation.shared.userType
+        PGNetwork.checkUsernameDuplicate(userType: userType, username: username) { isExists in
+            isExists ? invalid() : valid()
+        }
     }
 }
 

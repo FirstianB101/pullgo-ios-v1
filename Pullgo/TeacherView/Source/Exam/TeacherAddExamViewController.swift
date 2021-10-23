@@ -23,7 +23,7 @@ class TeacherAddExamViewController: UIViewController {
     
     @IBAction func nextClicked(_ sender: UIButton) {
         
-        if !self.checkAllFieldValid(fields: [examNameField, hourField, minuteField, passScoreField]) {
+        if self.checkAllFieldValid(fields: [examNameField, hourField, minuteField, passScoreField]) {
             createdExam.updateExamName(name: examNameField.text!)
             createdExam.updateTimeLimit(hour: hourField.text!, minute: minuteField.text!)
             createdExam.updatePassScore(score: passScoreField.text!)
@@ -58,6 +58,11 @@ class CreatedExam {
     
     static let `default` = CreatedExam()
     var exam = Exam()
+    
+    init() {
+        self.exam.creatorId = PGSignedUser.id!
+        self.exam.classroomId = TeacherClassroomManageViewModel.selectedClassroom.id
+    }
     
     func updateExamName(name: String) {
         self.exam.name = name

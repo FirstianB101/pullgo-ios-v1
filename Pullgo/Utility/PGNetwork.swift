@@ -34,6 +34,31 @@ class _PGNetwork {
         self.baseURI = URL(string: "https://api.pullgo.kr/\(self.apiVersion)")!
     }
     
+    // MARK: - Indicator
+    lazy var indicatorView = { () -> UIActivityIndicatorView in
+        guard let topView = UIApplication.shared.topViewController else { return UIActivityIndicatorView() }
+        let width = topView.view.frame.width
+        let height = topView.view.frame.height
+        let indicator = UIActivityIndicatorView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: width, height: height)))
+        
+        return indicator
+    }()
+    
+    private func startIndicator(_ indicator: UIActivityIndicatorView) {
+        guard let topViewController = UIApplication.shared.topViewController else {
+            print("_PGNetwork::startIndicator(_:) -> topViewController is nil.")
+            return
+        }
+        topViewController.view.addSubview(indicator)
+        topViewController.view.bringSubviewToFront(indicator)
+        indicator.startAnimating()
+    }
+    
+    private func stopIndicator(_ indicator: UIActivityIndicatorView) {
+        indicator.stopAnimating()
+        indicator.removeFromSuperview()
+    }
+    
     // MARK: - Public Methods
     public func appendURL(_ urls: String...) -> URL {
         let url = self.baseURI
@@ -168,6 +193,34 @@ class _PGNetwork {
                     self.processByStatusCode(code: code) {
                         success(d)
                     }
+                }
+            case .failure(_):
+                self.presentNetworkAlert()
+            }
+        }
+    }
+    
+    public func checkUsernameDuplicate(userType: UserType, username: String, complete: @escaping ((Bool) -> Void)) {
+        let url = (userType == .teacher ? PGURLs.teachers : PGURLs.students)
+            .appendingURL([username, "exists"])
+        
+        struct State: Decodable {
+            var isExists: Bool
+        }
+        
+        print(url)
+        AF.request(url).response { response in
+            switch response.result {
+            case .success(let d):
+                d?.log()
+                let code = response.response?.statusCode
+                
+                self.processByStatusCode(code: code) {
+                    guard let receivedData = try? d?.toObject(type: State.self) else {
+                        print("PGNetwork::checkUsernameDuplicate() -> decode object error!")
+                        return
+                    }
+                    complete(receivedData.isExists)
                 }
             case .failure(_):
                 self.presentNetworkAlert()
@@ -333,4 +386,3 @@ extension UIApplication {
         return nil
     }
 }
-

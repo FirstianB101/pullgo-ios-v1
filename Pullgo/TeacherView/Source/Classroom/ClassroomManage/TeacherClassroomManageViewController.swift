@@ -32,6 +32,7 @@ class TeacherClassroomManageViewController: UIViewController {
 extension TeacherClassroomManageViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         TeacherClassroomManageViewModel.selectedClassroom = viewModel.classrooms[indexPath.row]
+        TeacherClassroomManageViewModel.selectedClassroom.url = PGURLs.classrooms
         presentClassroomManageView()
     }
     

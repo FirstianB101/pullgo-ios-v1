@@ -139,10 +139,8 @@ extension StudentCalendarViewController: UIViewControllerTransitioningDelegate {
 
 class StudentCalendarViewModel {
     
-    
     private var isLatestLessonsOf = [YearAndMonth : Bool]()
     private var lessonsOfDate = [DateKey : [Lesson]]()
-    
     
     public func getAcademies(completion: @escaping ((_ isEmpty: Bool) -> Void)) {
         PGSignedUser.getAcademies(page: 0) { academies in
@@ -182,11 +180,8 @@ class StudentCalendarViewModel {
         for lesson in lessons {
             let lessonDate = lesson.schedule.date
             
-            if lessonsOfDate[lessonDate] == nil {
-                lessonsOfDate[lessonDate] = [lesson]
-            } else {
-                lessonsOfDate[lessonDate]!.append(lesson)
-            }
+            lessonsOfDate[lessonDate] = []
+            lessonsOfDate[lessonDate]!.append(lesson)
         }
     }
 }

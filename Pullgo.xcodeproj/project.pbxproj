@@ -13,6 +13,7 @@
 		A505A8EE26B44F0F007954A4 /* TeacherCreateClassroomSelectAcademyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A505A8ED26B44F0F007954A4 /* TeacherCreateClassroomSelectAcademyViewController.swift */; };
 		A508196726E748320094A50C /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A508196626E748320094A50C /* Animation.swift */; };
 		A508196926E780A00094A50C /* PGSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A508196826E780A00094A50C /* PGSelectButton.swift */; };
+		A50FABB1271A929400BDD614 /* TeacherChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50FABB0271A929400BDD614 /* TeacherChangePasswordViewController.swift */; };
 		A5191494268DC27300620A66 /* InputUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5191493268DC27300620A66 /* InputUsernameViewController.swift */; };
 		A5191496268DCC1500620A66 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5191495268DCC1500620A66 /* Extension.swift */; };
 		A51D238B26FDBBE400466C05 /* PGUnregisteredNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51D238A26FDBBE400466C05 /* PGUnregisteredNotification.swift */; };
@@ -118,6 +119,8 @@
 		A5F5E65E26BC2D520004BA35 /* TeacherAddExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F5E65D26BC2D520004BA35 /* TeacherAddExamViewController.swift */; };
 		A5F5E66126BC3E100004BA35 /* TeacherAddExamDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F5E66026BC3E100004BA35 /* TeacherAddExamDateViewController.swift */; };
 		A5F7F1A626A303F600487BF7 /* TeacherRequestClassroomJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F7F1A526A303F600487BF7 /* TeacherRequestClassroomJoinViewController.swift */; };
+		A5F96A9727227524004E8812 /* TeacherClassroomChangeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F96A9627227524004E8812 /* TeacherClassroomChangeInfoViewController.swift */; };
+		A5F96A992722754C004E8812 /* TeacherClassroomRemoveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F96A982722754C004E8812 /* TeacherClassroomRemoveViewController.swift */; };
 		A5FB031026A04071007FCDB7 /* TeacherCreateLessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FB030F26A04071007FCDB7 /* TeacherCreateLessonViewController.swift */; };
 		A5FB031226A0574C007FCDB7 /* TeacherViewSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FB031126A0574C007FCDB7 /* TeacherViewSwitcher.swift */; };
 		A5FB031526A05C2D007FCDB7 /* TeacherMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FB031426A05C2D007FCDB7 /* TeacherMenuViewController.swift */; };
@@ -154,6 +157,7 @@
 		A505A8ED26B44F0F007954A4 /* TeacherCreateClassroomSelectAcademyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCreateClassroomSelectAcademyViewController.swift; sourceTree = "<group>"; };
 		A508196626E748320094A50C /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		A508196826E780A00094A50C /* PGSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGSelectButton.swift; sourceTree = "<group>"; };
+		A50FABB0271A929400BDD614 /* TeacherChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherChangePasswordViewController.swift; sourceTree = "<group>"; };
 		A5191493268DC27300620A66 /* InputUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputUsernameViewController.swift; sourceTree = "<group>"; };
 		A5191495268DCC1500620A66 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		A51D238A26FDBBE400466C05 /* PGUnregisteredNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGUnregisteredNotification.swift; sourceTree = "<group>"; };
@@ -249,6 +253,8 @@
 		A5F5E65D26BC2D520004BA35 /* TeacherAddExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherAddExamViewController.swift; sourceTree = "<group>"; };
 		A5F5E66026BC3E100004BA35 /* TeacherAddExamDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherAddExamDateViewController.swift; sourceTree = "<group>"; };
 		A5F7F1A526A303F600487BF7 /* TeacherRequestClassroomJoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherRequestClassroomJoinViewController.swift; sourceTree = "<group>"; };
+		A5F96A9627227524004E8812 /* TeacherClassroomChangeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassroomChangeInfoViewController.swift; sourceTree = "<group>"; };
+		A5F96A982722754C004E8812 /* TeacherClassroomRemoveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassroomRemoveViewController.swift; sourceTree = "<group>"; };
 		A5FB030F26A04071007FCDB7 /* TeacherCreateLessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCreateLessonViewController.swift; sourceTree = "<group>"; };
 		A5FB031126A0574C007FCDB7 /* TeacherViewSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherViewSwitcher.swift; sourceTree = "<group>"; };
 		A5FB031426A05C2D007FCDB7 /* TeacherMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherMenuViewController.swift; sourceTree = "<group>"; };
@@ -548,6 +554,8 @@
 				A5D0340F27096AA800732C9D /* TeacherClassroomKickTeacherViewController.swift */,
 				A55A516927135CFA00CE041E /* ClassroomAcceptTeacherViewController.swift */,
 				A55A516B27135D0800CE041E /* ClassroomAcceptStudentViewController.swift */,
+				A5F96A9627227524004E8812 /* TeacherClassroomChangeInfoViewController.swift */,
+				A5F96A982722754C004E8812 /* TeacherClassroomRemoveViewController.swift */,
 			);
 			path = ClassroomManage;
 			sourceTree = "<group>";
@@ -606,6 +614,7 @@
 			children = (
 				A5A8EF60270C2BA60036389D /* TeacherChangeInfoViewController.swift */,
 				A5A8EF62270C34230036389D /* TeacherInputNewInfoViewController.swift */,
+				A50FABB0271A929400BDD614 /* TeacherChangePasswordViewController.swift */,
 			);
 			path = ChangeInfo;
 			sourceTree = "<group>";
@@ -1056,6 +1065,7 @@
 				A5293768269ACCE700B210C2 /* Exam.swift in Sources */,
 				A5780AB226AC4A7E007F6A88 /* TeacherClassroomManageStudentViewController.swift in Sources */,
 				A5B469AC2688DA8A00C62F9C /* Presentor.swift in Sources */,
+				A50FABB1271A929400BDD614 /* TeacherChangePasswordViewController.swift in Sources */,
 				A573203C2705A4A200951638 /* TeacherAcademyJoinRequestViewController.swift in Sources */,
 				A57FE01C268F401300B1E609 /* SignUpInformation.swift in Sources */,
 				A54A0203271489E0007E47BB /* StudentChangePasswordViewController.swift in Sources */,
@@ -1070,6 +1080,7 @@
 				A5191494268DC27300620A66 /* InputUsernameViewController.swift in Sources */,
 				A5B5CDC3270700B700AC9F7F /* TeacherClassroomDetailStudentViewController.swift in Sources */,
 				A56FB388270DE665001A5F21 /* ButtonBarPagerExtension.swift in Sources */,
+				A5F96A992722754C004E8812 /* TeacherClassroomRemoveViewController.swift in Sources */,
 				A5293766269ACCE200B210C2 /* Lesson.swift in Sources */,
 				A5CFCCAC26DE29240069F536 /* PGTextField.swift in Sources */,
 				A5293762269ACCCD00B210C2 /* Classroom.swift in Sources */,
@@ -1100,6 +1111,7 @@
 				A5780AB026AC4A7D007F6A88 /* TeacherClassroomManageRequestViewController.swift in Sources */,
 				A5C60EB426A358DB007795C0 /* TeacherCreateLesson_SelectClassroomViewController.swift in Sources */,
 				A535E99926F731E200C6F1D8 /* PGNetworkable.swift in Sources */,
+				A5F96A9727227524004E8812 /* TeacherClassroomChangeInfoViewController.swift in Sources */,
 				A508196926E780A00094A50C /* PGSelectButton.swift in Sources */,
 				A529376A269ACCED00B210C2 /* Question.swift in Sources */,
 				A5E7C0ED26C66CC10083001C /* StudentCalendarViewController.swift in Sources */,

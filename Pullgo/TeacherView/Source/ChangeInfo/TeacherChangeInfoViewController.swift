@@ -47,6 +47,12 @@ class TeacherChangeInfoViewController: UIViewController {
         })
     }
     
+    @IBAction func presentInputNewInfo(_ sender: PGButton) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "TeacherInputNewInfoNavigationController") else { return }
+        
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     @IBAction func showSideMenu(_ sender: UIBarButtonItem) {
         TeacherViewSwitcher.showSideMenu(self)
     }

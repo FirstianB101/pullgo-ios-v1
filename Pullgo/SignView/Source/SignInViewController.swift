@@ -82,9 +82,9 @@ extension SignInViewController {
             viewModel.setPGSignedUser(userInfo: userInfo)
             viewModel.autoLoginProcess()
             
-            if viewModel.userType == .student {
+            if viewModel.userType == .student && PGSignedUser.student != nil {
                 self.presentStudentView()
-            } else if viewModel.userType == .teacher {
+            } else if viewModel.userType == .teacher && PGSignedUser.teacher != nil {
                 self.presentTeacherView()
             }
             
@@ -133,12 +133,15 @@ class SignInViewModel {
     
     public func setPGSignedUser(userInfo: _PGSignedUser) {
         PGSignedUser.token = userInfo.token
-        if self.userType == .student {
+        if self.userType == .student && userInfo.student != nil {
             PGSignedUser.student = userInfo.student
             PGSignedUser.userType = .student
-        } else if self.userType == .teacher {
+        } else if self.userType == .teacher && userInfo.teacher != nil {
             PGSignedUser.teacher = userInfo.teacher
             PGSignedUser.userType = .teacher
+        } else {
+            let alert = PGAlertPresentor()
+            alert.present(title: "알림", context: "아이디 혹은 비밀번호가 일치하지 않습니다.")
         }
     }
     

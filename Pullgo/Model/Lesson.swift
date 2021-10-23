@@ -25,7 +25,7 @@ class Lesson: PGNetworkable {
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        self.classroomId    = try? container.decode(Int.self, forKey: .name)
+        self.classroomId    = try? container.decode(Int.self, forKey: .classroomId)
         self.academyId      = try? container.decode(Int.self, forKey: .academyId)
         self.name           = try? container.decode(String.self, forKey: .name)
         self.schedule       = try? container.decode(Schedule.self, forKey: .schedule)
@@ -36,7 +36,7 @@ class Lesson: PGNetworkable {
     override func encode(to encoder: Encoder) throws {
         var container = try encoder.container(keyedBy: CodingKeys.self)
         
-        try? container.encode(self.classroomId, forKey: .name)
+        try? container.encode(self.classroomId, forKey: .classroomId)
         try? container.encode(self.academyId, forKey: .academyId)
         try? container.encode(self.name, forKey: .name)
         try? container.encode(self.schedule, forKey: .schedule)

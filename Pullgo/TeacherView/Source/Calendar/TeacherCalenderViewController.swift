@@ -31,6 +31,10 @@ class TeacherCalendarViewController: UIViewController {
         }
     }
     
+    public func reloadData() {
+        initializeCalendar()
+    }
+    
     private func presentNoAcademy() {
         self.calendar.isHidden = true
         self.noAcademyStack.isHidden = false

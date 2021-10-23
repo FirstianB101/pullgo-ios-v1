@@ -98,6 +98,8 @@ class TeacherCreateLessonViewController: UIViewController {
         alert.present(title: viewModel.lessonName,
                       context: "반: \(viewModel.selectedClassroom!.parse.classroomName)\n일시: \(viewModel.getDateOfSchedule())\n시간: \(viewModel.getPeriodOfSchedule())\n\n위 정보로 수업을 생성합니다.",
                       actions: [cancel, apply])
+        
+        
     }
     
     @IBAction func dismiss(_ sender: UIButton) {
@@ -187,7 +189,7 @@ class TeacherCreateLessonViewModel {
         let lesson = Lesson()
         
         lesson.name = self.lessonName
-        lesson.classroomId = self.selectedClassroom?.id
+        lesson.classroomId = self.selectedClassroom!.id
         lesson.schedule = self.lessonSchedule
         
         lesson.post(success: { _ in complete() })
