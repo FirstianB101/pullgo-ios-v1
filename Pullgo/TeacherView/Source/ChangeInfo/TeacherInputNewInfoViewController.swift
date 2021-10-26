@@ -81,7 +81,12 @@ class TeacherInputNewInfoViewModel {
         teacher.id = PGSignedUser.id
 		teacher.account = PGSignedUser.teacher.account
 		
+		teacher.account.fullName = self.fullName
+		teacher.account.phone = self.phone
+		
 		teacher.patch(success: { data in
+			data?.log()
+			
 			guard let received = try? data?.toObject(type: Teacher.self) else {
 				print("Teacher::patch failed.")
 				return

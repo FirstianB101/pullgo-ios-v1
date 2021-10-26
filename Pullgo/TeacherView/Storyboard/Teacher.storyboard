@@ -8,6 +8,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1130,10 +1131,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXd-TK-4jn">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="778"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="788"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="OYp-9z-bql">
-                                                <rect key="frame" x="30" y="70" width="354" height="658"/>
+                                                <rect key="frame" x="30" y="70" width="354" height="668"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시험을 수정합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6MG-v1-2qM">
                                                         <rect key="frame" x="0.0" y="0.0" width="354" height="36"/>
@@ -1142,7 +1143,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="Ktj-Le-yIy">
-                                                        <rect key="frame" x="0.0" y="101" width="354" height="442"/>
+                                                        <rect key="frame" x="0.0" y="101" width="354" height="452"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="wfK-wp-dsg">
                                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="65"/>
@@ -1172,7 +1173,7 @@
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J8e-EM-XLU" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="31" width="354" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
@@ -1188,7 +1189,7 @@
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SKV-hG-uAL" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
                                                                         <rect key="frame" x="69" y="0.0" width="285" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" textContentType="date-time"/>
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
@@ -1204,7 +1205,7 @@
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QTa-bT-dck" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
                                                                         <rect key="frame" x="69" y="0.0" width="285" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" textContentType="date-time"/>
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
@@ -1220,15 +1221,15 @@
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZAH-bm-TQx" customClass="PGTextField" customModule="Pullgo" customModuleProvider="target">
                                                                         <rect key="frame" x="69" y="0.0" width="285" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" textContentType="date-time"/>
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnP-q8-DQy">
-                                                                <rect key="frame" x="0.0" y="407" width="354" height="35"/>
+                                                                <rect key="frame" x="0.0" y="407" width="354" height="45"/>
                                                                 <color key="backgroundColor" name="LightAccent"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="35" id="0Es-Hr-MG1"/>
+                                                                    <constraint firstAttribute="height" constant="45" id="0Es-Hr-MG1"/>
                                                                 </constraints>
                                                                 <color key="tintColor" name="AccentColor"/>
                                                                 <state key="normal" title="Button"/>
@@ -1242,7 +1243,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFN-D2-Vv2" customClass="PGButton" customModule="Pullgo" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="608" width="354" height="50"/>
+                                                        <rect key="frame" x="0.0" y="618" width="354" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="wXt-G7-lyM"/>
                                                         </constraints>
@@ -1283,6 +1284,13 @@
                             <constraint firstItem="y6u-iW-CO6" firstAttribute="bottom" secondItem="Gtv-fp-f0Y" secondAttribute="bottom" id="lW1-C8-Qo9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="beginTimeField" destination="SKV-hG-uAL" id="8I4-ul-flo"/>
+                        <outlet property="endTimeField" destination="QTa-bT-dck" id="HrN-5I-sXw"/>
+                        <outlet property="examNameField" destination="TEY-5K-WTR" id="vX5-v5-JZY"/>
+                        <outlet property="passScoreField" destination="J8e-EM-XLU" id="Fai-g6-FS1"/>
+                        <outlet property="timeLimitField" destination="ZAH-bm-TQx" id="FJk-5D-mcv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uc5-WH-7vz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1841,7 +1849,7 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4Rw-gN-wfm">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="138" width="414" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" name="AccentColor"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="반 혹은 선생님 이름을 입력해주세요" id="CDK-h9-adj">
@@ -1853,7 +1861,7 @@
                                     </connections>
                                 </searchBar>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="pPi-4n-Eau">
-                                    <rect key="frame" x="0.0" y="853.5" width="414" height="44"/>
+                                    <rect key="frame" x="0.0" y="724.5" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
@@ -1916,6 +1924,17 @@
                                     <outlet property="delegate" destination="I7Z-En-FPN" id="WU6-et-wbk"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ddg-hZ-Xtx">
+                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <color key="backgroundColor" name="LightAccent"/>
+                                <menu key="menu" id="Ayq-6T-2BR">
+                                    <children>
+                                        <command title="Item 1" id="dSE-D8-puj"/>
+                                        <command title="Item 2" id="ZLb-RB-dul"/>
+                                    </children>
+                                </menu>
+                                <state key="normal" title="학원을 선택해주세요."/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bh4-Hn-CXs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1923,8 +1942,12 @@
                             <constraint firstItem="Bh4-Hn-CXs" firstAttribute="trailing" secondItem="4RT-VO-L2U" secondAttribute="trailing" id="57e-Vt-DVK"/>
                             <constraint firstItem="Bh4-Hn-CXs" firstAttribute="bottom" secondItem="4Rw-gN-wfm" secondAttribute="bottom" id="5LL-Vs-gcp"/>
                             <constraint firstItem="4RT-VO-L2U" firstAttribute="top" secondItem="Bh4-Hn-CXs" secondAttribute="top" id="8qw-Cc-ZdU"/>
-                            <constraint firstItem="4Rw-gN-wfm" firstAttribute="top" secondItem="4RT-VO-L2U" secondAttribute="bottom" id="ONM-4M-DfG"/>
+                            <constraint firstItem="Bh4-Hn-CXs" firstAttribute="trailing" secondItem="ddg-hZ-Xtx" secondAttribute="trailing" id="EoU-fp-NH2"/>
+                            <constraint firstItem="ddg-hZ-Xtx" firstAttribute="leading" secondItem="Bh4-Hn-CXs" secondAttribute="leading" id="Mu0-dl-BWx"/>
+                            <constraint firstItem="4Rw-gN-wfm" firstAttribute="top" secondItem="4RT-VO-L2U" secondAttribute="bottom" constant="50" id="ONM-4M-DfG"/>
+                            <constraint firstItem="ddg-hZ-Xtx" firstAttribute="top" secondItem="4RT-VO-L2U" secondAttribute="bottom" id="WKc-Ls-g3d"/>
                             <constraint firstItem="4RT-VO-L2U" firstAttribute="leading" secondItem="yca-y1-qBO" secondAttribute="leading" id="WlT-Vi-dXj"/>
+                            <constraint firstItem="4Rw-gN-wfm" firstAttribute="top" secondItem="ddg-hZ-Xtx" secondAttribute="bottom" id="ePa-4j-15H"/>
                             <constraint firstItem="Bh4-Hn-CXs" firstAttribute="trailing" secondItem="4Rw-gN-wfm" secondAttribute="trailing" id="jf6-8x-gMu"/>
                             <constraint firstItem="4Rw-gN-wfm" firstAttribute="leading" secondItem="Bh4-Hn-CXs" secondAttribute="leading" id="n3E-nV-eAV"/>
                             <constraint firstItem="4Rw-gN-wfm" firstAttribute="bottom" secondItem="Bh4-Hn-CXs" secondAttribute="bottom" id="yNj-fi-bih"/>
@@ -1932,6 +1955,8 @@
                     </view>
                     <connections>
                         <outlet property="classroomTableView" destination="4Rw-gN-wfm" id="hDo-Fs-Vgf"/>
+                        <outlet property="searchBar" destination="CDK-h9-adj" id="Qt7-3U-WjD"/>
+                        <outlet property="selectAcademyButton" destination="ddg-hZ-Xtx" id="kBk-Wg-bPG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MkC-gl-1IK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

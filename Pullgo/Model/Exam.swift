@@ -60,6 +60,27 @@ class Exam: PGNetworkable {
         try super.encode(to: encoder)
     }
     
+    override func patch(success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
+        let exam = Exam()
+        
+        guard let _ = self.id else {
+            fatalError("Exam::patch() -> id is nil.")
+        }
+        exam.id = self.id!
+        exam.name = self.name
+        exam.beginDateTime = self.beginDateTime
+        exam.endDateTime = self.endDateTime
+        exam.timeLimit = self.timeLimit
+        exam.passScore = self.passScore
+        
+        let url = PGURLs.exams.appendingURL([String(exam.id!)])
+        guard let parameter = try? exam.toParameter() else {
+            fatalError("Exam::patch() -> exam to parameter failed.")
+        }
+        
+        PGNetwork.patch(url: url, parameter: parameter, success: success, fail: fail)
+    }
+    
     private var examId: String {
         guard let examId = self.id else {
             fatalError("Exam::id -> id is nil.")

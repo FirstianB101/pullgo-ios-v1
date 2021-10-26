@@ -16,6 +16,7 @@
 		A50FABB1271A929400BDD614 /* TeacherChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50FABB0271A929400BDD614 /* TeacherChangePasswordViewController.swift */; };
 		A5191494268DC27300620A66 /* InputUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5191493268DC27300620A66 /* InputUsernameViewController.swift */; };
 		A5191496268DCC1500620A66 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5191495268DCC1500620A66 /* Extension.swift */; };
+		A51AA8F12727068800C19EA5 /* Exam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A51AA8F02727068800C19EA5 /* Exam.storyboard */; };
 		A51D238B26FDBBE400466C05 /* PGUnregisteredNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51D238A26FDBBE400466C05 /* PGUnregisteredNotification.swift */; };
 		A520AAD626EE3BCB0099CD94 /* PGSelectionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A520AAD526EE3BCB0099CD94 /* PGSelectionTab.swift */; };
 		A52904512704406000B9344C /* PullgoUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A591BAFA270435A00089F28D /* PullgoUITest.swift */; };
@@ -163,6 +164,7 @@
 		A50FABB0271A929400BDD614 /* TeacherChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherChangePasswordViewController.swift; sourceTree = "<group>"; };
 		A5191493268DC27300620A66 /* InputUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputUsernameViewController.swift; sourceTree = "<group>"; };
 		A5191495268DCC1500620A66 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		A51AA8F02727068800C19EA5 /* Exam.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exam.storyboard; sourceTree = "<group>"; };
 		A51D238A26FDBBE400466C05 /* PGUnregisteredNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGUnregisteredNotification.swift; sourceTree = "<group>"; };
 		A520AAD526EE3BCB0099CD94 /* PGSelectionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGSelectionTab.swift; sourceTree = "<group>"; };
 		A52904532704462E00B9344C /* CheckCreatedAccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCreatedAccountTest.swift; sourceTree = "<group>"; };
@@ -344,6 +346,22 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
+		A51AA8EE272705CE00C19EA5 /* ExamView */ = {
+			isa = PBXGroup;
+			children = (
+				A51AA8EF272705E300C19EA5 /* Storyboard */,
+			);
+			path = ExamView;
+			sourceTree = "<group>";
+		};
+		A51AA8EF272705E300C19EA5 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				A51AA8F02727068800C19EA5 /* Exam.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		A529376D269ADAF800B210C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +414,7 @@
 				A5B469AA2688DA6700C62F9C /* Utility */,
 				A529DB4526C64329006CD0E7 /* StudentView */,
 				A58E7A0B269758AF005FFC6F /* TeacherView */,
+				A51AA8EE272705CE00C19EA5 /* ExamView */,
 				A532DB5226889B1E00076260 /* SignView */,
 				A532DB2226889ACB00076260 /* AppDelegate.swift */,
 				A532DB2426889ACB00076260 /* SceneDelegate.swift */,
@@ -912,6 +931,7 @@
 				A5B4CD5C26898E9800FA2967 /* thumbs-up.png in Resources */,
 				A58E7A0D269758CC005FFC6F /* Teacher.storyboard in Resources */,
 				A532DB2C26889ACC00076260 /* Assets.xcassets in Resources */,
+				A51AA8F12727068800C19EA5 /* Exam.storyboard in Resources */,
 				A532DB2A26889ACB00076260 /* Main.storyboard in Resources */,
 				A55454AE2710AB0D00CCC987 /* Student.storyboard in Resources */,
 			);

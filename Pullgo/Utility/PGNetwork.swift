@@ -205,7 +205,7 @@ class _PGNetwork {
             .appendingURL([username, "exists"])
         
         struct State: Decodable {
-            var isExists: Bool
+            var exists: Bool
         }
         
         print(url)
@@ -220,7 +220,7 @@ class _PGNetwork {
                         print("PGNetwork::checkUsernameDuplicate() -> decode object error!")
                         return
                     }
-                    complete(receivedData.isExists)
+                    complete(receivedData.exists)
                 }
             case .failure(_):
                 self.presentNetworkAlert()

@@ -54,6 +54,7 @@ class _PGSignedUser: Codable {
     var token: String?
     var student: Student!
     var teacher: Teacher!
+    var academies: [Academy] = []
     var selectedAcademy: Academy!
     
     enum CodingKeys: CodingKey {
@@ -117,7 +118,10 @@ class _PGSignedUser: Codable {
             .appendingQuery([URLQueryItem(name: self.userType.toUserTypeId(), value: userId)])
             .pagination(page: page)
         
-        PGNetwork.get(url: url, type: [Academy].self) { completion($0) }
+        PGNetwork.get(url: url, type: [Academy].self) { academies in
+            self.academies = academies
+            completion(academies)
+        }
     }
     
     public func getApplyingAcademies(page: Int, completion: @escaping (([Academy]) -> Void)) {

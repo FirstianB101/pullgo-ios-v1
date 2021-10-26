@@ -11,17 +11,48 @@ class TeacherRequestClassroomJoinViewController: UIViewController {
     
     let viewModel = TeacherRequestClassroomJoinViewModel()
     @IBOutlet weak var classroomTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var selectAcademyButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        searchBar.searchTextField.isEnabled = false
+        setAcademyButtonData()
+        
         self.setKeyboardDismissWatcher()
+    }
+    
+    private func setAcademyButtonData() {
+        var elements: [UIMenuElement] = []
+        
+        let `default` = UIAction(title: "학원을 선택해주세요.") { [weak self] _ in
+            self?.viewModel.selectedAcademy = nil
+            self?.searchBar.searchTextField.isEnabled = false
+            self?.reloadData()
+        }
+        elements.append(`default`)
+        
+        for academy in PGSignedUser.academies {
+            let element = UIAction(title: academy.name) { [weak self] _ in
+                self?.viewModel.selectedAcademy = academy
+                self?.searchBar.searchTextField.isEnabled = true
+                self?.reloadData()
+            }
+            elements.append(element)
+        }
+        
+        selectAcademyButton.menu = UIMenu(title: "학원을 선택해주세요.", options: .displayInline, children: elements)
+    }
+    
+    private func reloadData() {
+        viewModel.classrooms = []
+        self.classroomTableView.reloadData()
     }
     
     @IBAction func showSideMenu(_ sender: UIBarButtonItem) {
         TeacherViewSwitcher.showSideMenu(self)
     }
-
 }
 
 extension TeacherRequestClassroomJoinViewController: UITableViewDelegate {    
@@ -75,9 +106,10 @@ extension TeacherRequestClassroomJoinViewController: UISearchBarDelegate {
 
 class TeacherRequestClassroomJoinViewModel {
     var classrooms: [Classroom] = []
+    var selectedAcademy: Academy!
     
     func searchClassroom(by input: String, complete: @escaping (() -> Void)) {
-        let url = PGURLs.classrooms.appendingQuery([URLQueryItem(name: "academyId", value: String(PGSignedUser.selectedAcademy.id!)),
+        let url = PGURLs.classrooms.appendingQuery([URLQueryItem(name: "academyId", value: String(self.selectedAcademy.id!)),
                                                     URLQueryItem(name: "nameLike", value: input)])
         
         PGNetwork.get(url: url, type: [Classroom].self) { classrooms in

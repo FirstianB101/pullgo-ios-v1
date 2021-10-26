@@ -51,6 +51,7 @@ class Teacher: PGNetworkable {
         
         let account: Parameter = ["account" : accountParameter]
         
+        print("DEBUG: ")
         print(account)
         PGNetwork.patch(url: url, parameter: account, success: success, fail: fail)
     }
