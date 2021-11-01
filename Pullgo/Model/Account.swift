@@ -134,8 +134,7 @@ class _PGSignedUser: Codable {
     
     public func getClassrooms(page: Int, completion: @escaping (([Classroom]) -> Void)) {
         let url = PGURLs.classrooms
-            .appendingQuery([URLQueryItem(name: "academyId", value: String(self.selectedAcademy.id!)),
-                             URLQueryItem(name: self.userType.toUserTypeId(), value: userId)])
+            .appendingQuery([URLQueryItem(name: self.userType.toUserTypeId(), value: userId)])
             .pagination(page: page)
         
         PGNetwork.get(url: url, type: [Classroom].self) { completion($0) }

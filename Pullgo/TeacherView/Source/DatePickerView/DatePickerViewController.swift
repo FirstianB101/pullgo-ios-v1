@@ -192,6 +192,6 @@ extension UIDatePicker {
         self.init()
         
         self.datePickerMode = mode
-        self.locale = .current
+        self.locale = Locale(identifier: "ko_KR")
     }
 }

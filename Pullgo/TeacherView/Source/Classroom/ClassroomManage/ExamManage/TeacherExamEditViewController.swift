@@ -47,12 +47,23 @@ class TeacherExamEditViewController: UIViewController, IndicatorInfoProvider {
         passScoreField.text = String(viewModel.passScore)
         beginTimeField.text = viewModel.beginDateTime.toString(format: "YYYY/MM/dd HH:mm")
         endTimeField.text = viewModel.endDateTime.toString(format: "YYYY/MM/dd HH:mm")
-        timeLimitField.text = viewModel.timeLimit.toString(format: "H시간 m분")
+        timeLimitField.text = viewModel.selectedExam.getTimeLimit()
     }
     
     private func setDateTimeKeyboard() {
         beginTimeField.useTextFieldByDatePicker(picker: dateAndTimePicker)
         endTimeField.useTextFieldByDatePicker(picker: dateAndTimePicker)
         timeLimitField.useTextFieldByDatePicker(picker: timePicker)
+    }
+    
+    @IBAction func editExam(_ sender: UIButton) {
+        let vc = CreateQuestionViewController(viewModel: CreateQuestionViewModel())
+        guard let pvc = self.presentingViewController else { return }
+        
+        vc.modalPresentationStyle = .fullScreen
+        
+        self.dismiss(animated: false) {
+            pvc.present(vc, animated: true, completion: nil)
+        }
     }
 }

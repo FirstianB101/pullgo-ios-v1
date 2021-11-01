@@ -26,7 +26,7 @@ class SignInViewController: UIViewController {
         self.setKeyboardDismissWatcher()
         
         // ***** TEST *****
-        self.usernameField.text = "student13"
+        self.usernameField.text = "swift"
         self.passwordField.text = "12345678"
     }
     

@@ -1239,6 +1239,9 @@
                                                                         <integer key="value" value="20"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="editExam:" destination="cqP-NF-CUE" eventType="touchUpInside" id="hoB-Hz-czl"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -1849,25 +1852,17 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4Rw-gN-wfm">
-                                <rect key="frame" x="0.0" y="138" width="414" height="724"/>
+                                <rect key="frame" x="0.0" y="182" width="414" height="680"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" name="AccentColor"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="반 혹은 선생님 이름을 입력해주세요" id="CDK-h9-adj">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits" textContentType="name"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="I7Z-En-FPN" id="oQo-Mi-Ggn"/>
-                                    </connections>
-                                </searchBar>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="pPi-4n-Eau">
-                                    <rect key="frame" x="0.0" y="724.5" width="414" height="44"/>
+                                    <rect key="frame" x="0.0" y="190" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TeacherClassroomCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClassroomCell" rowHeight="123" id="Ham-xM-eJA" customClass="ClassroomCell" customModule="Pullgo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="88.5" width="414" height="123"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ham-xM-eJA" id="Ro5-Rh-uNq">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="123"/>
@@ -1927,6 +1922,9 @@
                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ddg-hZ-Xtx">
                                 <rect key="frame" x="0.0" y="88" width="414" height="50"/>
                                 <color key="backgroundColor" name="LightAccent"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Pac-pE-uOQ"/>
+                                </constraints>
                                 <menu key="menu" id="Ayq-6T-2BR">
                                     <children>
                                         <command title="Item 1" id="dSE-D8-puj"/>
@@ -1935,6 +1933,14 @@
                                 </menu>
                                 <state key="normal" title="학원을 선택해주세요."/>
                             </button>
+                            <searchBar contentMode="redraw" text="" placeholder="반 혹은 선생님 이름을 입력해주세요" id="CDK-h9-adj">
+                                <rect key="frame" x="0.0" y="138" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits" textContentType="name"/>
+                                <connections>
+                                    <outlet property="delegate" destination="I7Z-En-FPN" id="oQo-Mi-Ggn"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bh4-Hn-CXs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1942,15 +1948,14 @@
                             <constraint firstItem="Bh4-Hn-CXs" firstAttribute="trailing" secondItem="4RT-VO-L2U" secondAttribute="trailing" id="57e-Vt-DVK"/>
                             <constraint firstItem="Bh4-Hn-CXs" firstAttribute="bottom" secondItem="4Rw-gN-wfm" secondAttribute="bottom" id="5LL-Vs-gcp"/>
                             <constraint firstItem="4RT-VO-L2U" firstAttribute="top" secondItem="Bh4-Hn-CXs" secondAttribute="top" id="8qw-Cc-ZdU"/>
-                            <constraint firstItem="Bh4-Hn-CXs" firstAttribute="trailing" secondItem="ddg-hZ-Xtx" secondAttribute="trailing" id="EoU-fp-NH2"/>
-                            <constraint firstItem="ddg-hZ-Xtx" firstAttribute="leading" secondItem="Bh4-Hn-CXs" secondAttribute="leading" id="Mu0-dl-BWx"/>
-                            <constraint firstItem="4Rw-gN-wfm" firstAttribute="top" secondItem="4RT-VO-L2U" secondAttribute="bottom" constant="50" id="ONM-4M-DfG"/>
-                            <constraint firstItem="ddg-hZ-Xtx" firstAttribute="top" secondItem="4RT-VO-L2U" secondAttribute="bottom" id="WKc-Ls-g3d"/>
+                            <constraint firstItem="CDK-h9-adj" firstAttribute="top" secondItem="ddg-hZ-Xtx" secondAttribute="bottom" id="IsZ-hb-z5d"/>
+                            <constraint firstAttribute="trailing" secondItem="ddg-hZ-Xtx" secondAttribute="trailing" id="ObB-fi-0oe"/>
+                            <constraint firstItem="ddg-hZ-Xtx" firstAttribute="leading" secondItem="Bh4-Hn-CXs" secondAttribute="leading" id="OmJ-70-p5X"/>
                             <constraint firstItem="4RT-VO-L2U" firstAttribute="leading" secondItem="yca-y1-qBO" secondAttribute="leading" id="WlT-Vi-dXj"/>
-                            <constraint firstItem="4Rw-gN-wfm" firstAttribute="top" secondItem="ddg-hZ-Xtx" secondAttribute="bottom" id="ePa-4j-15H"/>
                             <constraint firstItem="Bh4-Hn-CXs" firstAttribute="trailing" secondItem="4Rw-gN-wfm" secondAttribute="trailing" id="jf6-8x-gMu"/>
                             <constraint firstItem="4Rw-gN-wfm" firstAttribute="leading" secondItem="Bh4-Hn-CXs" secondAttribute="leading" id="n3E-nV-eAV"/>
-                            <constraint firstItem="4Rw-gN-wfm" firstAttribute="bottom" secondItem="Bh4-Hn-CXs" secondAttribute="bottom" id="yNj-fi-bih"/>
+                            <constraint firstItem="ddg-hZ-Xtx" firstAttribute="top" secondItem="4RT-VO-L2U" secondAttribute="bottom" id="x4E-5b-1Nq"/>
+                            <constraint firstItem="4Rw-gN-wfm" firstAttribute="top" secondItem="CDK-h9-adj" secondAttribute="bottom" id="yMl-Nq-S0p"/>
                         </constraints>
                     </view>
                     <connections>

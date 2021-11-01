@@ -24,6 +24,7 @@ class TeacherClassroomRemoveViewController: UIViewController, IndicatorInfoProvi
         let okay = UIAlertAction(title: "삭제", style: .destructive) { [weak self] _ in
             self?.removeClassroom()
         }
+        okay.isEnabled = false
         
         alert.addTextField { field in
             field.placeholder = "삭제할 반 이름을 입력하세요."

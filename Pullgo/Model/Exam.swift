@@ -131,10 +131,21 @@ extension Exam {
         return URLQueryItem(name: "examId", value: self.examId)
     }
     
+    private func setQuestionNumber(questions: inout [Question]) {
+        for (index, question) in questions.enumerated() {
+            question.questionNumber = index + 1
+        }
+    }
+    
     public func getQuestions(page: Int, completion: @escaping (([Question]) -> Void)) {
         let url = PGURLs.questions.appendingQuery([self.examIdQuery])
-            .pagination(page: page)
+            .pagination(page: page, size: 100)
         
-        PGNetwork.get(url: url, type: [Question].self, success: completion)
+        PGNetwork.get(url: url, type: [Question].self, success: { questions in
+            var questionsWithNumber = questions
+            self.setQuestionNumber(questions: &questionsWithNumber)
+            
+            completion(questionsWithNumber)
+        })
     }
 }

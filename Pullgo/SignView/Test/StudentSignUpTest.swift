@@ -48,14 +48,14 @@ class StudentSignUpTest: XCTestCase {
         struct PGTestAccount {
             var username: String
             var password: String = "12345678"
-            var fullName: String = "김세영"
+            var fullName: String
             var phone: String = "01075230867"
             var schoolName: String = "퍼스티안학교"
             var schoolYear: Int = 2
             var parentPhone: String = "01012345678"
         }
         
-        let account = PGTestAccount(username: "student\(newId)")
+        let account = PGTestAccount(username: "student\(newId)", fullName: "XCTest\(newId) 학생")
         
         // 회원가입 -> 선생님으로 로그인
         tapButton("signUpButton")

@@ -51,7 +51,15 @@ class TeacherAddExamDateViewController: UIViewController {
         
         let success: (Data?) -> Void = { _ in
             let okay = UIAlertAction(title: "예", style: .default) { _ in
-                // 시험 생성 VC로 이동
+//                let vc = CreateQuestionViewController()
+//                guard let pvc = self.presentingViewController else { return }
+//
+//                vc.modalTransitionStyle = .crossDissolve
+//                vc.modalPresentationStyle = .fullScreen
+//
+//                self.dismiss(animated: false) {
+//                    pvc.present(vc, animated: true, completion: nil)
+//                }
             }
             let cancel = UIAlertAction(title: "아니오", style: .cancel) { _ in
                 // 시험 목록으로 이동

@@ -11,7 +11,7 @@ extension String {
     var toISO8601: Date {
         get {
             let formatter = ISO8601DateFormatter()
-            guard let date = formatter.date(from: self + "+0000") else { return Date() }
+            guard let date = formatter.date(from: self + "+0900") else { return Date() }
             return date
         }
     }
@@ -35,8 +35,6 @@ extension Date {
     func toString(format: String = "YYYY-MM-dd") -> String {
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = format
-        formatter.locale = .current
-        formatter.timeZone = .current
         
         return formatter.string(from: self)
     }

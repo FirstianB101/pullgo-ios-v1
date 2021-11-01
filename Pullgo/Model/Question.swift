@@ -9,13 +9,16 @@ import Foundation
 
 class Question: PGNetworkable {
     
+    var questionNumber: Int?
+    
     var answer: [Int]!
+    var choice: [String : String]!
     var pictureUrl: String!
     var content: String!
     var examId: Int!
     
     enum CodingKeys: CodingKey {
-        case answer, pictureUrl, content, examId
+        case answer, choice, pictureUrl, content, examId
     }
     
     init() {
@@ -26,6 +29,7 @@ class Question: PGNetworkable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         self.answer     = try? container.decode([Int].self, forKey: .answer)
+        self.choice     = try? container.decode([String : String].self, forKey: .choice)
         self.pictureUrl = try? container.decode(String.self, forKey: .pictureUrl)
         self.content    = try? container.decode(String.self, forKey: .content)
         self.examId     = try? container.decode(Int.self, forKey: .examId)
@@ -37,6 +41,7 @@ class Question: PGNetworkable {
         var container = try encoder.container(keyedBy: CodingKeys.self)
         
         try? container.encode(self.answer, forKey: .answer)
+        try? container.encode(self.choice, forKey: .choice)
         try? container.encode(self.pictureUrl, forKey: .pictureUrl)
         try? container.encode(self.content, forKey: .content)
         try? container.encode(self.examId, forKey: .examId)
