@@ -87,3 +87,20 @@ extension UIViewController {
         return true
     }
 }
+
+extension UITextView {
+    
+    public func addDismissToolbar() {
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 40))
+        let dismiss = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(dismissKeyboard(_:)))
+        
+        toolbar.setItems([.flexibleSpace(), dismiss], animated: true)
+        
+        self.inputAccessoryView = toolbar
+    }
+    
+    @objc
+    func dismissKeyboard(_ sender: UITextView) {
+        self.endEditing(true)
+    }
+}

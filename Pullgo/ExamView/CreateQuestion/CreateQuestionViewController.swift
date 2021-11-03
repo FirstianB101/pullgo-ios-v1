@@ -60,6 +60,7 @@ class CreateQuestionViewController: ExamRootViewController {
         textView.textContainer.lineFragmentPadding = 10
         textView.setViewCornerRadius(radius: 15)
         textView.font = UIFont.systemFont(ofSize: 18)
+        textView.addDismissToolbar()
         textView.delegate = self
         
         return textView
