@@ -91,7 +91,7 @@ class CreateQuestionViewController: ExamRootViewController {
     
     lazy var addImageButton = { () -> UIButton in
         let button = UIButton()
-        
+        return button
     }
     
     lazy var tabBarPager = { () -> ExamTabBarPager in
