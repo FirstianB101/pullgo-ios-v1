@@ -57,13 +57,44 @@ class TeacherExamEditViewController: UIViewController, IndicatorInfoProvider {
     }
     
     @IBAction func editExam(_ sender: UIButton) {
-        let vc = CreateQuestionViewController(viewModel: CreateQuestionViewModel())
+//        let vc = CreateQuestionViewController(viewModel: CreateQuestionViewModel())
+        let vc = CreateQuestionViewController(viewModel: FakeQuestionViewModel())
         guard let pvc = self.presentingViewController else { return }
         
         vc.modalPresentationStyle = .fullScreen
         
-        self.dismiss(animated: false) {
+        self.dismiss(animated: true) {
             pvc.present(vc, animated: true, completion: nil)
         }
+    }
+}
+
+class FakeQuestionViewModel: CreateQuestionViewModel {
+    
+    init() {
+        var mockQuestions: [Question] = []
+        
+        for i in 0 ..< 8 {
+            let question = Question()
+            
+            question.questionNumber = i + 1
+            question.answer = [1]
+            question.choice = ["1" : "1",
+                               "2" : "2",
+                               "3" : "3",
+                               "4" : "4",
+                               "5" : "5"]
+            question.content = "question \(String(i))"
+            question.examId = 10
+            question.pictureUrl = "url \(String(i))"
+            
+            mockQuestions.append(question)
+        }
+        
+        super.init(exam: Exam())
+        
+        self.questions = mockQuestions
+        self.currentQuestion = mockQuestions.first!
+        self.selectedExam = Exam()
     }
 }

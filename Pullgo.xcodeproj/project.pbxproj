@@ -37,6 +37,8 @@
 		A52EA700271598230000AC73 /* StudentManageSendRequestAcademyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52EA6FE271598230000AC73 /* StudentManageSendRequestAcademyViewController.swift */; };
 		A52EA7032715988E0000AC73 /* StudentManageSendRequestClassroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52EA7022715988E0000AC73 /* StudentManageSendRequestClassroomViewController.swift */; };
 		A52F8BAA26BD32F9005AA7DC /* TeacherSelectExamDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F8BA926BD32F9005AA7DC /* TeacherSelectExamDateViewController.swift */; };
+		A531C9A3273248250053CFE8 /* ExamNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A531C9A2273248250053CFE8 /* ExamNavigator.swift */; };
+		A531C9A527327F5C0053CFE8 /* ExamTabBarPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A531C9A427327F5C0053CFE8 /* ExamTabBarPager.swift */; };
 		A532DB2326889ACB00076260 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DB2226889ACB00076260 /* AppDelegate.swift */; };
 		A532DB2526889ACB00076260 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DB2426889ACB00076260 /* SceneDelegate.swift */; };
 		A532DB2726889ACB00076260 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532DB2626889ACB00076260 /* SignInViewController.swift */; };
@@ -93,7 +95,7 @@
 		A59051F52723DB4D00439840 /* TeacherManageExamTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59051F42723DB4D00439840 /* TeacherManageExamTabViewController.swift */; };
 		A59051F72723DBAE00439840 /* TeacherExamEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59051F62723DBAE00439840 /* TeacherExamEditViewController.swift */; };
 		A59051F92723DBD100439840 /* TeacherRemoveExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59051F82723DBD100439840 /* TeacherRemoveExamViewController.swift */; };
-		A5911FBE273001B90095D12E /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5911FBD273001B90095D12E /* ExamViewController.swift */; };
+		A5911FBE273001B90095D12E /* ExamRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5911FBD273001B90095D12E /* ExamRootViewController.swift */; };
 		A5911FC0273005800095D12E /* CreateQuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5911FBF273005800095D12E /* CreateQuestionViewModel.swift */; };
 		A591BAFB270435A00089F28D /* PullgoUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A591BAFA270435A00089F28D /* PullgoUITest.swift */; };
 		A5A8EF61270C2BA60036389D /* TeacherChangeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A8EF60270C2BA60036389D /* TeacherChangeInfoViewController.swift */; };
@@ -183,6 +185,8 @@
 		A52EA6FE271598230000AC73 /* StudentManageSendRequestAcademyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentManageSendRequestAcademyViewController.swift; sourceTree = "<group>"; };
 		A52EA7022715988E0000AC73 /* StudentManageSendRequestClassroomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentManageSendRequestClassroomViewController.swift; sourceTree = "<group>"; };
 		A52F8BA926BD32F9005AA7DC /* TeacherSelectExamDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSelectExamDateViewController.swift; sourceTree = "<group>"; };
+		A531C9A2273248250053CFE8 /* ExamNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamNavigator.swift; sourceTree = "<group>"; };
+		A531C9A427327F5C0053CFE8 /* ExamTabBarPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamTabBarPager.swift; sourceTree = "<group>"; };
 		A532DB1F26889ACB00076260 /* Pullgo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pullgo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A532DB2226889ACB00076260 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A532DB2426889ACB00076260 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -241,7 +245,7 @@
 		A59051F42723DB4D00439840 /* TeacherManageExamTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherManageExamTabViewController.swift; sourceTree = "<group>"; };
 		A59051F62723DBAE00439840 /* TeacherExamEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherExamEditViewController.swift; sourceTree = "<group>"; };
 		A59051F82723DBD100439840 /* TeacherRemoveExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherRemoveExamViewController.swift; sourceTree = "<group>"; };
-		A5911FBD273001B90095D12E /* ExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamViewController.swift; sourceTree = "<group>"; };
+		A5911FBD273001B90095D12E /* ExamRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamRootViewController.swift; sourceTree = "<group>"; };
 		A5911FBF273005800095D12E /* CreateQuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQuestionViewModel.swift; sourceTree = "<group>"; };
 		A591BAFA270435A00089F28D /* PullgoUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullgoUITest.swift; sourceTree = "<group>"; };
 		A5A8EF60270C2BA60036389D /* TeacherChangeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherChangeInfoViewController.swift; sourceTree = "<group>"; };
@@ -656,7 +660,9 @@
 		A5911FBC273001AD0095D12E /* ExamViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A5911FBD273001B90095D12E /* ExamViewController.swift */,
+				A5911FBD273001B90095D12E /* ExamRootViewController.swift */,
+				A531C9A427327F5C0053CFE8 /* ExamTabBarPager.swift */,
+				A531C9A2273248250053CFE8 /* ExamNavigator.swift */,
 			);
 			path = ExamViewController;
 			sourceTree = "<group>";
@@ -1146,6 +1152,7 @@
 				A505A8EB26B3DF1E007954A4 /* TeacherCreateClassroomViewController.swift in Sources */,
 				A5FB031526A05C2D007FCDB7 /* TeacherMenuViewController.swift in Sources */,
 				A59051F92723DBD100439840 /* TeacherRemoveExamViewController.swift in Sources */,
+				A531C9A3273248250053CFE8 /* ExamNavigator.swift in Sources */,
 				A56FB386270DD778001A5F21 /* AcademyAcceptStudentViewController.swift in Sources */,
 				A5F5E66126BC3E100004BA35 /* TeacherAddExamDateViewController.swift in Sources */,
 				A55454A12710A07800CCC987 /* StudentExamHistoryViewController.swift in Sources */,
@@ -1156,7 +1163,7 @@
 				A53FF31D2727DBA900647881 /* TakeExamViewController.swift in Sources */,
 				A573203C2705A4A200951638 /* TeacherAcademyJoinRequestViewController.swift in Sources */,
 				A57FE01C268F401300B1E609 /* SignUpInformation.swift in Sources */,
-				A5911FBE273001B90095D12E /* ExamViewController.swift in Sources */,
+				A5911FBE273001B90095D12E /* ExamRootViewController.swift in Sources */,
 				A54A0203271489E0007E47BB /* StudentChangePasswordViewController.swift in Sources */,
 				A554549F2710A05B00CCC987 /* StudentExamListViewController.swift in Sources */,
 				A520AAD626EE3BCB0099CD94 /* PGSelectionTab.swift in Sources */,
@@ -1222,6 +1229,7 @@
 				A529376C269AD62A00B210C2 /* Schedule.swift in Sources */,
 				A55454A92710A11300CCC987 /* StudentSideMenuViewController.swift in Sources */,
 				A57F5CED2695F2BE00A603DD /* Account.swift in Sources */,
+				A531C9A527327F5C0053CFE8 /* ExamTabBarPager.swift in Sources */,
 				A55454A72710A0A200CCC987 /* StudentManageSendRequestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

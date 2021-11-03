@@ -6,16 +6,9 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
-class CreateQuestionViewModel: ExamPagableViewModel {
-    
-    var currentQuestion: Question
-    var questions: [Question]
-    var selectedExam: Exam
-    
-    init() {
-        currentQuestion = Question()
-        questions = []
-        selectedExam = Exam()
-    }
+class CreateQuestionViewModel: ExamViewModel {
+    let maxContentLength: Int = 200
 }

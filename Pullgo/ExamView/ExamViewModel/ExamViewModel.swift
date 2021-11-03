@@ -7,19 +7,30 @@
 
 import Foundation
 
-class ExamViewModel {
-    
-    var exam: Exam
+class ExamViewModel: ExamPagableViewModel {
+    var currentQuestion: Question?
+    var selectedExam: Exam
     var questions = [Question]()
     
     init(exam: Exam) {
-        self.exam = exam
-        getQuestions()
+        self.selectedExam = exam
+//        getQuestions()
     }
     
     private func getQuestions() {
-        exam.getQuestions(page: 0) { questions in
+        selectedExam.getQuestions(page: 0) { questions in
             self.questions = questions
+            self.currentQuestion = questions.first
         }
+    }
+    
+    public func getQuestion(at questionNumber: Int) -> Question? {
+        if !(0 ..< questions.count).contains(questionNumber) {
+            let alert = PGAlertPresentor()
+            alert.present(title: "오류", context: "Index out of range.")
+            return nil
+        }
+        
+        return questions[questionNumber]
     }
 }
