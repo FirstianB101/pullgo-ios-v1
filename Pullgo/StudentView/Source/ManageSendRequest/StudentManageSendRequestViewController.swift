@@ -11,8 +11,8 @@ import XLPagerTabStrip
 class StudentManageSendRequestViewController: ButtonBarPagerTabStripViewController {
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        guard let academyVC = storyboard?.instantiateViewController(withIdentifier: "StudentManageSendRequestAcademyViewController"),
-              let classroomVC = storyboard?.instantiateViewController(withIdentifier: "StudentManageSendRequestClassroomViewController") else { return [] }
+        guard let academyVC = storyboard?.instantiateViewController(withIdentifier: "ManageSendRequestAcademyViewController"),
+              let classroomVC = storyboard?.instantiateViewController(withIdentifier: "ManageSendRequestClassroomViewController") else { return [] }
         
         return [academyVC, classroomVC]
     }

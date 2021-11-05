@@ -70,6 +70,7 @@ class DatePickerViewController: UIViewController {
         let timePicker = UIDatePicker(mode: .time)
         
         datePicker.minimumDate = Date()
+        timePicker.minimumDate = Date()
         dateField.useTextFieldByDatePicker(picker: datePicker)
         beginTimeField.useTextFieldByDatePicker(picker: timePicker)
         endTimeField.useTextFieldByDatePicker(picker: timePicker)

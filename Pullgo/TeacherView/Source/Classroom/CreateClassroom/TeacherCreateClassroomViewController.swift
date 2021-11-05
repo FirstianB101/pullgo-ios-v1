@@ -174,7 +174,7 @@ class TeacherCreateClassroomViewModel {
         
         classroom.name = self.formattingClassroomName()
         classroom.academyId = self.selectedAcademy?.id
-        classroom.creatorId = PGSignedUser.id!
+        classroom.creator = PGSignedUser.teacher!
         
         classroom.post(success: success)
     }

@@ -1,5 +1,5 @@
 //
-//  StudentManageSendRequestClassroomViewController.swift
+//  StudentManageSendRequestAcademyViewController.swift
 //  Pullgo
 //
 //  Created by 김세영 on 2021/10/12.
@@ -8,42 +8,43 @@
 import UIKit
 import XLPagerTabStrip
 
-class StudentManageSendRequestClassroomViewController: UICollectionViewController, IndicatorInfoProvider {
+class ManageSendRequestAcademyViewController: UICollectionViewController, IndicatorInfoProvider {
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "반")
+        return IndicatorInfo(title: "학원")
     }
     
-    let viewModel = StudentManageSendRequestClassroomViewModel()
+    let viewModel = StudentManageSendRequestAcademyViewModel()
     
     override func viewDidLoad() {
         self.collectionView.setCollectionViewBackgroundColor()
         super.viewDidLoad()
-        viewModel.getClassrooms { [weak self] in
+        viewModel.getAcademies { [weak self] in
             self?.collectionView.reloadData()
         }
     }
     
     private func reload() {
-        viewModel.getClassrooms { [weak self] in
+        viewModel.getAcademies { [weak self] in
             self?.collectionView.reloadData()
         }
     }
     
     // DataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.getClassrooms().count
+        return viewModel.getAcademies().count
     }
     
     // DataSource
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ManageSendRequestCell", for: indexPath) as? ManageSendRequestCell else { return UICollectionViewCell() }
         
-        let classroomInfo = viewModel.getClassroom(at: indexPath.item).parse
-        cell.title.text = classroomInfo.classroomName
-        cell.subtitle.text = classroomInfo.teacherName + " " + classroomInfo.weekday
+        let academy = viewModel.getAcademy(at: indexPath.item)
+        cell.title.text = academy.address
+        cell.subtitle.text = academy.phone
+        cell.body.text = academy.name
         cell.cancel = { [weak self] in
-            self?.removeApplyingClassroom(at: indexPath.item, completion: {
+            self?.removeApplyingAcademy(at: indexPath.item, completion: {
                 self?.reload()
             })
         }
@@ -52,54 +53,54 @@ class StudentManageSendRequestClassroomViewController: UICollectionViewControlle
         return cell
     }
     
-    private func removeApplyingClassroom(at index: Int, completion: @escaping (() -> Void)) {
+    private func removeApplyingAcademy(at index: Int, completion: @escaping (() -> Void)) {
         let alert = PGAlertPresentor()
         let okay = UIAlertAction(title: "요청 취소", style: .default) { [weak self] _ in
-            self?.viewModel.removeApplyingClassroom(at: index, completion: {
+            self?.viewModel.removeApplyingAcademy(at: index, completion: {
                 alert.present(title: "알림", context: "요청 취소가 완료되었습니다.")
                 completion()
             })
         }
         
         alert.present(title: "알림",
-                      context: "반에 보낸 요청을 취소하시겠어요?",
+                      context: "학원에 보낸 요청을 취소하시겠어요?",
                       actions: [alert.cancel, okay])
     }
 }
 
-extension StudentManageSendRequestClassroomViewController: UICollectionViewDelegateFlowLayout {
+extension ManageSendRequestAcademyViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding: CGFloat = 10
-        let height: CGFloat = 115
+        let height: CGFloat = 150
         
         return CGSize(width: self.view.frame.width - padding * 2, height: height)
     }
 }
 
-class StudentManageSendRequestClassroomViewModel {
+class StudentManageSendRequestAcademyViewModel {
     
-    private var classrooms: [Classroom] = []
+    private var academies: [Academy] = []
     private var page: Int = 0
     
-    public func getClassrooms(completion: @escaping (() -> Void)) {
-        PGSignedUser.getApplyingClassrooms(page: page) { classrooms in
-            self.classrooms = classrooms
+    public func getAcademies(completion: @escaping (() -> Void)) {
+        PGSignedUser.getApplyingAcademies(page: page) { academies in
+            self.academies = academies
             completion()
         }
     }
     
-    public func getClassrooms() -> [Classroom] {
-        return self.classrooms
+    public func getAcademies() -> [Academy] {
+        return self.academies
     }
     
-    public func getClassroom(at index: Int) -> Classroom {
-        return self.classrooms[index]
+    public func getAcademy(at index: Int) -> Academy {
+        return self.academies[index]
     }
     
-    public func removeApplyingClassroom(at index: Int, completion: @escaping (() -> Void)) {
-        let classroomId = self.classrooms[index].id!
-        PGSignedUser.removeApplyClassroom(classroomId: classroomId) { _ in
+    public func removeApplyingAcademy(at index: Int, completion: @escaping (() -> Void)) {
+        let academyId = self.academies[index].id!
+        PGSignedUser.removeApplyAcademy(academyId: academyId) { _ in
             completion()
         }
     }

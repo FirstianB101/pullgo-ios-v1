@@ -63,6 +63,10 @@ class CreateQuestionViewController: ExamRootViewController {
         textView.addDismissToolbar()
         textView.delegate = self
         
+        // placeholder
+        textView.textColor = .lightGray
+        textView.text = "문제를 입력해주세요."
+        
         return textView
     }()
     
@@ -91,14 +95,43 @@ class CreateQuestionViewController: ExamRootViewController {
     }()
     
     lazy var addImageButton = { () -> UIButton in
-        let button = UIButton()
+        let button = UIButton(type: .custom)
+        
+        button.backgroundColor = UIColor(named: "LightAccent")
+        button.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
+        button.setTitle(" 여기를 눌러 사진을 추가하세요.", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        button.setTitleColor(.black, for: .normal)
+        button.setViewCornerRadiusAndShadow(radius: 20)
+        
         return button
-    }
+    }()
+    
+    lazy var imageContentStack = { () -> UIStackView in
+        let stack = UIStackView()
+        
+        stack.axis = .vertical
+        
+        return stack
+    }()
     
     lazy var tabBarPager = { () -> ExamTabBarPager in
         let pager = ExamTabBarPager(viewModel: self.createQuestionViewModel, type: .withSave)
         
         return pager
+    }()
+    
+    lazy var editChoicesButton = { () -> UIButton in
+        let button = UIButton(type: .custom)
+        
+        button.backgroundColor = UIColor(named: "LightAccent")
+        button.setTitle("보기 작성", for: .normal)
+        button.setTitleColor(UIColor(named: "AccentColor"), for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        button.setViewCornerRadiusAndShadow(radius: 25)
+        button.addTarget(self, action: #selector(editChoice(_:)), for: .touchUpInside)
+        
+        return button
     }()
     
     // MARK: - Initializer + viewModel
@@ -146,11 +179,26 @@ class CreateQuestionViewController: ExamRootViewController {
     
     func buildConstraints() {
         self.view.addSubview(questionContentStack)
+        self.view.addSubview(addImageButton)
+        self.view.addSubview(editChoicesButton)
+        
         questionContentStack.snp.makeConstraints { make in
             make.top.equalTo(self.titleBar.snp.bottom).offset(30)
             make.leading.equalToSuperview().offset(30)
             make.trailing.equalToSuperview().offset(-30)
+            make.bottom.equalTo(self.addImageButton.snp.top).offset(-30)
+        }
+        addImageButton.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(30)
+            make.trailing.equalToSuperview().offset(-30)
+            make.bottom.equalTo(self.editChoicesButton.snp.top).offset(-30)
+            make.height.equalTo(40)
+        }
+        editChoicesButton.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(30)
+            make.trailing.equalToSuperview().offset(-30)
             make.bottom.equalTo(self.tabBarPager.snp.top).offset(-30)
+            make.height.equalTo(50)
         }
     }
 }
@@ -184,6 +232,28 @@ extension CreateQuestionViewController {
     @objc
     func addQuestion(_ sender: UIBarButtonItem) {
         
+    }
+    
+    // edit choice
+    @objc
+    func editChoice(_ sender: UIButton) {
+        let vc = QuestionChoiceViewController()
+        
+        self.view.alpha = 0.3
+        
+        vc.modalPresentationStyle = .custom
+        vc.transitioningDelegate = self
+        vc.view.layer.cornerRadius = 25
+        
+        self.present(vc, animated: true, completion: nil)
+    }
+}
+
+// Half modal
+extension CreateQuestionViewController: UIViewControllerTransitioningDelegate {
+    
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return HalfSizePresentationController(presentedViewController: presented, presenting: presenting)
     }
 }
 

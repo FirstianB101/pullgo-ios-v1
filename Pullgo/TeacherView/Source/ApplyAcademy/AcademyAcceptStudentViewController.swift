@@ -132,8 +132,5 @@ class AcademyAcceptStudentViewModel {
     public func reject(at index: Int, completion: @escaping (() -> Void)) {
         let selectedStudent = students[index]
         
-//        PGSignedUser.selectedAcademy.accept(userType: .teacher, userId: selectedTeacher.id!) { _ in
-//            completion()
-//        }
     }
 }

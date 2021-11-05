@@ -34,8 +34,8 @@
 		A5293777269ADB0100B210C2 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = A5293776269ADB0100B210C2 /* FSCalendar */; };
 		A5293779269ADB0100B210C2 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = A5293778269ADB0100B210C2 /* SideMenu */; };
 		A529377B269AE4CA00B210C2 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A529377A269AE4CA00B210C2 /* Messages.swift */; };
-		A52EA700271598230000AC73 /* StudentManageSendRequestAcademyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52EA6FE271598230000AC73 /* StudentManageSendRequestAcademyViewController.swift */; };
-		A52EA7032715988E0000AC73 /* StudentManageSendRequestClassroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52EA7022715988E0000AC73 /* StudentManageSendRequestClassroomViewController.swift */; };
+		A52EA700271598230000AC73 /* ManageSendRequestAcademyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52EA6FE271598230000AC73 /* ManageSendRequestAcademyViewController.swift */; };
+		A52EA7032715988E0000AC73 /* ManageSendRequestClassroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52EA7022715988E0000AC73 /* ManageSendRequestClassroomViewController.swift */; };
 		A52F8BAA26BD32F9005AA7DC /* TeacherSelectExamDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F8BA926BD32F9005AA7DC /* TeacherSelectExamDateViewController.swift */; };
 		A531C9A3273248250053CFE8 /* ExamNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A531C9A2273248250053CFE8 /* ExamNavigator.swift */; };
 		A531C9A527327F5C0053CFE8 /* ExamTabBarPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A531C9A427327F5C0053CFE8 /* ExamTabBarPager.swift */; };
@@ -120,6 +120,7 @@
 		A5D35C59272E5E4500AFE7BD /* TakeExamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D35C58272E5E4500AFE7BD /* TakeExamViewModel.swift */; };
 		A5DF4A67270F371F004E389B /* StudentSignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF4A66270F3623004E389B /* StudentSignUpTest.swift */; };
 		A5DF4A68270F3720004E389B /* StudentSignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF4A66270F3623004E389B /* StudentSignUpTest.swift */; };
+		A5E38FA827352D33007F7EB6 /* QuestionChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E38FA727352D33007F7EB6 /* QuestionChoiceViewController.swift */; };
 		A5E7C0ED26C66CC10083001C /* StudentCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7C0EC26C66CC10083001C /* StudentCalendarViewController.swift */; };
 		A5EC2ADB2697E4F400D310E0 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = A5EC2ADA2697E4F400D310E0 /* FSCalendar */; };
 		A5EC2ADE2697E9A400D310E0 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = A5EC2ADD2697E9A400D310E0 /* SideMenu */; };
@@ -182,8 +183,8 @@
 		A5293769269ACCED00B210C2 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		A529376B269AD62A00B210C2 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		A529377A269AE4CA00B210C2 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
-		A52EA6FE271598230000AC73 /* StudentManageSendRequestAcademyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentManageSendRequestAcademyViewController.swift; sourceTree = "<group>"; };
-		A52EA7022715988E0000AC73 /* StudentManageSendRequestClassroomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentManageSendRequestClassroomViewController.swift; sourceTree = "<group>"; };
+		A52EA6FE271598230000AC73 /* ManageSendRequestAcademyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageSendRequestAcademyViewController.swift; sourceTree = "<group>"; };
+		A52EA7022715988E0000AC73 /* ManageSendRequestClassroomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageSendRequestClassroomViewController.swift; sourceTree = "<group>"; };
 		A52F8BA926BD32F9005AA7DC /* TeacherSelectExamDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSelectExamDateViewController.swift; sourceTree = "<group>"; };
 		A531C9A2273248250053CFE8 /* ExamNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamNavigator.swift; sourceTree = "<group>"; };
 		A531C9A427327F5C0053CFE8 /* ExamTabBarPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamTabBarPager.swift; sourceTree = "<group>"; };
@@ -268,6 +269,7 @@
 		A5D1F7BA270DC03D00453A7C /* TeacherApplyAcademyJoinRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherApplyAcademyJoinRequestViewController.swift; sourceTree = "<group>"; };
 		A5D35C58272E5E4500AFE7BD /* TakeExamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeExamViewModel.swift; sourceTree = "<group>"; };
 		A5DF4A66270F3623004E389B /* StudentSignUpTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSignUpTest.swift; sourceTree = "<group>"; };
+		A5E38FA727352D33007F7EB6 /* QuestionChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionChoiceViewController.swift; sourceTree = "<group>"; };
 		A5E7C0EC26C66CC10083001C /* StudentCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCalendarViewController.swift; sourceTree = "<group>"; };
 		A5EDB212268D8A960085CCAE /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		A5EDB214268D931B0085CCAE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -523,8 +525,8 @@
 			isa = PBXGroup;
 			children = (
 				A55454A62710A0A200CCC987 /* StudentManageSendRequestViewController.swift */,
-				A52EA6FE271598230000AC73 /* StudentManageSendRequestAcademyViewController.swift */,
-				A52EA7022715988E0000AC73 /* StudentManageSendRequestClassroomViewController.swift */,
+				A52EA6FE271598230000AC73 /* ManageSendRequestAcademyViewController.swift */,
+				A52EA7022715988E0000AC73 /* ManageSendRequestClassroomViewController.swift */,
 			);
 			path = ManageSendRequest;
 			sourceTree = "<group>";
@@ -661,6 +663,7 @@
 			isa = PBXGroup;
 			children = (
 				A5911FBD273001B90095D12E /* ExamRootViewController.swift */,
+				A5E38FA727352D33007F7EB6 /* QuestionChoiceViewController.swift */,
 				A531C9A427327F5C0053CFE8 /* ExamTabBarPager.swift */,
 				A531C9A2273248250053CFE8 /* ExamNavigator.swift */,
 			);
@@ -1139,10 +1142,10 @@
 				A5B1A59F26E205A300E5D8B2 /* DatePickerViewController.swift in Sources */,
 				A5D1F7BB270DC03D00453A7C /* TeacherApplyAcademyJoinRequestViewController.swift in Sources */,
 				A54A020127143700007E47BB /* StudentChangeInfoTableViewController.swift in Sources */,
-				A52EA7032715988E0000AC73 /* StudentManageSendRequestClassroomViewController.swift in Sources */,
+				A52EA7032715988E0000AC73 /* ManageSendRequestClassroomViewController.swift in Sources */,
 				A5F7F1A626A303F600487BF7 /* TeacherRequestClassroomJoinViewController.swift in Sources */,
 				A532DB2726889ACB00076260 /* SignInViewController.swift in Sources */,
-				A52EA700271598230000AC73 /* StudentManageSendRequestAcademyViewController.swift in Sources */,
+				A52EA700271598230000AC73 /* ManageSendRequestAcademyViewController.swift in Sources */,
 				A55454A52710A09200CCC987 /* StudentChangeInfoViewController.swift in Sources */,
 				A5B469AF2688DF7200C62F9C /* UserType.swift in Sources */,
 				A5FB031026A04071007FCDB7 /* TeacherCreateLessonViewController.swift in Sources */,
@@ -1189,6 +1192,7 @@
 				A584BA22271069410038EAE7 /* TeacherManageSendRequestViewController.swift in Sources */,
 				A569C795271175A400D280EB /* StudentCalendarSelectViewController.swift in Sources */,
 				A59051F52723DB4D00439840 /* TeacherManageExamTabViewController.swift in Sources */,
+				A5E38FA827352D33007F7EB6 /* QuestionChoiceViewController.swift in Sources */,
 				A5780AB426AC4A7F007F6A88 /* TeacherClassroomManageInfoViewController.swift in Sources */,
 				A55454B22710BF7D00CCC987 /* SharedUI.swift in Sources */,
 				A5A8EF63270C34230036389D /* TeacherInputNewInfoViewController.swift in Sources */,

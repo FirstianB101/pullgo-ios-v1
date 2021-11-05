@@ -77,11 +77,11 @@ extension TeacherRequestClassroomJoinViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ClassroomCell") as! ClassroomCell
-        let classroomParse = viewModel.classrooms[indexPath.row].parse
+        let classroom = viewModel.classrooms[indexPath.row]
         
-        cell.teacherNameLabel.text = classroomParse.teacherName
-        cell.weekdayLabel.text = classroomParse.weekday
-        cell.classroomNameLabel.text = classroomParse.classroomName
+        cell.teacherNameLabel.text = classroom.creator.account.fullName
+        cell.weekdayLabel.text = classroom.parse.weekday
+        cell.classroomNameLabel.text = classroom.parse.classroomName
         
         return cell
     }

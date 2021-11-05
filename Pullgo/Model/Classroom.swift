@@ -6,14 +6,13 @@
 //
 
 import Foundation
-import SwiftUI
 
-typealias ClassroomParse = (classroomName: String, teacherName: String, weekday: String)
+typealias ClassroomParse = (classroomName: String, weekday: String)
 
 class Classroom: PGNetworkable {
     
     enum CodingKeys: String, CodingKey {
-        case name, creatorId, academyId
+        case name, creator, academyId
     }
     
     private var classroomId: String {
@@ -24,7 +23,7 @@ class Classroom: PGNetworkable {
     }
     
     var name: String!
-    var creatorId: Int!
+    var creator: Teacher!
     var academyId: Int!
     
     var academyBelong: Academy?
@@ -37,7 +36,7 @@ class Classroom: PGNetworkable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         self.name       = try? container.decode(String.self, forKey: .name)
-        self.creatorId  = try? container.decode(Int.self, forKey: .creatorId)
+        self.creator  = try? container.decode(Teacher.self, forKey: .creator)
         self.academyId  = try? container.decode(Int.self, forKey: .academyId)
         
         try super.init(from: decoder)
@@ -47,7 +46,7 @@ class Classroom: PGNetworkable {
         var container = try encoder.container(keyedBy: CodingKeys.self)
         
         try? container.encode(self.name, forKey: .name)
-        try? container.encode(self.creatorId, forKey: .creatorId)
+        try? container.encode(self.creator, forKey: .creator)
         try? container.encode(self.academyId, forKey: .academyId)
         
         try super.encode(to: encoder)
@@ -57,7 +56,6 @@ class Classroom: PGNetworkable {
         return (
             rhs.id == lhs.id &&
             rhs.name == lhs.name &&
-            rhs.creatorId == lhs.creatorId &&
             rhs.academyId == lhs.academyId
         )
     }
@@ -73,22 +71,21 @@ class Classroom: PGNetworkable {
     }
 
     var parse: ClassroomParse {
-        var result: ClassroomParse = ("", "", "")
+        var result: ClassroomParse = ("", "")
         guard let classroomName = self.name else { return result }
         
         let namePieces = classroomName.split(separator: ";")
         
-        if namePieces.count != 3 { result.classroomName = classroomName; return result }
+//        if namePieces.count != 2 { result.classroomName = classroomName; return result }
         print(classroomName)
         
-        result.classroomName = String(namePieces[0])
-        result.teacherName = String(namePieces[1]) + " 선생님"
-        result.weekday = parseWeekday(weekday: namePieces[2])
+        result.classroomName = String(namePieces.first!)
+        result.weekday = parseWeekday(weekday: namePieces.last!)
         
         return result
     }
     
-    public func setInformation(classroomName: String, teacherName: String, weekdays: String) {
+    public func setInformation(classroomName: String, weekdays: String) {
         let weekday = weekdays.filter { str in
             if let _ = Weekday.init(rawValue: String(str)) {
                 return true
@@ -96,7 +93,7 @@ class Classroom: PGNetworkable {
             return false
         }
         
-        let combine = "\(classroomName);\(teacherName);\(weekday)"
+        let combine = "\(classroomName);\(weekday)"
         print(combine)
         self.name = combine
     }
@@ -150,7 +147,7 @@ extension Classroom {
     }
     
     public func getCreator(completion: @escaping ((Teacher) -> Void)) {
-        let url = PGURLs.teachers.appendingURL([String(self.creatorId)])
+        let url = PGURLs.teachers.appendingURL([String(self.id!)])
         
         PGNetwork.get(url: url, type: Teacher.self) { teacher in
             completion(teacher)

@@ -146,11 +146,9 @@ class TeacherClassroomChangeInfoViewModel {
     }
     
     public func changeInfo(completion: @escaping ((Data?) -> Void)) {
-        let parse = selectedClassroom!.name.split(separator: ";")
-        let teacherName = String(parse[1])
         let weekdays = getSelectedWeekdays()
         
-        selectedClassroom?.setInformation(classroomName: newClassroomName, teacherName: teacherName, weekdays: weekdays)
+        selectedClassroom?.setInformation(classroomName: newClassroomName, weekdays: weekdays)
         print(selectedClassroom!.parse)
         selectedClassroom?.patch(success: completion)
     }

@@ -150,9 +150,9 @@ extension TeacherCreateLessonViewController: DatePickerViewDelegate, TeacherCrea
     
     private func setButtonLabelToClassroomInfo(classroom: Classroom) {
         classroomSelectButton.setTitle("", for: .normal)
-        let classroomParse = classroom.parse
-        classroomNameLabel.text = classroomParse.classroomName
-        classroomInfoLabel.text = "\(classroomParse.teacherName) (\(classroomParse.weekday))"
+        let classroomParse = classroom
+        classroomNameLabel.text = classroom.parse.classroomName
+        classroomInfoLabel.text = "\(classroom.creator.account.fullName) (\(classroom.parse.weekday))"
     }
     
     private func setButtonColorSelected(button: UIButton) {

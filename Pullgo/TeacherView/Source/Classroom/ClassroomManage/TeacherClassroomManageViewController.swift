@@ -50,11 +50,11 @@ extension TeacherClassroomManageViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ClassroomCell") as! ClassroomCell
-        let classroomNameParse = viewModel.classrooms[indexPath.row].parse
+        let classroom = viewModel.classrooms[indexPath.row]
         
-        cell.teacherNameLabel.text = classroomNameParse.teacherName
-        cell.classroomNameLabel.text = classroomNameParse.classroomName
-        cell.weekdayLabel.text = classroomNameParse.weekday
+        cell.teacherNameLabel.text = classroom.creator.account.fullName + " 선생님"
+        cell.classroomNameLabel.text = classroom.parse.classroomName
+        cell.weekdayLabel.text = classroom.parse.weekday
         
         return cell
     }

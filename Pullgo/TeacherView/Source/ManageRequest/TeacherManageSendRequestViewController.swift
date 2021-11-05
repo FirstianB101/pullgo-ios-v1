@@ -12,10 +12,12 @@ class TeacherManageSendRequestViewController: ButtonBarPagerTabStripViewControll
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         
-        guard let teacherView = storyboard?.instantiateViewController(withIdentifier: "AcademyAcceptTeacherViewController"),
-              let studentView = storyboard?.instantiateViewController(withIdentifier: "AcademyAcceptStudentViewController") else { return [] }
+        let studentStoryboard = UIStoryboard(name: "Student", bundle: nil)
         
-        return [teacherView, studentView]
+        let academyView = studentStoryboard.instantiateViewController(withIdentifier: "ManageSendRequestAcademyViewController")
+        let classroomView = studentStoryboard.instantiateViewController(withIdentifier: "ManageSendRequestClassroomViewController")
+        
+        return [academyView, classroomView]
     }
     
     override func viewDidLoad() {
