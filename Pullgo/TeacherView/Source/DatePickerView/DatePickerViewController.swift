@@ -48,6 +48,7 @@ class DatePickerViewController: UIViewController {
         setTextFieldToolbarDelegate()
         setUIByDatePickerViewMode()
         setFieldToDatePicker()
+        setFieldPlaceholderToday()
         self.setKeyboardDismissWatcher()
     }
     
@@ -70,20 +71,26 @@ class DatePickerViewController: UIViewController {
         let timePicker = UIDatePicker(mode: .time)
         
         datePicker.minimumDate = Date()
-        timePicker.minimumDate = Date()
         dateField.useTextFieldByDatePicker(picker: datePicker)
         beginTimeField.useTextFieldByDatePicker(picker: timePicker)
         endTimeField.useTextFieldByDatePicker(picker: timePicker)
     }
     
+    private func setFieldPlaceholderToday() {
+        dateField.placeholder = "날짜를 선택해주세요."
+        endTimeField.placeholder = "종료 시간을 선택해주세요."
+    }
+    
     private func setUIDateAndTimePeriod() {
         mutableLabel.text = "시작 시간"
         mutableStackView.isHidden = false
+        beginTimeField.placeholder = "시작 시간을 선택해주세요."
     }
     
     private func setUIDateWithTimeLimit() {
         mutableLabel.text = "시간 설정"
         mutableStackView.isHidden = true
+        beginTimeField.placeholder = "시간을 선택해주세요."
     }
     
     @IBAction func selectComplete(_ sender: PGButton) {

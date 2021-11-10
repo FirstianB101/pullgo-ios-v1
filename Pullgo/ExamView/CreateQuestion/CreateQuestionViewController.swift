@@ -52,98 +52,27 @@ class CreateQuestionViewController: ExamRootViewController {
         return UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addQuestion(_:)))
     }()
     
-    lazy var questionContent = { () -> UITextView in
-        let textView = UITextView()
-        
-        textView.layer.borderColor = UIColor.lightGray.cgColor
-        textView.layer.borderWidth = 0.2
-        textView.textContainer.lineFragmentPadding = 10
-        textView.setViewCornerRadius(radius: 15)
-        textView.font = UIFont.systemFont(ofSize: 18)
-        textView.addDismissToolbar()
-        textView.delegate = self
-        
-        // placeholder
-        textView.textColor = .lightGray
-        textView.text = "문제를 입력해주세요."
-        
-        return textView
-    }()
     
-    lazy var questionLength = { () -> UILabel in
-        let label = UILabel()
+    lazy var saveButton = { () -> UIButton in
+        let save = UIButton(type: .custom)
         
-        label.font = UIFont.systemFont(ofSize: 13)
-        label.text = "0/200자"
-        label.textAlignment = .right
+        save.setTitle("저장", for: .normal)
+        save.setTitleColor(UIColor(named: "AccentColor"), for: .normal)
+        save.addTarget(self, action: #selector(self.saveQuestions(_:)), for: .touchUpInside)
         
-        return label
-    }()
-    
-    lazy var questionContentStack = { () -> UIStackView in
-        let stack = UIStackView()
-        
-        stack.axis = .vertical
-        stack.distribution = .fill
-        stack.alignment = .fill
-        stack.spacing = 5
-        
-        stack.addArrangedSubview(self.questionContent)
-        stack.addArrangedSubview(self.questionLength)
-        
-        return stack
-    }()
-    
-    lazy var addImageButton = { () -> UIButton in
-        let button = UIButton(type: .custom)
-        
-        button.backgroundColor = UIColor(named: "LightAccent")
-        button.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
-        button.setTitle(" 여기를 눌러 사진을 추가하세요.", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        button.setTitleColor(.black, for: .normal)
-        button.setViewCornerRadiusAndShadow(radius: 20)
-        
-        return button
-    }()
-    
-    lazy var imageContentStack = { () -> UIStackView in
-        let stack = UIStackView()
-        
-        stack.axis = .vertical
-        
-        return stack
-    }()
-    
-    lazy var tabBarPager = { () -> ExamTabBarPager in
-        let pager = ExamTabBarPager(viewModel: self.createQuestionViewModel, type: .withSave)
-        
-        return pager
-    }()
-    
-    lazy var editChoicesButton = { () -> UIButton in
-        let button = UIButton(type: .custom)
-        
-        button.backgroundColor = UIColor(named: "LightAccent")
-        button.setTitle("보기 작성", for: .normal)
-        button.setTitleColor(UIColor(named: "AccentColor"), for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        button.setViewCornerRadiusAndShadow(radius: 25)
-        button.addTarget(self, action: #selector(editChoice(_:)), for: .touchUpInside)
-        
-        return button
+        return save
     }()
     
     // MARK: - Initializer + viewModel
     
     let createQuestionViewModel: CreateQuestionViewModel
     
-    override init(viewModel: ExamPagableViewModel) {
+    override init(viewModel: ExamPagableViewModel, type: ExamType) {
         guard let createQuestionViewModel = viewModel as? CreateQuestionViewModel else {
             fatalError("viewModel must be a CreateQuestionViewModel type.")
         }
         self.createQuestionViewModel = createQuestionViewModel
-        super.init(viewModel: createQuestionViewModel)
+        super.init(viewModel: createQuestionViewModel, type: .create)
     }
     
     required init?(coder: NSCoder) {
@@ -157,7 +86,6 @@ class CreateQuestionViewController: ExamRootViewController {
         
         titleBar.topItem?.titleView = setTimeLimitField
         self.setTitleBarButtons()
-        self.setTabBarPager()
         
         buildConstraints()
     }
@@ -166,39 +94,12 @@ class CreateQuestionViewController: ExamRootViewController {
         titleBar.topItem?.setRightBarButtonItems([addQuestion, deleteQuestion], animated: true)
     }
     
-    func setTabBarPager() {
-        self.view.addSubview(tabBarPager)
+    private func buildConstraints() {
+        self.view.addSubview(saveButton)
         
-        tabBarPager.snp.makeConstraints { make in
-            make.leading.equalTo(self.view.safeAreaLayoutGuide).offset(30)
-            make.trailing.equalTo(self.view.safeAreaLayoutGuide).offset(-30)
+        saveButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
             make.bottom.equalTo(self.view.safeAreaLayoutGuide)
-            make.height.equalTo(30)
-        }
-    }
-    
-    func buildConstraints() {
-        self.view.addSubview(questionContentStack)
-        self.view.addSubview(addImageButton)
-        self.view.addSubview(editChoicesButton)
-        
-        questionContentStack.snp.makeConstraints { make in
-            make.top.equalTo(self.titleBar.snp.bottom).offset(30)
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-30)
-            make.bottom.equalTo(self.addImageButton.snp.top).offset(-30)
-        }
-        addImageButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-30)
-            make.bottom.equalTo(self.editChoicesButton.snp.top).offset(-30)
-            make.height.equalTo(40)
-        }
-        editChoicesButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-30)
-            make.bottom.equalTo(self.tabBarPager.snp.top).offset(-30)
-            make.height.equalTo(50)
         }
     }
 }
@@ -237,7 +138,7 @@ extension CreateQuestionViewController {
     // edit choice
     @objc
     func editChoice(_ sender: UIButton) {
-        let vc = QuestionChoiceViewController()
+        let vc = QuestionChoiceViewController(viewType: .create)
         
         self.view.alpha = 0.3
         
@@ -247,41 +148,19 @@ extension CreateQuestionViewController {
         
         self.present(vc, animated: true, completion: nil)
     }
-}
-
-// Half modal
-extension CreateQuestionViewController: UIViewControllerTransitioningDelegate {
     
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return HalfSizePresentationController(presentedViewController: presented, presenting: presenting)
-    }
-}
-
-// TextView Placeholder
-extension CreateQuestionViewController: UITextViewDelegate {
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
-            textView.text = nil
-            textView.textColor = UIColor.black
-        }
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.text = "문제를 입력해주세요."
-            textView.textColor = UIColor.lightGray
-        }
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        let count = textView.text.count
-        
-        if count > createQuestionViewModel.maxContentLength {
-            textView.text.removeLast()
-            questionLength.vibrate()
-            return
+    // save
+    @objc
+    func saveQuestions(_ sender: UIButton) {
+        let alert = PGAlertPresentor()
+        let leave = UIAlertAction(title: "나가기", style: .default) { _ in
+            let topViewController = UIApplication.shared.topViewController
+            topViewController?.dismiss(animated: true, completion: nil)
         }
         
-        questionLength.text = "\(count)/\(createQuestionViewModel.maxContentLength)자"
+        let cont = UIAlertAction(title: "계속 출제하기", style: .default, handler: nil)
+        
+        // save logic { _ in }
+        alert.present(title: "저장 완료", context: "지금까지 만든 문제들을 모두 저장했어요.", actions: [leave, cont])
     }
 }

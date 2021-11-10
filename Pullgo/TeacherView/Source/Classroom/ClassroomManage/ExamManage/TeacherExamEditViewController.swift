@@ -58,7 +58,7 @@ class TeacherExamEditViewController: UIViewController, IndicatorInfoProvider {
     
     @IBAction func editExam(_ sender: UIButton) {
 //        let vc = CreateQuestionViewController(viewModel: CreateQuestionViewModel())
-        let vc = CreateQuestionViewController(viewModel: FakeQuestionViewModel())
+        let vc = CreateQuestionViewController(viewModel: FakeQuestionViewModel(), type: .create)
         guard let pvc = self.presentingViewController else { return }
         
         vc.modalPresentationStyle = .fullScreen

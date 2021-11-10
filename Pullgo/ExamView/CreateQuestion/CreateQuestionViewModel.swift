@@ -10,5 +10,10 @@ import RxSwift
 import RxCocoa
 
 class CreateQuestionViewModel: ExamViewModel {
-    let maxContentLength: Int = 200
+    
+//    var currentQuestion: Question?
+//    var selectedExam: Exam
+//    var questions = [Question]()
+    
+    
 }

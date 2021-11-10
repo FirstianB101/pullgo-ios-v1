@@ -78,6 +78,7 @@ class TeacherMenuViewModel {
     
     init() {
         if PGSignedUser.selectedAcademy == nil {
+            menus.append(TeacherMenu.manageSendRequest.rawValue)
             menus.append(TeacherMenu.changeInfo.rawValue)
             return
         }

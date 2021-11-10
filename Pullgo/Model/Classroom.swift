@@ -12,7 +12,7 @@ typealias ClassroomParse = (classroomName: String, weekday: String)
 class Classroom: PGNetworkable {
     
     enum CodingKeys: String, CodingKey {
-        case name, creator, academyId
+        case name, creator, academyId, creatorId
     }
     
     private var classroomId: String {
@@ -25,6 +25,7 @@ class Classroom: PGNetworkable {
     var name: String!
     var creator: Teacher!
     var academyId: Int!
+    var creatorId: Int!
     
     var academyBelong: Academy?
     
@@ -36,8 +37,9 @@ class Classroom: PGNetworkable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         self.name       = try? container.decode(String.self, forKey: .name)
-        self.creator  = try? container.decode(Teacher.self, forKey: .creator)
+        self.creator    = try? container.decode(Teacher.self, forKey: .creator)
         self.academyId  = try? container.decode(Int.self, forKey: .academyId)
+        self.creatorId  = try? container.decode(Int.self, forKey: .creatorId)
         
         try super.init(from: decoder)
     }
@@ -48,6 +50,7 @@ class Classroom: PGNetworkable {
         try? container.encode(self.name, forKey: .name)
         try? container.encode(self.creator, forKey: .creator)
         try? container.encode(self.academyId, forKey: .academyId)
+        try? container.encode(self.creatorId, forKey: .creatorId)
         
         try super.encode(to: encoder)
     }

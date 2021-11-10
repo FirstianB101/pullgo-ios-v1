@@ -5,11 +5,12 @@
 //  Created by 김세영 on 2021/07/11.
 //
 
-import Foundation
+import UIKit
 
 class Question: PGNetworkable {
     
     var questionNumber: Int?
+    var picture: UIImage?
     
     var answer: [Int]!
     var choice: [String : String]!

@@ -36,6 +36,11 @@
 		A529377B269AE4CA00B210C2 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A529377A269AE4CA00B210C2 /* Messages.swift */; };
 		A52EA700271598230000AC73 /* ManageSendRequestAcademyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52EA6FE271598230000AC73 /* ManageSendRequestAcademyViewController.swift */; };
 		A52EA7032715988E0000AC73 /* ManageSendRequestClassroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52EA7022715988E0000AC73 /* ManageSendRequestClassroomViewController.swift */; };
+		A52F50E6273B95580018B55E /* ContainerViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F50E5273B95580018B55E /* ContainerViewFactory.swift */; };
+		A52F50E9273B97960018B55E /* ExamType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F50E8273B97960018B55E /* ExamType.swift */; };
+		A52F50EE273B98050018B55E /* HistoryContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F50ED273B98050018B55E /* HistoryContainerView.swift */; };
+		A52F50F0273B980F0018B55E /* TakeContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F50EF273B980F0018B55E /* TakeContainerView.swift */; };
+		A52F50F2273B98110018B55E /* CreateContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F50F1273B98110018B55E /* CreateContainerView.swift */; };
 		A52F8BAA26BD32F9005AA7DC /* TeacherSelectExamDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F8BA926BD32F9005AA7DC /* TeacherSelectExamDateViewController.swift */; };
 		A531C9A3273248250053CFE8 /* ExamNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A531C9A2273248250053CFE8 /* ExamNavigator.swift */; };
 		A531C9A527327F5C0053CFE8 /* ExamTabBarPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A531C9A427327F5C0053CFE8 /* ExamTabBarPager.swift */; };
@@ -185,6 +190,11 @@
 		A529377A269AE4CA00B210C2 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		A52EA6FE271598230000AC73 /* ManageSendRequestAcademyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageSendRequestAcademyViewController.swift; sourceTree = "<group>"; };
 		A52EA7022715988E0000AC73 /* ManageSendRequestClassroomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageSendRequestClassroomViewController.swift; sourceTree = "<group>"; };
+		A52F50E5273B95580018B55E /* ContainerViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewFactory.swift; sourceTree = "<group>"; };
+		A52F50E8273B97960018B55E /* ExamType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamType.swift; sourceTree = "<group>"; };
+		A52F50ED273B98050018B55E /* HistoryContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContainerView.swift; sourceTree = "<group>"; };
+		A52F50EF273B980F0018B55E /* TakeContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeContainerView.swift; sourceTree = "<group>"; };
+		A52F50F1273B98110018B55E /* CreateContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContainerView.swift; sourceTree = "<group>"; };
 		A52F8BA926BD32F9005AA7DC /* TeacherSelectExamDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSelectExamDateViewController.swift; sourceTree = "<group>"; };
 		A531C9A2273248250053CFE8 /* ExamNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamNavigator.swift; sourceTree = "<group>"; };
 		A531C9A427327F5C0053CFE8 /* ExamTabBarPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamTabBarPager.swift; sourceTree = "<group>"; };
@@ -367,6 +377,7 @@
 		A51AA8EE272705CE00C19EA5 /* ExamView */ = {
 			isa = PBXGroup;
 			children = (
+				A52F50E7273B978F0018B55E /* Shared */,
 				A5911FBC273001AD0095D12E /* ExamViewController */,
 				A5F59A1F272FD121005DE570 /* ExamHistory */,
 				A5F59A1E272FD116005DE570 /* TakeExam */,
@@ -394,6 +405,25 @@
 				A554549427109DF300CCC987 /* Source */,
 			);
 			path = StudentView;
+			sourceTree = "<group>";
+		};
+		A52F50E7273B978F0018B55E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A52F50E8273B97960018B55E /* ExamType.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		A52F50EA273B97D00018B55E /* ContainerView */ = {
+			isa = PBXGroup;
+			children = (
+				A52F50E5273B95580018B55E /* ContainerViewFactory.swift */,
+				A52F50F1273B98110018B55E /* CreateContainerView.swift */,
+				A52F50EF273B980F0018B55E /* TakeContainerView.swift */,
+				A52F50ED273B98050018B55E /* HistoryContainerView.swift */,
+			);
+			path = ContainerView;
 			sourceTree = "<group>";
 		};
 		A532DB1626889ACB00076260 = {
@@ -662,6 +692,7 @@
 		A5911FBC273001AD0095D12E /* ExamViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A52F50EA273B97D00018B55E /* ContainerView */,
 				A5911FBD273001B90095D12E /* ExamRootViewController.swift */,
 				A5E38FA727352D33007F7EB6 /* QuestionChoiceViewController.swift */,
 				A531C9A427327F5C0053CFE8 /* ExamTabBarPager.swift */,
@@ -942,6 +973,7 @@
 				TargetAttributes = {
 					A532DB1E26889ACB00076260 = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1300;
 					};
 					A532DB3426889ACC00076260 = {
 						CreatedOnToolsVersion = 12.5;
@@ -1182,6 +1214,7 @@
 				A56FB388270DE665001A5F21 /* ButtonBarPagerExtension.swift in Sources */,
 				A5F96A992722754C004E8812 /* TeacherClassroomRemoveViewController.swift in Sources */,
 				A5293766269ACCE200B210C2 /* Lesson.swift in Sources */,
+				A52F50F0273B980F0018B55E /* TakeContainerView.swift in Sources */,
 				A5F59A21272FD134005DE570 /* ExamHistoryViewController.swift in Sources */,
 				A5CFCCAC26DE29240069F536 /* PGTextField.swift in Sources */,
 				A5293762269ACCCD00B210C2 /* Classroom.swift in Sources */,
@@ -1199,6 +1232,7 @@
 				A5C95ECC2691874000F19A55 /* InputDetailViewController.swift in Sources */,
 				A505A8EE26B44F0F007954A4 /* TeacherCreateClassroomSelectAcademyViewController.swift in Sources */,
 				A5F5E65E26BC2D520004BA35 /* TeacherAddExamViewController.swift in Sources */,
+				A52F50E6273B95580018B55E /* ContainerViewFactory.swift in Sources */,
 				A5EDB215268D931B0085CCAE /* SignUpViewController.swift in Sources */,
 				A55454B02710B23500CCC987 /* StudentAcademyJoinRequestViewController.swift in Sources */,
 				A5A8EF61270C2BA60036389D /* TeacherChangeInfoViewController.swift in Sources */,
@@ -1218,12 +1252,14 @@
 				A535E99926F731E200C6F1D8 /* PGNetworkable.swift in Sources */,
 				A5F96A9727227524004E8812 /* TeacherClassroomChangeInfoViewController.swift in Sources */,
 				A508196926E780A00094A50C /* PGSelectButton.swift in Sources */,
+				A52F50EE273B98050018B55E /* HistoryContainerView.swift in Sources */,
 				A529376A269ACCED00B210C2 /* Question.swift in Sources */,
 				A53FF31F2727DC3600647881 /* CreateQuestionViewController.swift in Sources */,
 				A5E7C0ED26C66CC10083001C /* StudentCalendarViewController.swift in Sources */,
 				A5D35C59272E5E4500AFE7BD /* TakeExamViewModel.swift in Sources */,
 				A52F8BAA26BD32F9005AA7DC /* TeacherSelectExamDateViewController.swift in Sources */,
 				A5B469B32688E9F600C62F9C /* Student.swift in Sources */,
+				A52F50F2273B98110018B55E /* CreateContainerView.swift in Sources */,
 				A554549727109E3700CCC987 /* StudentViewSwitcher.swift in Sources */,
 				A5293764269ACCD700B210C2 /* Academy.swift in Sources */,
 				A5780AAE26AC4A6D007F6A88 /* TeacherClassroomManageExamViewController.swift in Sources */,
@@ -1233,6 +1269,7 @@
 				A529376C269AD62A00B210C2 /* Schedule.swift in Sources */,
 				A55454A92710A11300CCC987 /* StudentSideMenuViewController.swift in Sources */,
 				A57F5CED2695F2BE00A603DD /* Account.swift in Sources */,
+				A52F50E9273B97960018B55E /* ExamType.swift in Sources */,
 				A531C9A527327F5C0053CFE8 /* ExamTabBarPager.swift in Sources */,
 				A55454A72710A0A200CCC987 /* StudentManageSendRequestViewController.swift in Sources */,
 			);
@@ -1419,6 +1456,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GTB6BR222W;
 				EXCLUDED_ARCHS = "";
@@ -1430,6 +1468,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.harry.Pullgo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1441,6 +1480,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GTB6BR222W;
 				EXCLUDED_ARCHS = "";

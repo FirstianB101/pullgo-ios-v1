@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class ExamViewModel: ExamPagableViewModel {
     var currentQuestion: Question?
@@ -15,6 +17,7 @@ class ExamViewModel: ExamPagableViewModel {
     init(exam: Exam) {
         self.selectedExam = exam
 //        getQuestions()
+        
     }
     
     private func getQuestions() {
@@ -24,13 +27,7 @@ class ExamViewModel: ExamPagableViewModel {
         }
     }
     
-    public func getQuestion(at questionNumber: Int) -> Question? {
-        if !(0 ..< questions.count).contains(questionNumber) {
-            let alert = PGAlertPresentor()
-            alert.present(title: "오류", context: "Index out of range.")
-            return nil
-        }
-        
-        return questions[questionNumber]
+    public func hasQuestionNumber(_ number: Int) -> Bool {
+        return !questions.filter { $0.questionNumber == number }.isEmpty
     }
 }

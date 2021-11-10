@@ -174,7 +174,7 @@ class TeacherCreateClassroomViewModel {
         
         classroom.name = self.formattingClassroomName()
         classroom.academyId = self.selectedAcademy?.id
-        classroom.creator = PGSignedUser.teacher!
+        classroom.creatorId = PGSignedUser.id!
         
         classroom.post(success: success)
     }
@@ -182,7 +182,6 @@ class TeacherCreateClassroomViewModel {
     func formattingClassroomName() -> String {
         var formattedClassroomName: String = ""
         appendClassroomName(&formattedClassroomName)
-        appendTeacherFullName(&formattedClassroomName)
         appendSelectedWeekday(&formattedClassroomName)
         
         return formattedClassroomName
