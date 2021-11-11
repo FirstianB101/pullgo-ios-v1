@@ -10,6 +10,7 @@ import SnapKit
 
 class CreateContainerView: UIView, ContainerView {
     
+    
     // MARK: - UI
     lazy var questionContent = { () -> UITextView in
         let textView = UITextView()
@@ -95,10 +96,16 @@ class CreateContainerView: UIView, ContainerView {
         self.question = question
         super.init(frame: .zero)
         self.buildContraints()
+        self.setContents()
+        self.setBackground()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setBackground() {
+        self.backgroundColor = .white
     }
     
     private func buildContraints() {
@@ -124,6 +131,10 @@ class CreateContainerView: UIView, ContainerView {
             make.bottom.equalToSuperview().offset(-30)
             make.height.equalTo(50)
         }
+    }
+    
+    private func setContents() {
+        self.questionContent.text = question?.content ?? ""
     }
 }
 

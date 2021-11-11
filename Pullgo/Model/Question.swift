@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Question: PGNetworkable {
+class Question: PGNetworkable, Equatable {
     
     var questionNumber: Int?
     var picture: UIImage?
@@ -48,5 +48,14 @@ class Question: PGNetworkable {
         try? container.encode(self.examId, forKey: .examId)
         
         try super.encode(to: encoder)
+    }
+    
+    // MARK: - Equatable
+    public static func ==(lhs: Question, rhs: Question) -> Bool {
+        return (lhs.questionNumber == rhs.questionNumber &&
+                lhs.content == rhs.content &&
+                lhs.answer == rhs.answer &&
+                lhs.examId == rhs.examId &&
+                lhs.choice == rhs.choice)
     }
 }

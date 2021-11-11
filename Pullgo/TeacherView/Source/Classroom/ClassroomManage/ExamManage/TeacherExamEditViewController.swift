@@ -84,9 +84,9 @@ class FakeQuestionViewModel: CreateQuestionViewModel {
                                "3" : "3",
                                "4" : "4",
                                "5" : "5"]
-            question.content = "question \(String(i))"
+            question.content = "question \(String(i + 1))"
             question.examId = 10
-            question.pictureUrl = "url \(String(i))"
+            question.pictureUrl = "url \(String(i + 1))"
             
             mockQuestions.append(question)
         }

@@ -16,6 +16,7 @@ class ExamTabBarPager: UIView {
         
         prev.semanticContentAttribute = .forceLeftToRight
         prev.setTitleColor(.black, for: .normal)
+        prev.setTitleColor(.lightGray, for: .disabled)
         prev.tintColor = .black
         if let image = UIImage(systemName: "chevron.left") {
             prev.setImage(image, for: .normal)
@@ -30,6 +31,7 @@ class ExamTabBarPager: UIView {
         
         next.semanticContentAttribute = .forceRightToLeft
         next.setTitleColor(.black, for: .normal)
+        next.setTitleColor(.lightGray, for: .disabled)
         next.tintColor = .black
         if let image = UIImage(systemName: "chevron.right") {
             next.setImage(image, for: .normal)
@@ -47,6 +49,7 @@ class ExamTabBarPager: UIView {
         
         self.addSubview(prevButton)
         self.addSubview(nextButton)
+        setPagerButtonStatus()
         
         buildConstraints()
     }
@@ -73,5 +76,21 @@ class ExamTabBarPager: UIView {
     
     public func addPrevQuestionTarget(_ target: Any?, action: Selector) {
         self.prevButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    public func setPagerButtonStatus() {
+        if viewModel.isFirstQuestion {
+            prevButton.isEnabled = false
+            prevButton.vibrate()
+        } else if viewModel.isLastQuestion {
+            nextButton.isEnabled = false
+            nextButton.vibrate()
+        } else {
+            prevButton.isEnabled = true
+            nextButton.isEnabled = true
+        }
+        
+        prevButton.isEnabled = !viewModel.isFirstQuestion
+        nextButton.isEnabled = !viewModel.isLastQuestion
     }
 }

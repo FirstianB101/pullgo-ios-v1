@@ -41,6 +41,7 @@
 		A52F50EE273B98050018B55E /* HistoryContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F50ED273B98050018B55E /* HistoryContainerView.swift */; };
 		A52F50F0273B980F0018B55E /* TakeContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F50EF273B980F0018B55E /* TakeContainerView.swift */; };
 		A52F50F2273B98110018B55E /* CreateContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F50F1273B98110018B55E /* CreateContainerView.swift */; };
+		A52F50F6273BBA190018B55E /* ExamPagableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F50F5273BBA190018B55E /* ExamPagableViewModel.swift */; };
 		A52F8BAA26BD32F9005AA7DC /* TeacherSelectExamDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F8BA926BD32F9005AA7DC /* TeacherSelectExamDateViewController.swift */; };
 		A531C9A3273248250053CFE8 /* ExamNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A531C9A2273248250053CFE8 /* ExamNavigator.swift */; };
 		A531C9A527327F5C0053CFE8 /* ExamTabBarPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A531C9A427327F5C0053CFE8 /* ExamTabBarPager.swift */; };
@@ -195,6 +196,7 @@
 		A52F50ED273B98050018B55E /* HistoryContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContainerView.swift; sourceTree = "<group>"; };
 		A52F50EF273B980F0018B55E /* TakeContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeContainerView.swift; sourceTree = "<group>"; };
 		A52F50F1273B98110018B55E /* CreateContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContainerView.swift; sourceTree = "<group>"; };
+		A52F50F5273BBA190018B55E /* ExamPagableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamPagableViewModel.swift; sourceTree = "<group>"; };
 		A52F8BA926BD32F9005AA7DC /* TeacherSelectExamDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSelectExamDateViewController.swift; sourceTree = "<group>"; };
 		A531C9A2273248250053CFE8 /* ExamNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamNavigator.swift; sourceTree = "<group>"; };
 		A531C9A427327F5C0053CFE8 /* ExamTabBarPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamTabBarPager.swift; sourceTree = "<group>"; };
@@ -697,6 +699,7 @@
 				A5E38FA727352D33007F7EB6 /* QuestionChoiceViewController.swift */,
 				A531C9A427327F5C0053CFE8 /* ExamTabBarPager.swift */,
 				A531C9A2273248250053CFE8 /* ExamNavigator.swift */,
+				A52F50F5273BBA190018B55E /* ExamPagableViewModel.swift */,
 			);
 			path = ExamViewController;
 			sourceTree = "<group>";
@@ -1211,6 +1214,7 @@
 				A53FF32527284DD100647881 /* ExamViewModel.swift in Sources */,
 				A5191494268DC27300620A66 /* InputUsernameViewController.swift in Sources */,
 				A5B5CDC3270700B700AC9F7F /* TeacherClassroomDetailStudentViewController.swift in Sources */,
+				A52F50F6273BBA190018B55E /* ExamPagableViewModel.swift in Sources */,
 				A56FB388270DE665001A5F21 /* ButtonBarPagerExtension.swift in Sources */,
 				A5F96A992722754C004E8812 /* TeacherClassroomRemoveViewController.swift in Sources */,
 				A5293766269ACCE200B210C2 /* Lesson.swift in Sources */,

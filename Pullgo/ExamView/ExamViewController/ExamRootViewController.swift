@@ -10,18 +10,13 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-protocol ExamPagableViewModel {
-    var currentQuestion: Question? { get set }
-    var questions: [Question] { get set }
-    var selectedExam: Exam { get }
-    func hasQuestionNumber(_ number: Int) -> Bool
-}
 
 class ExamRootViewController: UIViewController {
     
     // MARK: - ViewModel + Initializer
     let viewModel: ExamPagableViewModel
     let type: ExamType
+    let disposeBag = DisposeBag()
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -41,11 +36,18 @@ class ExamRootViewController: UIViewController {
         
         let customView = UIButton()
         customView.frame.size = CGSize(width: buttonEdge, height: buttonEdge)
-        customView.layer.cornerRadius = buttonEdge / 2
+        customView.setViewCornerRadius(radius: buttonEdge / 2)
         customView.backgroundColor = UIColor(named: "LightAccent")
         customView.setTitleColor(.black, for: .normal)
-        customView.setTitle(String(self.viewModel.currentQuestion?.questionNumber ?? 0), for: .normal)
         customView.addTarget(self, action: #selector(self.presentQuestionList(_:)), for: .touchUpInside)
+        
+        self.viewModel.currentQuestionSubject
+            .map({ $0?.questionNumber })
+            .map({ $0 == nil ? "E" : String($0!) })
+            .bind(onNext: { title in
+                customView.setTitle(title, for: .normal)
+            })
+            .disposed(by: disposeBag)
         
         return UIBarButtonItem(customView: customView)
     }()
@@ -81,18 +83,59 @@ class ExamRootViewController: UIViewController {
     // MARK: - Method
     
     public func presentQuestion(at index: Int) {
-        guard viewModel.hasQuestionNumber(index) else { return }
-        guard let currentNumber = viewModel.currentQuestion else {
-            print("ExamRootViewController::presentQuestion(at:) -> currentQuestion is nil.")
-            return
-        }
+        let animateDirection: AnimateDirection = (index < self.viewModel.currentQuestion!.questionNumber! ? .prev : .next)
+        viewModel.setCurrentQuestion(to: index)
         
+        let newContainerView = ContainerViewFactory.getContainerView(of: self.type, question: viewModel.currentQuestion)
         
+        presentContainerViewWithAnimation(newContainerView, direction: animateDirection)
     }
     
     private func presentNewQuestion(at index: Int) {
         guard viewModel.hasQuestionNumber(index) else { return }
         
+    }
+    
+    enum AnimateDirection {
+        case prev
+        case next
+        
+        func getFrame(origin: CGRect) -> CGRect {
+            let x = (self == .next ? origin.maxX : -origin.maxX)
+            
+            return CGRect(x: x, y: origin.minY, width: origin.width, height: origin.height)
+        }
+        
+        func getAffineTransform(origin: CGRect) -> CGAffineTransform {
+            let translationX = (self == .next ? -origin.width : origin.width)
+            
+            return CGAffineTransform(translationX: translationX, y: 0)
+        }
+    }
+    
+    private func presentContainerViewWithAnimation(_ newContainerView: ContainerView, direction: AnimateDirection) {
+        let containerViewFrame = self.containerView.frame
+        newContainerView.frame = direction.getFrame(origin: containerViewFrame)
+        
+        let tempContainerView = self.containerView
+        
+        self.view.addSubview(tempContainerView)
+        self.view.addSubview(newContainerView)
+        
+        let animator = UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut) {
+            let transform = direction.getAffineTransform(origin: containerViewFrame)
+            tempContainerView.transform = transform
+            newContainerView.transform = transform
+        }
+        animator.addCompletion { _ in
+            self.containerView = ContainerViewFactory.getContainerView(of: self.type, question: self.viewModel.currentQuestion)
+            self.rebuildContainerViewConstraints()
+            
+            tempContainerView.removeFromSuperview()
+            newContainerView.removeFromSuperview()
+        }
+        
+        animator.startAnimation()
     }
     
     private func presentQuestionListWithAnimation() {
@@ -136,8 +179,18 @@ class ExamRootViewController: UIViewController {
             make.bottom.equalTo(self.view.safeAreaLayoutGuide)
             make.height.equalTo(30)
         }
-        
         containerView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(tabBarPager.snp.top)
+            make.top.equalTo(titleBar.snp.bottom)
+        }
+    }
+    
+    private func rebuildContainerViewConstraints() {
+        self.containerView.removeFromSuperview()
+        self.view.addSubview(self.containerView)
+        
+        containerView.snp.remakeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.bottom.equalTo(tabBarPager.snp.top)
             make.top.equalTo(titleBar.snp.bottom)
@@ -178,13 +231,8 @@ extension ExamRootViewController {
         }
         
         let nextQuestionNumber = currentQuestionNumber + 1
-        guard viewModel.hasQuestionNumber(nextQuestionNumber) else {
-            let alert = PGAlertPresentor()
-            alert.present(title: "알림", context: "마지막 문제입니다.")
-            return
-        }
-        
         presentQuestion(at: nextQuestionNumber)
+        tabBarPager.setPagerButtonStatus()
     }
     
     @objc
@@ -195,51 +243,12 @@ extension ExamRootViewController {
         }
         
         let prevQuestionNumber = currentQuestionNumber - 1
-        guard viewModel.hasQuestionNumber(prevQuestionNumber) else {
-            let alert = PGAlertPresentor()
-            alert.present(title: "알림", context: "첫 번째 문제입니다.")
-            return
-        }
-        
         presentQuestion(at: prevQuestionNumber)
-    }
-}
-
-extension ExamRootViewController: UIViewControllerAnimatedTransitioning {
-    
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.5
-    }
-    
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        let container = transitionContext.containerView
-        
-        guard let toView = transitionContext.view(forKey: .to) else { return }
-        container.addSubview(toView)
-        
-        let x: CGFloat = self.view.frame.maxX
-        let y: CGFloat = 0
-        toView.frame = CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: self.view.frame.width, height: self.view.frame.height))
-        
-        let animator = UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut) {
-            toView.transform = CGAffineTransform(translationX: -x, y: 0)
-        }
-        animator.addCompletion { _ in
-            transitionContext.completeTransition(true)
-        }
+        tabBarPager.setPagerButtonStatus()
     }
 }
 
 extension ExamRootViewController: UIViewControllerTransitioningDelegate {
-
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return nil
-    }
-
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return nil
-    }
-
     // Half Modal
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         if presented is QuestionChoiceViewController {

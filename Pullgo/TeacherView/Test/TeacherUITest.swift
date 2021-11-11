@@ -64,6 +64,10 @@ class TeacherUITest: XCTestCase {
         app.tables.staticTexts[title].tap()
     }
     
+    func tapCollectionView(_ app: XCUIApplication, title: String) {
+        app.collectionViews.staticTexts[title].tap()
+    }
+    
     func formattingDate(_ date: Date, to format: String) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format
@@ -224,5 +228,35 @@ class TeacherUITest: XCTestCase {
         
         // 시험 생성
         app.staticTexts["시험 생성"].tap()
+    }
+    
+    func testQuestionViewUI_테스트() {
+        
+        let app = XCUIApplication()
+        app.launch()
+        
+        // 로그인
+        app.segmentedControls.buttons["선생님"].tap()
+        app.buttons["signIn"].tap()
+        
+        // 반 관리 접속
+        app.navigationBars["수업 일정"].buttons["Item"].tap()
+        app.tables.staticTexts["반 관리"].tap()
+        
+        // 반 클릭
+        tapTableView(app, title: TestType.createClassroom.rawValue + "1")
+        
+        // 시험 클릭
+        tapCollectionView(app, title: TestType.createExam.rawValue + "14")
+        
+        // 시험문제 수정 클릭
+        tapButton(app, title: "시험 문제 수정")
+        
+        // 다음 문제 클릭
+        tapButton(app, title: "다음 문제")
+        tapButton(app, title: "다음 문제")
+        tapButton(app, title: "다음 문제")
+        
+        sleep(10)
     }
 }

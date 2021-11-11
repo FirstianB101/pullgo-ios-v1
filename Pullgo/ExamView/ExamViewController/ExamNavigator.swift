@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class ExamNavigator: UIView {
     
@@ -15,8 +16,8 @@ class ExamNavigator: UIView {
         let button = UIButton(type: .custom)
         
         button.frame.size = CGSize(width: 20, height: 20)
-        button.setTitle(title, for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.setTitle(title, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.addTarget(self, action: #selector(self.presentQuestion(_:)), for: .touchUpInside)
         
@@ -24,8 +25,9 @@ class ExamNavigator: UIView {
     }
     
     let row = UIStackView()
+    let disposeBag = DisposeBag()
     
-    // Logic
+    // MARK: - viewModel + Initializer
     let viewModel: ExamPagableViewModel
 
     init(frame: CGRect = .zero, viewModel: ExamPagableViewModel) {

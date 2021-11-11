@@ -10,14 +10,21 @@ import RxSwift
 import RxCocoa
 
 class ExamViewModel: ExamPagableViewModel {
-    var currentQuestion: Question?
+    
+    var currentQuestionSubject: BehaviorSubject<Question?> = BehaviorSubject<Question?>(value: nil)
+    var currentQuestion: Question? {
+        didSet {
+            currentQuestionSubject.onNext(currentQuestion)
+        }
+    }
     var selectedExam: Exam
     var questions = [Question]()
     
+    public var isFirstQuestion: Bool { questions.first == currentQuestion }
+    public var isLastQuestion: Bool { questions.last == currentQuestion }
+    
     init(exam: Exam) {
         self.selectedExam = exam
-//        getQuestions()
-        
     }
     
     private func getQuestions() {
@@ -27,7 +34,16 @@ class ExamViewModel: ExamPagableViewModel {
         }
     }
     
-    public func hasQuestionNumber(_ number: Int) -> Bool {
+    func hasQuestionNumber(_ number: Int) -> Bool {
         return !questions.filter { $0.questionNumber == number }.isEmpty
+    }
+    
+    func setCurrentQuestion(to number: Int) {
+        for question in questions {
+            if question.questionNumber == number {
+                currentQuestion = question
+                return
+            }
+        }
     }
 }
