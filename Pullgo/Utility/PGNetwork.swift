@@ -94,6 +94,27 @@ class _PGNetwork {
         }
     }
     
+    public func post(url: URL, success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
+        print(url)
+        
+        AF.request(url, method: .post, headers: self.headerWithToken).response { response in
+            switch response.result {
+                case .success(let d):
+                    d?.log()
+                    
+                    self.processByStatusCode(code: response.response?.statusCode) {
+                        success?(d)
+                    }
+                case .failure(let e):
+                    if let failClosure = fail {
+                        failClosure(e)
+                    } else {
+                        self.presentNetworkAlert()
+                    }
+            }
+        }
+    }
+    
     public func post(url: URL, parameter: Parameter, success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
         print(url)
         

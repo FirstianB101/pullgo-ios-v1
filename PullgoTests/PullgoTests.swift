@@ -97,6 +97,17 @@ class PullgoTests: XCTestCase {
         XCTAssertFalse(examViewModel.isFirstQuestion)
     }
     
+    func testISO8601Convert() throws {
+        
+        var twoHthirtyM = "PT2H30M".toTimeLimit()
+        var twoH = "PT2H".toTimeLimit()
+        var thirtyM = "PT30M".toTimeLimit()
+        
+        XCTAssertEqual(twoHthirtyM, "2시간 30분")
+        XCTAssertEqual(twoH, "2시간")
+        XCTAssertEqual(thirtyM, "30분")
+    }
+    
     func testCurrentQuestionObserver() throws {
         
         let examViewModel = FakeQuestionViewModel()
@@ -120,4 +131,32 @@ class PullgoTests: XCTestCase {
         
         XCTAssertEqual(button.titleLabel?.text, "3")
     }
+    
+    func testSaveQuestion() throws {
+        
+        PGSignedUser.token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwdWxsZ28tc2VydmVyIiwic3ViIjoie1wiYWNjb3VudElkXCI6NSxcInVzZXJuYW1lXCI6XCJzd2lmdFwifSIsImV4cCI6MTYzNzU3NDY1NywiaWF0IjoxNjM2OTY5ODU3fQ.EfKvM5K6LxHSEWlUTP6_AXht6qWRc2xljZx2Y8UENh4"
+        
+        let exam = Exam()
+        exam.id = 21
+        let createQuestionViewModel = CreateQuestionViewModel(exam: exam)
+        
+        for i in 1 ... 10 {
+            let question = Question()
+            question.examId = exam.id
+            question.content = "xctest question \(i)"
+            question.pictureUrl = i % 2 == 0 ? "" : "xctest pictureUrl \(i)"
+            question.choice = ["1" : "1", "2" : "2", "3" : "3", "4" : "4", "5" : "5"]
+            question.answer = [1, 2]
+            
+            createQuestionViewModel.questions.append(question)
+        }
+        
+        let promise = XCTestExpectation(description: "Post question success")
+        createQuestionViewModel.saveQuestions {
+            promise.fulfill()
+        }
+        
+        wait(for: [promise], timeout: 10)
+    }
+    
 }

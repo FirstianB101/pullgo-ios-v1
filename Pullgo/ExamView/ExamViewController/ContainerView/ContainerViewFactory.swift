@@ -8,20 +8,20 @@
 import UIKit
 
 protocol ContainerView: UIView {
-    init(question: Question?)
+    init(question: Question?, target: UIViewController)
 }
 
 class ContainerViewFactory {
     
-    public static func getContainerView(of type: ExamType, question: Question?) -> ContainerView {
+    public static func getContainerView(of type: ExamType, question: Question?, target: UIViewController) -> ContainerView {
         
         switch type {
             case .create:
-                return CreateContainerView(question: question)
+                return CreateQuestionContainer(question: question, target: target)
             case .history:
-                return HistoryContainerView(question: question)
+                return HistoryContainerView(question: question, target: target)
             case .take:
-                return TakeContainerView(question: question)
+                return TakeContainerView(question: question, target: target)
         }
     }
 }

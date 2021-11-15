@@ -32,7 +32,7 @@ public protocol IndicatorInfoProvider {
 
 }
 
-public protocol PagerTabStripDelegate: class {
+public protocol PagerTabStripDelegate: AnyObject {
 
     func updateIndicator(for viewController: PagerTabStripViewController, fromIndex: Int, toIndex: Int)
 }

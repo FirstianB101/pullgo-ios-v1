@@ -57,8 +57,9 @@ class TeacherExamEditViewController: UIViewController, IndicatorInfoProvider {
     }
     
     @IBAction func editExam(_ sender: UIButton) {
-//        let vc = CreateQuestionViewController(viewModel: CreateQuestionViewModel())
-        let vc = CreateQuestionViewController(viewModel: FakeQuestionViewModel(), type: .create)
+        let viewModel = CreateQuestionViewModel(exam: self.viewModel.selectedExam)
+        
+        let vc = CreateQuestionViewController(viewModel: viewModel, type: .create)
         guard let pvc = self.presentingViewController else { return }
         
         vc.modalPresentationStyle = .fullScreen
@@ -74,7 +75,7 @@ class FakeQuestionViewModel: CreateQuestionViewModel {
     init() {
         var mockQuestions: [Question] = []
         
-        for i in 0 ..< 8 {
+        for i in 0 ..< 20 {
             let question = Question()
             
             question.questionNumber = i + 1
@@ -95,6 +96,10 @@ class FakeQuestionViewModel: CreateQuestionViewModel {
         
         self.questions = mockQuestions
         self.currentQuestion = mockQuestions.first!
-        self.selectedExam = Exam()
+        
+        let mockExam = Exam()
+        mockExam.id = 1
+        mockExam.name = "Fake Exam"
+        self.selectedExam = mockExam
     }
 }

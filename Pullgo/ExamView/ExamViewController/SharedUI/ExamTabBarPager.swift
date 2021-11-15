@@ -81,10 +81,8 @@ class ExamTabBarPager: UIView {
     public func setPagerButtonStatus() {
         if viewModel.isFirstQuestion {
             prevButton.isEnabled = false
-            prevButton.vibrate()
         } else if viewModel.isLastQuestion {
             nextButton.isEnabled = false
-            nextButton.vibrate()
         } else {
             prevButton.isEnabled = true
             nextButton.isEnabled = true

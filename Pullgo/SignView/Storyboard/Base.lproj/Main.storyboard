@@ -38,12 +38,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainViewLogo" translatesAutoresizingMaskIntoConstraints="NO" id="VVH-IA-ik1">
-                                <rect key="frame" x="100" y="123" width="214" height="214"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainViewLogo" translatesAutoresizingMaskIntoConstraints="NO" id="VVH-IA-ik1">
+                                <rect key="frame" x="87" y="204" width="240" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="VVH-IA-ik1" secondAttribute="height" multiplier="1:1" id="lt6-Ge-UVg"/>
+                                    <constraint firstAttribute="height" constant="80" id="Odr-AL-0ja"/>
+                                    <constraint firstAttribute="width" secondItem="VVH-IA-ik1" secondAttribute="height" multiplier="3:1" id="lt6-Ge-UVg"/>
                                 </constraints>
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeY-aB-eUW" customClass="PGButton" customModule="Pullgo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="604.5" width="354" height="64"/>
@@ -82,7 +83,7 @@
                                 <rect key="frame" x="65" y="792" width="294" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="By1-Yx-kjq">
-                                        <rect key="frame" x="0.0" y="0.0" width="62" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="59" height="50"/>
                                         <accessibility key="accessibilityConfiguration" identifier="signUpButton"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="tintColor" name="AccentColor"/>
@@ -92,7 +93,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvn-UO-Fso">
-                                        <rect key="frame" x="82" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="79" y="0.0" width="53" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXQ-yH-iDo">
@@ -120,8 +121,7 @@
                             <constraint firstItem="zN7-ru-N7r" firstAttribute="top" secondItem="8OQ-B4-QaR" secondAttribute="bottom" constant="23" id="GDW-CK-DHv"/>
                             <constraint firstItem="5Mp-IP-Lao" firstAttribute="top" secondItem="NeA-RT-c4z" secondAttribute="bottom" constant="13" id="Ndx-Zj-cSr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NeA-RT-c4z" secondAttribute="trailing" constant="30" id="OCM-qm-jGq"/>
-                            <constraint firstItem="8OQ-B4-QaR" firstAttribute="top" secondItem="VVH-IA-ik1" secondAttribute="bottom" constant="47" id="SAB-kY-50X"/>
-                            <constraint firstAttribute="trailing" secondItem="VVH-IA-ik1" secondAttribute="trailing" constant="100" id="T6u-wj-U57"/>
+                            <constraint firstItem="8OQ-B4-QaR" firstAttribute="top" secondItem="VVH-IA-ik1" secondAttribute="bottom" constant="100" id="SAB-kY-50X"/>
                             <constraint firstItem="NeA-RT-c4z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="TkS-k1-bPL"/>
                             <constraint firstItem="zN7-ru-N7r" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="10" id="XHu-kD-ihd"/>
                             <constraint firstItem="5Mp-IP-Lao" firstAttribute="trailing" secondItem="zN7-ru-N7r" secondAttribute="trailing" id="Xff-YB-ZLK"/>
@@ -131,7 +131,6 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EyY-A3-lU9" secondAttribute="bottom" constant="20" id="avi-rD-uPv"/>
                             <constraint firstItem="NeA-RT-c4z" firstAttribute="top" secondItem="zN7-ru-N7r" secondAttribute="bottom" constant="15" id="dbh-uK-Az1"/>
                             <constraint firstItem="VVH-IA-ik1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="h7r-AT-vhe"/>
-                            <constraint firstItem="VVH-IA-ik1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="100" id="lV7-cC-Fsq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qeY-aB-eUW" secondAttribute="trailing" constant="30" id="nLo-05-UN6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8OQ-B4-QaR" secondAttribute="trailing" constant="80" id="nVG-fR-FxN"/>
                             <constraint firstItem="8OQ-B4-QaR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="rK7-27-NxJ"/>
@@ -819,7 +818,7 @@
         <segue reference="UbF-ql-4hK"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="MainViewLogo" width="512" height="512"/>
+        <image name="MainViewLogo" width="800" height="200"/>
         <image name="arrow.right.square.fill" catalog="system" width="128" height="114"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>

@@ -56,8 +56,9 @@ extension UIView {
     func popUp() {
         DispatchQueue.main.async {
             self.transform = CGAffineTransform.identity.scaledBy(x: 0, y: 0)
-            let animator = UIViewPropertyAnimator(duration: 0.7, dampingRatio: 0.7) {
+            let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 0.7) {
                 self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+                self.alpha = 1
             }
             animator.addAnimations ({
                 self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
@@ -70,7 +71,7 @@ extension UIView {
     func popDown(completion: @escaping (() -> Void)) {
         DispatchQueue.main.async {
             self.transform = CGAffineTransform.identity.scaledBy(x: 1, y: 1)
-            let animator = UIViewPropertyAnimator(duration: 0.4, curve: .easeIn) {
+            let animator = UIViewPropertyAnimator(duration: 0.3, curve: .easeOut) {
                 self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
             }
             animator.addAnimations({

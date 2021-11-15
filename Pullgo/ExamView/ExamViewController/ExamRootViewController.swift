@@ -15,7 +15,7 @@ class ExamRootViewController: UIViewController {
     
     // MARK: - ViewModel + Initializer
     let viewModel: ExamPagableViewModel
-    let type: ExamType
+    let examType: ExamType
     let disposeBag = DisposeBag()
     
     required init?(coder: NSCoder) {
@@ -26,7 +26,7 @@ class ExamRootViewController: UIViewController {
          type: ExamType) {
         
         self.viewModel = viewModel
-        self.type = type
+        self.examType = type
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -52,12 +52,18 @@ class ExamRootViewController: UIViewController {
         return UIBarButtonItem(customView: customView)
     }()
     
+    lazy var exitButton = { () -> UIBarButtonItem in
+        let exit = UIBarButtonItem(title: "나가기", style: .plain, target: self, action: #selector(self.exitExam(_:)))
+        
+        return exit
+    }()
+    
     lazy var titleBar = { () -> UINavigationBar in
         let bar = UINavigationBar()
         
         bar.barTintColor = .white
         bar.setItems([UINavigationItem()], animated: true)
-        bar.topItem?.setLeftBarButton(self.examNavigatorButton, animated: false)
+        bar.topItem?.setLeftBarButtonItems([self.examNavigatorButton, .fixedSpace(20), self.exitButton], animated: true)
         
         return bar
     }()
@@ -75,20 +81,22 @@ class ExamRootViewController: UIViewController {
     }()
     
     lazy var containerView = { (type: ExamType) -> UIView in
-        let containerView = ContainerViewFactory.getContainerView(of: type, question: self.viewModel.currentQuestion)
+        let containerView = ContainerViewFactory.getContainerView(of: type, question: self.viewModel.currentQuestion, target: self)
         
         return containerView
-    }(self.type)
+    }(self.examType)
     
     // MARK: - Method
     
     public func presentQuestion(at index: Int) {
+        
         let animateDirection: AnimateDirection = (index < self.viewModel.currentQuestion!.questionNumber! ? .prev : .next)
         viewModel.setCurrentQuestion(to: index)
         
-        let newContainerView = ContainerViewFactory.getContainerView(of: self.type, question: viewModel.currentQuestion)
+        let newContainerView = ContainerViewFactory.getContainerView(of: self.examType, question: viewModel.currentQuestion, target: self)
         
         presentContainerViewWithAnimation(newContainerView, direction: animateDirection)
+        tabBarPager.setPagerButtonStatus()
     }
     
     private func presentNewQuestion(at index: Int) {
@@ -128,7 +136,7 @@ class ExamRootViewController: UIViewController {
             newContainerView.transform = transform
         }
         animator.addCompletion { _ in
-            self.containerView = ContainerViewFactory.getContainerView(of: self.type, question: self.viewModel.currentQuestion)
+            self.containerView = ContainerViewFactory.getContainerView(of: self.examType, question: self.viewModel.currentQuestion, target: self)
             self.rebuildContainerViewConstraints()
             
             tempContainerView.removeFromSuperview()
@@ -187,7 +195,6 @@ class ExamRootViewController: UIViewController {
     }
     
     private func rebuildContainerViewConstraints() {
-        self.containerView.removeFromSuperview()
         self.view.addSubview(self.containerView)
         
         containerView.snp.remakeConstraints { make in
@@ -224,6 +231,22 @@ extension ExamRootViewController {
     }
     
     @objc
+    private func exitExam(_ sender: UIBarButtonItem) {
+        let alert = PGAlertPresentor()
+        let okay = UIAlertAction(title: "나가기", style: .destructive) { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        
+        alert.present(title: "나가기",
+                      context: """
+                      시험 문제 수정을 종료할까요?
+                      변경 사항은 저장되지 않습니다.
+                      """,
+                      actions: [cancel, okay])
+    }
+    
+    @objc
     private func presentNextQuestion(_ sender: UIButton) {
         guard let currentQuestionNumber = viewModel.currentQuestion?.questionNumber else {
             print("ExamRootViewController::presentNextQuestion(_:) -> currentQuestion is nil.")
@@ -232,7 +255,6 @@ extension ExamRootViewController {
         
         let nextQuestionNumber = currentQuestionNumber + 1
         presentQuestion(at: nextQuestionNumber)
-        tabBarPager.setPagerButtonStatus()
     }
     
     @objc
@@ -244,17 +266,12 @@ extension ExamRootViewController {
         
         let prevQuestionNumber = currentQuestionNumber - 1
         presentQuestion(at: prevQuestionNumber)
-        tabBarPager.setPagerButtonStatus()
     }
 }
 
 extension ExamRootViewController: UIViewControllerTransitioningDelegate {
     // Half Modal
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        if presented is QuestionChoiceViewController {
-            return HalfSizePresentationController(presentedViewController: presented, presenting: presenting)
-        } else {
-            return nil
-        }
+        return HalfSizePresentationController(presentedViewController: presented, presenting: presenting)
     }
 }

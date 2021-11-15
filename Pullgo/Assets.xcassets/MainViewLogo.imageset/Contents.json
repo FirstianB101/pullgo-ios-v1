@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "thumbs-up.svg",
+      "filename" : "pullgo-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "thumbs-up-1.svg",
+      "filename" : "pullgo.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "thumbs-up-2.svg",
+      "filename" : "pullgo-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

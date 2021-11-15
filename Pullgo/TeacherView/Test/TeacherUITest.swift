@@ -7,9 +7,8 @@
 //
 
 import XCTest
-@testable import Pullgo
 
-class TeacherUITest: XCTestCase {
+class TeacherUITest: XCTestCase, PGTestCase {
 
     func testTeacherLogin() {
         
@@ -27,80 +26,38 @@ class TeacherUITest: XCTestCase {
         app.buttons["signIn"].tap()
     }
     
-    // MARK: - Test Help Methods
-    enum TestType: String {
-        case createLesson = "XCTestLesson"
-        case createClassroom = "XCTestClassroom"
-        case createExam = "XCTestExam"
-        case createQuestion = "XCTestQuestion"
-    }
-    
-    func getUniqueName(of type: TestType) -> String {
-        let plist = UserDefaults.standard
-        plist.synchronize()
+    // MARK: - 학원 생성 테스트
+    func testCreateAcademy() {
         
-        // Test 실행 시 id + 1로, 아이디 중복 생성 방지
-        let id = plist.integer(forKey: type.rawValue)
+        let app = XCUIApplication()
+        app.launch()
         
-        let newId = id + 1
-        plist.setValue(newId, forKey: type.rawValue)
+        // 로그인
+        app.segmentedControls.buttons["선생님"].tap()
+        app.buttons["signIn"].tap()
         
-        return type.rawValue + String(newId)
-    }
-    
-    func typeText(_ app: XCUIApplication, placeholder: String, text: String) {
-        let textField = app.textFields[placeholder]
-        textField.tap()
-        textField.typeText(text)
-        app.tap()
-    }
-    
-    func tapButton(_ app: XCUIApplication, title: String) {
-        let button = app.buttons[title]
-        button.tap()
-    }
-    
-    func tapTableView(_ app: XCUIApplication, title: String) {
-        app.tables.staticTexts[title].tap()
-    }
-    
-    func tapCollectionView(_ app: XCUIApplication, title: String) {
-        app.collectionViews.staticTexts[title].tap()
-    }
-    
-    func formattingDate(_ date: Date, to format: String) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-        return formatter.string(from: date)
-    }
-    
-    func datePicker(_ app: XCUIApplication, placeholder: String,
-                    year: String,
-                    month: String,
-                    day: String) {
-        app.textFields[placeholder].tap()
+        // 학원 생성 접속
+        app.navigationBars["수업 일정"].buttons["Item"].tap()
+        app.buttons["학원 생성하기"].tap()
         
-        let dateQuery = app.datePickers.pickerWheels
+        // 이름 및 전화번호 입력
+        typeText(app, placeholder: "학원 이름을 입력해주세요.", text: getUniqueName(of: .createAcademy))
+        typeText(app, placeholder: "전화번호를 입력해주세요. (- 제외)", text: "01012345678")
         
-        dateQuery.element(boundBy: 0).adjust(toPickerWheelValue: year)
-        dateQuery.element(boundBy: 1).adjust(toPickerWheelValue: month)
-        dateQuery.element(boundBy: 2).adjust(toPickerWheelValue: day)
-        app.toolbars["Toolbar"].buttons["완료"].tap()
+        // 다음으로
+        tapButton(app, title: "다음으로")
+        
+        // 도로명 주소 및 상세주소 입력
+        typeText(app, placeholder: "서울특별시 중구 세종대로 1200", text: "서울특별시 광운로 2나길 45")
+        typeText(app, placeholder: "광운빌딩 608호", text: getUniqueName(of: .firstian))
+        
+        // 학원 생성하기
+        tapButton(app, title: "학원 생성")
+        
+        // 알림 제거 및 메인화면 복귀
+        tapAlert(app, title: "알림", button: "확인")
     }
-    
-    func timePicker(_ app: XCUIApplication, placeholder: String,
-                    hour: String,
-                    minute: String) {
-        app.textFields[placeholder].tap()
-        
-        let dateQuery = app.datePickers.pickerWheels
-        
-        dateQuery.element(boundBy: 0).adjust(toPickerWheelValue: "오후")
-        dateQuery.element(boundBy: 1).adjust(toPickerWheelValue: hour)
-        dateQuery.element(boundBy: 2).adjust(toPickerWheelValue: minute)
-        app.toolbars["Toolbar"].buttons["완료"].tap()
-    }
-    
+       
     // MARK: - 수업 생성 테스트
     func testTeacherCreateLesson() {
         
@@ -141,7 +98,7 @@ class TeacherUITest: XCTestCase {
         // 반 이름 입력
         let textField = app.textFields["반 이름을 입력해주세요."]
         textField.tap()
-        textField.typeText(getUniqueName(of: .createClassroom))
+        textField.typeText(getUniqueName(of: TestType.createClassroom))
         app.tap()
         
         // 요일 선택
@@ -151,7 +108,7 @@ class TeacherUITest: XCTestCase {
         
         // 학원 선택
         app.buttons["학원을 선택해주세요."].tap()
-        app.collectionViews.cells.otherElements.containing(.staticText, identifier:"가발 제조 학원").element.tap()
+        app.collectionViews.cells.otherElements.containing(.staticText, identifier:"정상수의 랩 레슨").element.tap()
         
         // 반 생성 버튼
         app.staticTexts["반 생성하기"].tap()
@@ -173,13 +130,15 @@ class TeacherUITest: XCTestCase {
         app.tables.staticTexts["반 관리"].tap()
         
         // 반 클릭
-        tapTableView(app, title: TestType.createClassroom.rawValue + "1")
+        // TEST FORM ->   title: TestType.createClassroom.rawValue + "테스트용 반 번호"
+        tapTableView(app, title: TestType.createClassroom.rawValue + "3")
         
         // 시험 추가 버튼 클릭
         app.navigationBars["시험 관리"].buttons["Add"].tap()
         
         // 시험 이름, 제한 시간 -> 분, 기준 점수 입력
-        typeText(app, placeholder: "시험 이름을 입력해주세요.", text: getUniqueName(of: .createExam))
+        let examName = getUniqueName(of: .createExam)
+        typeText(app, placeholder: "시험 이름을 입력해주세요.", text: examName)
         typeText(app, placeholder: "시간", text: "2")
         typeText(app, placeholder: "분", text: "0")
         typeText(app, placeholder: "시험 통과 점수를 입력해주세요.", text: "80")
@@ -228,6 +187,21 @@ class TeacherUITest: XCTestCase {
         
         // 시험 생성
         app.staticTexts["시험 생성"].tap()
+        
+        // 예
+        tapAlert(app, title: "\(examName)", button: "예")
+        
+        // 문제 추가
+        tapButton(app, title: "Add") // 2
+        tapButton(app, title: "Add") // 3
+        
+        // Exam Navigator
+        tapButton(app, title: "3")
+        tapButton(app, title: "1") // 1번 문제로 이동
+        
+        // 보기 작성 및 완료
+        tapButton(app, title: "보기 작성")
+        tapButton(app, title: "완료")
     }
     
     func testQuestionViewUI_테스트() {
@@ -244,10 +218,10 @@ class TeacherUITest: XCTestCase {
         app.tables.staticTexts["반 관리"].tap()
         
         // 반 클릭
-        tapTableView(app, title: TestType.createClassroom.rawValue + "1")
+        tapTableView(app, title: TestType.createClassroom.rawValue + "3")
         
         // 시험 클릭
-        tapCollectionView(app, title: TestType.createExam.rawValue + "14")
+        tapCollectionView(app, title: TestType.createExam.rawValue + "20")
         
         // 시험문제 수정 클릭
         tapButton(app, title: "시험 문제 수정")

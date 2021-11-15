@@ -124,6 +124,22 @@ class Exam: PGNetworkable {
             completion(classroom)
         }
     }
+    
+    public func cancel(completion: @escaping ((Data?) -> Void)) {
+        let url = PGURLs.exams
+            .appendingURL([String(self.id!)])
+            .appendingURL(["cancel"])
+        
+        PGNetwork.post(url: url, success: completion)
+    }
+    
+    public func finish(completion: @escaping ((Data?) -> Void)) {
+        let url = PGURLs.exams
+            .appendingURL([String(self.id!)])
+            .appendingURL(["finish"])
+        
+        PGNetwork.post(url: url, success: completion)
+    }
 }
 
 extension Exam {

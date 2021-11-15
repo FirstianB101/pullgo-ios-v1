@@ -46,20 +46,27 @@ class TeacherAddExamDateViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func createLesson(_ sender: PGButton) {
+    @IBAction func createExam(_ sender: PGButton) {
         let alert = PGAlertPresentor(presentor: self)
         
-        let success: (Data?) -> Void = { _ in
+        let success: (Data?) -> Void = { data in
             let okay = UIAlertAction(title: "예", style: .default) { _ in
-//                let vc = CreateQuestionViewController()
-//                guard let pvc = self.presentingViewController else { return }
-//
-//                vc.modalTransitionStyle = .crossDissolve
-//                vc.modalPresentationStyle = .fullScreen
-//
-//                self.dismiss(animated: false) {
-//                    pvc.present(vc, animated: true, completion: nil)
-//                }
+                guard let exam = try? data?.toObject(type: Exam.self) else {
+                    fatalError("Cannot convert data to Exam type.")
+                }
+                let viewModel = CreateQuestionViewModel(exam: exam)
+                viewModel.createQuestion()
+                
+                let vc = CreateQuestionViewController(viewModel: viewModel,
+                                                      type: .create)
+                guard let pvc = self.presentingViewController else { return }
+
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .fullScreen
+
+                self.dismiss(animated: false) {
+                    pvc.present(vc, animated: true, completion: nil)
+                }
             }
             let cancel = UIAlertAction(title: "아니오", style: .cancel) { _ in
                 // 시험 목록으로 이동

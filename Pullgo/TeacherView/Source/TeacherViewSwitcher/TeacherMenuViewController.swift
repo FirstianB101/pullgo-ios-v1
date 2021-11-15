@@ -12,7 +12,6 @@ class TeacherMenuViewController: UIViewController {
 
     let viewModel = TeacherMenuViewModel()
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var academyLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +25,6 @@ class TeacherMenuViewController: UIViewController {
         \(viewModel.fullName)님,
         안녕하세요!
         """
-        academyLabel.text = viewModel.academyName
     }
     
     func hideNavigationBar() {

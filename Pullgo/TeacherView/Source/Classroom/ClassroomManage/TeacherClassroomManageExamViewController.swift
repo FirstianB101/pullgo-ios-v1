@@ -21,22 +21,38 @@ extension TeacherClassroomManageTopBar {
 
 class TeacherClassroomManageExamViewController: UIViewController, TeacherClassroomManageTopBar {
     let viewModel = TeacherClassroomManageExamViewModel()
+    
     @IBOutlet weak var examListCollection: UICollectionView!
+    
+    lazy var deleteExamButton = { () -> UIBarButtonItem in
+        UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(self.deleteExam(_:)))
+    }()
+    
+    lazy var deleteDoneButton = { () -> UIBarButtonItem in
+        UIBarButtonItem(title: "삭제 완료", style: .done, target: self, action: #selector(self.deleteDone(_:)))
+    }()
+    
+    var isDeleting: Bool = false
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
         setPromptNameBySelectedClassroom()
         setTitleByTabBarMenu()
-        viewModel.getExams {
-            self.examListCollection.reloadData()
-        }
+        setLeftBarItemByDeletingStatus()
+        self.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         examListCollection.setCollectionViewBackgroundColor()
+    }
+    
+    func reloadData() {
+        viewModel.getExams {
+            self.examListCollection.reloadData()
+        }
     }
     
     func setTitleByTabBarMenu() {
@@ -46,10 +62,55 @@ class TeacherClassroomManageExamViewController: UIViewController, TeacherClassro
     func setPromptNameBySelectedClassroom() {
         self.navigationController?.navigationBar.topItem?.prompt = TeacherClassroomManageViewModel.selectedClassroom.parse.classroomName
     }
+    
+    func setLeftBarItemByDeletingStatus() {
+        if self.isDeleting {
+            self.navigationController?.navigationBar.topItem?.setLeftBarButton(deleteDoneButton, animated: true)
+        } else {
+            self.navigationController?.navigationBar.topItem?.setLeftBarButton(deleteExamButton, animated: true)
+        }
+    }
+    
+    @objc
+    func deleteExam(_ sender: UIBarButtonItem) {
+        self.isDeleting = true
+        setLeftBarItemByDeletingStatus()
+        self.examListCollection.reloadData()
+    }
+    
+    @objc
+    func deleteDone(_ sender: UIBarButtonItem) {
+        self.isDeleting = false
+        setLeftBarItemByDeletingStatus()
+        self.reloadData()
+    }
 }
 
 extension TeacherClassroomManageExamViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if isDeleting {
+            deleteExamClicked(at: indexPath)
+        } else {
+            editExamClicked(at: indexPath)
+        }
+    }
+    
+    func deleteExamClicked(at indexPath: IndexPath) {
+        let alert = PGAlertPresentor()
+        let delete = UIAlertAction(title: "삭제", style: .destructive) { [weak self] _ in
+            self?.viewModel.deleteExam(at: indexPath.item, completion: self?.reloadData)
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        
+        alert.present(title: "\(viewModel.getExamName(at: indexPath.item))",
+                      context: """
+                      시험을 정말 삭제할까요?
+                      삭제된 시험은 복구할 수 없습니다.
+                      """,
+                      actions: [cancel, delete])
+    }
+    
+    func editExamClicked(at indexPath: IndexPath) {
         let selectedExam = viewModel.exams[indexPath.item]
         
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "TeacherManageExamTabViewController") as? TeacherManageExamTabViewController else { return }
@@ -80,6 +141,15 @@ extension TeacherClassroomManageExamViewController: UICollectionViewDataSource {
         cell.timeLimitLabel.text = viewModel.getTimeLimit(at: indexPath.item)
         cell.setCellUI()
         
+        if self.isDeleting && cell.deleteImage.isHidden {
+            cell.deleteImage.isHidden = false
+            cell.deleteImage.popUp()
+        } else if !self.isDeleting && !cell.deleteImage.isHidden {
+            cell.deleteImage.popDown {
+                cell.deleteImage.isHidden = true
+            }
+        }
+        
         return cell
     }
 }
@@ -88,6 +158,7 @@ class TeacherExamListCell: UICollectionViewCell {
     @IBOutlet weak var examNameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timeLimitLabel: UILabel!
+    @IBOutlet weak var deleteImage: UIImageView!
 }
 
 class TeacherClassroomManageExamViewModel {
@@ -118,5 +189,15 @@ class TeacherClassroomManageExamViewModel {
         let timeLimit = self.exams[index].getTimeLimit()
         
         return "제한 시간: " + timeLimit
+    }
+    
+    func deleteExam(at index: Int, completion: (() -> Void)?) {
+        let selectedExam = self.exams[index]
+        selectedExam.url = PGURLs.exams
+        
+        selectedExam.delete(success: { _ in
+            let alert = PGAlertPresentor()
+            alert.present(title: "알림", context: "시험이 삭제되었습니다.") { _ in completion?() }
+        })
     }
 }

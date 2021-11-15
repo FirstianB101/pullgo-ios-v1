@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class CreateContainerView: UIView, ContainerView {
+class CreateQuestionContainer: UIView, ContainerView {
     
     
     // MARK: - UI
@@ -23,10 +23,6 @@ class CreateContainerView: UIView, ContainerView {
         textView.addDismissToolbar()
         textView.delegate = self
         
-        // placeholder
-        textView.textColor = .lightGray
-        textView.text = "문제를 입력해주세요."
-        
         return textView
     }()
     
@@ -34,7 +30,7 @@ class CreateContainerView: UIView, ContainerView {
         let label = UILabel()
         
         label.font = UIFont.systemFont(ofSize: 13)
-        label.text = "0/200자"
+        label.text = "\(self.question?.content?.count ?? 0)/200자"
         label.textAlignment = .right
         
         return label
@@ -78,12 +74,17 @@ class CreateContainerView: UIView, ContainerView {
     lazy var editChoicesButton = { () -> UIButton in
         let button = UIButton(type: .custom)
         
+        guard let target = target as? CreateQuestionViewController else {
+            fatalError("target is not a CreateQuestionViewController")
+        }
+        
         button.backgroundColor = UIColor(named: "LightAccent")
         button.setTitle("보기 작성", for: .normal)
         button.setTitleColor(UIColor(named: "AccentColor"), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         button.setViewCornerRadiusAndShadow(radius: 25)
-        button.addTarget(self, action: #selector(CreateQuestionViewController.editChoice(_:)), for: .touchUpInside)
+        
+        button.addTarget(target, action: #selector(target.editChoice(_:)), for: .touchUpInside)
         
         return button
     }()
@@ -91,9 +92,11 @@ class CreateContainerView: UIView, ContainerView {
     // MARK: - Property + Initializer
     var question: Question?
     let maxContentLength: Int = 200
+    weak var target: UIViewController?
     
-    required init(question: Question?) {
+    required init(question: Question?, target: UIViewController) {
         self.question = question
+        self.target = target
         super.init(frame: .zero)
         self.buildContraints()
         self.setContents()
@@ -139,19 +142,13 @@ class CreateContainerView: UIView, ContainerView {
 }
 
 // TextView Placeholder
-extension CreateContainerView: UITextViewDelegate {
+extension CreateQuestionContainer: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
-            textView.text = nil
-            textView.textColor = UIColor.black
-        }
+        
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.text = "문제를 입력해주세요."
-            textView.textColor = UIColor.lightGray
-        }
+        self.question?.content = textView.text
     }
     
     func textViewDidChange(_ textView: UITextView) {

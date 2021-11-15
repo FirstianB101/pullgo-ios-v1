@@ -12,10 +12,14 @@ class Question: PGNetworkable, Equatable {
     var questionNumber: Int?
     var picture: UIImage?
     
-    var answer: [Int]!
-    var choice: [String : String]!
-    var pictureUrl: String!
-    var content: String!
+    var answer: [Int]! = []
+    var choice: [String : String]! = ["1" : "",
+                                      "2" : "",
+                                      "3" : "",
+                                      "4" : "",
+                                      "5" : ""]
+    var pictureUrl: String! = ""
+    var content: String! = ""
     var examId: Int!
     
     enum CodingKeys: CodingKey {
@@ -57,5 +61,29 @@ class Question: PGNetworkable, Equatable {
                 lhs.answer == rhs.answer &&
                 lhs.examId == rhs.examId &&
                 lhs.choice == rhs.choice)
+    }
+    
+    // MARK: - Methods
+    override func patch(success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
+        let question = Question()
+        
+        guard let id = self.id else {
+            fatalError("Question::patch() -> id is nil.")
+        }
+        question.answer = self.answer
+        question.choice = self.choice
+        question.pictureUrl = self.pictureUrl
+        question.content = self.content
+        
+        let url = PGURLs.questions.appendingURL([String(id)])
+        guard let parameter = try? question.toParameter() else {
+            fatalError("Question::patch() -> question to parameter failed.")
+        }
+        
+        PGNetwork.patch(url: url, parameter: parameter, success: success, fail: fail)
+    }
+    
+    func getChoice(of index: String) -> String {
+        return self.choice[index]!
     }
 }

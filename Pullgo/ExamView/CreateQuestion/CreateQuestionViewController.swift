@@ -21,29 +21,6 @@ class CreateQuestionViewController: ExamRootViewController {
         return picker
     }()
     
-    lazy var toolbar = { () -> UIToolbar in
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
-        let space = UIBarButtonItem(systemItem: .flexibleSpace, primaryAction: nil, menu: nil)
-        let okay = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(self.setTimeLimit(_:)))
-        
-        toolbar.setItems([space, okay], animated: true)
-        
-        return toolbar
-    }()
-    
-    lazy var setTimeLimitField = { () -> UITextField in
-        let field = UITextField()
-        
-        field.placeholder = "제한 시간 입력"
-        field.inputAccessoryView = toolbar
-        field.inputView = picker
-        field.textColor = UIColor(named: "AccentColor")
-        field.font = UIFont.boldSystemFont(ofSize: 18)
-        field.textAlignment = .center
-        
-        return field
-    }()
-    
     lazy var deleteQuestion = { () -> UIBarButtonItem in
         return UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(self.removeQuestion(_:)))
     }()
@@ -52,6 +29,15 @@ class CreateQuestionViewController: ExamRootViewController {
         return UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addQuestion(_:)))
     }()
     
+    lazy var timeLimit = { () -> UILabel in
+        let label = UILabel()
+        
+        label.text = self.createQuestionViewModel.selectedExam.timeLimit.toTimeLimit()
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = .systemOrange
+        
+        return label
+    }()
     
     lazy var saveButton = { () -> UIButton in
         let save = UIButton(type: .custom)
@@ -84,10 +70,13 @@ class CreateQuestionViewController: ExamRootViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleBar.topItem?.titleView = setTimeLimitField
+        self.setTimeLimitLabel()
         self.setTitleBarButtons()
-        
         buildConstraints()
+    }
+    
+    private func setTimeLimitLabel() {
+        titleBar.topItem?.titleView = timeLimit
     }
     
     func setTitleBarButtons() {
@@ -106,41 +95,36 @@ class CreateQuestionViewController: ExamRootViewController {
 
 extension CreateQuestionViewController {
     
-    // toolbar
-    @objc
-    func setTimeLimit(_ sender: UIBarButtonItem) {
-        var hour = self.picker.date.toString(format: "H")
-        var minute = self.picker.date.toString(format: "m")
-        
-        hour = hour == "0" ? "" : hour + "시간"
-        minute = minute == "0" ? "" : minute + "분"
-        if hour == "" && minute == "" {
-            self.setTimeLimitField.endEditing(true)
-            return
-        }
-        
-        self.setTimeLimitField.text = "\(hour) \(minute)"
-        self.setTimeLimitField.endEditing(true)
-    }
-    
     // trash
     @objc
     func removeQuestion(_ sender: UIBarButtonItem) {
+        let alert = PGAlertPresentor()
+        let okay = UIAlertAction(title: "삭제", style: .destructive) { _ in
+            // 문제 삭제
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
         
+        alert.present(title: "알림", context: "해당 문제를 삭제할까요?", actions: [cancel, okay])
     }
     
     // add
     @objc
     func addQuestion(_ sender: UIBarButtonItem) {
+        createQuestionViewModel.createQuestion()
+        guard let presentQuestionNumber = createQuestionViewModel.currentQuestion?.questionNumber else {
+            print("presentQuestionNumber is nil.")
+            return
+        }
         
+        self.presentQuestion(at: presentQuestionNumber)
     }
     
     // edit choice
     @objc
-    func editChoice(_ sender: UIButton) {
-        let vc = QuestionChoiceViewController(viewType: .create)
-        
-        self.view.alpha = 0.3
+    func editChoice(_ sender: UIButton) {        
+        let vc = ChoiceViewController(examType: self.examType, viewModel: createQuestionViewModel)
+       
+        self.view.gettingDark()
         
         vc.modalPresentationStyle = .custom
         vc.transitioningDelegate = self
@@ -160,7 +144,9 @@ extension CreateQuestionViewController {
         
         let cont = UIAlertAction(title: "계속 출제하기", style: .default, handler: nil)
         
-        // save logic { _ in }
-        alert.present(title: "저장 완료", context: "지금까지 만든 문제들을 모두 저장했어요.", actions: [leave, cont])
+        createQuestionViewModel.saveQuestions {
+            alert.present(title: "저장 완료", context: "지금까지 만든 문제들을 모두 저장했어요.", actions: [leave, cont])
+        }
+        
     }
 }

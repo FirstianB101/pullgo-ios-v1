@@ -17,6 +17,25 @@ extension String {
         }
     }
     
+    func toTimeLimit(hourSuffix: String = "시간", minuteSuffix: String = "분") -> String {
+        guard self.contains("PT") else { return "not ISO8601" }
+        
+        var converted = self.replacingOccurrences(of: "PT", with: "")
+        var formedHourSuffix = hourSuffix
+        
+        if converted.contains("H") && converted.contains("M") {
+            formedHourSuffix += " "
+        }
+        
+        if converted.contains("H") {
+            converted = converted.replacingOccurrences(of: "H", with: formedHourSuffix)
+        }
+        if converted.contains("M") {
+            converted = converted.replacingOccurrences(of: "M", with: minuteSuffix)
+        }
+        return converted
+    }
+    
     func predicate(regex: String) -> Bool {
         let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
         return predicate.evaluate(with: self)
@@ -70,6 +89,7 @@ extension Date {
     }
 }
 
+// MARK: - UIViewController
 extension UIViewController {
     
     public func checkAllFieldValid(fields: [UITextField]) -> Bool {
@@ -89,6 +109,7 @@ extension UIViewController {
     }
 }
 
+// MARK: - UITextView
 extension UITextView {
     
     public func addDismissToolbar() {
@@ -103,5 +124,41 @@ extension UITextView {
     @objc
     func dismissKeyboard(_ sender: UITextView) {
         self.endEditing(true)
+    }
+}
+
+// MARK: - UIColor
+extension UIColor {
+    
+    static var accentColor: UIColor? {
+        UIColor(named: "AccentColor")
+    }
+    
+    static var transparentAccent: UIColor? {
+        UIColor(named: "TransparentAccent")
+    }
+    
+    static var lightAccent: UIColor? {
+        UIColor(named: "LightAccent")
+    }
+    
+    static var wrongAnswer: UIColor? {
+        UIColor(named: "WrongAnswer")
+    }
+    
+    static var wrongAnswerLight: UIColor? {
+        UIColor(named: "WrongAnswerLight")
+    }
+}
+
+// MARK: - UIImage
+extension UIImage {
+    
+    static var checkboxUnchecked: UIImage? {
+        UIImage(systemName: "square")
+    }
+    
+    static var checkboxChecked: UIImage? {
+        UIImage(systemName: "checkmark.square.fill")
     }
 }
