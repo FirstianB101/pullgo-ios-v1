@@ -26,7 +26,7 @@ class SignInViewController: UIViewController {
         self.setKeyboardDismissWatcher()
         
         // ***** TEST *****
-        self.usernameField.text = "swift"
+        self.usernameField.text = "student7"
         self.passwordField.text = "12345678"
     }
     
@@ -58,7 +58,7 @@ class SignInViewController: UIViewController {
     }
 }
 
-// MARK: IBActions
+// MARK: - IBActions
 extension SignInViewController {
     @IBAction func signInButtonClicked(_ sender: PGButton) {
         let userType = UserType.toUserType(index: self.userTypeSegment.selectedSegmentIndex)!
@@ -149,5 +149,18 @@ class SignInViewModel {
         if self.autoLoginChecked == false { return }
         
         // 키체인에 토큰 저장
+    }
+}
+
+// MARK: - For Debug
+extension SignInViewController {
+    
+    @IBAction func selectType(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            self.usernameField.text = "student7"
+        } else {
+            self.usernameField.text = "swift"
+        }
+        self.passwordField.text = "12345678"
     }
 }

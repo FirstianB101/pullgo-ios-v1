@@ -71,7 +71,7 @@ class ManageSendRequestClassroomViewController: UICollectionViewController, Indi
 extension ManageSendRequestClassroomViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let padding: CGFloat = 10
+        let padding: CGFloat = 20
         let height: CGFloat = 150
         
         return CGSize(width: self.view.frame.width - padding * 2, height: height)

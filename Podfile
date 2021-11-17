@@ -7,6 +7,7 @@ target 'Pullgo' do
 
   # Pods for Pullgo
   pod 'XLPagerTabStrip', '~> 9.0'
+  pod 'MarqueeLabel'
 
   target 'PullgoTests' do
     # Pods for testing

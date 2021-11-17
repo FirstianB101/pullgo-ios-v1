@@ -30,6 +30,10 @@ class Question: PGNetworkable, Equatable {
         super.init(url: PGURLs.questions)
     }
     
+    deinit {
+        picture = nil
+    }
+    
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -85,5 +89,17 @@ class Question: PGNetworkable, Equatable {
     
     func getChoice(of index: String) -> String {
         return self.choice[index]!
+    }
+    
+    func getImage() {
+        guard let url = URL(string: self.pictureUrl) else {
+            print("\(self)::Incorrect Url.")
+            return
+        }
+        guard let data = try? Data(contentsOf: url) else {
+            print("\(self)::Cannot load data from url(\(url)).")
+            return
+        }
+        self.picture = UIImage(data: data)
     }
 }

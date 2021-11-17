@@ -1,16 +1,20 @@
 PODS:
+  - MarqueeLabel (4.3.0)
   - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
+  - MarqueeLabel
   - XLPagerTabStrip (~> 9.0)
 
 SPEC REPOS:
   trunk:
+    - MarqueeLabel
     - XLPagerTabStrip
 
 SPEC CHECKSUMS:
+  MarqueeLabel: 02f5ac8fd6877c94564556cb93fa86c70c08baeb
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: 88b723c086b23fefba34a78efca216dfee6db046
+PODFILE CHECKSUM: 53f98feb091310a6cbea5e68483f815e176ad587
 
 COCOAPODS: 1.11.2

@@ -67,6 +67,9 @@
                                     <segment title="학생"/>
                                     <segment title="선생님"/>
                                 </segments>
+                                <connections>
+                                    <action selector="selectType:" destination="BYZ-38-t0r" eventType="valueChanged" id="zjp-AC-sTe"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Mp-IP-Lao">
                                 <rect key="frame" x="295.5" y="566" width="88.5" height="18.5"/>
@@ -818,7 +821,7 @@
         <segue reference="UbF-ql-4hK"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="MainViewLogo" width="800" height="200"/>
+        <image name="MainViewLogo" width="400" height="100"/>
         <image name="arrow.right.square.fill" catalog="system" width="128" height="114"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>

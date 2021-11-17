@@ -37,26 +37,31 @@ class _PGNetwork {
     // MARK: - Indicator
     lazy var indicatorView = { () -> UIActivityIndicatorView in
         guard let topView = UIApplication.shared.topViewController else { return UIActivityIndicatorView() }
-        let width = topView.view.frame.width
-        let height = topView.view.frame.height
-        let indicator = UIActivityIndicatorView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: width, height: height)))
+        
+        let origin = topView.view.frame.origin
+        let size = topView.view.frame.size
+        let indicator = UIActivityIndicatorView(frame: CGRect(origin: origin, size: size))
+        
+        indicator.backgroundColor = .separator
+        indicator.alpha = 1
         
         return indicator
     }()
     
-    private func startIndicator(_ indicator: UIActivityIndicatorView) {
-        guard let topViewController = UIApplication.shared.topViewController else {
-            print("_PGNetwork::startIndicator(_:) -> topViewController is nil.")
-            return
-        }
-        topViewController.view.addSubview(indicator)
-        topViewController.view.bringSubviewToFront(indicator)
-        indicator.startAnimating()
+    private func startIndicator() {
+        guard let topView = UIApplication.shared.topViewController else { return }
+        
+        topView.view.addSubview(indicatorView)
+        indicatorView.startAnimating()
     }
     
-    private func stopIndicator(_ indicator: UIActivityIndicatorView) {
-        indicator.stopAnimating()
-        indicator.removeFromSuperview()
+    private func stopIndicator() {
+        guard let topView = UIApplication.shared.topViewController else { return }
+        
+        if topView.view.subviews.contains(indicatorView) {
+            indicatorView.stopAnimating()
+            indicatorView.removeFromSuperview()
+        }
     }
     
     // MARK: - Public Methods
@@ -68,7 +73,14 @@ class _PGNetwork {
     public func get<T: Decodable>(url: URL, type: T.Type, success: @escaping ((T) -> ()), fail: ((PGNetworkError) -> Void)? = nil) {
         print(url)
         
+        startIndicator()
+        
+        print("##### Token #####")
+        print(self.headerWithToken)
+        print()
+        
         AF.request(url, method: .get, headers: self.headerWithToken).response { response in
+            self.stopIndicator()
             switch response.result {
             case .success(let d):
                 d?.log()
@@ -97,7 +109,14 @@ class _PGNetwork {
     public func post(url: URL, success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
         print(url)
         
+        print("##### Token #####")
+        print(self.headerWithToken)
+        print()
+        
+        
+        startIndicator()
         AF.request(url, method: .post, headers: self.headerWithToken).response { response in
+            self.stopIndicator()
             switch response.result {
                 case .success(let d):
                     d?.log()
@@ -118,7 +137,14 @@ class _PGNetwork {
     public func post(url: URL, parameter: Parameter, success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
         print(url)
         
+        print("##### Token #####")
+        print(self.headerWithToken)
+        print()
+        
+        
+        startIndicator()
         AF.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: self.headerWithToken).response { response in
+            self.stopIndicator()
             switch response.result {
             case .success(let d):
                 d?.log()
@@ -139,7 +165,14 @@ class _PGNetwork {
     public func post<T: Encodable>(url: URL, parameter: T, success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
         print(url)
         
+        print("##### Token #####")
+        print(self.headerWithToken)
+        print()
+        
+        
+        startIndicator()
         AF.request(url, method: .post, parameters: parameter, encoder: JSONParameterEncoder.default, headers: self.headerWithToken).response { response in
+            self.stopIndicator()
             switch response.result {
             case .success(let d):
                 d?.log()
@@ -159,7 +192,14 @@ class _PGNetwork {
     public func patch(url: URL, parameter: Parameter, success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
         print(url)
         
+        print("##### Token #####")
+        print(self.headerWithToken)
+        print()
+        
+        
+        startIndicator()
         AF.request(url, method: .patch, parameters: parameter, encoding: JSONEncoding.default, headers: self.headerWithToken).response { response in
+            self.stopIndicator()
             switch response.result {
             case .success(let d):
                 d?.log()
@@ -180,7 +220,9 @@ class _PGNetwork {
     public func delete(url: URL, success: ((Data?) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
         print(url)
         
+        startIndicator()
         AF.request(url, method: .delete, headers: self.headerWithToken).response { response in
+            self.stopIndicator()
             switch response.result {
             case .success(let d):
                 d?.log()
@@ -198,10 +240,52 @@ class _PGNetwork {
         }
     }
     
+    public func uploadImage(image: UIImage, success: ((String) -> Void)? = nil, fail: ((PGNetworkError) -> Void)? = nil) {
+        let header: HTTPHeaders = HTTPHeaders(["Content-Type" : "multipart/form-data"])
+        let key = "fb3f4ec1a72b2cba1543b813290b538a"
+        let parameters = ["key" : key]
+        
+        guard let data = image.jpegData(compressionQuality: 1) else {
+            print("PGNetwork::uploadImage(image:success:fail:) -> convert image to data failed.")
+            return
+        }
+        
+        let url = URL(string: "https://api.imgbb.com/1/upload")!
+        
+        startIndicator()
+        AF.upload(multipartFormData: { multipartFormData in
+            
+            for (key, value) in parameters {
+                multipartFormData.append("\(value)".data(using: .utf8)!, withName: key, mimeType: "text/plain")
+            }
+            
+            multipartFormData.append(data, withName: "image", fileName: "pullgo_swift_testpicture_upload.jpg", mimeType: "image/jpg")
+            
+        }, to: url, method: .post, headers: header).response { response in
+            self.stopIndicator()
+            switch response.result {
+                case .success(let d):
+                    guard let data = d else {
+                        print("PGNetwork::uploadImage(image:success:fail:) -> data is nil.")
+                        return
+                    }
+                    success?(self.getImageUrl(from: data))
+                case .failure(let e):
+                    if let failClosure = fail {
+                        failClosure(e)
+                    } else {
+                        self.presentNetworkAlert()
+                    }
+            }
+        }
+    }
+    
     public func signIn(url: URL, parameter: Parameter, success: @escaping ((Data?) -> Void)) {
         print(url)
         
+        startIndicator()
         AF.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: self.headers).response { response in
+            self.stopIndicator()
             switch response.result {
             case .success(let d):
                 d?.log()
@@ -230,7 +314,9 @@ class _PGNetwork {
         }
         
         print(url)
+        startIndicator()
         AF.request(url).response { response in
+            self.stopIndicator()
             switch response.result {
             case .success(let d):
                 d?.log()
@@ -256,6 +342,23 @@ class _PGNetwork {
         case forbidden = 403
         case notFound = 404
         case conflict = 409
+    }
+    
+    private func getImageUrl(from data: Data) -> String {
+        do {
+            let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String : AnyObject]
+            if let dictionary = json as? [String : Any] {
+                if let dataDictionary = dictionary["data"] as? [String : Any] {
+                    if let url = dataDictionary["url"] as? String {
+                        return url
+                    }
+                }
+            }
+        } catch {
+            print("PGNetwork::getImageUrl(from:) -> Cannot convert data to json.")
+            return ""
+        }
+        return ""
     }
     
     private func processByStatusCode(code: Int?, success: (() -> Void)? = nil) {

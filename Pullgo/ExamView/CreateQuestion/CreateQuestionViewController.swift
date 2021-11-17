@@ -12,14 +12,12 @@ import RxCocoa
 
 class CreateQuestionViewController: ExamRootViewController {
     
-    let picker: UIDatePicker = { () -> UIDatePicker in
-        let picker = UIDatePicker(mode: .countDownTimer)
+    lazy var exitButton = { () -> UIBarButtonItem in
+        let exit = UIBarButtonItem(title: "나가기", style: .plain, target: self, action: #selector(self.exitExam(_:)))
         
-        picker.locale = Locale(identifier: "ko_KR")
-        picker.preferredDatePickerStyle = .wheels
-        
-        return picker
+        return exit
     }()
+    
     
     lazy var deleteQuestion = { () -> UIBarButtonItem in
         return UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(self.removeQuestion(_:)))
@@ -58,7 +56,8 @@ class CreateQuestionViewController: ExamRootViewController {
             fatalError("viewModel must be a CreateQuestionViewModel type.")
         }
         self.createQuestionViewModel = createQuestionViewModel
-        super.init(viewModel: createQuestionViewModel, type: .create)
+        super.init(viewModel: createQuestionViewModel, type: type)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -81,6 +80,8 @@ class CreateQuestionViewController: ExamRootViewController {
     
     func setTitleBarButtons() {
         titleBar.topItem?.setRightBarButtonItems([addQuestion, deleteQuestion], animated: true)
+        titleBar.topItem?.leftBarButtonItems?.append(.fixedSpace(20))
+        titleBar.topItem?.leftBarButtonItems?.append(self.exitButton)
     }
     
     private func buildConstraints() {
@@ -148,5 +149,22 @@ extension CreateQuestionViewController {
             alert.present(title: "저장 완료", context: "지금까지 만든 문제들을 모두 저장했어요.", actions: [leave, cont])
         }
         
+    }
+    
+    // exit
+    @objc
+    private func exitExam(_ sender: UIBarButtonItem) {
+        let alert = PGAlertPresentor()
+        let okay = UIAlertAction(title: "나가기", style: .destructive) { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        
+        alert.present(title: "나가기",
+                      context: """
+                      시험 문제 수정을 종료할까요?
+                      변경 사항은 저장되지 않습니다.
+                      """,
+                      actions: [cancel, okay])
     }
 }

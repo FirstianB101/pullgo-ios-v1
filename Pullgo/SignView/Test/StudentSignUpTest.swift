@@ -55,7 +55,7 @@ class StudentSignUpTest: XCTestCase {
             var parentPhone: String = "01012345678"
         }
         
-        let account = PGTestAccount(username: "student\(newId)", fullName: "XCTest\(newId) 학생")
+        let account = PGTestAccount(username: "student\(newId)", fullName: "XCTest\(newId)")
         
         // 회원가입 -> 선생님으로 로그인
         tapButton("signUpButton")

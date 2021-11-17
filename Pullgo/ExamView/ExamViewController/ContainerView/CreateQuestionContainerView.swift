@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class CreateQuestionContainer: UIView, ContainerView {
+class CreateQuestionContainerView: UIView, ContainerView, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
     // MARK: - UI
@@ -59,16 +59,22 @@ class CreateQuestionContainer: UIView, ContainerView {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         button.setTitleColor(.black, for: .normal)
         button.setViewCornerRadiusAndShadow(radius: 20)
+        button.addTarget(self, action: #selector(self.addImage(_:)), for: .touchUpInside)
+        button.adjustsImageWhenHighlighted = false
         
         return button
     }()
     
-    lazy var imageContentStack = { () -> UIStackView in
-        let stack = UIStackView()
+    lazy var deleteImageButton = { () -> UIButton in
+        let button = UIButton()
         
-        stack.axis = .vertical
+        button.setTitle("사진 삭제", for: .normal)
+        button.setTitleColor(.red, for: .normal)
+        button.backgroundColor = .deleteBackground
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        button.addTarget(self, action: #selector(self.deleteImageOfImageButton), for: .touchUpInside)
         
-        return stack
+        return button
     }()
     
     lazy var editChoicesButton = { () -> UIButton in
@@ -93,6 +99,7 @@ class CreateQuestionContainer: UIView, ContainerView {
     var question: Question?
     let maxContentLength: Int = 200
     weak var target: UIViewController?
+    var imagePicker = UIImagePickerController()
     
     required init(question: Question?, target: UIViewController) {
         self.question = question
@@ -134,15 +141,96 @@ class CreateQuestionContainer: UIView, ContainerView {
             make.bottom.equalToSuperview().offset(-30)
             make.height.equalTo(50)
         }
+        
+        if self.question?.picture != nil {
+            setAddImageButtonToImage()
+        } else {
+            deleteImageOfImageButton()
+        }
     }
     
     private func setContents() {
         self.questionContent.text = question?.content ?? ""
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            
+            PGNetwork.uploadImage(image: image, success: { url in
+                self.question?.picture = image
+                self.question?.pictureUrl = url
+                self.setAddImageButtonToImage()
+                
+                self.target?.dismiss(animated: true, completion: nil)
+            })
+        } else {
+            self.target?.dismiss(animated: true, completion: {
+                let alert = PGAlertPresentor()
+                alert.present(title: "오류", context: "이미지를 로드하지 못했습니다.")
+            })
+        }
+    }
+    
+    private func setAddImageButtonToImage() {
+        self.addImageButton.backgroundColor = .lightGray
+        self.addImageButton.imageView?.contentMode = .scaleAspectFit
+        self.addImageButton.setImage(self.question?.picture, for: .normal)
+        self.addImageButton.setTitle(nil, for: .normal)
+        
+        self.addImageButton.snp.remakeConstraints { make in
+            make.leading.equalToSuperview().offset(30)
+            make.trailing.equalToSuperview().offset(-30)
+            make.top.equalTo(self.questionContentStack.snp.bottom).offset(30)
+            make.height.equalTo(250)
+        }
+        
+        self.addSubview(deleteImageButton)
+        self.deleteImageButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-30)
+            make.top.equalTo(self.addImageButton.snp.bottom).offset(10)
+            make.bottom.equalTo(self.editChoicesButton.snp.top).offset(-30)
+            make.width.equalTo(80)
+        }
+        self.deleteImageButton.setViewCornerRadiusAndShadow(radius: 15)
+    }
+    
+    
+    
+    // MARK: - objc Methods
+    @objc
+    func addImage(_ sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+            
+            target?.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    @objc
+    private func deleteImageOfImageButton() {
+        self.addImageButton.backgroundColor = .lightAccent
+        self.addImageButton.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
+        self.addImageButton.setTitle(" 여기를 눌러 사진을 추가하세요.", for: .normal)
+        self.question?.picture = nil
+        self.question?.pictureUrl = ""
+        
+        if self.subviews.contains(deleteImageButton) {
+            deleteImageButton.removeFromSuperview()
+        }
+        self.addImageButton.snp.remakeConstraints { make in
+            make.leading.equalToSuperview().offset(30)
+            make.trailing.equalToSuperview().offset(-30)
+            make.top.equalTo(self.questionContentStack.snp.bottom).offset(30)
+            make.bottom.equalTo(self.editChoicesButton.snp.top).offset(-30)
+            make.height.equalTo(40)
+        }
+    }
 }
 
 // TextView Placeholder
-extension CreateQuestionContainer: UITextViewDelegate {
+extension CreateQuestionContainerView: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         
     }

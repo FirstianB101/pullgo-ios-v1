@@ -51,7 +51,7 @@ class ChoiceView: UIView {
     lazy var title = { () -> UILabel in
         let label = UILabel()
         
-        label.text = self.examType.getChoiceViewTitle()
+        label.text = self.examType.getChoiceViewTitle() + " (정답 \(self.viewModel.currentQuestion!.answer.count)개)"
         label.font = UIFont.boldSystemFont(ofSize: 17)
         label.textColor = .black
         

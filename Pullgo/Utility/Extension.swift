@@ -149,6 +149,10 @@ extension UIColor {
     static var wrongAnswerLight: UIColor? {
         UIColor(named: "WrongAnswerLight")
     }
+    
+    static var deleteBackground: UIColor? {
+        UIColor(named: "DeleteBackground")
+    }
 }
 
 // MARK: - UIImage

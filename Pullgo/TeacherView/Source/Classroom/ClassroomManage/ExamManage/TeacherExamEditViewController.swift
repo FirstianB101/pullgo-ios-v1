@@ -58,14 +58,16 @@ class TeacherExamEditViewController: UIViewController, IndicatorInfoProvider {
     
     @IBAction func editExam(_ sender: UIButton) {
         let viewModel = CreateQuestionViewModel(exam: self.viewModel.selectedExam)
-        
-        let vc = CreateQuestionViewController(viewModel: viewModel, type: .create)
-        guard let pvc = self.presentingViewController else { return }
-        
-        vc.modalPresentationStyle = .fullScreen
-        
-        self.dismiss(animated: true) {
-            pvc.present(vc, animated: true, completion: nil)
+        viewModel.getQuestions { [weak self] in
+            
+            let vc = CreateQuestionViewController(viewModel: viewModel, type: .create)
+            guard let pvc = self?.presentingViewController else { return }
+            
+            vc.modalPresentationStyle = .fullScreen
+            
+            self?.dismiss(animated: true) {
+                pvc.present(vc, animated: true, completion: nil)
+            }
         }
     }
 }

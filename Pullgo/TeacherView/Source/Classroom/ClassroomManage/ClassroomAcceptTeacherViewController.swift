@@ -92,7 +92,7 @@ class ClassroomAcceptTeacherViewController: UICollectionViewController, Indicato
 extension ClassroomAcceptTeacherViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height: CGFloat = 100
-        let padding: CGFloat = 10
+        let padding: CGFloat = 20
         let width = collectionView.bounds.width - padding * 2
         
         return CGSize(width: width, height: height)

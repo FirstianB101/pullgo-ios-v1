@@ -17,7 +17,7 @@ class ContainerViewFactory {
         
         switch type {
             case .create:
-                return CreateQuestionContainer(question: question, target: target)
+                return CreateQuestionContainerView(question: question, target: target)
             case .history:
                 return HistoryContainerView(question: question, target: target)
             case .take:

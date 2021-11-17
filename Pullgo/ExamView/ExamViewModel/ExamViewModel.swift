@@ -25,10 +25,9 @@ class ExamViewModel: ExamPagableViewModel {
     
     init(exam: Exam) {
         self.selectedExam = exam
-        getQuestions()
     }
     
-    private func getQuestions() {
+    public func getQuestions(completion: @escaping (() -> Void)) {
         selectedExam.getQuestions(page: 0) { questions in
             self.questions = questions
             
@@ -37,6 +36,11 @@ class ExamViewModel: ExamPagableViewModel {
             } else {
                 self.currentQuestion = questions.first
             }
+            
+            self.startIndicator()
+            questions.forEach { $0.getImage() }
+            self.stopIndicator()
+            completion()
         }
     }
     
@@ -89,6 +93,36 @@ class ExamViewModel: ExamPagableViewModel {
         } else {
             sender.isSelected = true
             self.currentQuestion!.answer.append(number)
+        }
+    }
+    
+    // MARK: - Indicator
+    lazy var indicatorView = { () -> UIActivityIndicatorView in
+        guard let topView = UIApplication.shared.topViewController else { return UIActivityIndicatorView() }
+        
+        let origin = topView.view.frame.origin
+        let size = topView.view.frame.size
+        let indicator = UIActivityIndicatorView(frame: CGRect(origin: origin, size: size))
+        
+        indicator.backgroundColor = .separator
+        indicator.alpha = 1
+        
+        return indicator
+    }()
+    
+    private func startIndicator() {
+        guard let topView = UIApplication.shared.topViewController else { return }
+        
+        topView.view.addSubview(indicatorView)
+        indicatorView.startAnimating()
+    }
+    
+    private func stopIndicator() {
+        guard let topView = UIApplication.shared.topViewController else { return }
+        
+        if topView.view.subviews.contains(indicatorView) {
+            indicatorView.stopAnimating()
+            indicatorView.removeFromSuperview()
         }
     }
 }

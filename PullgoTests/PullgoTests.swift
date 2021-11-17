@@ -159,4 +159,17 @@ class PullgoTests: XCTestCase {
         wait(for: [promise], timeout: 10)
     }
     
+    func testUploadImage() throws {
+        let image = UIImage(named: "FontSlider")!
+        let promise = XCTestExpectation(description: "Upload Success.")
+        
+        PGNetwork.uploadImage(image: image, success: { url in
+            print("url: \(url)")
+            promise.fulfill()
+        })
+        
+        wait(for: [promise], timeout: 10)
+    }
+    
 }
+

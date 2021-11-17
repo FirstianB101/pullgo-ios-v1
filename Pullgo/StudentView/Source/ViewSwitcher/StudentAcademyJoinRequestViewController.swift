@@ -16,6 +16,7 @@ class StudentAcademyJoinRequestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        academyTableView.keyboardDismissMode = .onDrag
     }
 }
 

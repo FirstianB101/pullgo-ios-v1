@@ -52,18 +52,12 @@ class ExamRootViewController: UIViewController {
         return UIBarButtonItem(customView: customView)
     }()
     
-    lazy var exitButton = { () -> UIBarButtonItem in
-        let exit = UIBarButtonItem(title: "나가기", style: .plain, target: self, action: #selector(self.exitExam(_:)))
-        
-        return exit
-    }()
-    
     lazy var titleBar = { () -> UINavigationBar in
         let bar = UINavigationBar()
         
         bar.barTintColor = .white
         bar.setItems([UINavigationItem()], animated: true)
-        bar.topItem?.setLeftBarButtonItems([self.examNavigatorButton, .fixedSpace(20), self.exitButton], animated: true)
+        bar.topItem?.setLeftBarButtonItems([self.examNavigatorButton], animated: true)
         
         return bar
     }()
@@ -228,22 +222,6 @@ extension ExamRootViewController {
         if self.view.subviews.contains(examNavigator) {
             dismissQuestionListWithAnimation()
         }
-    }
-    
-    @objc
-    private func exitExam(_ sender: UIBarButtonItem) {
-        let alert = PGAlertPresentor()
-        let okay = UIAlertAction(title: "나가기", style: .destructive) { _ in
-            self.dismiss(animated: true, completion: nil)
-        }
-        let cancel = UIAlertAction(title: "취소", style: .cancel)
-        
-        alert.present(title: "나가기",
-                      context: """
-                      시험 문제 수정을 종료할까요?
-                      변경 사항은 저장되지 않습니다.
-                      """,
-                      actions: [cancel, okay])
     }
     
     @objc

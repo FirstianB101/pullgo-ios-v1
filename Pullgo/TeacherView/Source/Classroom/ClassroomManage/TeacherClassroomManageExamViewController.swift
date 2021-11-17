@@ -84,10 +84,25 @@ class TeacherClassroomManageExamViewController: UIViewController, TeacherClassro
         setLeftBarItemByDeletingStatus()
         self.reloadData()
     }
+    
+    func forbiddenAlert() {
+        let alert = PGAlertPresentor()
+        alert.present(title: "알림",
+                      context: """
+                          시험에 대한 권한이 없습니다.
+                          시험을 생성한 선생님에게 요청해보세요.
+                          """)
+    }
 }
 
 extension TeacherClassroomManageExamViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard viewModel.exams[indexPath.item].creatorId == PGSignedUser.id else {
+            forbiddenAlert()
+            return
+        }
+        
         if isDeleting {
             deleteExamClicked(at: indexPath)
         } else {
@@ -96,6 +111,7 @@ extension TeacherClassroomManageExamViewController: UICollectionViewDelegate, UI
     }
     
     func deleteExamClicked(at indexPath: IndexPath) {
+        
         let alert = PGAlertPresentor()
         let delete = UIAlertAction(title: "삭제", style: .destructive) { [weak self] _ in
             self?.viewModel.deleteExam(at: indexPath.item, completion: self?.reloadData)
@@ -121,7 +137,7 @@ extension TeacherClassroomManageExamViewController: UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height: CGFloat = 138
-        let padding: CGFloat = 10
+        let padding: CGFloat = 20
         let width = collectionView.bounds.width - padding * 2
         
         return CGSize(width: width, height: height)

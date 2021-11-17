@@ -7,152 +7,182 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		031BE281773927DC4C370A915A43426E /* ButtonBarPagerTabStripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12106C8A4F77F36B53D8C8AE07D0780C /* ButtonBarPagerTabStripViewController.swift */; };
-		0350D5598BB3D4C236E5C671C634CD9B /* Pods-Pullgo-PullgoUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB81B0F7614B6CECD7386B9AD30F539 /* Pods-Pullgo-PullgoUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		05951171482DA12CC8CC190BBDAF0140 /* SegmentedPagerTabStripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6822106C3E240E9AF4978C76EDAAED8C /* SegmentedPagerTabStripViewController.swift */; };
-		0E42A7AE92F5B8D3144F063CBA087152 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		12A297ECFCF5AACB2E9461CC23336BCF /* FXPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 31863D238E5181E5C90095A8F6DA3563 /* FXPageControl.m */; };
-		1D581A3F8EB36D9CA7812DE6BA797185 /* IndicatorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D1139D84B1A0C00AE97FE32F7EA5B3 /* IndicatorInfo.swift */; };
-		2086A8C4F4B568F16CBBE6D01AF86229 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D50CD31D1F0671DE040C70B81E3F2E95 /* ButtonCell.xib */; };
-		2503B430D9C2E1C021A0BD48742EF153 /* FXPageControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 26E2B26E6F566219272F2C0F39554953 /* FXPageControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		302B68E8CC775312CDD15CCD5FF5D1B8 /* ButtonBarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460CB1E398D4027D6BE13B27F4518FC /* ButtonBarViewCell.swift */; };
-		359240A6CC6FB0C4BCD065DF41F0FC98 /* SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E4192B6F39FE87CD4DC0276ADA73D7 /* SwipeDirection.swift */; };
-		3D9A86D5992EDA59C0B9E62662107A40 /* Pods-Pullgo-PullgoTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D7769FA23FAF78020A064D04A42DB7A6 /* Pods-Pullgo-PullgoTests-dummy.m */; };
-		3EBFA96E13B47ECED0B9164D8FE19ABE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		4BED578A718C912B74C420BD4EB831D2 /* PagerTabStripError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCB687A813B19E44D13F084418EDC57 /* PagerTabStripError.swift */; };
-		55816DCC1B550A80605AF88C229C7CD1 /* Pods-Pullgo-PullgoUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAABC39F24527FD2A4B259965EB5F23 /* Pods-Pullgo-PullgoUITests-dummy.m */; };
-		629DF7E0F7B1573C0FB2D1ADC256D494 /* TwitterPagerTabStripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48471C3EAD6B0755BFF09814055272AD /* TwitterPagerTabStripViewController.swift */; };
-		6886B48E5FB83C0A729545A5D0A2DDA9 /* ButtonBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE12FEEF2395EA2114A5CFC7B73B2B26 /* ButtonBarView.swift */; };
-		751F9B759A15AA6709BE458E9DC6F2BF /* BarPagerTabStripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A322A1C48F549D1E08F184257DF771E0 /* BarPagerTabStripViewController.swift */; };
-		7D6533AA7E911EC19BE804F1E35F84B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */; };
-		80383D0BCF7FA7B2A304DDDFC6F76BDC /* Pods-Pullgo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CA69071170E3915474ACB94BE5CD25E /* Pods-Pullgo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		840F5F3A1DC99104C70DDDE418DB9672 /* BaseButtonBarPagerTabStripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A008F96AC1C6ACA88D8011B5AAB4A4F4 /* BaseButtonBarPagerTabStripViewController.swift */; };
-		86718F786F4E7FFCA5D9B333CA6E359C /* Pods-Pullgo-PullgoTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F345F0FBD7A8BE810954B034EC57BB6 /* Pods-Pullgo-PullgoTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		985E86035328E060DC3DBDC430B05938 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04BF67860CEF613FDFA39CDABAAC410 /* BarView.swift */; };
+		00FC03BBE96ABFC6E86D34EC31693DD3 /* Pods-Pullgo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D9A0B112A53289290E5A87069D7EA9 /* Pods-Pullgo-dummy.m */; };
+		031BE281773927DC4C370A915A43426E /* ButtonBarPagerTabStripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA41D2A43006B5425B9BFF846468866 /* ButtonBarPagerTabStripViewController.swift */; };
+		05951171482DA12CC8CC190BBDAF0140 /* SegmentedPagerTabStripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691ACDE1AB0FBA935CF84BECD02538FE /* SegmentedPagerTabStripViewController.swift */; };
+		12A297ECFCF5AACB2E9461CC23336BCF /* FXPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A540D06AF1EDCDF0F196879133D15EA /* FXPageControl.m */; };
+		19EE53C9966D4142DD5B6BA2AD06D52B /* MarqueeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679CA32DCBB41BC3618881E95DA525BF /* MarqueeLabel.swift */; };
+		1D581A3F8EB36D9CA7812DE6BA797185 /* IndicatorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D6065AA255087460F43EFA56B93479 /* IndicatorInfo.swift */; };
+		2503B430D9C2E1C021A0BD48742EF153 /* FXPageControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 04882CE4A8D2CC77C3BC9CB9781952B9 /* FXPageControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DF1F2842BF627B387F208A99772044C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE46B11FEBCBB7C689EB07A5E57BD38 /* QuartzCore.framework */; };
+		2F9878203C57B16F8A2341363CE6ADE2 /* MarqueeLabel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 99A7A904E20CA94C84F5AAA5CBE73F8B /* MarqueeLabel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		302B68E8CC775312CDD15CCD5FF5D1B8 /* ButtonBarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BBEF71F0041E954790FA195A431F44 /* ButtonBarViewCell.swift */; };
+		359240A6CC6FB0C4BCD065DF41F0FC98 /* SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC643026E3FCF186A4F0BC2736037EF2 /* SwipeDirection.swift */; };
+		39EE17BF10328E27581571E9ED48DA3C /* Pods-Pullgo-PullgoUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB81B0F7614B6CECD7386B9AD30F539 /* Pods-Pullgo-PullgoUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3EBFA96E13B47ECED0B9164D8FE19ABE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1530FBFAA1690D27A135E4CC85AA07 /* Foundation.framework */; };
+		47DB9A38B83CCAB409756DFA73CCB9A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1530FBFAA1690D27A135E4CC85AA07 /* Foundation.framework */; };
+		4BED578A718C912B74C420BD4EB831D2 /* PagerTabStripError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32140935DF489240663B77C825D85675 /* PagerTabStripError.swift */; };
+		57F2E3DFFAAF9D7A623AC55133278E94 /* Pods-Pullgo-PullgoTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D7769FA23FAF78020A064D04A42DB7A6 /* Pods-Pullgo-PullgoTests-dummy.m */; };
+		624026F8DC47EC3887F30136E9FC42E6 /* Pods-Pullgo-PullgoTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F345F0FBD7A8BE810954B034EC57BB6 /* Pods-Pullgo-PullgoTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		629DF7E0F7B1573C0FB2D1ADC256D494 /* TwitterPagerTabStripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8478155D101171EECBFE6F36E2A71473 /* TwitterPagerTabStripViewController.swift */; };
+		6886B48E5FB83C0A729545A5D0A2DDA9 /* ButtonBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316AEAFB0A46A650E0EB98EDC7918ED2 /* ButtonBarView.swift */; };
+		6A0BD6F701C49358D84237CA76238937 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68697961FF046C4BD72F406C80CBD445 /* ButtonCell.xib */; };
+		6CE0B8970AEE2F68ABC4434712981A8A /* MarqueeLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4360BF9A8BEB5FE39B5C6AADEDC53 /* MarqueeLabel-dummy.m */; };
+		751F9B759A15AA6709BE458E9DC6F2BF /* BarPagerTabStripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88C86FEEF4394B9B3DC007A2F3A84B2 /* BarPagerTabStripViewController.swift */; };
+		79963D30CE58AD76F7BD3F722DB364D3 /* Pods-Pullgo-PullgoUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAABC39F24527FD2A4B259965EB5F23 /* Pods-Pullgo-PullgoUITests-dummy.m */; };
+		7D6533AA7E911EC19BE804F1E35F84B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE2AD31F00D0EF9C522211BDDBF6C3C /* UIKit.framework */; };
+		840F5F3A1DC99104C70DDDE418DB9672 /* BaseButtonBarPagerTabStripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FBD2221880072104AB1A4C50F0968A /* BaseButtonBarPagerTabStripViewController.swift */; };
+		85A35C40A60EDC6A9893462D3112FEED /* Pods-Pullgo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CA69071170E3915474ACB94BE5CD25E /* Pods-Pullgo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		890D842A253CC9351D66015AB218F4DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1530FBFAA1690D27A135E4CC85AA07 /* Foundation.framework */; };
+		9594DAACE9F0DF3FA05A53C4A4DBAA73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1530FBFAA1690D27A135E4CC85AA07 /* Foundation.framework */; };
+		985E86035328E060DC3DBDC430B05938 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C15F297043AA4DF5A70F0F39B0D664C /* BarView.swift */; };
 		9B06F1AB828E639BDEE2022CB881734A /* XLPagerTabStrip-XLPagerTabStrip in Resources */ = {isa = PBXBuildFile; fileRef = 78BA4BB1A553AB4136F879792D99C87D /* XLPagerTabStrip-XLPagerTabStrip */; };
-		9E363928539AD4823DB6032750FD59CF /* PagerTabStripBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF4B052D4BCCFD15E0591F3403E357F /* PagerTabStripBehaviour.swift */; };
-		A0F6419E0B2954CD17B8C0281E245A35 /* XLPagerTabStrip-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AF65940055522AF342E61134CCB782C3 /* XLPagerTabStrip-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B97DE1E3E4782ABED45660AFB56CB4B0 /* Pods-Pullgo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D9A0B112A53289290E5A87069D7EA9 /* Pods-Pullgo-dummy.m */; };
-		BA65B8E810E3EEB457F5E2E1667BFA81 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		C3AE035DDC4F70A808846616E02E9063 /* XLPagerTabStrip-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB8D84D7E590973E1EC74CAECE44D51 /* XLPagerTabStrip-dummy.m */; };
-		FB443D851AF1305E9A0BF2898095C098 /* PagerTabStripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3C2F5D019066B418E6F63B8FAF2320 /* PagerTabStripViewController.swift */; };
-		FF549D58D143D834AD438D9E1D8EC465 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		9E363928539AD4823DB6032750FD59CF /* PagerTabStripBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DAA37A56491D6F03FDB2F69D4B8253 /* PagerTabStripBehaviour.swift */; };
+		A0F6419E0B2954CD17B8C0281E245A35 /* XLPagerTabStrip-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D52CC1C701654F8B280C625A58258640 /* XLPagerTabStrip-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD09C8A5C28DBE77E6962FA7C10E5936 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1530FBFAA1690D27A135E4CC85AA07 /* Foundation.framework */; };
+		C3AE035DDC4F70A808846616E02E9063 /* XLPagerTabStrip-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7BAA94F2315B385F546CEEC103FC12 /* XLPagerTabStrip-dummy.m */; };
+		F70BE6EE52CFB5E92B68F8FBE2A7E1B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE2AD31F00D0EF9C522211BDDBF6C3C /* UIKit.framework */; };
+		FB443D851AF1305E9A0BF2898095C098 /* PagerTabStripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E3B83943E4CDDBA22B8BC39F7A66F /* PagerTabStripViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6064417AF5992899C8E029C4F75163B3 /* PBXContainerItemProxy */ = {
+		025E9D1D52A35C779F0E46CC7301FA25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC5C3A7662FFA04D04D29F4657D032CE;
+			remoteInfo = XLPagerTabStrip;
+		};
+		05A06A9B02C020BDDA4E9BC46B297207 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C23DB88E45B0ED14F0C8827BE9C46C95;
+			remoteInfo = MarqueeLabel;
+		};
+		0CDDE9852851AE04722B665970F988CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC5C3A7662FFA04D04D29F4657D032CE;
+			remoteInfo = XLPagerTabStrip;
+		};
+		25A895B6FE31554048FCED49A0B6C64D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = EBF90A3A56D4C5830C212D000AB67BC1;
 			remoteInfo = "XLPagerTabStrip-XLPagerTabStrip";
 		};
-		622748A0ED1462F15D9202BA09F706AF /* PBXContainerItemProxy */ = {
+		8756C3CA1C230DDA129F99C8E1B350FC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DC5C3A7662FFA04D04D29F4657D032CE;
 			remoteInfo = XLPagerTabStrip;
 		};
-		B97250408B6A1BAF0CF2AFD1EC33904C /* PBXContainerItemProxy */ = {
+		C9A6D08222CDF182F40837679EE1F5A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DC5C3A7662FFA04D04D29F4657D032CE;
-			remoteInfo = XLPagerTabStrip;
+			remoteGlobalIDString = C23DB88E45B0ED14F0C8827BE9C46C95;
+			remoteInfo = MarqueeLabel;
 		};
-		E19DED04ED78A8FF32079F5652101FEE /* PBXContainerItemProxy */ = {
+		E8700E930827BDCCBE960D7E5024A8A6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DC5C3A7662FFA04D04D29F4657D032CE;
-			remoteInfo = XLPagerTabStrip;
+			remoteGlobalIDString = C23DB88E45B0ED14F0C8827BE9C46C95;
+			remoteInfo = MarqueeLabel;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00FBD2221880072104AB1A4C50F0968A /* BaseButtonBarPagerTabStripViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseButtonBarPagerTabStripViewController.swift; path = Sources/BaseButtonBarPagerTabStripViewController.swift; sourceTree = "<group>"; };
+		04882CE4A8D2CC77C3BC9CB9781952B9 /* FXPageControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FXPageControl.h; path = Sources/FXPageControl.h; sourceTree = "<group>"; };
 		062D2E4C4F5A8AF16DB7E2A31D847695 /* Pods-Pullgo */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Pullgo"; path = Pods_Pullgo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0700537486C0B8816D15C8E3ABCA2193 /* XLPagerTabStrip-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XLPagerTabStrip-prefix.pch"; sourceTree = "<group>"; };
-		1177A5A9827BB1B0AF2C5132EF97B67B /* XLPagerTabStrip-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XLPagerTabStrip-Info.plist"; sourceTree = "<group>"; };
-		12106C8A4F77F36B53D8C8AE07D0780C /* ButtonBarPagerTabStripViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonBarPagerTabStripViewController.swift; path = Sources/ButtonBarPagerTabStripViewController.swift; sourceTree = "<group>"; };
+		11BBEF71F0041E954790FA195A431F44 /* ButtonBarViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonBarViewCell.swift; path = Sources/ButtonBarViewCell.swift; sourceTree = "<group>"; };
+		18D6065AA255087460F43EFA56B93479 /* IndicatorInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IndicatorInfo.swift; path = Sources/IndicatorInfo.swift; sourceTree = "<group>"; };
+		1C15F297043AA4DF5A70F0F39B0D664C /* BarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarView.swift; path = Sources/BarView.swift; sourceTree = "<group>"; };
+		206122AA1DBF53427C4DA006580BFDF4 /* XLPagerTabStrip-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XLPagerTabStrip-Info.plist"; sourceTree = "<group>"; };
 		21BE9AA8324B1841D48438D2DDFC2E90 /* Pods-Pullgo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pullgo.debug.xcconfig"; sourceTree = "<group>"; };
 		2612D8A4D721DDEB8E3E1E469A5644A1 /* Pods-Pullgo-PullgoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pullgo-PullgoTests.release.xcconfig"; sourceTree = "<group>"; };
-		26E2B26E6F566219272F2C0F39554953 /* FXPageControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FXPageControl.h; path = Sources/FXPageControl.h; sourceTree = "<group>"; };
-		2880D322850D9FDFC87A5C1DB85EF112 /* XLPagerTabStrip.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XLPagerTabStrip.modulemap; sourceTree = "<group>"; };
-		31863D238E5181E5C90095A8F6DA3563 /* FXPageControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FXPageControl.m; path = Sources/FXPageControl.m; sourceTree = "<group>"; };
-		35E4192B6F39FE87CD4DC0276ADA73D7 /* SwipeDirection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeDirection.swift; path = Sources/SwipeDirection.swift; sourceTree = "<group>"; };
+		28A3F7725D0E19AE8854C0631B626036 /* MarqueeLabel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MarqueeLabel.release.xcconfig; sourceTree = "<group>"; };
+		28D4360BF9A8BEB5FE39B5C6AADEDC53 /* MarqueeLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MarqueeLabel-dummy.m"; sourceTree = "<group>"; };
+		316AEAFB0A46A650E0EB98EDC7918ED2 /* ButtonBarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonBarView.swift; path = Sources/ButtonBarView.swift; sourceTree = "<group>"; };
+		32140935DF489240663B77C825D85675 /* PagerTabStripError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PagerTabStripError.swift; path = Sources/PagerTabStripError.swift; sourceTree = "<group>"; };
 		396DC3270DE7E77177C3EABAB3BB548B /* Pods-Pullgo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Pullgo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3A540D06AF1EDCDF0F196879133D15EA /* FXPageControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FXPageControl.m; path = Sources/FXPageControl.m; sourceTree = "<group>"; };
 		3B3099E93ADCB4DE748FADE7A6D1C73B /* Pods-Pullgo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Pullgo-Info.plist"; sourceTree = "<group>"; };
 		3CC85DBD525E3E233CF12CE545BADB90 /* Pods-Pullgo-PullgoUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Pullgo-PullgoUITests"; path = Pods_Pullgo_PullgoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		48471C3EAD6B0755BFF09814055272AD /* TwitterPagerTabStripViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TwitterPagerTabStripViewController.swift; path = Sources/TwitterPagerTabStripViewController.swift; sourceTree = "<group>"; };
+		4B1530FBFAA1690D27A135E4CC85AA07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		4D336E7B165B869D45E68867627F3BB7 /* Pods-Pullgo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Pullgo.modulemap"; sourceTree = "<group>"; };
 		542C908113CF6E6F5E19B67AD843F6D1 /* Pods-Pullgo-PullgoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pullgo-PullgoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		55CF023198278BAC0B62EFFF4FD2743F /* Pods-Pullgo-PullgoUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Pullgo-PullgoUITests.modulemap"; sourceTree = "<group>"; };
 		5D492E675F6BFB27672B9AEEA3ACF877 /* Pods-Pullgo-PullgoUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Pullgo-PullgoUITests-frameworks.sh"; sourceTree = "<group>"; };
-		62D1139D84B1A0C00AE97FE32F7EA5B3 /* IndicatorInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IndicatorInfo.swift; path = Sources/IndicatorInfo.swift; sourceTree = "<group>"; };
-		6822106C3E240E9AF4978C76EDAAED8C /* SegmentedPagerTabStripViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SegmentedPagerTabStripViewController.swift; path = Sources/SegmentedPagerTabStripViewController.swift; sourceTree = "<group>"; };
+		679CA32DCBB41BC3618881E95DA525BF /* MarqueeLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MarqueeLabel.swift; path = Sources/MarqueeLabel.swift; sourceTree = "<group>"; };
+		68697961FF046C4BD72F406C80CBD445 /* ButtonCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = ButtonCell.xib; path = Sources/ButtonCell.xib; sourceTree = "<group>"; };
+		691ACDE1AB0FBA935CF84BECD02538FE /* SegmentedPagerTabStripViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SegmentedPagerTabStripViewController.swift; path = Sources/SegmentedPagerTabStripViewController.swift; sourceTree = "<group>"; };
 		6D1FDF2DBF32AD1323A191F93A638F04 /* Pods-Pullgo-PullgoTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Pullgo-PullgoTests-frameworks.sh"; sourceTree = "<group>"; };
+		6EACBBC4C4AA04D202A4B9E9D2B5FF6A /* XLPagerTabStrip-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XLPagerTabStrip-prefix.pch"; sourceTree = "<group>"; };
 		6EB46DF74C5E48EB25AEAEBB3522C2DC /* Pods-Pullgo-PullgoTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Pullgo-PullgoTests-Info.plist"; sourceTree = "<group>"; };
 		6EDA125BF1797C4BEE843B628D3B83AF /* Pods-Pullgo-PullgoTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Pullgo-PullgoTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6FCA87979232A5D67488BC393FB3A031 /* MarqueeLabel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MarqueeLabel.modulemap; sourceTree = "<group>"; };
 		78315131FD26E7186487D2263FFFC726 /* Pods-Pullgo-PullgoUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Pullgo-PullgoUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		78BA4BB1A553AB4136F879792D99C87D /* XLPagerTabStrip-XLPagerTabStrip */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "XLPagerTabStrip-XLPagerTabStrip"; path = XLPagerTabStrip.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		7AB8D84D7E590973E1EC74CAECE44D51 /* XLPagerTabStrip-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XLPagerTabStrip-dummy.m"; sourceTree = "<group>"; };
-		7C49767E759A6435C3093CF3C8EE1B80 /* ResourceBundle-XLPagerTabStrip-XLPagerTabStrip-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-XLPagerTabStrip-XLPagerTabStrip-Info.plist"; sourceTree = "<group>"; };
 		7CA69071170E3915474ACB94BE5CD25E /* Pods-Pullgo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pullgo-umbrella.h"; sourceTree = "<group>"; };
+		839BBD0DDF887D8825D361C1FF2EF0ED /* ResourceBundle-XLPagerTabStrip-XLPagerTabStrip-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-XLPagerTabStrip-XLPagerTabStrip-Info.plist"; sourceTree = "<group>"; };
+		8478155D101171EECBFE6F36E2A71473 /* TwitterPagerTabStripViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TwitterPagerTabStripViewController.swift; path = Sources/TwitterPagerTabStripViewController.swift; sourceTree = "<group>"; };
 		854D82029DF42FFC459DF48EBF38A487 /* Pods-Pullgo-PullgoTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Pullgo-PullgoTests.modulemap"; sourceTree = "<group>"; };
-		8CF4B052D4BCCFD15E0591F3403E357F /* PagerTabStripBehaviour.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PagerTabStripBehaviour.swift; path = Sources/PagerTabStripBehaviour.swift; sourceTree = "<group>"; };
+		85D10284A7995CDCF9855CCB036C2034 /* MarqueeLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MarqueeLabel-prefix.pch"; sourceTree = "<group>"; };
+		8A3E3B83943E4CDDBA22B8BC39F7A66F /* PagerTabStripViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PagerTabStripViewController.swift; path = Sources/PagerTabStripViewController.swift; sourceTree = "<group>"; };
+		8CE2AD31F00D0EF9C522211BDDBF6C3C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		90A923BAF17017F1C7F5C31EE4F25BE9 /* MarqueeLabel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MarqueeLabel.debug.xcconfig; sourceTree = "<group>"; };
+		94DAA37A56491D6F03FDB2F69D4B8253 /* PagerTabStripBehaviour.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PagerTabStripBehaviour.swift; path = Sources/PagerTabStripBehaviour.swift; sourceTree = "<group>"; };
+		95A688EB271DCF5BA969BF2885258CE8 /* MarqueeLabel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MarqueeLabel-Info.plist"; sourceTree = "<group>"; };
 		98B0F451E7E59940D7BE00FA4F99550C /* Pods-Pullgo-PullgoUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Pullgo-PullgoUITests-Info.plist"; sourceTree = "<group>"; };
+		99A7A904E20CA94C84F5AAA5CBE73F8B /* MarqueeLabel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MarqueeLabel-umbrella.h"; sourceTree = "<group>"; };
 		99DA34B6EAEF82B38D1C03BAEF595596 /* Pods-Pullgo-PullgoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pullgo-PullgoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F0FB4FE9C01A8708ADFD1F266A9275F /* Pods-Pullgo-PullgoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pullgo-PullgoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F345F0FBD7A8BE810954B034EC57BB6 /* Pods-Pullgo-PullgoTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pullgo-PullgoTests-umbrella.h"; sourceTree = "<group>"; };
-		A008F96AC1C6ACA88D8011B5AAB4A4F4 /* BaseButtonBarPagerTabStripViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseButtonBarPagerTabStripViewController.swift; path = Sources/BaseButtonBarPagerTabStripViewController.swift; sourceTree = "<group>"; };
-		A322A1C48F549D1E08F184257DF771E0 /* BarPagerTabStripViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarPagerTabStripViewController.swift; path = Sources/BarPagerTabStripViewController.swift; sourceTree = "<group>"; };
-		AE12FEEF2395EA2114A5CFC7B73B2B26 /* ButtonBarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonBarView.swift; path = Sources/ButtonBarView.swift; sourceTree = "<group>"; };
+		9FA41D2A43006B5425B9BFF846468866 /* ButtonBarPagerTabStripViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonBarPagerTabStripViewController.swift; path = Sources/ButtonBarPagerTabStripViewController.swift; sourceTree = "<group>"; };
+		9FE46B11FEBCBB7C689EB07A5E57BD38 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		AA2874AC4805F23993A41CCB2517B1D4 /* XLPagerTabStrip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XLPagerTabStrip.release.xcconfig; sourceTree = "<group>"; };
 		AF155FE0D3166CE4714B9DB8806F3D16 /* Pods-Pullgo-PullgoTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Pullgo-PullgoTests"; path = Pods_Pullgo_PullgoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AF65940055522AF342E61134CCB782C3 /* XLPagerTabStrip-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XLPagerTabStrip-umbrella.h"; sourceTree = "<group>"; };
-		AFCB687A813B19E44D13F084418EDC57 /* PagerTabStripError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PagerTabStripError.swift; path = Sources/PagerTabStripError.swift; sourceTree = "<group>"; };
-		BB24435ABD9CE1945EFBA39D7C4637CE /* XLPagerTabStrip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XLPagerTabStrip.debug.xcconfig; sourceTree = "<group>"; };
+		BC643026E3FCF186A4F0BC2736037EF2 /* SwipeDirection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeDirection.swift; path = Sources/SwipeDirection.swift; sourceTree = "<group>"; };
+		BCA49E368CF90FCCBF8CEF6A0048CE6E /* XLPagerTabStrip.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XLPagerTabStrip.modulemap; sourceTree = "<group>"; };
 		BEAABC39F24527FD2A4B259965EB5F23 /* Pods-Pullgo-PullgoUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Pullgo-PullgoUITests-dummy.m"; sourceTree = "<group>"; };
-		CF3C2F5D019066B418E6F63B8FAF2320 /* PagerTabStripViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PagerTabStripViewController.swift; path = Sources/PagerTabStripViewController.swift; sourceTree = "<group>"; };
-		D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		D460CB1E398D4027D6BE13B27F4518FC /* ButtonBarViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonBarViewCell.swift; path = Sources/ButtonBarViewCell.swift; sourceTree = "<group>"; };
-		D50CD31D1F0671DE040C70B81E3F2E95 /* ButtonCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = ButtonCell.xib; path = Sources/ButtonCell.xib; sourceTree = "<group>"; };
+		CF0AA9FBFBDB70858C030769541505ED /* MarqueeLabel */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MarqueeLabel; path = MarqueeLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D52CC1C701654F8B280C625A58258640 /* XLPagerTabStrip-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XLPagerTabStrip-umbrella.h"; sourceTree = "<group>"; };
 		D72F3A7FB6749C20A64657ABDCE3B294 /* Pods-Pullgo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pullgo.release.xcconfig"; sourceTree = "<group>"; };
 		D7769FA23FAF78020A064D04A42DB7A6 /* Pods-Pullgo-PullgoTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Pullgo-PullgoTests-dummy.m"; sourceTree = "<group>"; };
 		D8F3F3DCB3011CCFA5763A72C8F3B9D0 /* Pods-Pullgo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Pullgo-acknowledgements.plist"; sourceTree = "<group>"; };
+		D98935D16920E6A40FCBA614F8E20DE7 /* XLPagerTabStrip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XLPagerTabStrip.debug.xcconfig; sourceTree = "<group>"; };
 		DE11BB498DDABCB19A4446598C461416 /* Pods-Pullgo-PullgoTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Pullgo-PullgoTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		DFB4FC219920F6E5C706FDF9D609664A /* Pods-Pullgo-PullgoUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Pullgo-PullgoUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		E04BF67860CEF613FDFA39CDABAAC410 /* BarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarView.swift; path = Sources/BarView.swift; sourceTree = "<group>"; };
 		E4D9A0B112A53289290E5A87069D7EA9 /* Pods-Pullgo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Pullgo-dummy.m"; sourceTree = "<group>"; };
-		E650725E2B7FFD6BC1DA59E04D59D935 /* XLPagerTabStrip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XLPagerTabStrip.release.xcconfig; sourceTree = "<group>"; };
-		EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		E88C86FEEF4394B9B3DC007A2F3A84B2 /* BarPagerTabStripViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarPagerTabStripViewController.swift; path = Sources/BarPagerTabStripViewController.swift; sourceTree = "<group>"; };
 		ED522FBAFD38681A55229572503BBAF5 /* Pods-Pullgo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Pullgo-frameworks.sh"; sourceTree = "<group>"; };
 		F1DDEA945255A18F0B9913AB1C2AB718 /* XLPagerTabStrip */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XLPagerTabStrip; path = XLPagerTabStrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA7BAA94F2315B385F546CEEC103FC12 /* XLPagerTabStrip-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XLPagerTabStrip-dummy.m"; sourceTree = "<group>"; };
 		FAB81B0F7614B6CECD7386B9AD30F539 /* Pods-Pullgo-PullgoUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pullgo-PullgoUITests-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		32F4012B08FB66F8F065F3CCE66683B6 /* Frameworks */ = {
+		5D28ED0F440EA933BBFB53A71166C557 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47DB9A38B83CCAB409756DFA73CCB9A3 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		57FDDF9C1D9E2B7DA885233A3BA7ADB6 /* Frameworks */ = {
+		80368F1257C6AAB32D9A2FFA0CA45366 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E42A7AE92F5B8D3144F063CBA087152 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8A9A0377BD4CB59F42B89FF479DB2267 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BA65B8E810E3EEB457F5E2E1667BFA81 /* Foundation.framework in Frameworks */,
+				AD09C8A5C28DBE77E6962FA7C10E5936 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,64 +195,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C77AB5872EDEC42897EE99F8496BAF97 /* Frameworks */ = {
+		BEADB517CA2919C94AC7EE09CBFC3613 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF549D58D143D834AD438D9E1D8EC465 /* Foundation.framework in Frameworks */,
+				9594DAACE9F0DF3FA05A53C4A4DBAA73 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE1746FCBBF82FC26CB045D88B1BCC1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				890D842A253CC9351D66015AB218F4DA /* Foundation.framework in Frameworks */,
+				2DF1F2842BF627B387F208A99772044C /* QuartzCore.framework in Frameworks */,
+				F70BE6EE52CFB5E92B68F8FBE2A7E1B8 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3903F7B56F288E311283E52B23054C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+		03C5C200A0787E300053CFA8F53CA094 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */,
+				F0A778C0229E9BF1FD97896B93F3272B /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		196845AEC16F736C142530BCD8BB9450 /* XLPagerTabStrip */ = {
-			isa = PBXGroup;
-			children = (
-				A322A1C48F549D1E08F184257DF771E0 /* BarPagerTabStripViewController.swift */,
-				E04BF67860CEF613FDFA39CDABAAC410 /* BarView.swift */,
-				A008F96AC1C6ACA88D8011B5AAB4A4F4 /* BaseButtonBarPagerTabStripViewController.swift */,
-				12106C8A4F77F36B53D8C8AE07D0780C /* ButtonBarPagerTabStripViewController.swift */,
-				AE12FEEF2395EA2114A5CFC7B73B2B26 /* ButtonBarView.swift */,
-				D460CB1E398D4027D6BE13B27F4518FC /* ButtonBarViewCell.swift */,
-				26E2B26E6F566219272F2C0F39554953 /* FXPageControl.h */,
-				31863D238E5181E5C90095A8F6DA3563 /* FXPageControl.m */,
-				62D1139D84B1A0C00AE97FE32F7EA5B3 /* IndicatorInfo.swift */,
-				8CF4B052D4BCCFD15E0591F3403E357F /* PagerTabStripBehaviour.swift */,
-				AFCB687A813B19E44D13F084418EDC57 /* PagerTabStripError.swift */,
-				CF3C2F5D019066B418E6F63B8FAF2320 /* PagerTabStripViewController.swift */,
-				6822106C3E240E9AF4978C76EDAAED8C /* SegmentedPagerTabStripViewController.swift */,
-				35E4192B6F39FE87CD4DC0276ADA73D7 /* SwipeDirection.swift */,
-				48471C3EAD6B0755BFF09814055272AD /* TwitterPagerTabStripViewController.swift */,
-				78ABAE1B46CE3841D164DB5EA7F94437 /* Resources */,
-				2257D448945432D2B515D757CB7E2274 /* Support Files */,
-			);
-			name = XLPagerTabStrip;
-			path = XLPagerTabStrip;
-			sourceTree = "<group>";
-		};
-		2257D448945432D2B515D757CB7E2274 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				7C49767E759A6435C3093CF3C8EE1B80 /* ResourceBundle-XLPagerTabStrip-XLPagerTabStrip-Info.plist */,
-				2880D322850D9FDFC87A5C1DB85EF112 /* XLPagerTabStrip.modulemap */,
-				7AB8D84D7E590973E1EC74CAECE44D51 /* XLPagerTabStrip-dummy.m */,
-				1177A5A9827BB1B0AF2C5132EF97B67B /* XLPagerTabStrip-Info.plist */,
-				0700537486C0B8816D15C8E3ABCA2193 /* XLPagerTabStrip-prefix.pch */,
-				AF65940055522AF342E61134CCB782C3 /* XLPagerTabStrip-umbrella.h */,
-				BB24435ABD9CE1945EFBA39D7C4637CE /* XLPagerTabStrip.debug.xcconfig */,
-				E650725E2B7FFD6BC1DA59E04D59D935 /* XLPagerTabStrip.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/XLPagerTabStrip";
 			sourceTree = "<group>";
 		};
 		2645BCF5F37E23F22337C977CCD216F8 /* Pods-Pullgo-PullgoTests */ = {
@@ -242,23 +248,6 @@
 			path = "Target Support Files/Pods-Pullgo-PullgoTests";
 			sourceTree = "<group>";
 		};
-		47380D26E832E71B8DEA6585A06F795F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				196845AEC16F736C142530BCD8BB9450 /* XLPagerTabStrip */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */,
-				D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
 		6C62D3622DDDA60C1D09005DABF64F32 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,12 +258,54 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		78ABAE1B46CE3841D164DB5EA7F94437 /* Resources */ = {
+		8EBCCFFC687F1B1594C29DFA59583C6A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				D50CD31D1F0671DE040C70B81E3F2E95 /* ButtonCell.xib */,
+				6FCA87979232A5D67488BC393FB3A031 /* MarqueeLabel.modulemap */,
+				28D4360BF9A8BEB5FE39B5C6AADEDC53 /* MarqueeLabel-dummy.m */,
+				95A688EB271DCF5BA969BF2885258CE8 /* MarqueeLabel-Info.plist */,
+				85D10284A7995CDCF9855CCB036C2034 /* MarqueeLabel-prefix.pch */,
+				99A7A904E20CA94C84F5AAA5CBE73F8B /* MarqueeLabel-umbrella.h */,
+				90A923BAF17017F1C7F5C31EE4F25BE9 /* MarqueeLabel.debug.xcconfig */,
+				28A3F7725D0E19AE8854C0631B626036 /* MarqueeLabel.release.xcconfig */,
 			);
-			name = Resources;
+			name = "Support Files";
+			path = "../Target Support Files/MarqueeLabel";
+			sourceTree = "<group>";
+		};
+		8FB9CB4021C76DA7EEEB9E3D852765BC /* MarqueeLabel */ = {
+			isa = PBXGroup;
+			children = (
+				679CA32DCBB41BC3618881E95DA525BF /* MarqueeLabel.swift */,
+				8EBCCFFC687F1B1594C29DFA59583C6A /* Support Files */,
+			);
+			name = MarqueeLabel;
+			path = MarqueeLabel;
+			sourceTree = "<group>";
+		};
+		915B00031752983DFA1DECB492A2060D /* XLPagerTabStrip */ = {
+			isa = PBXGroup;
+			children = (
+				E88C86FEEF4394B9B3DC007A2F3A84B2 /* BarPagerTabStripViewController.swift */,
+				1C15F297043AA4DF5A70F0F39B0D664C /* BarView.swift */,
+				00FBD2221880072104AB1A4C50F0968A /* BaseButtonBarPagerTabStripViewController.swift */,
+				9FA41D2A43006B5425B9BFF846468866 /* ButtonBarPagerTabStripViewController.swift */,
+				316AEAFB0A46A650E0EB98EDC7918ED2 /* ButtonBarView.swift */,
+				11BBEF71F0041E954790FA195A431F44 /* ButtonBarViewCell.swift */,
+				04882CE4A8D2CC77C3BC9CB9781952B9 /* FXPageControl.h */,
+				3A540D06AF1EDCDF0F196879133D15EA /* FXPageControl.m */,
+				18D6065AA255087460F43EFA56B93479 /* IndicatorInfo.swift */,
+				94DAA37A56491D6F03FDB2F69D4B8253 /* PagerTabStripBehaviour.swift */,
+				32140935DF489240663B77C825D85675 /* PagerTabStripError.swift */,
+				8A3E3B83943E4CDDBA22B8BC39F7A66F /* PagerTabStripViewController.swift */,
+				691ACDE1AB0FBA935CF84BECD02538FE /* SegmentedPagerTabStripViewController.swift */,
+				BC643026E3FCF186A4F0BC2736037EF2 /* SwipeDirection.swift */,
+				8478155D101171EECBFE6F36E2A71473 /* TwitterPagerTabStripViewController.swift */,
+				96B490DFEE94722B1607EB69F8CD65CB /* Resources */,
+				9E33624D19A6705D4DA77450C702780F /* Support Files */,
+			);
+			name = XLPagerTabStrip;
+			path = XLPagerTabStrip;
 			sourceTree = "<group>";
 		};
 		93FDA924B4F339377FE13B9C2311DA75 /* Pods-Pullgo */ = {
@@ -294,25 +325,46 @@
 			path = "Target Support Files/Pods-Pullgo";
 			sourceTree = "<group>";
 		};
-		9F2D7A6C6F9E3478BADA6FD06753B155 /* Products */ = {
+		96B490DFEE94722B1607EB69F8CD65CB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				062D2E4C4F5A8AF16DB7E2A31D847695 /* Pods-Pullgo */,
-				AF155FE0D3166CE4714B9DB8806F3D16 /* Pods-Pullgo-PullgoTests */,
-				3CC85DBD525E3E233CF12CE545BADB90 /* Pods-Pullgo-PullgoUITests */,
-				F1DDEA945255A18F0B9913AB1C2AB718 /* XLPagerTabStrip */,
-				78BA4BB1A553AB4136F879792D99C87D /* XLPagerTabStrip-XLPagerTabStrip */,
+				68697961FF046C4BD72F406C80CBD445 /* ButtonCell.xib */,
 			);
-			name = Products;
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9E33624D19A6705D4DA77450C702780F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				839BBD0DDF887D8825D361C1FF2EF0ED /* ResourceBundle-XLPagerTabStrip-XLPagerTabStrip-Info.plist */,
+				BCA49E368CF90FCCBF8CEF6A0048CE6E /* XLPagerTabStrip.modulemap */,
+				FA7BAA94F2315B385F546CEEC103FC12 /* XLPagerTabStrip-dummy.m */,
+				206122AA1DBF53427C4DA006580BFDF4 /* XLPagerTabStrip-Info.plist */,
+				6EACBBC4C4AA04D202A4B9E9D2B5FF6A /* XLPagerTabStrip-prefix.pch */,
+				D52CC1C701654F8B280C625A58258640 /* XLPagerTabStrip-umbrella.h */,
+				D98935D16920E6A40FCBA614F8E20DE7 /* XLPagerTabStrip.debug.xcconfig */,
+				AA2874AC4805F23993A41CCB2517B1D4 /* XLPagerTabStrip.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/XLPagerTabStrip";
+			sourceTree = "<group>";
+		};
+		A854EA7C4C863B31158ADE96A22CA14D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8FB9CB4021C76DA7EEEB9E3D852765BC /* MarqueeLabel */,
+				915B00031752983DFA1DECB492A2060D /* XLPagerTabStrip */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				47380D26E832E71B8DEA6585A06F795F /* Pods */,
-				9F2D7A6C6F9E3478BADA6FD06753B155 /* Products */,
+				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
+				A854EA7C4C863B31158ADE96A22CA14D /* Pods */,
+				DF985012CAE93F984FE00D84DC89AC2C /* Products */,
 				6C62D3622DDDA60C1D09005DABF64F32 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -334,30 +386,61 @@
 			path = "Target Support Files/Pods-Pullgo-PullgoUITests";
 			sourceTree = "<group>";
 		};
+		DF985012CAE93F984FE00D84DC89AC2C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF0AA9FBFBDB70858C030769541505ED /* MarqueeLabel */,
+				062D2E4C4F5A8AF16DB7E2A31D847695 /* Pods-Pullgo */,
+				AF155FE0D3166CE4714B9DB8806F3D16 /* Pods-Pullgo-PullgoTests */,
+				3CC85DBD525E3E233CF12CE545BADB90 /* Pods-Pullgo-PullgoUITests */,
+				F1DDEA945255A18F0B9913AB1C2AB718 /* XLPagerTabStrip */,
+				78BA4BB1A553AB4136F879792D99C87D /* XLPagerTabStrip-XLPagerTabStrip */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F0A778C0229E9BF1FD97896B93F3272B /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4B1530FBFAA1690D27A135E4CC85AA07 /* Foundation.framework */,
+				9FE46B11FEBCBB7C689EB07A5E57BD38 /* QuartzCore.framework */,
+				8CE2AD31F00D0EF9C522211BDDBF6C3C /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		ABFCFF6332C737A0D08214EA0AFAC5F8 /* Headers */ = {
+		0690B22E5C0137FAFE13E087BAD109AC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0350D5598BB3D4C236E5C671C634CD9B /* Pods-Pullgo-PullgoUITests-umbrella.h in Headers */,
+				85A35C40A60EDC6A9893462D3112FEED /* Pods-Pullgo-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B0A6BA1CBCFF88D6F642A1893EDA61CF /* Headers */ = {
+		46A453D4022C3679602116C2742DC8E6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80383D0BCF7FA7B2A304DDDFC6F76BDC /* Pods-Pullgo-umbrella.h in Headers */,
+				39EE17BF10328E27581571E9ED48DA3C /* Pods-Pullgo-PullgoUITests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ECB7CFF254659D2E7056A06F6E02EB1C /* Headers */ = {
+		AAAAA2AF2FEEBF748BED3AC45024887C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86718F786F4E7FFCA5D9B333CA6E359C /* Pods-Pullgo-PullgoTests-umbrella.h in Headers */,
+				2F9878203C57B16F8A2341363CE6ADE2 /* MarqueeLabel-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2099DEA28F25A19DEB7FF2049434CAD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				624026F8DC47EC3887F30136E9FC42E6 /* Pods-Pullgo-PullgoTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,17 +458,18 @@
 /* Begin PBXNativeTarget section */
 		7482CEE0058F46308D168E2812FB36C8 /* Pods-Pullgo-PullgoUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 39600D54A83770F00E268B6C12125A2C /* Build configuration list for PBXNativeTarget "Pods-Pullgo-PullgoUITests" */;
+			buildConfigurationList = 8407A658A11F092AF642E83C093FD034 /* Build configuration list for PBXNativeTarget "Pods-Pullgo-PullgoUITests" */;
 			buildPhases = (
-				ABFCFF6332C737A0D08214EA0AFAC5F8 /* Headers */,
-				2C503D8D60F12821B39D2653B59AC3F0 /* Sources */,
-				8A9A0377BD4CB59F42B89FF479DB2267 /* Frameworks */,
-				026300DCB92CF5FB68E3445E7EEA5F03 /* Resources */,
+				46A453D4022C3679602116C2742DC8E6 /* Headers */,
+				DE49FB0FCC8535672F8B04B372D9B581 /* Sources */,
+				5D28ED0F440EA933BBFB53A71166C557 /* Frameworks */,
+				1AAFEA563790DEC8FF687F13CAF89EB9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C1552BAC2DA23B199147FF8EE80D4855 /* PBXTargetDependency */,
+				312731EADFF2991F82F46CA76CF6FC8E /* PBXTargetDependency */,
+				4D6057F7B8608B0A5311075F4313057E /* PBXTargetDependency */,
 			);
 			name = "Pods-Pullgo-PullgoUITests";
 			productName = Pods_Pullgo_PullgoUITests;
@@ -394,36 +478,56 @@
 		};
 		99AB195815DF4852FAB1F0A2A28B72F0 /* Pods-Pullgo-PullgoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9EB361409EFB682FABAD1A6665017415 /* Build configuration list for PBXNativeTarget "Pods-Pullgo-PullgoTests" */;
+			buildConfigurationList = 49CDE424861D3D2A02868D3AF087E28C /* Build configuration list for PBXNativeTarget "Pods-Pullgo-PullgoTests" */;
 			buildPhases = (
-				ECB7CFF254659D2E7056A06F6E02EB1C /* Headers */,
-				A1B129E576DC87878C411D2556696953 /* Sources */,
-				57FDDF9C1D9E2B7DA885233A3BA7ADB6 /* Frameworks */,
-				CE0AFA9C45A5E0779F89B6DA0B479C36 /* Resources */,
+				F2099DEA28F25A19DEB7FF2049434CAD /* Headers */,
+				A35F57EF5B8CF5DA985A04134856619E /* Sources */,
+				80368F1257C6AAB32D9A2FFA0CA45366 /* Frameworks */,
+				4EE2DEDBAD370A50BF89A8339895510B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DC56DA7F98B4060A519E329CE6269048 /* PBXTargetDependency */,
+				AFFE249E8E25639AF077A3D657752415 /* PBXTargetDependency */,
+				0CF547720BCF6B49BBE65FCA6FDE461E /* PBXTargetDependency */,
 			);
 			name = "Pods-Pullgo-PullgoTests";
 			productName = Pods_Pullgo_PullgoTests;
 			productReference = AF155FE0D3166CE4714B9DB8806F3D16 /* Pods-Pullgo-PullgoTests */;
 			productType = "com.apple.product-type.framework";
 		};
-		D702007BDEE564D5F355A6DD4B544941 /* Pods-Pullgo */ = {
+		C23DB88E45B0ED14F0C8827BE9C46C95 /* MarqueeLabel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 99763BF7EE0E615EAE0A6312B2830C9D /* Build configuration list for PBXNativeTarget "Pods-Pullgo" */;
+			buildConfigurationList = 251180A9B6B807638C65029608571B8F /* Build configuration list for PBXNativeTarget "MarqueeLabel" */;
 			buildPhases = (
-				B0A6BA1CBCFF88D6F642A1893EDA61CF /* Headers */,
-				C81B78436388FCBD022E468568617450 /* Sources */,
-				C77AB5872EDEC42897EE99F8496BAF97 /* Frameworks */,
-				ECBF1B0BB73D9EB0A2210B9139DD7C33 /* Resources */,
+				AAAAA2AF2FEEBF748BED3AC45024887C /* Headers */,
+				CE51103B19EB6AFC57B1C6125F7EB6C5 /* Sources */,
+				DE1746FCBBF82FC26CB045D88B1BCC1C /* Frameworks */,
+				1D85F9BE0FDD1AA06297EB5F21E58E97 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A0563A8994E188F10B7DFE2E488BAFBC /* PBXTargetDependency */,
+			);
+			name = MarqueeLabel;
+			productName = MarqueeLabel;
+			productReference = CF0AA9FBFBDB70858C030769541505ED /* MarqueeLabel */;
+			productType = "com.apple.product-type.framework";
+		};
+		D702007BDEE564D5F355A6DD4B544941 /* Pods-Pullgo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75ADC36C9ABDC4E06370E18C3849C690 /* Build configuration list for PBXNativeTarget "Pods-Pullgo" */;
+			buildPhases = (
+				0690B22E5C0137FAFE13E087BAD109AC /* Headers */,
+				E8DEE3613A294BFEBF0FF29C411C1530 /* Sources */,
+				BEADB517CA2919C94AC7EE09CBFC3613 /* Frameworks */,
+				D00516ECEC54EE6BC5CF965CC02F913B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				523A304D660A8DFC23589ABD1C61CAB1 /* PBXTargetDependency */,
+				59032F6E79BC4579D386D44103D7E6F6 /* PBXTargetDependency */,
 			);
 			name = "Pods-Pullgo";
 			productName = Pods_Pullgo;
@@ -442,7 +546,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				13C39BC79163EDC23E98F2F32D79AA02 /* PBXTargetDependency */,
+				4B62C786970F22EB11A2785E0D543A62 /* PBXTargetDependency */,
 			);
 			name = XLPagerTabStrip;
 			productName = XLPagerTabStrip;
@@ -451,11 +555,11 @@
 		};
 		EBF90A3A56D4C5830C212D000AB67BC1 /* XLPagerTabStrip-XLPagerTabStrip */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F028B87E08BE526C7ADAD58829E21E5F /* Build configuration list for PBXNativeTarget "XLPagerTabStrip-XLPagerTabStrip" */;
+			buildConfigurationList = 9EB33B3C10E5D1E2B4FBAA6DE502802C /* Build configuration list for PBXNativeTarget "XLPagerTabStrip-XLPagerTabStrip" */;
 			buildPhases = (
-				11752BF4D205A8BFB3DBE8DEEC8A6A6A /* Sources */,
-				32F4012B08FB66F8F065F3CCE66683B6 /* Frameworks */,
-				9285BE9A6508B5DFE67C1AAD9AE19E26 /* Resources */,
+				EAD9F1CC21F40AF9FF46A109AFF5635F /* Sources */,
+				E3903F7B56F288E311283E52B23054C4 /* Frameworks */,
+				C241133095F1E54FB5FBB59D4A1EEE4F /* Resources */,
 			);
 			buildRules = (
 			);
@@ -484,10 +588,11 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 9F2D7A6C6F9E3478BADA6FD06753B155 /* Products */;
+			productRefGroup = DF985012CAE93F984FE00D84DC89AC2C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				C23DB88E45B0ED14F0C8827BE9C46C95 /* MarqueeLabel */,
 				D702007BDEE564D5F355A6DD4B544941 /* Pods-Pullgo */,
 				99AB195815DF4852FAB1F0A2A28B72F0 /* Pods-Pullgo-PullgoTests */,
 				7482CEE0058F46308D168E2812FB36C8 /* Pods-Pullgo-PullgoUITests */,
@@ -498,13 +603,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		026300DCB92CF5FB68E3445E7EEA5F03 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0B6237BBE97DD6B6E4D1F36BD7D8F60C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -513,22 +611,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9285BE9A6508B5DFE67C1AAD9AE19E26 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2086A8C4F4B568F16CBBE6D01AF86229 /* ButtonCell.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CE0AFA9C45A5E0779F89B6DA0B479C36 /* Resources */ = {
+		1AAFEA563790DEC8FF687F13CAF89EB9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ECBF1B0BB73D9EB0A2210B9139DD7C33 /* Resources */ = {
+		1D85F9BE0FDD1AA06297EB5F21E58E97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EE2DEDBAD370A50BF89A8339895510B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C241133095F1E54FB5FBB59D4A1EEE4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0BD6F701C49358D84237CA76238937 /* ButtonCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D00516ECEC54EE6BC5CF965CC02F913B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -538,34 +650,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		11752BF4D205A8BFB3DBE8DEEC8A6A6A /* Sources */ = {
+		A35F57EF5B8CF5DA985A04134856619E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57F2E3DFFAAF9D7A623AC55133278E94 /* Pods-Pullgo-PullgoTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2C503D8D60F12821B39D2653B59AC3F0 /* Sources */ = {
+		CE51103B19EB6AFC57B1C6125F7EB6C5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55816DCC1B550A80605AF88C229C7CD1 /* Pods-Pullgo-PullgoUITests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A1B129E576DC87878C411D2556696953 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3D9A86D5992EDA59C0B9E62662107A40 /* Pods-Pullgo-PullgoTests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C81B78436388FCBD022E468568617450 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B97DE1E3E4782ABED45660AFB56CB4B0 /* Pods-Pullgo-dummy.m in Sources */,
+				19EE53C9966D4142DD5B6BA2AD06D52B /* MarqueeLabel.swift in Sources */,
+				6CE0B8970AEE2F68ABC4434712981A8A /* MarqueeLabel-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,39 +689,80 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DE49FB0FCC8535672F8B04B372D9B581 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79963D30CE58AD76F7BD3F722DB364D3 /* Pods-Pullgo-PullgoUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8DEE3613A294BFEBF0FF29C411C1530 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00FC03BBE96ABFC6E86D34EC31693DD3 /* Pods-Pullgo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAD9F1CC21F40AF9FF46A109AFF5635F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		13C39BC79163EDC23E98F2F32D79AA02 /* PBXTargetDependency */ = {
+		0CF547720BCF6B49BBE65FCA6FDE461E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XLPagerTabStrip;
+			target = DC5C3A7662FFA04D04D29F4657D032CE /* XLPagerTabStrip */;
+			targetProxy = 025E9D1D52A35C779F0E46CC7301FA25 /* PBXContainerItemProxy */;
+		};
+		312731EADFF2991F82F46CA76CF6FC8E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MarqueeLabel;
+			target = C23DB88E45B0ED14F0C8827BE9C46C95 /* MarqueeLabel */;
+			targetProxy = C9A6D08222CDF182F40837679EE1F5A0 /* PBXContainerItemProxy */;
+		};
+		4B62C786970F22EB11A2785E0D543A62 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "XLPagerTabStrip-XLPagerTabStrip";
 			target = EBF90A3A56D4C5830C212D000AB67BC1 /* XLPagerTabStrip-XLPagerTabStrip */;
-			targetProxy = 6064417AF5992899C8E029C4F75163B3 /* PBXContainerItemProxy */;
+			targetProxy = 25A895B6FE31554048FCED49A0B6C64D /* PBXContainerItemProxy */;
 		};
-		A0563A8994E188F10B7DFE2E488BAFBC /* PBXTargetDependency */ = {
+		4D6057F7B8608B0A5311075F4313057E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = XLPagerTabStrip;
 			target = DC5C3A7662FFA04D04D29F4657D032CE /* XLPagerTabStrip */;
-			targetProxy = E19DED04ED78A8FF32079F5652101FEE /* PBXContainerItemProxy */;
+			targetProxy = 0CDDE9852851AE04722B665970F988CB /* PBXContainerItemProxy */;
 		};
-		C1552BAC2DA23B199147FF8EE80D4855 /* PBXTargetDependency */ = {
+		523A304D660A8DFC23589ABD1C61CAB1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MarqueeLabel;
+			target = C23DB88E45B0ED14F0C8827BE9C46C95 /* MarqueeLabel */;
+			targetProxy = E8700E930827BDCCBE960D7E5024A8A6 /* PBXContainerItemProxy */;
+		};
+		59032F6E79BC4579D386D44103D7E6F6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = XLPagerTabStrip;
 			target = DC5C3A7662FFA04D04D29F4657D032CE /* XLPagerTabStrip */;
-			targetProxy = B97250408B6A1BAF0CF2AFD1EC33904C /* PBXContainerItemProxy */;
+			targetProxy = 8756C3CA1C230DDA129F99C8E1B350FC /* PBXContainerItemProxy */;
 		};
-		DC56DA7F98B4060A519E329CE6269048 /* PBXTargetDependency */ = {
+		AFFE249E8E25639AF077A3D657752415 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = XLPagerTabStrip;
-			target = DC5C3A7662FFA04D04D29F4657D032CE /* XLPagerTabStrip */;
-			targetProxy = 622748A0ED1462F15D9202BA09F706AF /* PBXContainerItemProxy */;
+			name = MarqueeLabel;
+			target = C23DB88E45B0ED14F0C8827BE9C46C95 /* MarqueeLabel */;
+			targetProxy = 05A06A9B02C020BDDA4E9BC46B297207 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0F08DAA55031A25073D4B5D153FB704B /* Release */ = {
+		02107D62631BEA12B35BF13474A0465A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2612D8A4D721DDEB8E3E1E469A5644A1 /* Pods-Pullgo-PullgoTests.release.xcconfig */;
+			baseConfigurationReference = 9F0FB4FE9C01A8708ADFD1F266A9275F /* Pods-Pullgo-PullgoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -652,15 +791,14 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		1E90AA6A06AC3B2204C0E7E86E8C320E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E650725E2B7FFD6BC1DA59E04D59D935 /* XLPagerTabStrip.release.xcconfig */;
+			baseConfigurationReference = AA2874AC4805F23993A41CCB2517B1D4 /* XLPagerTabStrip.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -690,22 +828,6 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		235C3E8214F11552E0E830B0B0646A5E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E650725E2B7FFD6BC1DA59E04D59D935 /* XLPagerTabStrip.release.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/XLPagerTabStrip";
-				IBSC_MODULE = XLPagerTabStrip;
-				INFOPLIST_FILE = "Target Support Files/XLPagerTabStrip/ResourceBundle-XLPagerTabStrip-XLPagerTabStrip-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				PRODUCT_NAME = XLPagerTabStrip;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -771,78 +893,21 @@
 			};
 			name = Release;
 		};
-		6B74478D056957D9BE2ED1FEECE828EF /* Release */ = {
+		57D732C5F619F1EA10EFF8500EB78573 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D72F3A7FB6749C20A64657ABDCE3B294 /* Pods-Pullgo.release.xcconfig */;
+			baseConfigurationReference = AA2874AC4805F23993A41CCB2517B1D4 /* XLPagerTabStrip.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Pullgo/Pods-Pullgo-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/XLPagerTabStrip";
+				IBSC_MODULE = XLPagerTabStrip;
+				INFOPLIST_FILE = "Target Support Files/XLPagerTabStrip/ResourceBundle-XLPagerTabStrip-XLPagerTabStrip-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Pullgo/Pods-Pullgo.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = XLPagerTabStrip;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
-		};
-		6B974B7F367C39E92617727E4AD75012 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 542C908113CF6E6F5E19B67AD843F6D1 /* Pods-Pullgo-PullgoUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Pullgo-PullgoUITests/Pods-Pullgo-PullgoUITests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Pullgo-PullgoUITests/Pods-Pullgo-PullgoUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		79759604D78320E712558F49DF19AA9F /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -910,7 +975,42 @@
 			};
 			name = Debug;
 		};
-		9B2314F05290388D711444002E59D0A4 /* Release */ = {
+		8B71D140048E37EA295DDF2313D659CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28A3F7725D0E19AE8854C0631B626036 /* MarqueeLabel.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MarqueeLabel/MarqueeLabel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MarqueeLabel/MarqueeLabel-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MarqueeLabel/MarqueeLabel.modulemap";
+				PRODUCT_MODULE_NAME = MarqueeLabel;
+				PRODUCT_NAME = MarqueeLabel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		91B10039C43B73AA99FCA85CD2F8ACEF /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 99DA34B6EAEF82B38D1C03BAEF595596 /* Pods-Pullgo-PullgoUITests.release.xcconfig */;
 			buildSettings = {
@@ -947,7 +1047,7 @@
 			};
 			name = Release;
 		};
-		A75D355A69A0315877C8BCCB1CC138E1 /* Debug */ = {
+		9260BF4D3383C2DF7964BDBAC2B57C53 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 21BE9AA8324B1841D48438D2DDFC2E90 /* Pods-Pullgo.debug.xcconfig */;
 			buildSettings = {
@@ -983,9 +1083,79 @@
 			};
 			name = Debug;
 		};
-		AB5A67C45FB914FBA0FA12DDA51D8BAB /* Debug */ = {
+		A7500E7CF0B2C72ECABA50BE15BC536A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F0FB4FE9C01A8708ADFD1F266A9275F /* Pods-Pullgo-PullgoTests.debug.xcconfig */;
+			baseConfigurationReference = 90A923BAF17017F1C7F5C31EE4F25BE9 /* MarqueeLabel.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MarqueeLabel/MarqueeLabel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MarqueeLabel/MarqueeLabel-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MarqueeLabel/MarqueeLabel.modulemap";
+				PRODUCT_MODULE_NAME = MarqueeLabel;
+				PRODUCT_NAME = MarqueeLabel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AA9C889AB2A8B35F69232035D3C3FB2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 542C908113CF6E6F5E19B67AD843F6D1 /* Pods-Pullgo-PullgoUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Pullgo-PullgoUITests/Pods-Pullgo-PullgoUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Pullgo-PullgoUITests/Pods-Pullgo-PullgoUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B4621FE22EB793BD29BE18C7BBB2F6C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2612D8A4D721DDEB8E3E1E469A5644A1 /* Pods-Pullgo-PullgoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1014,14 +1184,52 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		D9B074FB5609E8B19D5FC82A627EB3C6 /* Debug */ = {
+		C502714F0E07D5151227FCE286275481 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB24435ABD9CE1945EFBA39D7C4637CE /* XLPagerTabStrip.debug.xcconfig */;
+			baseConfigurationReference = D72F3A7FB6749C20A64657ABDCE3B294 /* Pods-Pullgo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Pullgo/Pods-Pullgo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Pullgo/Pods-Pullgo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CBE7D840E268377990D55D161B8283D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D98935D16920E6A40FCBA614F8E20DE7 /* XLPagerTabStrip.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/XLPagerTabStrip";
 				IBSC_MODULE = XLPagerTabStrip;
@@ -1037,7 +1245,7 @@
 		};
 		F1A3D2A4AB6EAB9F0503E49A9B3E69F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB24435ABD9CE1945EFBA39D7C4637CE /* XLPagerTabStrip.debug.xcconfig */;
+			baseConfigurationReference = D98935D16920E6A40FCBA614F8E20DE7 /* XLPagerTabStrip.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1072,11 +1280,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		39600D54A83770F00E268B6C12125A2C /* Build configuration list for PBXNativeTarget "Pods-Pullgo-PullgoUITests" */ = {
+		251180A9B6B807638C65029608571B8F /* Build configuration list for PBXNativeTarget "MarqueeLabel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6B974B7F367C39E92617727E4AD75012 /* Debug */,
-				9B2314F05290388D711444002E59D0A4 /* Release */,
+				A7500E7CF0B2C72ECABA50BE15BC536A /* Debug */,
+				8B71D140048E37EA295DDF2313D659CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1090,20 +1298,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		99763BF7EE0E615EAE0A6312B2830C9D /* Build configuration list for PBXNativeTarget "Pods-Pullgo" */ = {
+		49CDE424861D3D2A02868D3AF087E28C /* Build configuration list for PBXNativeTarget "Pods-Pullgo-PullgoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A75D355A69A0315877C8BCCB1CC138E1 /* Debug */,
-				6B74478D056957D9BE2ED1FEECE828EF /* Release */,
+				02107D62631BEA12B35BF13474A0465A /* Debug */,
+				B4621FE22EB793BD29BE18C7BBB2F6C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9EB361409EFB682FABAD1A6665017415 /* Build configuration list for PBXNativeTarget "Pods-Pullgo-PullgoTests" */ = {
+		75ADC36C9ABDC4E06370E18C3849C690 /* Build configuration list for PBXNativeTarget "Pods-Pullgo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AB5A67C45FB914FBA0FA12DDA51D8BAB /* Debug */,
-				0F08DAA55031A25073D4B5D153FB704B /* Release */,
+				9260BF4D3383C2DF7964BDBAC2B57C53 /* Debug */,
+				C502714F0E07D5151227FCE286275481 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8407A658A11F092AF642E83C093FD034 /* Build configuration list for PBXNativeTarget "Pods-Pullgo-PullgoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA9C889AB2A8B35F69232035D3C3FB2F /* Debug */,
+				91B10039C43B73AA99FCA85CD2F8ACEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9EB33B3C10E5D1E2B4FBAA6DE502802C /* Build configuration list for PBXNativeTarget "XLPagerTabStrip-XLPagerTabStrip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBE7D840E268377990D55D161B8283D1 /* Debug */,
+				57D732C5F619F1EA10EFF8500EB78573 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1113,15 +1339,6 @@
 			buildConfigurations = (
 				F1A3D2A4AB6EAB9F0503E49A9B3E69F4 /* Debug */,
 				1E90AA6A06AC3B2204C0E7E86E8C320E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F028B87E08BE526C7ADAD58829E21E5F /* Build configuration list for PBXNativeTarget "XLPagerTabStrip-XLPagerTabStrip" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D9B074FB5609E8B19D5FC82A627EB3C6 /* Debug */,
-				235C3E8214F11552E0E830B0B0646A5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

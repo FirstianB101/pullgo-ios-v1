@@ -73,7 +73,7 @@ class AcademyAcceptStudentViewController: UICollectionViewController, IndicatorI
 extension AcademyAcceptStudentViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height: CGFloat = 115
-        let padding: CGFloat = 10
+        let padding: CGFloat = 20
         let width = collectionView.bounds.width - padding * 2
         
         return CGSize(width: width, height: height)

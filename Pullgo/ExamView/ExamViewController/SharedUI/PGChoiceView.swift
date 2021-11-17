@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import MarqueeLabel
 
 class PGChoiceView: UIView {
     
@@ -27,7 +28,16 @@ class PGChoiceView: UIView {
         }
     }
     
-    var state: State = .normal
+    private var _state: State = .normal
+    var state: State {
+        get { _state }
+        set {
+            _state = newValue
+            numberView.setTitleColor(_state.getColor().textColor, for: .normal)
+            numberView.backgroundColor = _state.getColor().tintColor
+            self.backgroundColor = _state.getColor().backgroundColor
+        }
+    }
     var number: Int
     var examType: ExamType
     var viewModel: ExamViewModel
@@ -39,18 +49,19 @@ class PGChoiceView: UIView {
     var keyboardCurve: UIView.AnimationOptions = .curveEaseOut
     
     // MARK: - UI
-    lazy var numberView = { () -> UIView in
-        let numberView = UILabel()
+    lazy var numberView = { () -> UIButton in
+        let numberView = UIButton()
         
-        numberView.text = String(self.number)
-        numberView.font = UIFont.boldSystemFont(ofSize: 20)
-        numberView.textAlignment = .center
+        numberView.setTitle(String(self.number), for: .normal)
+        numberView.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         
-        numberView.textColor = self.state.getColor().textColor
+        numberView.setTitleColor(self.state.getColor().textColor, for: .normal)
         numberView.backgroundColor = self.state.getColor().tintColor
-        
-        numberView.clipsToBounds = true
         numberView.setViewCornerRadius(radius: CGFloat(45 / 2))
+        
+        if self.examType == .take {
+            numberView.addTarget(self, action: #selector(self.choiceSelected(_:)), for: .touchUpInside)
+        }
         
         return numberView
     }()
@@ -68,6 +79,23 @@ class PGChoiceView: UIView {
         
         
         return field
+    }()
+    
+    lazy var choiceLabel = { () -> UIScrollView in
+        let scrollView = UIScrollView()
+        let label = UILabel()
+        
+        label.text = self.viewModel.currentQuestion?.getChoice(of: "\(self.number)") ?? ""
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textColor = .black
+        
+        scrollView.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+        
+        return scrollView
     }()
     
     lazy var checkAnswer = { () -> UIButton in
@@ -104,12 +132,12 @@ class PGChoiceView: UIView {
     // MARK: - Initializer
     init(number: Int, state: State = .normal, examType: ExamType, viewModel: ExamViewModel) {
         self.number = number
-        self.state = state
         self.examType = examType
         self.viewModel = viewModel
         
         super.init(frame: .zero)
         
+        self.state = state
         self.backgroundColor = .white
         self.setViewCornerRadius(radius: 20)
         self.buildConstraints()
@@ -152,11 +180,37 @@ class PGChoiceView: UIView {
     }
     
     private func buildConstraintsOfTake() {
+        self.addSubview(choiceLabel)
         
+        choiceLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.height.equalTo(40)
+            make.leading.equalTo(numberView.snp.trailing).offset(20)
+            make.trailing.equalToSuperview().offset(-10)
+        }
     }
     
     private func buildConstraintsOfHistory() {
         
+    }
+    
+    private func select() {
+        self.state = .selected
+    }
+    
+    private func deselect() {
+        self.state = .normal
+    }
+    
+    // MARK: - objc Method
+    @objc
+    func choiceSelected(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected {
+            select()
+        } else {
+            deselect()
+        }
     }
 }
 
